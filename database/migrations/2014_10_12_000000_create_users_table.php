@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('numero');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->unsignedInteger('codigo');
+            $table->integer('status')->default('1');
+            $table->integer('beneficio')->default('1');
             $table->unsignedInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
 

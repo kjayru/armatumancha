@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','front\HomeController@index')->name('home.index');
+Route::get('/arma-tu-mancha','front\HomeController@armaTuMancha')->name('home.armatumancha');
+Route::get('/consulta-tu-mancha','front\HomeController@consultaTuMancha')->name('home.armatumancha');
