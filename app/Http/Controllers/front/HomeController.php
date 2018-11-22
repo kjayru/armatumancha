@@ -16,4 +16,8 @@ class HomeController extends Controller
     public function armatumancha(){
         return view('front.armatumancha');
     }
+
+    public function endesarrollo(){
+        return view('front.desarrollo');
+    }
 }
