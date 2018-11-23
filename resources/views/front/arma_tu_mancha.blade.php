@@ -123,7 +123,7 @@
                             <div class="form__members">
                               <div class="form__fields loop" v-for="(group, index) in register.miembros" :key="index">
                                 <div class="form__fields--title">
-                                  <h3>Miembro # @@{{ index + 1 }}</h3>
+                                  <h3>Miembro # @{{ index + 1 }}</h3>
                                 </div>
                                 <dl>
                                   <dt>
