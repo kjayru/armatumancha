@@ -32,13 +32,13 @@ Route::get('/flat-file','front\HomeController@flatfile');
 Route::post('/save-data-group','front\RegisterController@store')->name('register.store');
 
 Route::post('/disponibilidad-mancha','front\RegisterController@disponibilidadmancha')->name('register.disponibilidadmancha');
-Route::get('/validar-codigo/{codigo}','front\RegisterController@validarcodigo')->name('register.validarcodigo');
+Route::post('/validar-codigo','front\RegisterController@validarcodigo')->name('register.validarcodigo');
 
 Route::post('/crear-pata','front\RegisterController@crearpata')->name('register.crearpata');
 Route::put('/asignar-lider/{id}','front\RegisterController@asignarlider')->name('register.asignarlider');
-Route::delete('/borrarpata/{id}','front\RegisterController@borrarpata')->name('register.borrarpata');
+Route::delete('/borrar-pata/{id}','front\RegisterController@borrarpata')->name('register.borrarpata');
 
-Route::post('/validar-celular/{id}','front\RegisterController@validarcelular')->name('register.validarcelular');
+Route::post('/validar-celular','front\RegisterController@validarcelular')->name('register.validarcelular');
 
 Route::post('/recuperar-codigo','front\RegisterController@recuperarcodigo')->name('register.recuperarcodigo');
 
