@@ -9,11 +9,25 @@ use App\users;
 use App\Group;
 use App\UserGroup;
 
-class Registercontroller extends Controller
+class RegisterController extends Controller
 {
-    public function disponibilidadmancha($mancha){
+    public function testreg(){
+        return view('test.test');
+    }
 
-        return response()->json(['rpta'=>'ok']);
+    public function disponibilidadmancha(Request $request){
+
+        $imancha = strtolower($request->nombres);
+
+
+        $contar = Group::where('name','like','%'.$imancha.'%')->count();
+
+       if($contar>0){
+        $rpta = 'existe';
+       }else{
+        $rpta = 'libre';
+       }
+        return response()->json(['rpta'=>$rpta]);
     }
 
     public function validarcodigo($codigo){

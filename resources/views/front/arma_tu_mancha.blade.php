@@ -5,6 +5,7 @@
         <div class="layout__main">
           <div class="page2">
             <div class="page2__main">
+
               <form class="form" v-on:submit.prevent="validate('form_concurse')" method="POST" action="{{ action('front\RegisterController@store') }}" data-vv-scope="form_concurse">
                 <input type="hidden" name="_method" value="POST">
                 <!-- VALUE BENEFICIO PARA REMITIR RUTA  gigas || millas -->
@@ -71,7 +72,7 @@
                             <div class="form__fields">
                               <dl class="type1">
                                 <dt>
-                                  <input class="form__text1" type="text" name="nombres" v-model="register.nombres" v-validate="'required|string|min:3|norepeat1'"/>
+                                  <input class="form__text1" type="text" id="nombres" name="nombres" v-model="register.nombres" v-validate="'required|string|min:3|norepeat1'"/>
                                 </dt>
                                 <dd><span class="form__error" v-show="errors.has('form_concurse.nombres')">* @{{ errors.first('form_concurse.nombres') }}</span></dd>
                               </dl>

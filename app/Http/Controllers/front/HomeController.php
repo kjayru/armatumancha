@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
-use App\Code;
-use App\users;
-use App\Group;
-use App\UserGroup;
 
 class HomeController extends Controller
 {

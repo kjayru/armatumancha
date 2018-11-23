@@ -26,7 +26,7 @@ Route::post('/lista-sesion-mancha','front\HomeController@listamanchasesion')->na
 //FILE
 Route::get('/flat-file','front\HomeController@flatfile');
 //Route::get('/test1','front\HomeController@test1');
-
+Route::get('/test2','front\RegisterController@testreg');
 
 /*asincronos*/
 Route::post('/save-data-group','front\RegisterController@store')->name('register.store');
@@ -46,3 +46,7 @@ Route::post('/validar-codigo-recuperado','front\RegisterController@validarcodigo
 
 
 //Route::resource('consultas','ConsultaController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
