@@ -1,0 +1,188 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Arma tu mancha';
+	- var modal = 0;
+
+block content
+	.page2
+		.page2__main
+			form.form(@submit.prevent="validate('form_concurse')" data-vv-scope='form_concurse')
+				section.section1
+					.section1__align
+						.section1__header
+							.links
+								a.btnBack(href="#") 
+									span Volver 
+							.title: h2 ¡Arma tu mancha y gana!
+						.section1__main
+							.title: h2 Elige el beneficio
+							.content 
+								input#gigas.content__radio(type='radio', value='bonos', checked="checked" ,name='beneficio', v-model='register.beneficio', v-validate="'required'") 
+								label(for='gigas').content__item 
+									.content__bg
+										blockquote
+											figure
+												img(src=path+'assets/pg2_icon_gigas.svg' alt='') 
+											figcaption
+												h4 Bono de gigas
+											.tooltip
+												i(@click="$event.target.classList.toggle('active')")
+													span El bono que tendrán será de acuerdo a la cantidad de amigos que vayan uniéndose en tu mancha.
+
+								input#latam.content__radio(type='radio', value='latam', name='beneficio', v-model='register.beneficio', v-validate="'required'") 
+								label(for='latam').content__item 
+									.content__bg
+										blockquote
+											figure
+												img(src=path+'assets/pg2_icon_latam.svg' alt='') 
+											figcaption
+												h4 Millas LATAM Pass 
+											.tooltip
+												i(@click="$event.target.classList.toggle('active')")
+													span El descuento que tendrán será de acuerdo a la cantidad de amigos que vayan uniéndose en tu mancha.
+				section.section2 
+					.section2__align
+						.section2__main
+							.register
+								//form.form(action="")
+								.form
+									.form__row1
+										.form__label
+											.circle
+												.circle__inner
+													.circle__wrapper
+														.circle__content 1
+											label Nombre de la Mancha
+										.form__fields
+											dl.type1
+												dt
+													input.form__text1(type='text', name='nombres', v-model='register.nombres', v-validate="'required|string|min:3|norepeat1'")
+												dd
+													span.form__error(v-show="errors.has('form_concurse.nombres')") * {{ errors.first('form_concurse.nombres') }}
+									.form__row1
+										.form__label
+											.circle
+												.circle__inner
+													.circle__wrapper
+														.circle__content 2
+											label.lider Ingresa tus datos (líder)
+										.form__fields
+											dl
+												dt
+													input.form__text2(type='text', name='alias', v-model='register.alias', v-validate="'required|string|min:3'", placeholder='Alias')
+												dd
+													span.form__error(v-show="errors.has('form_concurse.alias')") * {{ errors.first('form_concurse.alias') }}
+											dl
+												dt
+													input.form__text2(type='text', name='telefono', v-model='register.telefono', v-validate="'numeric|required|min:9|max:9'", placeholder='Teléfono')
+												dd
+													span.form__error(v-show="errors.has('form_concurse.telefono')") * {{ errors.first('form_concurse.telefono') }}
+											dl
+												dt
+													input.form__text2(type='text', name='email', v-model='register.email', v-validate="'required|min:3|email'", placeholder='Email (opcional)')
+												dd
+													span.form__error(v-show="errors.has('form_concurse.email')") * {{ errors.first('form_concurse.email') }}
+									.form__row1
+										.form__label
+											.circle
+												.circle__inner
+													.circle__wrapper
+														.circle__content 3
+											label Agrega tu mancha
+										.form__members
+
+											.form__fields.loop(v-for="(group, index) in register.miembros" :key="index")
+												.form__fields--title
+													h3 Miembro # {{ index + 1 }}
+												dl
+													dt
+														input.form__text2(
+															type='text', 
+															placeholder='Alias', 
+															:key="'alias_'+index" 
+                              :name="'alias_'+index" 
+															v-model="group[0].alias",
+                              v-validate="'required|min:3|norepeat2'" 
+														)
+													dd
+														span.form__error(v-show="errors.has('form_concurse.alias_'+index)") * {{ errors.first('form_concurse.alias_'+index) }}
+												dl
+													dt
+														input.form__text2(
+															type='text', 
+															placeholder='Teléfono'
+															:key="'telefono_'+index" 
+                              :name="'telefono_'+index" 
+															v-model="group[0].telefono",
+                              v-validate="'numeric|required|min:9|max:9'" 
+														)
+														dd
+															span.form__error(v-show="errors.has('form_concurse.telefono_'+index)") * {{ errors.first('form_concurse.telefono_'+index) }}
+												dl
+													dt
+														input.form__text2(
+															type='text', 
+															placeholder='Email (opcional)'
+															:key="'email_'+index" 
+                              :name="'email_'+index" 
+															v-model="group[0].email",
+                              v-validate="'required|min:3|email'" 
+														)
+													dd
+														span.form__error(v-show="errors.has('form_concurse.email_'+index)") * {{ errors.first('form_concurse.email_'+index) }}
+													
+									.form__row2
+										.form__buttons
+											button.button1(type='button' @click='addMember()')
+												i + 
+												| Agregar otro participante 
+									.form__row1
+										.form__info: p Recuerda que el máximo de miembros por mancha es de 10 patas. 
+
+									.form__row1
+										.form__fields 
+											dl.type2 
+												dt
+													.form__checkbox1
+														input(type='checkbox', name='autorizar' , v-model='register.autorizar', v-validate="'required'")#Autorizar
+														label(for="Autorizar")
+														span Autorizo a Claro para el envío de contenido publicitario. 
+												dd
+													span.form__error(v-show="errors.has('form_concurse.autorizar')") * {{ errors.first('form_concurse.autorizar') }}
+
+									.form__row3 
+										.form__buttons 
+											button(type='submit') chaptcha 
+									
+									.form__row3
+										.form__buttons
+											button.button2(type='submit') Registrar
+
+
+
+block modal
+	.page1 
+		.page1__close(@click='closeModal()') Cerrar
+		section.section1
+			.section1__content
+				.section1__data
+					iframe(height="315" :src="video.url" frameborder="0" allow="encrypted-media" allowfullscreen )
+block css
+	style(type="text/css").
+			
+			.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+block javascript
+	script(type='text/javascript' src=path+'js/main.js')
+	script(type='text/javascript').
+		main.init('page2');
+	//script(src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaInit&render=explicit" async defer)

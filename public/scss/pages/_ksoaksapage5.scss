@@ -1,0 +1,208 @@
+.layout{
+	&__main{
+
+		.page5{
+			&__main{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+
+				.section1{
+					width: 100%;
+					height: auto;
+					position: relative;
+
+					&__align{
+						max-width: 1180px;
+						width: 100%;
+						margin: 0 auto;
+					}
+
+					&__content{
+						padding: 55px 0 55px 0;
+						position: relative;
+						@include to(movil) {
+							padding: 55px 20px 55px 20px;
+						}
+						@include from-to(movil,tablet) {
+							padding: 55px 20px 55px 20px;
+						}
+						@include from-to(tablet, tablet-h) {
+							padding: 55px 30px 55px 30px;
+						}
+						@include from-to(tablet-h, laptop) {
+							padding: 55px 40px 55px 40px;
+						}
+
+					}
+
+					&__data{
+						.box{
+							padding: 50px 0 0;
+
+							&__head{
+								.title{
+									padding-bottom: 25px;
+									h2{
+										font: normal 700 em(22) $font1;
+										color: $color_t2;
+									}
+								}
+
+								.links{
+									a{
+										font: normal 400 em(14) $font1;
+										color: #0097ae;
+										display: block;
+										&:hover{
+											text-decoration: underline;
+										}
+									}
+								}
+							}
+
+							&__main{
+								.info{
+									h3{
+										font: normal 700 em(18) $font1;
+										color: $color_t2;
+										margin: 20px 0 20px 0;
+									}
+									h4{
+										font: normal 700 em(14) $font1;
+										color: $color_t2;
+										margin-bottom: 20px;
+										text-transform: uppercase;
+									}
+									h5{
+										font: normal 600 em(12) $font1;
+										color: $color_t2;
+										margin: 20px 0;
+										text-transform: uppercase;
+									}
+									p{
+										font: normal 300 em(14) $font1;
+										color: $color_t2;
+									}
+									span.ancla{
+										display: block;
+										height: 50px;
+									}
+									ul{
+										li{
+											font: normal 300 em(14) $font1;
+											color: $color_t2;
+											width: 100%;
+											display: table;
+											margin-bottom: 5px;
+											&:before{
+												content: "\f111";
+												@include icon(0px);
+						        		font-size: 5px;
+												display: table-cell;
+												color: #000000;
+												width: 26px;
+												padding-top: 6px;
+												vertical-align: top;
+												text-align: center;
+											}
+
+											ul{
+												margin-top: 12px;
+												margin-bottom: 10px;
+											}
+
+											span{
+												width: 100%;
+												height: 191px;
+												display:table;
+												margin: 15px 0;
+												@include to(movil) {
+													height: 375px;
+												}
+											}
+
+											span.tbl1{
+												background: url("#{$path}/pg4_tabla1.png") no-repeat center center;
+
+												@include to(movil) {
+													background: url("#{$path}/pg4_tabla1_movil.png") no-repeat left center;
+												}
+
+											}
+
+											span.tbl2{
+												background: url("#{$path}/pg4_tabla2.jpg") no-repeat center center;
+
+												@include to(movil) {
+													background: url("#{$path}/pg4_tabla2_movil.jpg") no-repeat left center;
+												}
+											}
+
+											span.tbl3{
+												background: url("#{$path}/pg4_tabla3.png") no-repeat center center;
+
+												@include to(movil) {
+													background: url("#{$path}/pg4_tabla3_movil.png") no-repeat left center;
+												}
+											}
+
+											span.tbl4{
+												background: url("#{$path}/pg4_tabla4.png") no-repeat center center;
+
+												@include to(movil) {
+													background: url("#{$path}/pg4_tabla4_movil.png") no-repeat left center;
+												}
+											}
+
+											img{
+												display: table;
+												margin: 20px auto;
+											}
+										}
+									}
+									ol{
+										margin: 10px 0 12px;
+										padding-left: 23px;
+										li{
+											font: normal 300 em(14) $font1;
+											color: $color_t2;
+											list-style-type: decimal;
+											margin-bottom: 5px;
+										}
+									}
+
+									table{
+										width: 280px;
+										margin: 0 auto;
+										border-left: 1px solid #dfdfdf;
+										border-right: 1px solid #dfdfdf;
+										tr{
+											th{
+												background-color: #da262d;
+												font: normal 600 em(14) $font1;
+												color: $color_t1;
+												padding: 5px 10px;
+											}
+											td{
+												font: normal 400 em(14) $font1;
+												color: $color_t2;
+												border-bottom: 1px solid #dfdfdf;
+												padding: 5px 10px;
+												text-align: center;
+												&:nth-of-type(2){
+													width: 90px;
+													text-align: center;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

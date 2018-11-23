@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>6AD83C6C-C25C-4B5E-9323-5797E659C462</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 31 0 31 31 0 31"></polygon>
+    </defs>
+    <g id="FLUJO-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.2.1-tabla-de-la-mancha-(flujo-1)" transform="translate(-1066.000000, -882.000000)">
+            <g id="Group-3" transform="translate(1066.000000, 882.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M3.93385083,15.5 C3.93385083,13.0198373 4.71910976,10.7192785 6.05306184,8.83430832 L22.1656917,24.9475194 C20.2807215,26.2814715 17.980744,27.0661492 15.5,27.0661492 C9.12260472,27.0661492 3.93385083,21.8779765 3.93385083,15.5 M27.0667304,15.5 C27.0667304,17.980744 26.2814715,20.2807215 24.9475194,22.1656917 L8.83430832,6.05306184 C10.7198598,4.71852852 13.0198373,3.93385083 15.5,3.93385083 C21.8779765,3.93385083 27.0667304,9.12202347 27.0667304,15.5 M15.5,0 C6.93945701,0 0,6.93945701 0,15.5 C0,24.060543 6.93945701,31 15.5,31 C24.060543,31 31,24.060543 31,15.5 C31,6.93945701 24.060543,0 15.5,0" id="Fill-1" fill="#DA272C" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,186 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Arma tu mancha';
+	- var modal = 0;
+
+block content
+	.page1
+		.page1__header
+			section.section1
+				.section1__align
+					.section1__main
+		.page1__main
+			section.section1
+				.section1__align
+					.section1__main
+						.title: h2 ¿Cómo armo mi mancha?
+						.content
+							.content__item
+								figure
+									img(src=path+'assets/pg1_img1.svg' alt='') 
+								figcaption
+									h4 Registra tu mancha
+									p Coloca tus datos y el nombre de tu mancha
+							.content__arrow
+							.content__item
+								figure
+									img(src=path+'assets/pg1_img1.svg' alt='') 
+								figcaption
+									h4 Invita a tus amigos
+									p Registra los datos de tu mancha
+							.content__arrow
+							.content__item
+								figure
+									img(src=path+'assets/pg1_img1.svg' alt='') 
+								figcaption
+									h4 Recibe el SMS de confirmación
+									p Recibirás un código y también se les avisará a tus amigos para que se unan
+
+			section.section2
+				.section2__align
+					.section2__main
+						.title: h2 ¿Estás listo para formar tu mancha?
+						.content 
+							.content__item
+								blockquote
+									figure
+										img(src=path+'assets/pg1_mancha1.jpg' alt='') 
+									figcaption
+										h4 Arma tu mancha
+							.content__item
+								blockquote
+									figure
+										img(src=path+'assets/pg1_mancha2.jpg' alt='') 
+									figcaption
+										h4 Consulta quiénes forman parte de tu mancha
+
+			section.section3
+				.section3__align
+					.section3__header
+						.title: h2 ¿En qué consiste?
+					.section3__main
+						.title
+							h2 Descuento en equipos
+							p Cámbiate o renueva y obtén hasta 40% descuento para ti y tu mancha 
+								br
+								strong A más amigos, ¡más descuento!
+						.list
+							ul
+								li
+									blockquote
+										h5 2 o 4 amigos
+									blockquote
+										div
+											h6 hasta
+											h3 10%
+											p x 12 meses
+								li
+									blockquote
+										h5 5 o 7 amigos
+									blockquote
+										div
+											h6 hasta
+											h3 20%
+											p x 12 meses
+								li
+									blockquote
+										h5 8 o 9 amigos
+									blockquote
+										div
+											h6 hasta
+											h3 30%
+											p x 12 meses
+								li
+									blockquote
+										h5 10 amigos
+									blockquote
+										div
+											h6 hasta
+											h3 40%
+											p x 12 meses
+			section.section4
+				.section4__align
+					.section4__main
+						.title: h2 Mira los equipos que podrás llevarte
+						.list
+							ul
+								li
+									img(src=path+'assets/pg1_img2.jpg' alt='')
+								li
+									img(src=path+'assets/pg1_img2.jpg' alt='') 
+								li
+									img(src=path+'assets/pg1_img2.jpg' alt='') 
+								li
+									img(src=path+'assets/pg1_img2.jpg' alt='') 
+						.links
+							a(href="#") Ir a la tienda
+
+			section.section5
+				.section5__align
+					.section5__main
+						.title
+							p Y si tienes un plan CHIP Max Internacional, ¡llévate un súper bono!
+								br
+								strong ¡A más amigos, ganas más gigas por línea!
+						.content
+							.content__item
+								blockquote
+									figure
+										img(src=path+'assets/pg1_people1.jpg' alt='')
+									figcaption
+										h6 3 amigos
+										h3 3GB 
+										p x 12 meses
+							.content__arrow
+							.content__item
+								blockquote
+									figure
+										img(src=path+'assets/pg1_people2.jpg' alt='')
+									figcaption
+										h6 6 amigos
+										h3 6GB 
+										p x 12 meses
+							.content__arrow
+							.content__item
+								blockquote
+									figure
+										img(src=path+'assets/pg1_people3.jpg' alt='')
+									figcaption
+										h6 10 amigos
+										h3 10GB 
+										p x 12 meses
+			section.section6
+				.section6__align
+					.section6__main
+						.content
+							h4 
+								span Compartir en 
+								img(src=path+'assets/pg1_ico_facebook.jpg' alt='') 
+								img(src=path+'assets/pg1_ico_whatsapp.jpg' alt='') 
+
+block modal
+	.page1
+		.page1__close(@click='closeModal()') Cerrar
+		section.section1
+			.section1__content
+				.section1__data
+					iframe(height="315" :src="video.url" frameborder="0" allow="encrypted-media" allowfullscreen )
+block css
+	style(type="text/css").
+			
+			.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+block javascript
+	script(type="text/javascript" src=path+'js/library/slick.js' charset="utf-8")
+	script(type='text/javascript' src=path+'js/main.js')
+	script(type='text/javascript').
+		//main.init();

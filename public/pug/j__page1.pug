@@ -1,0 +1,468 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Arma tu mancha';
+	- var modal = 0;
+
+block content
+	.page1
+		.page1__header
+			section.section1
+				.section1__align
+					.section1__main
+		.page1__main
+			section.section1
+				.section1__align
+					.section1__main
+						//.title: h2 ¿Qué pasos sigo?
+						//desktop
+						.content
+							.list#list1
+								.item
+									figure
+										img(src=path+'assets/pg1_img1.svg' alt='') 
+									figcaption
+										h4 Sé el líder de tu mancha
+										p Elige el beneficio para tu mancha  e ingresa tus datos
+									.arrow
+								.item
+									figure
+										img(src=path+'assets/pg1_img2.svg' alt='') 
+									figcaption
+										h4 Arma tu mancha
+										p Registra a los miembros de tu mancha
+									.arrow
+								.item
+									figure
+										img(src=path+'assets/pg1_img3.svg' alt='') 
+									figcaption
+										h4 Recibe un SMS
+										p Tendrás un código de líder y los miembros de tu mancha recibirán un SMS de invitación
+
+							.info
+								p ¡Recuerda! Tienes hasta el 
+									span 5 enero del 2019 
+									| para registrar tu mancha.
+
+
+			section.section2
+				.section2__align
+					.section2__main
+						.title: h2 ¡Elige entre!
+						.content 
+							.content__item
+								blockquote
+									a(href="#")
+										figure
+											h4 Arma tu mancha
+											img(src=path+'assets/pg1_img4.svg' alt='') 
+										figcaption
+											h5 Sé el líder y registrar
+												br
+												| a tu mancha
+							.content__arrow
+							.content__item
+								blockquote
+									a(href="")
+										figure
+											h4 Mira el status
+												br
+												| de tu mancha
+											img(src=path+'assets/pg1_img5.svg' alt='') 
+										figcaption
+											h5 Si ya eres parte de una mancha,
+												br
+												| mira cómo van
+
+
+
+			section.section5
+				.section5__align
+					.section5__header
+						.title: h2 ¿En qué consiste?
+						.subtitle: h3 Arma tu mancha y elige un súper bono de gigas o Millas LATAM Pass
+					.section5__main
+						.image
+							img(src=path+'assets/pg1_img13.svg' alt='') 
+						.title
+							h2 Bono de gigas
+							p Cámbiate a Claro, renueva o pásate de Prepago a Postpago
+								br
+								|  y llévate un 
+								span súper bono 
+								|  de hasta 
+								span 10 GB 
+								|  por línea durante 1 año
+							h3 A más miembros, ¡más gigas!
+						.list#list2
+							
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img23.svg' alt='')
+									
+									.title
+										h3 10 miembros
+
+									.info
+										h5 10GB
+											span por línea 
+										p X 12 meses
+
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img24.svg' alt='')
+									
+									.title
+										h3 9 miembros
+
+									.info
+										h5 9GB
+											span por línea 
+										p X 12 meses
+
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img25.svg' alt='')
+									
+									.title
+										h3 8 miembros
+
+									.info
+										h5 8GB
+											span por línea 
+										p X 12 meses
+
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img28.svg' alt='')
+									
+									.title
+										h3 7 miembros
+
+									.info
+										h5 7GB
+											span por línea 
+										p X 12 meses
+
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img17.svg' alt='')
+									
+									.title
+										h3 6 miembros
+
+									.info
+										h5 6GB
+											span por línea 
+										p X 12 meses
+
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img17.svg' alt='')
+									
+									.title
+										h3 5 miembros
+
+									.info
+										h5 5GB
+											span por línea 
+										p X 12 meses
+
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img16.svg' alt='')
+									
+									.title
+										h3 4 miembros
+
+									.info
+										h5 4GB
+											span por línea 
+										p X 12 meses
+
+
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img15.svg' alt='')
+									
+									.title
+										h3 3 miembros
+
+									.info
+										h5 3GB
+											span por línea 
+										p X 12 meses
+
+
+							.item
+								section
+									.image
+										img(src=path+'assets/pg1_img14.svg' alt='')
+
+									.title
+										h3 2 miembros
+									
+									.info
+										h5 2GB
+											span por línea 
+										p X 12 meses
+
+			section.section3
+				.section3__align
+					.section3__header
+						//.title: h2 ¿En qué consiste?
+						//.subtitle: h3 Arma tu mancha y elige descuento en equipos o un súper bono de gigas
+					.section3__main
+						.image
+							img(src=path+'assets/pg1_logo_latam.svg' alt='') 
+						.title
+							h2 Bono de Millas LATAM Pass
+							p Cámbiate a Claro, renueva o pásate de Prepago a Postpago con un plan 
+								br
+								span Max Internacional 59.90  
+								|  y llévate hasta  
+								span  4000 
+								span  Millas LATAM Pass  
+								|  para ti y tu mancha 
+
+							h3 A más miembros, ¡más Millas LATAM Pass!
+
+						.list
+							ul#list3
+								li
+									blockquote
+										h5 10 miembros 
+									blockquote
+										div
+											//h6 hasta
+											h3  4000
+											span Millas
+													//span dto.
+											//p x 12 meses
+								li
+									blockquote
+										h5 8 a 9 miembros
+									blockquote
+										div
+											//h6 hasta
+											h3  3000
+											span Millas
+													//span dto.
+											//p x 12 meses
+								li
+									blockquote
+										h5 6 a 7 mimebros
+									blockquote
+										div
+											//h6 hasta
+											h3 2000
+											span Millas
+													//span dto.
+											//p x 12 meses
+								li
+									blockquote
+										h5 4 a 5 mimebros
+									blockquote
+										div
+											//h6 hasta
+											h3 1500
+											span Millas
+													//span dto.
+
+								li
+									blockquote
+										h5 2 a 3 miembros
+									blockquote
+										div
+											//h6 hasta
+											h3  1000
+											span Millas
+													//span dto.
+
+											//p x 12 meses
+
+			//section.section4
+				.section4__align
+					.section4__main
+						.image
+							img(src=path+'assets/pg1_img29.svg' alt='') 
+						.title: h2 ¡Te puedes llevar estos equipos!
+						.list
+							.item
+								.title
+									h3 Astronomy Or
+										br
+										| Astrology
+								.image
+									img(src=path+'assets/Huawei_Mate_P20_Pro.png' alt='')
+								
+								.info
+									p The Basics Of Buying A Telescope 
+										br
+										| ing A Telescope
+
+							.item
+								.title
+									h3 Astronomy Or
+										br
+										| Astrology
+								.image
+									img(src=path+'assets/Huawei_Mate_P20_Pro.png' alt='')
+								
+								.info
+									p The Basics Of Buying A Telescope 
+										br
+										| ing A Telescope
+
+
+							.item
+								.title
+									h3 Astronomy Or
+										br
+										| Astrology
+								.image
+									img(src=path+'assets/Huawei_Mate_P20_Pro.png' alt='')
+								
+								.info
+									p The Basics Of Buying A Telescope 
+										br
+										| ing A Telescope
+
+
+							.item
+								.title
+									h3 Astronomy Or
+										br
+										| Astrology
+								.image
+									img(src=path+'assets/Huawei_Mate_P20_Pro.png' alt='')
+								
+								.info
+									p The Basics Of Buying A Telescope 
+										br
+										| ing A Telescope
+
+							.item
+								.title
+									h3 Astronomy Or
+										br
+										| Astrology
+								.image
+									img(src=path+'assets/Huawei_Mate_P20_Pro.png' alt='')
+								
+								.info
+									p The Basics Of Buying A Telescope 
+										br
+										| ing A Telescope
+
+						.links
+							a(href="#") Ir a Tienda
+			//section.section5
+				.section5__align
+					.section5__main
+						.title
+							p Y si tienes un plan CHIP Max Internacional, ¡llévate un súper bono!
+								br
+								strong ¡A más amigos, ganas más gigas por línea!
+						.content
+							.content__item
+								blockquote
+									figure
+										img(src=path+'assets/pg1_people1.jpg' alt='')
+									figcaption
+										h6 3 amigos
+										h3 3GB 
+										p x 12 meses
+							.content__arrow
+							.content__item
+								blockquote
+									figure
+										img(src=path+'assets/pg1_people2.jpg' alt='')
+									figcaption
+										h6 6 amigos
+										h3 6GB 
+										p x 12 meses
+							.content__arrow
+							.content__item
+								blockquote
+									figure
+										img(src=path+'assets/pg1_people3.jpg' alt='')
+									figcaption
+										h6 10 amigos
+										h3 10GB 
+										p x 12 meses
+			
+
+
+			section.section6
+				.section6__align
+					.section6__main
+						.content
+							h4 ¡Comparte la promo con tu 
+								span mancha!
+							span
+								a(href="#" target="_blank")
+									img(src=path+'assets/pg1_ico_facebook.svg' alt='') 
+								a(href="#" target="_blank")
+									img(src=path+'assets/pg1_ico_whatsapp.svg' alt='') 
+
+
+			section.considerations
+				.considerations__align
+					.considerations__title
+							h2 ¡Ten en cuenta!
+					.considerations__content
+						.considerations__subtitle
+							a Consideraciones Generales
+							i
+						.considerations__data
+							.considerations__info
+								ul
+									li Los países incluidos son: Ecuador, Colombia, Chile, Argentina, Brasil, Costa Rica, El Salvador, Guatemala, Honduras, México, Nicaragua, Panamá, Paraguay, Puerto Rico, República Dominicana y Uruguay.
+									li A partir del plan Max Internacional Ilimitado 189 y superiores se incluye Estados Unidos (considerando Alaska, Hawái e Islas Vírgenes) en la Cobertura Sin Frontera.
+									li Para poder utilizar minutos, SMS y MB, sólo deberás contar con un plan Max Internacional. De lo contario, a este consumo le serán aplicadas las tarifas Roaming vigentes.
+									li Cuando llegues a tu país de destino configura tu equipo activando la opción de “Itinerancia de datos” o “Roaming de datos” en la sección “Ajustes”. Si tienes un inconveniente comunícate gratis desde tu móvil Claro a Atención al Cliente: +51997990123.
+									li En caso cuentes con un paquete de Roaming activo y estés en un país Sin Frontera, el tráfico que realices no se descontará de las unidades libres del paquete contratado, únicamente aplicarán las condiciones tarifarias del plan Max Internacional. La vigencia del Paquete Roaming se mantendrá (no se suspende).
+									li Serán descontados de los minutos disponibles de tu plan con Cobertura Sin Frontera, las siguientes llamadas:
+										ul 
+											li Llamadas realizadas dentro del Perú a móviles y fijos nacionales.
+											li Llamadas realizadas desde el país Sin Frontera visitado a los móviles y fijos del mismo país.
+											li Llamadas realizadas desde el país Sin Frontera visitado a móviles y fijos de Perú.
+											li Llamadas entrantes de cualquier destino mientas se encuentre en alguno de los países Sin Frontera.
+									li La cuota de megas de tu plan sirve para navegar en Internet (WAP y WEB).
+									li La cuota de SMS de tu plan sirve para enviar mensajes de texto a móviles del país visitado y hacia cualquier destino internacional.
+									li No incluye números rurales ni satelitales para ninguno de los destinos mencionados anteriormente.
+
+block modal
+	.page1
+		.page1__close(@click='closeModal()') Cerrar
+		section.section1
+			.section1__content
+				.section1__data
+					iframe(height="315" :src="video.url" frameborder="0" allow="encrypted-media" allowfullscreen )
+block css
+	style(type="text/css").
+			
+			.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+block javascript
+	script(type="text/javascript" src=path+'js/library/slick.js' charset="utf-8")
+	script(type='text/javascript' src=path+'js/main.js')
+	script(type='text/javascript').
+		main.init('page1');

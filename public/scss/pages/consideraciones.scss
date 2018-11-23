@@ -1,0 +1,290 @@
+.layout__main .page1__main .considerations {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      padding: 20px 20px;
+      background-color: #f8f8f8; }
+      @media screen and (max-width: 480px) {
+        .layout__main .page1__main .considerations {
+          height: 100%; } }
+      .layout__main .page1__main .considerations__align {
+        width: 1160px;
+        margin: 0 auto; }
+        @media screen and (max-width: 480px) {
+          .layout__main .page1__main .considerations__align {
+            width: 100%; } }
+        @media screen and (min-width: 481px) and (max-width: 1024px) {
+          .layout__main .page1__main .considerations__align {
+            width: 100%; } }
+        @media screen and (min-width: 1025px) and (max-width: 1366px) {
+          .layout__main .page1__main .considerations__align {
+            width: 100%; } }
+      .layout__main .page1__main .considerations__content {
+        padding: 10px 0px 10px 0px;
+        position: relative;
+        /*@include to(movil) {
+							padding: 40px 20px 40px 20px;
+						}
+						@include from-to(movil, tablet-h) {
+							padding: 40px 40px 40px 40px;
+						}*/ }
+      .layout__main .page1__main .considerations__title {
+        padding: 10px 0 20px 0; }
+        .layout__main .page1__main .considerations__title h2 {
+          font: normal 400 1.5em "Roboto";
+          color: #000000;
+          text-align: center; }
+      .layout__main .page1__main .considerations__subtitle.active {
+        background-color: #3697af; }
+        .layout__main .page1__main .considerations__subtitle.active a {
+          color: #ffffff;
+          -webkit-transition: all 0.4s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          -moz-transition: all 0.4s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          -o-transition: all 0.4s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          -ms-transition: all 0.4s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          transition: all 0.4s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          /**/ }
+        .layout__main .page1__main .considerations__subtitle.active i:before {
+          content: "\f056";
+          top: 20px;
+          right: 20px;
+          color: #ffffff; }
+      .layout__main .page1__main .considerations__subtitle {
+        width: 730px;
+        margin: 5px auto;
+        cursor: pointer;
+        display: table;
+        -webkit-border-radius: 4px 4px 4px 4px;
+        -moz-border-radius: 4px 4px 4px 4px;
+        border-radius: 4px 4px 4px 4px;
+        background-color: #eeedee;
+        position: relative; }
+        @media screen and (max-width: 480px) {
+          .layout__main .page1__main .considerations__subtitle {
+            width: 100%; } }
+        @media screen and (min-width: 481px) and (max-width: 1024px) {
+          .layout__main .page1__main .considerations__subtitle {
+            width: 100%; } }
+        .layout__main .page1__main .considerations__subtitle a {
+          font: normal 400 1.0625em "Roboto";
+          display: table-cell;
+          position: relative;
+          line-height: 20px;
+          color: #000000;
+          padding: 22px 15px 22px 20px;
+          -webkit-transition: all 0s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          -moz-transition: all 0s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          -o-transition: all 0s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          -ms-transition: all 0s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          transition: all 0s cubic-bezier(0.17, 0.04, 0.03, 0.94) 0s;
+          cursor: pointer;
+          vertical-align: middle; }
+          @media screen and (max-width: 480px) {
+            .layout__main .page1__main .considerations__subtitle a {
+              font-size: 0.9375em; } }
+        .layout__main .page1__main .considerations__subtitle i {
+          width: 59px;
+          height: 44px;
+          display: table-cell;
+          text-align: right;
+          padding: 20px 20px 0 0; }
+          .layout__main .page1__main .considerations__subtitle i:before {
+            display: inline-block;
+            margin-right: 0px;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+            content: "\f055";
+            color: #2197ae;
+            font-size: 25px; }
+      .layout__main .page1__main .considerations__data.active {
+        /*height:auto;
+						max-height:100%;
+						padding: 20px 20px;
+						@include transicion(max-height,1.2s,cubic-bezier(0.17, 0.04, 0.03, 0.94),0s);*/ }
+      .layout__main .page1__main .considerations__info {
+        padding: 20px 25px; }
+      .layout__main .page1__main .considerations__data {
+        width: 730px;
+        margin: 0px auto;
+        overflow: hidden;
+        max-height: 0px;
+        background-color: #ffffff;
+        -webkit-transition: max-height 0.3s ease-out 0s;
+        -moz-transition: max-height 0.3s ease-out 0s;
+        -o-transition: max-height 0.3s ease-out 0s;
+        -ms-transition: max-height 0.3s ease-out 0s;
+        transition: max-height 0.3s ease-out 0s;
+        /*.table{
+							width: 100%;
+							//height: 156px;
+							padding-top: 22%;
+							background: url("../assets/pg1_tabla_desktop.png") no-repeat center center;
+							background-size: 100% auto;
+							margin-bottom: 10px;
+
+							@include to(movil) {
+								background: url("../assets/pg1_tabla_movil.png") no-repeat center top;
+								padding-top: 80%;
+								background-size: 100% auto;
+							}
+						}*/ }
+        @media screen and (max-width: 480px) {
+          .layout__main .page1__main .considerations__data {
+            width: 100%; } }
+        @media screen and (min-width: 481px) and (max-width: 1024px) {
+          .layout__main .page1__main .considerations__data {
+            width: 100%; } }
+        .layout__main .page1__main .considerations__data h2 {
+          font: normal 500 1.0625em "Roboto";
+          color: #000000;
+          margin-bottom: 13px; }
+        .layout__main .page1__main .considerations__data h3 {
+          font: normal 500 1em "Roboto";
+          color: #000000;
+          margin-bottom: 13px; }
+          .layout__main .page1__main .considerations__data h3 a {
+            color: #0097ae; }
+            .layout__main .page1__main .considerations__data h3 a:hover {
+              color: #0097ae;
+              text-decoration: underline; }
+        .layout__main .page1__main .considerations__data h4 {
+          font: normal 500 0.9375em "Roboto";
+          color: #da272c;
+          margin-bottom: 2px; }
+        .layout__main .page1__main .considerations__data p {
+          font: normal 400 0.875em "Roboto";
+          color: #000000;
+          margin-bottom: 14px; }
+          .layout__main .page1__main .considerations__data p a {
+            color: #0097ae; }
+            .layout__main .page1__main .considerations__data p a:hover {
+              color: #0097ae;
+              text-decoration: underline; }
+        .layout__main .page1__main .considerations__data table {
+          width: 96%;
+          margin: 0 auto; }
+          @media screen and (max-width: 480px) {
+            .layout__main .page1__main .considerations__data table {
+              width: 100%; } }
+          @media screen and (max-width: 480px) {
+            .layout__main .page1__main .considerations__data table tr {
+              display: block; } }
+          .layout__main .page1__main .considerations__data table tr th {
+            background-color: #3697af;
+            width: 50%;
+            padding: 11px 0;
+            border: 1px solid #3697af;
+            font: normal 400 0.8125em "Roboto";
+            color: #ffffff; }
+            .layout__main .page1__main .considerations__data table tr th:nth-of-type(1) {
+              width: 25%;
+              border-right: 1px solid #f7f7f7; }
+            .layout__main .page1__main .considerations__data table tr th:nth-of-type(2) {
+              width: 25%;
+              border-right: 1px solid #f7f7f7; }
+            @media screen and (max-width: 480px) {
+              .layout__main .page1__main .considerations__data table tr th {
+                font-size: 0.75em;
+                display: none; } }
+          .layout__main .page1__main .considerations__data table tr td {
+            background-color: #ffffff;
+            padding: 11px 5%;
+            border: 1px solid #f7f7f7;
+            font: normal 300 0.75em "Roboto";
+            color: #000000; }
+            .layout__main .page1__main .considerations__data table tr td:nth-of-type(2) {
+              text-align: center; }
+            @media screen and (max-width: 480px) {
+              .layout__main .page1__main .considerations__data table tr td {
+                padding: 11px 10%;
+                font-size: 0.75em;
+                display: block;
+                position: relative;
+                padding-left: 30%;
+                white-space: normal; }
+                .layout__main .page1__main .considerations__data table tr td:before {
+                  position: absolute;
+                  top: 11px;
+                  left: 11px;
+                  width: 25%;
+                  padding-right: 10px;
+                  white-space: nowrap;
+                  font-weight: 600;
+                  display: block;
+                  text-align: left; }
+                .layout__main .page1__main .considerations__data table tr td:nth-of-type(1):before {
+                  content: "Local: "; }
+                .layout__main .page1__main .considerations__data table tr td:nth-of-type(2) {
+                  text-align: left; }
+                  .layout__main .page1__main .considerations__data table tr td:nth-of-type(2):before {
+                    content: "Contacto: "; }
+                .layout__main .page1__main .considerations__data table tr td:nth-of-type(3):before {
+                  content: "Dirección: "; } }
+          .layout__main .page1__main .considerations__data table tr:nth-child(even) td {
+            background-color: #ffffff; }
+          .layout__main .page1__main .considerations__data table tr:nth-child(odd) td {
+            background-color: #efefef; }
+        .layout__main .page1__main .considerations__data ul div {
+          font: normal 400 0.875em "Roboto";
+          padding-bottom: 7px; }
+        .layout__main .page1__main .considerations__data ul li {
+          font: normal 400 0.875em "Roboto";
+          color: #000000;
+          margin-bottom: 5px;
+          display: table; }
+          @media screen and (max-width: 480px) {
+            .layout__main .page1__main .considerations__data ul li {
+              font-size: 0.875em; } }
+          .layout__main .page1__main .considerations__data ul li:before {
+            width: 16px;
+            display: inline-block;
+            margin-right: 10px;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+            content: "\f111";
+            color: #ff0000;
+            font-size: 7px;
+            position: relative;
+            top: -2px;
+            display: table-cell; }
+          .layout__main .page1__main .considerations__data ul li a {
+            color: #0097ae; }
+            .layout__main .page1__main .considerations__data ul li a:hover {
+              color: #0097ae;
+              text-decoration: underline; }
+          .layout__main .page1__main .considerations__data ul li ul {
+            padding-top: 10px; }
+            .layout__main .page1__main .considerations__data ul li ul li {
+              font-size: 1em; }
+              .layout__main .page1__main .considerations__data ul li ul li:before {
+                width: 16px;
+                display: inline-block;
+                margin-right: 10px;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                transform: translate(0, 0);
+                content: "\f068";
+                color: #ff0000;
+                font-size: 7px;
+                position: relative;
+                top: -1px;
+                display: table-cell; }
+            .layout__main .page1__main .considerations__data ul li ul div {
+              padding-bottom: 7px; }

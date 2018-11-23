@@ -1,0 +1,311 @@
+.layout{
+
+	&__header{
+		width: 100%;
+    height: 55px;
+    background-color: #fd2028;
+    position: fixed;
+    z-index: 1;
+
+    &--align{
+      width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      @include flexbox;
+      @include flex-direction(row);
+      @include justify-content(flex-end);
+      @include to(laptop) {
+        width: 100%;
+      }
+      
+    }
+
+    &--logo{
+      width: 94px;
+      height: 52px;
+      background: url("#{$path}/pg1_logo.svg") no-repeat center 45%;
+      position: absolute;
+      top: 0px;
+      left: 10px;
+    }
+
+    &--button{
+      display: none;
+      @include posicion(a,tr,8px,20px,1);
+      cursor: pointer;
+      @include to(tablet) {
+        display: block;
+      }
+      &:before {
+        //content: "\f0c9";
+        content: "\f107";
+        @include transicion(all,0.2s,ease,0s);
+        @include icon(0px);
+        font-size: 40px;
+        color: $color_b1;
+      }
+    }
+    &--button.active{
+      &:before {
+        content: "\f106";
+        //content: "\f107";
+        @include transicion(all,0.2s,ease,0s);
+        @include icon(0px);
+        font-size: 40px;
+        color: $color_b1;
+        position: relative;
+        top: -4px;
+      }
+    }
+    &--title{
+      @include posicion(a,tl,0px,0px,1);
+      display: none;
+      @include to(tablet) {
+        display: block;
+      }
+      h3{
+        font: normal 400 em(18) $font1;
+        line-height: 52px;
+        color: $color_t1;
+        text-transform: uppercase;
+        padding-left: 20px;
+      }
+    }
+    &--links{
+      position: relative;
+      @include to(laptop) {
+        //width: 100%;
+        text-align: center;
+      }
+      ul.active{
+        @include to(tablet) {
+          width: auto;
+          display: block;
+        }
+      }
+      ul{
+        @include to(tablet) {
+          @include posicion(a,tr,55px,0px,1);
+          display: none;
+        }
+
+        li{
+          display: inline-block;
+          //margin-right: 25px;
+
+          @include to(tablet) {
+            width: 100%;
+            margin-right: 0px;
+            border-bottom: 1px solid #3a4457;
+          }
+          a{
+          	font: normal 400 em(16) $font1;
+        		line-height: 55px;
+            padding: 0 25px;
+            display: block;
+            color: #FFFFFF;
+            //text-transform: uppercase;
+            cursor: pointer;
+            @include transicion(all,0.2s,ease,0s);
+            @include to(tablet) {
+              width: 100%;
+              display: block;
+
+							font-size: em(15);
+							line-height: 30px;
+
+              background-color: #0c6578;
+              padding: 4px 20px;
+              &:hover{
+                @include transicion(all,0.2s,ease,0s);
+                color: $color_t1;
+                background-color: #14a4c2;
+              }
+            }
+            &:hover{
+              //background-color: #474a67;
+            }
+
+          }
+          /*a.router-link-active{
+            background: #d61929;  
+          }*/
+          /*a.router-link-exact-active.router-link-active{
+            background: #d61929;  
+          }
+          a.router-link-exact-active{
+            background: #d61929;
+          }*/
+          a.active{
+            background: #d61929;
+          }
+        }
+      }
+    }
+    &--social{
+      @include to(movil) {
+        display: none;
+      }
+      span{
+				font: normal 400 em(16) $font1;
+        line-height: 52px;
+        color: $color_t1;
+      }
+      a{
+        margin-left: 10px;
+        cursor: pointer;
+        display: inline-block;
+        &:before {
+          @include transicion(all,0.2s,ease,0s);
+          @include icon(0px);
+          font-size: 26px;
+          color: $color_b4;
+          position: relative;
+          top: 5px;
+        }
+        &:hover{
+          &:before {
+            color: $color_b1;
+          }
+        }
+      }
+      a.ico{
+        &_facebook{
+          &:before {
+            content: "\f082";
+          }
+        }
+        &_instagram{
+          &:before {
+            content: "\f16d";
+          }
+        }
+        &_twitter{
+          &:before {
+            content: "\f081";
+          }
+        }
+        &_youtube{
+          &:before {
+            content: "\f166";
+          }
+        }
+      }
+    }
+	}
+	&__main{
+		//padding-top: 55px;
+	}
+  &__footer{
+    background-color: #222222;
+    &--align{
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+
+      /*@include to(movil) {
+        padding: 55px 20px 55px 20px;
+      }
+      @include from-to(movil,tablet) {
+        padding: 55px 20px 55px 20px;
+      }
+      @include from-to(tablet, tablet-h) {
+        padding: 55px 30px 55px 30px;
+      }
+      @include from-to(tablet-h, laptop) {
+        padding: 55px 40px 55px 40px;
+      }*/
+    }
+
+    &--content{
+      height: 100%;
+      min-height: 160px;
+      position: relative;
+      padding: 20px 0 0 0;
+
+      @include to(movil) {
+        padding: 20px 0 20px 0;
+      }
+    }
+
+    &--subtitle{
+      padding: 30px 0 20px 0;
+      background: url("#{$path}/pg1_claro.png") no-repeat center top;
+      
+      h4{
+        font: normal 300 em(12) $font1;
+        color: $color_t1;
+        text-align: center;
+        span{
+          vertical-align: middle;
+        }
+        img{
+          vertical-align: middle; 
+          margin-left: 5px;
+        }
+      }
+    }
+
+    &--data{
+      .box{
+        @include flexbox;
+        @include justify-content(space-around);
+
+        @include to(movil) {
+          @include flex-direction(column);
+        }
+
+        &__info{
+          width: 230px;
+          text-align: center;
+          @include to(movil) {
+            margin: 0 auto;
+          }
+          p{
+            font: normal 400 em(12) $font1;
+            line-height: 20px;
+            a{
+              color: $color_t1;
+              &:hover{
+                text-decoration: underline;
+              }
+            }
+          }
+          
+        }
+      }
+    }
+  }
+	&__modal{
+		.overlay {
+		  @include opacidad(bg, #ffffff, 0.9,claro);
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  z-index: 20; 
+		}
+
+		.box {
+		  width: 100%;
+		  height: 100%;
+		  z-index: 20;
+		  display: table;
+
+  		&__inset {
+		    display: table-cell;
+		    vertical-align: middle;
+		    width: 100%;
+		    position: relative; 
+		    /*&--close{
+		    	position: absolute;
+		      top: -10;
+		      right: -10;
+		      z-index: 2;
+		      cursor: pointer;
+		    }*/
+  		}
+  	}
+  }
+}

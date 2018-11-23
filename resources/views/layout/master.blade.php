@@ -1,25 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Arma tu mancha</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <script type="text/javascript" src="js/library/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css?v={{ uniqid() }}">
+  </head>
+  <body>
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/main.css?v={{ uniqid() }}">
-    </head>
-    <body>
        @yield('content')
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="/js/main.js?p={{ uniqid() }}"></script>
-    </body>
+    <script type="text/javascript" src="js/library/vue.js"></script>
+    <script type="text/javascript" src="js/library/axios.js"></script>
+    <script type="text/javascript" src="js/library/toastr.js"></script>
+    <script type="text/javascript" src="js/library/lodash.js"></script>
+    <script type="text/javascript" src="js/library/vee-validate.min.js"></script>
+    <script type="text/javascript" src="js/library/vue-grecaptcha.js"></script>
+    <script type="text/javascript" src="js/vue/helpers/core.js"></script>
+    <script type="text/javascript" src="js/library/slick.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/main.js?v={{ uniqid() }}"></script>
+    <script type="text/javascript">main.init('page1');</script>
+  </body>
 </html>

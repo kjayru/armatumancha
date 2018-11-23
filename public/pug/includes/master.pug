@@ -1,0 +1,40 @@
+include mixin
+
+//- var path = "https://static.claro.com.pe/landings/havas/descuentos_equipos/";
+- var path = "";
+
+block vars
+doctype
+html(lang='es')
+	head
+		title #{title}
+		meta(http-equiv='Content-Type', content='text/html;charset=UTF-8')
+		meta(name='viewport', content='width=device-width,initial-scale=1,user-scalable=no')
+			
+		script(type='text/javascript' src= path+'js/library/jquery.js')
+		if css == 1
+			+block_css
+		link(rel='stylesheet' type='text/css' href=path+'css/common.css')
+
+	body
+		.layout#app
+			.layout__main
+				+block_content
+			if modal == 1
+				transition(name='fade')
+					.layout__modal(v-if='modal.show' v-bind:class="{active: modal.show}")
+						.overlay
+							.box
+								.box__inset
+									+block_modal
+
+		script(type='text/javascript' src=path+'js/library/vue.js')
+		script(type='text/javascript' src=path+'js/library/axios.js')
+		script(type='text/javascript' src=path+'js/library/toastr.js')
+		script(type='text/javascript' src=path+'js/library/lodash.js')
+		script(type='text/javascript' src=path+'js/library/vee-validate.min.js')
+		script(type='text/javascript' src=path+'js/library/vue-grecaptcha.js')
+		script(type='text/javascript' src=path+'js/vue/helpers/core.js')
+		
+		if script == 1
+			+block_javascript

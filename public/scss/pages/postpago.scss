@@ -1,0 +1,1582 @@
+.layout{
+	&__main{
+
+		.postpago{
+			&__header{
+				padding-top: 55px;
+				.section1{
+					background: url("#{$path}/web.jpg") no-repeat center top;
+					height: 350px;
+					width: 100%;
+					@include to (tablet-w){
+						background: url("#{$path}/tableth.jpg") no-repeat center top;
+						height: 400px;
+						width: 100%;
+					}
+					@include to (tablet-h){
+						background: url("#{$path}/tablet.jpg") no-repeat center top;
+						height: 400px;
+						width: 100%;
+					}
+					@include to (movil-h){
+						background: url("#{$path}/mobile.jpg") no-repeat center top;
+						height: 525px;
+						width: 100%;
+					} 
+				}
+			}
+			&__main{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+
+				.section1{
+					width: 100%;
+					height: auto;
+					position: relative;
+
+					&__align{
+						//width: 1360px;
+						width: 100%;
+						margin: 0 auto;
+						@include to(movil) {
+							width: 100%;
+						}
+						@include from-to(movil,laptop) {
+							width: 100%;
+						}
+					}
+
+					&__content{
+						padding: 0px 0 40px 0;
+						position: relative;
+						@include to(movil) {
+							//padding: 30px 20px 10px 20px;
+						}
+						@include from-to(movil,laptop) {
+							//padding: 40px 20px 0px 20px;
+						}
+					}
+
+					&__tab{
+						.menu{
+							width: 100%;
+							background-color: #ededef;
+							ul{
+								display: table;
+								margin: 0 auto;
+								li{
+									display: table-cell;
+									margin: 0 120px;
+									padding: 0 15px;
+									cursor: pointer;
+									a{
+										font: normal 300 em(24) $font1;
+										color: #484646;
+										line-height: 70px;
+										margin: 0 50px;
+										display: table;
+										@include to(movil) {
+											margin: 0 10px;
+											font-size: em(20);
+											line-height: 50px;
+										}
+										@include from-to(movil,laptop) {
+											margin: 0 30px;
+											font-size: em(22);
+										}
+									}
+								}
+								li.active{
+									a{
+										font-weight: 800;
+									}
+									&:after{
+										content: "";
+										display: block;
+										background-color: #008fa4;
+										height: 6px;
+										margin-top: -6px;
+									}
+								}
+							}
+						}
+						.info{
+							position: relative;
+							z-index: 0;
+							@include to(movil) {
+								width: 320px;
+								padding: 0px 10px 0px 10px;
+								margin: 0 auto;
+								/*padding: 0px 8%;*/
+							}
+							&__tab{
+								position: absolute;
+								z-index: 1;
+								@include trans(0);
+							}
+							&__tab.active{
+								position: relative;
+								z-index: 100;
+								@include trans(1);
+								@include transicion(all,0.2s,ease,0.1s);
+							}
+							&__title{
+								padding: 10px 0 20px 0;
+								@include to(movil) {
+									//display:none;
+									padding: 20px 0 0px 0;
+									text-align: center;
+								}
+								@include from-to(movil,tablet) {
+									padding: 40px 0 0px 0;
+								}
+								h3{
+									font: normal 300 em(36) $font1;
+									color: #484646;
+									line-height: 54px;
+									display: table;
+									margin: 0 auto;
+									//background: url("#{$path}/pg2_titleclaromax.png") no-repeat right top;
+									//background-size: 100%;
+									//padding: 0 220px 0 0;
+
+									
+									@include to(movil) {
+										font-size: em(24);
+										line-height: 22px;
+									}
+
+									/*&:after{
+										content: url("#{$path}/pg2_titleclaromax.png");
+										display: table-cell;
+										width: 212px;
+										height: 47px;
+										padding-top: 10px;
+									}*/
+								}
+							}
+							&__filter{
+								text-align: center;
+								padding: 0px 0 40px 0;
+								@include to(movil) {
+									display:none;
+								}
+								/*@include from-to(movil,laptop) {
+									margin: 0 30px;
+									font-size: em(22);
+								}*/
+								&--select{
+									display: inline-block;
+									margin: 0 50px;
+									@include from-to(movil,tablet) {
+										margin: 0 20px;
+									}
+									span{
+										font: normal 400 em(18) $font1;
+										color: #484646;
+									}
+									select{
+										font: normal 400 em(18) $font1;
+										color: #484646;
+										padding: 8px 20px 8px 20px;
+										@include redondeado(6px, 6px, 6px, 6px);
+										margin-left: 15px;
+									}
+								}
+							}
+
+							&__list{
+								width: 100%;
+								//max-width: 1366px;
+								max-width: 1100px;
+								margin: 0 auto;
+								padding: 20px 0 20px 0;
+								//border-top: 1px solid #ededef;
+								//border-bottom: 1px solid #a9a9a9;
+								@include flexbox;
+								@include justify-content(space-around);
+								@include flex-wrap(wrap);
+
+								@include to(movil) {
+									padding: 20px 0 20px 0;
+									border-top: none;
+									display: block;
+								}
+
+								@include from-to(movil,tablet) {
+									padding: 40px 0 20px 0;
+								}
+
+								.slick-prev{
+									left: -5%;
+									background: #ffdcdc center center no-repeat;
+									opacity: .75;	
+							    
+									&:before{
+										color: $color_t2;
+									}
+								}
+
+								.swiper-button-disabled{
+									opacity: .85;	
+								}
+								
+
+
+
+								.slick-next{
+									right: -5%;
+									background: #ffdcdc center center no-repeat;
+									opacity: .75;	
+							    
+									&:before{
+										color: $color_t2;
+									}
+								}
+
+								.type1{
+									blockquote{
+										width: 92%;
+										margin: 0px auto;
+										padding: 15px 0;
+										border-bottom: 1px solid #dcdcdb;
+										@include to(tablet) {
+											width: 100%;
+											padding: 14px 0;
+										}
+
+										h2{
+											font: normal 800 em(38) $font1;
+											color: #000000;
+											text-align: center;
+											line-height: 36px;
+										}
+										h3.max{
+											font: normal 800 em(23) $font1;
+											color: #ffffff;
+											line-height: 42px;
+											background: url("#{$path}/pg2_claromax.png") no-repeat left top;
+											//background-size: 25%;
+											background-size: 32%;
+											padding: 0 0 0 94px;
+											@include to(tablet) {
+												background-size: 33%;
+												padding: 0 0 0 92px;
+											}
+											@include to(movil) {
+												background-size: 36%;
+												padding: 0 0 0 94px;
+											}
+										}
+										h3{
+											font: normal 800 em(23) $font1;
+											color: #ffffff;
+											line-height: 16px;
+										}
+										h4{
+											font: normal 800 em(18) $font1;
+											color: #000000;
+											text-align: center;
+											margin-bottom: 0px;
+											//letter-spacing: -1px;
+										}
+										h5{
+											font: normal 300 em(15) $font1;
+											color: #ffffff;
+											margin-top: 4px;
+											//text-align: center;
+										}
+
+										p{
+											font: normal 300 em(13) $font1;
+											color: #000000;
+											text-align: center;
+											/*@include from-to(movil,tablet) {
+												font-size: em(15);
+											}*/
+											a{
+												color: #268da3;
+												text-decoration: underline;
+												cursor: pointer;
+												display: inline-block;
+												margin: 8px 0 0 0;
+												&:hover{
+													text-decoration: none;
+												}
+											}
+										}
+
+										
+										span.ico1{
+											font: normal 800 em(18) $font1;
+											color: #000000;
+											line-height: 20px;
+											display: table;
+											margin: 0 auto;
+											background: url("#{$path}/pg2_cobertura.png") no-repeat left center;
+											padding: 0 0 0 44px;
+											text-align: center;
+											//letter-spacing: -1px;
+											i{
+												font-style: normal;
+												font-size: em(12);
+												font-weight: 300;
+												line-height: 18px;
+												display: block;
+												
+											}
+										}
+										span.ico2{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_rpcilimitado.png") no-repeat left top;
+											padding: 0 0 0 44px;
+										}
+										span.ico3{
+											font: normal 800 em(18) $font1;
+											color: #000000;
+											line-height: 20px;
+											display: table;
+											margin: 0 auto;
+											background: url("#{$path}/pg2_llamadasilimitadas.png") no-repeat left center;
+											padding: 0 0 0 40px;
+											text-align: center;
+											//letter-spacing: -1px;
+											i{
+												font-style: normal;
+												font-size: em(12);
+												font-weight: 300;
+												line-height: 18px;
+												display: block;
+												
+											}
+										}
+										/*span.ico3{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_llamadasilimitadas.png") no-repeat left top;
+											padding: 0 0 0 44px;
+
+										}*/
+										span.image{
+											display: table;
+										}
+										span.social{
+											display: table;
+											margin: 0 auto;
+											@include to(movil) {
+												img{
+													display: inline-block;
+												}
+											}
+											/*@include flexbox;
+											@include justify-content(space-around);*/
+										}
+										button{
+											font: normal 300 em(16) $font1;
+											border:0;
+											color: $color_t1;
+											padding:8px 32px 8px 32px;
+											cursor:pointer;
+											display: table;
+											margin: 0 auto;
+											position: relative;
+
+											@include align-self(center);
+											background-color: #008ea5;
+											//@include fondo-degrade(180deg, $color_b4 30%, $color_b5 80% );
+											@include redondeado(5px, 5px, 5px, 5px);
+											//@include sombra-texto(0, 1px, 1px, #333);
+											//@include sombra(0px, 0px, 1px, 5px);
+											@include transicion(all,0.4s,ease,0s);
+
+											&:hover{
+												@include transicion(all,0.4s,ease,0s);
+												@include filtro(3,.6);
+											}
+
+											@include to(movil) {
+												font-size: em(15);
+												padding:12px 36px 12px 36px;
+											}
+
+											@include from-to(movil,tablet) {
+												font-size: em(15);
+												padding:12px 36px 12px 36px;
+											}
+										}
+									}
+
+									&__side1{
+										position: relative;
+										
+										&--row{
+											position: relative;
+											&:nth-of-type(1){
+												z-index: 1;
+												background: url("#{$path}/pg2_bgclaromax.png") no-repeat 100% center;
+												background-color: #da272c;
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+													padding: 13px 0 13px 36px;
+												}
+											}
+											&:nth-of-type(2){
+												blockquote{
+													padding: 12px 0 12px 0px;
+													@include to(tablet) {
+														padding: 10px 0 8px 0px;
+													}
+													h5{
+														text-align: center;
+														color: #3c3c3c;
+													}
+												}
+											}
+											&:nth-of-type(4){
+												blockquote{
+													//@include flexbox;
+													//@include justify-content(space-around);
+													//background: url("#{$path}/pg2_plus.png") no-repeat center center;
+												}
+											}
+											&:nth-of-type(6){
+												blockquote{
+													@include flexbox;
+													@include justify-content(space-around);
+													//background: url("#{$path}/pg2_plus.png") no-repeat center center;
+												}
+											}
+											&:nth-of-type(7){
+												blockquote{
+													@include flexbox;
+													@include justify-content(space-around);
+													//background: url("#{$path}/pg2_plus.png") no-repeat center center;
+												}
+											}
+											&:nth-of-type(5){
+												blockquote{
+													padding: 10px 20px 7px;
+													/*@include to(tablet) {
+														padding: 10px 20px;
+													}*/	
+												}
+											}
+											&:nth-of-type(8){
+												blockquote{
+													text-align: center;
+													border-bottom: none;
+												}
+											}
+										}
+									}
+									&__side2{
+										&--row{
+											position: relative;
+											&:nth-of-type(1){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+													padding: 13px 0 13px 72px;
+													@include to(movil) {
+														padding: 13px 0 13px 66px;
+													}
+													h3.max{
+														background: url("#{$path}/pg2_claromax_detail.png") no-repeat left top;
+														background-size: 38%;
+														//background-size: 29%;
+														@include to(tablet) {
+															background-size: 39%;
+															padding: 0 0 0 92px;
+														}
+														@include to(movil) {
+															background-size: 41%;
+															padding: 0 0 0 94px;
+														}
+													}
+													h3{
+														color: #000000;
+													}
+													h5{
+														color: #000000;
+													}
+												}
+											}
+											/*&:nth-of-type(1){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+												}
+											}*/
+											&:nth-of-type(2){
+												blockquote{
+													width: 80%;
+													border-bottom: none;
+
+													ul{
+														li{
+															font: normal 400 em(14) $font1;
+															color: #212121;
+															padding: 0px 0px 0px 20px;
+															margin-bottom: 20px;
+															position: relative;
+															@include to(movil) {
+																margin-bottom: 12px;
+															}
+															&:before{
+																content: "";
+																display: inline-block;
+																width: 6px;
+																height: 6px;
+																background-color: #535353;
+																position: absolute;
+																top: 5px;
+																left: 0px;
+																@include redondeado(5px, 5px, 5px, 5px);
+															}
+														}
+													}
+
+												}
+											}
+											&:nth-of-type(3){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+													button{
+														background-color: #da272c;
+													}
+												}
+											}
+										}
+									}
+
+								}
+
+								.type2{
+									blockquote{
+										/*
+										width: 74%;
+										margin: 0px auto;
+										padding: 15px 0;
+										border-bottom: 1px solid #dcdcdb;
+										@include to(tablet) {
+											width: 100%;
+											padding: 10px 0;
+										}*/
+										width: 92%;
+										margin: 0px auto;
+										padding: 15px 0;
+										border-bottom: 1px solid #dcdcdb;
+										@include to(tablet) {
+											width: 100%;
+											padding: 14px 0;
+										}
+										h2{
+											font: normal 600 em(42) $font1;
+											color: #000000;
+											text-align: center;
+											//line-height: 54px;
+										}
+										
+										h3.max{
+											font: normal 800 em(23) $font1;
+											color: #000000;
+											line-height: 42px;
+											background: url("#{$path}/pg2_claromax.png") no-repeat left top;
+											background-size: 33%;
+											//background-size: 25%;
+											padding: 0 0 0 94px;
+											@include to(tablet) {
+												background-size: 33%;
+												padding: 0 0 0 92px;
+											}
+										}
+										h3{
+											font: normal 800 em(23) $font1;
+											color: #000000;
+											line-height: 16px;
+										}
+
+										h4{
+											font: normal 600 em(17) $font1;
+											color: #3c3c3c;
+											text-align: center;
+											margin-bottom: 11px;
+										}
+										h5{
+											font: normal 300 em(15) $font1;
+											color: #ffffff;
+											margin-top: 4px;
+										}
+
+										p{
+											font: normal 300 em(13) $font1;
+											color: #000000;
+											text-align: center;
+											/*@include from-to(movil,tablet) {
+												font-size: em(15);
+											}*/
+											a{
+												color: #268da3;
+												text-decoration: underline;
+												cursor: pointer;
+												display: inline-block;
+												margin: 8px 0 0 0;
+												&:hover{
+													text-decoration: none;
+												}
+											}
+										}
+
+										span.ico1{
+											/*font: normal 800 em(16) $font1;
+											color: #000000;
+											line-height: 20px;
+											display: table;
+											margin: 0 auto;
+											background: url("#{$path}/pg2_cobertura.png") no-repeat left center;
+											padding: 0 0 0 40px;
+											text-align: center;
+											letter-spacing: -1px;*/
+											font: normal 800 em(18) $font1;
+											color: #000000;
+											line-height: 28px;
+											display: table;
+											margin: 0 auto;
+											background: url("#{$path}/pg2_cobertura.png") no-repeat left center;
+											padding: 0 0 0 44px;
+											text-align: center;
+											i{
+												font-style: normal;
+												line-height: 12px;
+												display: block;
+												small{
+													font-weight: 300;
+													margin-right: 2px;
+												}
+												
+											}
+										}
+										span.ico2{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_rpcilimitado.png") no-repeat left top;
+											padding: 0 0 0 44px;
+										}
+										span.ico3{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_llamadasilimitadas.png") no-repeat left top;
+											padding: 0 0 0 44px;
+										}
+										span.image{
+											display: table;
+										}
+										span.social{
+											@include flexbox;
+											@include justify-content(space-around);
+										}
+										button{
+											font: normal 300 em(16) $font1;
+											border:0;
+											color: $color_t1;
+											padding:8px 32px 8px 32px;
+											cursor:pointer;
+											display: table;
+											margin: 0 auto;
+											position: relative;
+
+											@include align-self(center);
+											background-color: #008ea5;
+											//@include fondo-degrade(180deg, $color_b4 30%, $color_b5 80% );
+											@include redondeado(5px, 5px, 5px, 5px);
+											//@include sombra-texto(0, 1px, 1px, #333);
+											//@include sombra(0px, 0px, 1px, 5px);
+											@include transicion(all,0.4s,ease,0s);
+
+											&:hover{
+												@include transicion(all,0.4s,ease,0s);
+												@include filtro(3,.6);
+											}
+
+											@include to(movil) {
+												font-size: em(15);
+												padding:12px 36px 12px 36px;
+											}
+
+											@include from-to(movil,tablet) {
+												font-size: em(15);
+												padding:12px 36px 12px 36px;
+											}
+										}
+									}
+
+									&__side1{
+										&--row{
+											position: relative;
+											&:nth-of-type(1){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+													padding: 13px 0 13px 36px;
+													/*@include to(movil) {
+														padding: 18px 0 18px 66px;
+													}*/
+													h3.max{
+														background: url("#{$path}/pg2_claromax_detail.png") no-repeat left top;
+														//background-size: 25%;
+														background-size: 33%;
+														@include to(tablet) {
+															background-size: 35%;
+															padding: 0 0 0 95px;
+														}
+													}
+													h3{
+														color: #000000;
+													}
+													h5{
+														color: #000000;
+													}
+												}
+											}
+											&:nth-of-type(2){
+												blockquote{
+													width: 100%;
+													background: url("#{$path}/pg2_bg_item.png") no-repeat center center;
+													background-size: cover;
+													padding: 36px 50px 36px;
+
+													@include to(movil) {
+														padding: 25px 10px 24px;
+													}
+
+													@include from-to(movil,tablet) {
+														padding: 25px 10px 24px;
+													}
+
+													h2{
+														color: #ffffff;
+														text-transform: uppercase;
+													}
+													ul{
+														display: table;
+														margin: 18px auto 0px;
+														li{
+															font: normal 600 em(20) $font1;
+															color: #ffffff;
+															line-height: 30px;
+															padding: 0 0 0 35px;
+															//margin-bottom: 10px;
+														}
+														li.ico1{
+															background: url("#{$path}/pg2_ico_megas.png") no-repeat left top;
+														}
+														li.ico2{
+															background: url("#{$path}/pg2_ico_llamadas.png") no-repeat left top;
+														}
+														li.ico3{
+															background: url("#{$path}/pg2_ico_sms.png") no-repeat left top;
+														}
+													}
+												}
+											}
+											&:nth-of-type(3){
+												blockquote{
+													padding: 20px 0;
+													@include to(movil) {
+														padding: 19px 0;
+													}
+													/*@include flexbox;
+													@include justify-content(space-around);
+													@include align-items(center);
+													background: url("#{$path}/pg2_plus.png") no-repeat 60% center;*/
+												}
+											}
+											&:nth-of-type(4){
+												blockquote{
+													@include flexbox;
+													@include justify-content(space-around);
+													//background: url("#{$path}/pg2_plus.png") no-repeat center center;
+												}
+											}
+											&:nth-of-type(5){
+												blockquote{
+													text-align: center;
+													border-bottom: none;
+												}
+											}
+										}
+									}
+									&__side2{
+										&--row{
+											position: relative;
+											&:nth-of-type(1){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+													padding: 13px 0 13px 72px;
+													@include to(movil) {
+														padding: 13px 0 13px 66px;
+													}
+													h3.max{
+														background: url("#{$path}/pg2_claromax_detail.png") no-repeat left top;
+														//background-size: 29%;
+														background-size: 38%;
+														@include to(tablet) {
+															background-size: 39%;
+															padding: 0 0 0 92px;
+														}
+													}
+													h3{
+														color: #000000;
+													}
+													h5{
+														color: #000000;
+													}
+												}
+											}
+											&:nth-of-type(2){
+												blockquote{
+													width: 80%;
+													border-bottom: none;
+
+													ul{
+														li{
+															font: normal 400 em(14) $font1;
+															color: #212121;
+															padding: 0px 0px 0px 20px;
+															margin-bottom: 20px;
+															position: relative;
+															&:before{
+																content: "";
+																display: inline-block;
+																width: 6px;
+																height: 6px;
+																background-color: #535353;
+																position: absolute;
+																top: 5px;
+																left: 0px;
+																@include redondeado(5px, 5px, 5px, 5px);
+															}
+														}
+													}
+
+												}
+											}
+											&:nth-of-type(3){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+													button{
+														background-color: #da272c;
+													}
+												}
+											}
+										}
+									}
+
+								}
+
+								.type3{
+									blockquote{
+										width: 74%;
+										margin: 0px auto;
+										padding: 15px 0;
+										border-bottom: 1px solid #dcdcdb;
+										@include to(tablet) {
+											width: 100%;
+											padding: 10px 0;
+										}
+										h2{
+											font: normal 600 em(56) $font1;
+											color: #000000;
+											text-align: center;
+											line-height: 54px;
+										}
+										h3{
+											font: normal 800 em(28) $font1;
+											color: #000000;
+											line-height: 40px;
+											display: table;
+											margin: 0 auto;
+											background: url("#{$path}/pg2_claromax.png") no-repeat left top;
+											padding: 0 0 0 166px;
+										}
+										h4{
+											font: normal 600 em(17) $font1;
+											color: #3c3c3c;
+											text-align: center;
+											margin-bottom: 11px;
+										}
+										h5{
+											font: normal 300 em(14) $font1;
+											color: #000000;
+											text-align: center;
+										}
+
+										p{
+											font: normal 300 em(18) $font1;
+											color: #000000;
+											text-align: center;
+											@include from-to(movil,tablet) {
+												font-size: em(15);
+											}
+											a{
+												color: #268da3;
+												text-decoration: underline;
+												cursor: pointer;
+												&:hover{
+													text-decoration: none;
+												}
+											}
+										}
+
+										
+										span.ico1{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_cobertura.png") no-repeat left top;
+											padding: 0 0 0 50px;
+										}
+										span.ico2{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_rpcilimitado.png") no-repeat left top;
+											padding: 0 0 0 44px;
+										}
+										span.ico3{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_llamadasilimitadas.png") no-repeat left top;
+											padding: 0 0 0 44px;
+										}
+										span.image{
+											display: table;
+										}
+										span.social{
+											@include flexbox;
+											@include justify-content(space-around);
+										}
+										button{
+											font: normal 300 em(18) $font1;
+											border:0;
+											color: $color_t1;
+											padding:12px 56px 12px 56px;
+											cursor:pointer;
+											display: table;
+											margin: 0 auto;
+											position: relative;
+
+											@include align-self(center);
+											background-color: #008ea5;
+											//@include fondo-degrade(180deg, $color_b4 30%, $color_b5 80% );
+											@include redondeado(5px, 5px, 5px, 5px);
+											//@include sombra-texto(0, 1px, 1px, #333);
+											@include sombra(0px, 0px, 1px, 5px);
+											@include transicion(all,0.4s,ease,0s);
+
+											&:hover{
+												@include transicion(all,0.4s,ease,0s);
+												@include filtro(3,.6);
+											}
+
+											@include to(movil) {
+												font-size: em(15);
+												padding:12px 36px 12px 36px;
+											}
+
+											@include from-to(movil,tablet) {
+												font-size: em(15);
+												padding:12px 36px 12px 36px;
+											}
+										}
+									}
+
+									&__side1{
+										&--row{
+											position: relative;
+											&:nth-of-type(1){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+												}
+											}
+											&:nth-of-type(2){
+												blockquote{
+													width: 100%;
+													background: url("#{$path}/pg2_bg_item.png") no-repeat center center;
+													background-size: cover;
+													padding: 45px 50px 44px;
+
+													@include to(movil) {
+														padding: 25px 10px 24px;
+													}
+
+													@include from-to(movil,tablet) {
+														padding: 25px 10px 24px;
+													}
+
+													h2{
+														font-size: em(54);
+														color: #ffffff;
+														text-transform: uppercase;
+													}
+													ul{
+														display: table;
+														margin: 41px auto 0px;
+														li{
+															font: normal 600 em(22) $font1;
+															color: #ffffff;
+															line-height: 30px;
+															padding: 0 0 0 35px;
+															//margin-bottom: 10px;
+														}
+														li.ico1{
+															background: url("#{$path}/pg2_ico_megas.png") no-repeat left top;
+														}
+														li.ico2{
+															background: url("#{$path}/pg2_ico_llamadas.png") no-repeat left top;
+														}
+														li.ico3{
+															background: url("#{$path}/pg2_ico_sms.png") no-repeat left top;
+														}
+													}
+												}
+											}
+											&:nth-of-type(3){
+												//background: #efefef;
+												blockquote{
+													width: 100%;
+													@include flexbox;
+													@include justify-content(space-around);
+													@include align-items(center);
+													background: url("#{$path}/pg2_line.png") no-repeat 63% center;
+
+													@include to(tablet) {
+														background: url("#{$path}/pg2_line.png") no-repeat 65% center;
+													}
+
+													.image{
+														img{
+															@include to(tablet) {
+																width: 90%;
+															}
+														}
+														
+													}
+												}
+											}
+											&:nth-of-type(4){
+												blockquote{
+													border-bottom: none;
+												}
+											}
+										}
+									}
+									&__side2{
+										&--row{
+											position: relative;
+											&:nth-of-type(1){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+												}
+											}
+											&:nth-of-type(2){
+												blockquote{
+													width: 80%;
+													border-bottom: none;
+
+													ul{
+														li{
+															font: normal 400 em(14) $font1;
+															color: #212121;
+															padding: 0px 0px 0px 20px;
+															margin-bottom: 20px;
+															position: relative;
+															&:before{
+																content: "";
+																display: inline-block;
+																width: 6px;
+																height: 6px;
+																background-color: #535353;
+																position: absolute;
+																top: 5px;
+																left: 0px;
+																@include redondeado(5px, 5px, 5px, 5px);
+															}
+														}
+													}
+
+												}
+											}
+											&:nth-of-type(3){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+													button{
+														background-color: #da272c;
+													}
+												}
+											}
+										}
+									}
+
+								}
+
+								.type4{
+									blockquote{
+										width: 74%;
+										margin: 0px auto;
+										padding: 15px 0;
+										border-bottom: 1px solid #dcdcdb;
+										@include to(tablet) {
+											width: 100%;
+											padding: 10px 0;
+										}
+
+										h2{
+											font: normal 600 em(56) $font1;
+											color: #000000;
+											text-align: center;
+											line-height: 54px;
+										}
+										h3{
+											font: normal 800 em(28) $font1;
+											color: #000000;
+											line-height: 40px;
+											display: table;
+											margin: 0 auto;
+											background: url("#{$path}/pg2_claromax.png") no-repeat left top;
+											padding: 0 0 0 166px;
+										}
+										h4{
+											font: normal 600 em(17) $font1;
+											color: #3c3c3c;
+											text-align: center;
+											margin-bottom: 11px;
+										}
+										h5{
+											font: normal 300 em(14) $font1;
+											color: #000000;
+											text-align: center;
+										}
+
+										p{
+											font: normal 300 em(18) $font1;
+											color: #000000;
+											text-align: center;
+											@include from-to(movil,tablet) {
+												font-size: em(15);
+											}
+											a{
+												color: #268da3;
+												text-decoration: underline;
+												cursor: pointer;
+												&:hover{
+													text-decoration: none;
+												}
+											}
+										}
+
+										
+										span.ico1{
+											font: normal 600 em(18) $font1;
+											color: #000000;
+											line-height: 34px;
+											display: table;
+											margin: 0 auto;
+											background: url("#{$path}/pg2_cobertura.png") no-repeat left top;
+											padding: 0 0 0 50px;
+										}
+										span.ico2{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_rpcilimitado.png") no-repeat left top;
+											padding: 0 0 0 44px;
+										}
+										span.ico3{
+											font: normal 600 em(16) $font1;
+											color: #000000;
+											line-height: 18px;
+											display: table;
+											background: url("#{$path}/pg2_llamadasilimitadas.png") no-repeat left top;
+											padding: 0 0 0 44px;
+										}
+										span.ico4{
+											font: normal 600 em(25) $font1;
+											color: #ffffff;
+											line-height: 22px;
+											display: table;
+											background: url("#{$path}/pg2_llamadasilimitadas2.png") no-repeat left center;
+											padding: 0 0 0 44px;
+
+											@include to(tablet) {
+												font-size: em(18);
+											}
+
+											i{
+												font-style: normal;
+												font-size: em(14);
+												font-weight: 300;
+												line-height: 22px;
+												display: block;
+												text-align: center;
+											}
+										}
+										span.image{
+											display: table;
+										}
+										span.social{
+											@include flexbox;
+											@include justify-content(space-around);
+										}
+										button{
+											font: normal 300 em(18) $font1;
+											border:0;
+											color: $color_t1;
+											padding:12px 56px 12px 56px;
+											cursor:pointer;
+											display: table;
+											margin: 0 auto;
+											position: relative;
+
+											@include align-self(center);
+											background-color: #008ea5;
+											//@include fondo-degrade(180deg, $color_b4 30%, $color_b5 80% );
+											@include redondeado(5px, 5px, 5px, 5px);
+											//@include sombra-texto(0, 1px, 1px, #333);
+											@include sombra(0px, 0px, 1px, 5px);
+											@include transicion(all,0.4s,ease,0s);
+
+											&:hover{
+												@include transicion(all,0.4s,ease,0s);
+												@include filtro(3,.6);
+											}
+
+											@include to(movil) {
+												font-size: em(15);
+												padding:12px 36px 12px 36px;
+											}
+
+											@include from-to(movil,tablet) {
+												font-size: em(15);
+												padding:12px 36px 12px 36px;
+											}
+										}
+									}
+
+									&__side1{
+										position: relative;
+										
+										&--row{
+											position: relative;
+											&:nth-of-type(1){
+												z-index: 1;
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+												}
+											}
+											&:nth-of-type(2){
+												blockquote{
+													width: 100%;
+													background-color: #f8f8f8;
+													border-bottom: none;
+												}
+											}
+											&:nth-of-type(4){
+												blockquote{
+													width: 100%;
+													@include flexbox;
+													@include justify-content(space-around);
+													background-color: #ff940d;
+													padding: 11px 0px;
+													//background: #ff940d url("#{$path}/pg2_llamadasilimitadas2.png") no-repeat center center;
+													@include to(tablet) {
+														padding: 6px 0px;
+													}
+												}
+											}
+											&:nth-of-type(5){
+												blockquote{
+													@include flexbox;
+													@include justify-content(space-around);
+													background: url("#{$path}/pg2_plus.png") no-repeat center center;
+												}
+											}
+											&:nth-of-type(6){
+												blockquote{
+													padding: 15px 20px;
+													@include to(tablet) {
+														padding: 10px 20px;
+													}
+												}
+											}
+											&:nth-of-type(7){
+												blockquote{
+													text-align: center;
+													border-bottom: none;
+												}
+											}
+										}
+									}
+									&__side2{
+										&--row{
+											position: relative;
+											&:nth-of-type(1){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+												}
+											}
+											&:nth-of-type(2){
+												blockquote{
+													width: 80%;
+													border-bottom: none;
+
+													ul{
+														li{
+															font: normal 400 em(14) $font1;
+															color: #212121;
+															padding: 0px 0px 0px 20px;
+															margin-bottom: 20px;
+															position: relative;
+															&:before{
+																content: "";
+																display: inline-block;
+																width: 6px;
+																height: 6px;
+																background-color: #535353;
+																position: absolute;
+																top: 5px;
+																left: 0px;
+																@include redondeado(5px, 5px, 5px, 5px);
+															}
+														}
+													}
+
+												}
+											}
+											&:nth-of-type(3){
+												blockquote{
+													width: 100%;
+													border-bottom: none;
+													button{
+														background-color: #da272c;
+													}
+												}
+											}
+										}
+									}
+
+								}
+
+								.item.type4{
+									border: 1px solid #ff940d;
+								}
+
+								.item{
+									width: 328px;
+									//width: 422px;
+									height: 610px;
+									@include redondeado(6px, 6px, 6px, 6px);
+									@include sombra(0px,0px, 0px, 5px, 153, 153, 153, 0.2);
+									border: 1px solid #dad9d9;
+									overflow: hidden;
+									position: relative;
+									margin-bottom: 2.5%;
+
+									@include to(tablet) {
+										width: 322px;
+										height: 596px;
+									}
+
+									@include to(movil) {
+										width: 300px;
+										height: 592px;
+										margin-bottom: 0px;
+									}
+
+									/*@include from-to(movil,tablet) {
+										width: 320px;
+										height: 554px;
+									}*/
+
+									&__group{
+										//width: 650px;
+										//width: 840px;
+										width: 652px;
+										@include flexbox;
+										position: absolute;
+										//margin-left: -420px;
+										margin-left: -326px;
+										@include transicion(all,0.2s,ease-in,0s);
+
+										@include to(tablet) {
+											width: 640px;
+											margin-left: -320px;
+										}
+
+										@include to(movil) {
+											width: 600px;
+											margin-left: -300px;
+										}
+										/*@include from-to(movil,tablet) {
+											width: 640px;
+											margin-left: -320px;
+										}*/
+									}
+									&__group.active{
+										margin-left: 0px;
+										@include transicion(all,0.2s,ease-out,0s);
+									}
+
+									&__side{
+										&--new{
+											position: absolute;
+											top: 0px;
+											left: 0px;
+											
+											width: 0;
+											height: 0;
+											border-style: solid;
+											border-width: 0px 0px 120px 120px;
+											border-color: transparent transparent transparent #ff940d;
+
+											@include to(tablet) {
+												border-width: 0px 0px 70px 70px;
+											}
+
+											h6{
+												position: absolute;
+												top: 26px;
+    										left: -120px;
+												transform: rotate(-45deg);
+												font: normal 500 em(30) $font1;
+												color: $color_t1;
+												text-transform: uppercase;
+
+												@include to(tablet) {
+													top: 17px;
+    											left: -70px;
+													font-size: em(16);
+												}
+											}
+											
+										}
+
+										&:nth-of-type(1){
+											//width: 326px;
+											width: 422px;
+											height: 100%;
+											background-color: #ffffff;
+
+											@include to(tablet) {
+												width: 322px;
+											}
+
+											@include to(movil) {
+												width: 300px;
+											}
+											/*@include from-to(movil,tablet) {
+												width: 320px;
+											}*/
+										}
+										&:nth-of-type(2){
+											//width: 326px;
+											width: 422px;
+											@include to(tablet) {
+												width: 322px;
+											}
+											@include to(movil) {
+												width: 300px;
+											}
+											/*@include from-to(movil,tablet) {
+												width: 320px;
+											}*/
+										}
+										&--button{
+											width: 36px;
+											height: 36px;
+											position: absolute;
+											top: 22px;
+    									left: 18px;
+    									cursor: pointer;
+											background: url("#{$path}/pg2_slideleft.png") no-repeat center center;
+
+											@include to(movil) {
+												left: 14px;
+											}
+											/*@include from-to(movil,tablet) {
+												left: 10px;
+											}*/
+										}
+									}
+								}
+							}
+							&__link{
+								padding: 0px 0 0 0;
+								position: relative;
+								z-index: 1;
+								a{
+									font: normal 500 em(16) $font1;
+									border:0;
+									color: $color_t1;
+									padding:15px 72px 15px 50px;
+									cursor:pointer;
+									display: table;
+									margin: 0 auto;
+									position: relative;
+
+									@include align-self(center);
+									background-color: #008ea5;
+									//@include fondo-degrade(180deg, $color_b4 30%, $color_b5 80% );
+									@include redondeado(5px, 5px, 5px, 5px);
+									//@include sombra-texto(0, 1px, 1px, #333);
+									//@include sombra(0px, 0px, 1px, 5px);
+									@include transicion(all,0.4s,ease,0s);
+
+									&:before {
+										content: "\f105";
+						        @include icon(0px);
+						        font-size: 26px;
+						        font-weight: 600;
+						        color: $color_b1;
+						        position: absolute;
+						        top: 12px;
+						        right: 46px;
+						      }
+
+									&:hover{
+										@include transicion(all,0.4s,ease,0s);
+										@include filtro(3,.6);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

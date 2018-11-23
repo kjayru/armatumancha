@@ -1,0 +1,147 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Arma tu mancha';
+	- var modal = 0;
+
+block content
+	.page2
+		.page2__main
+			section.section1
+				.section1__align
+					.section1__header
+						.links
+							a(href="#") 
+						.title: h2 ¡Arma tu mancha y gana!
+					.section1__main
+						.title: h2 Elige el beneficio
+						.content 
+							a.content__item
+								.content__bg
+									blockquote
+										figure
+											img(src=path+'assets/pg2_icon_movil.svg' alt='') 
+										figcaption
+											h4 Descuento en equipos
+										.tooltip
+											i(@click="$event.target.classList.toggle('active')")
+												span El descuento que tendrán será de acuerdo a la cantidad de amigos que vayan uniéndose en tu mancha.
+							a.content__item
+								.content__bg
+									blockquote
+										figure
+											img(src=path+'assets/pg2_icon_gigas.svg' alt='') 
+										figcaption
+											h4 Bono de gigas
+										.tooltip
+											i(@click="$event.target.classList.toggle('active')")
+												span El bono que tendrán será de acuerdo a la cantidad de amigos que vayan uniéndose en tu mancha.
+
+			section.section2
+				.section2__align
+					.section2__main
+						.register
+							form.form(action="")
+								.form__row1
+									.form__label
+										.circle
+											.circle__inner
+												.circle__wrapper
+													.circle__content 1
+										label Nombre de la Mancha
+									.form__fields
+										dl.type1
+											dt
+												input.form__text1(type='text', name='nombres')
+											dd
+												span.form__error error
+								.form__row1
+									.form__label
+										.circle
+											.circle__inner
+												.circle__wrapper
+													.circle__content 2
+										label.lider Ingresa tus datos (líder)
+									.form__fields
+										dl
+											dt
+												input.form__text2(type='text', name='nombres')
+											dd
+												span.form__error error
+										dl
+											dt
+												input.form__text2(type='text', name='nombres')
+											dd
+												span.form__error error
+										dl
+											dt
+												input.form__text2(type='text', name='nombres')
+											dd
+												span.form__error error
+								.form__row1
+									.form__label
+										.circle
+											.circle__inner
+												.circle__wrapper
+													.circle__content 3
+										label Agrega tu mancha
+									.form__fields
+										.form__fields--title
+											h3 Pata #1
+										dl
+											dt
+												input.form__text2(type='text', name='nombres')
+											dd
+												span.form__error error
+										dl
+											dt
+												input.form__text2(type='text', name='nombres')
+											dd
+												span.form__error error
+										dl
+											dt
+												input.form__text2(type='text', name='nombres')
+											dd
+												span.form__error error
+								.form__row2
+									.form__buttons
+										button.button1(type='submit') Agregar otro participante
+								.form__row1
+									.form__info: p Recuerda que el máximo de miembros por mancha es de 10 patas.
+								.form__row1
+									.form__fields
+										dl.type2
+											dt
+												.form__checkbox1
+													input(type='checkbox', name='autorizar')#Autorizar
+													label(for="Autorizar")
+													span Autorizo a Claro para el envío de contenido publicitario.
+								
+								.form__row3
+									.form__buttons
+										button.button2(type='submit') Registrar
+block modal
+	.page1
+		.page1__close(@click='closeModal()') Cerrar
+		section.section1
+			.section1__content
+				.section1__data
+					iframe(height="315" :src="video.url" frameborder="0" allow="encrypted-media" allowfullscreen )
+block css
+	style(type="text/css").
+			
+			.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+block javascript
+	script(type="text/javascript" src=path+'js/library/slick.js' charset="utf-8")
+	script(type='text/javascript' src=path+'js/main.js')
+	script(type='text/javascript').
+		//main.init();
