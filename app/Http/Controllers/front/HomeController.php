@@ -27,6 +27,7 @@ class HomeController extends Controller
     }
 
     public function listamanchaingreso(){
+
         return view('front.lista_mancha_ingreso');
     }
 

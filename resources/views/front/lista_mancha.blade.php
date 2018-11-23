@@ -41,7 +41,7 @@
                         <table>
                           <thead>
                             <tr>
-                              <th class="checkbox"> </th>
+                              <th class="checkbox" > </th>
                               <th><span><strong>Alias</strong></span></th>
                               <th>Teléfono</th>
                               <th>E-mail</th>
@@ -91,7 +91,7 @@
                               <td><i class="ico_status1"></i></td>
                             </tr>
                             <tr>
-                              <td class="checkbox">
+                              <td class="checkbox" >
                                 <input type="checkbox" name="group_mancha"/>
                               </td>
                               <td><strong>Spiderman</strong></td>

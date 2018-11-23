@@ -5,7 +5,7 @@ namespace App\Http\Controllers\front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Code;
-use App\users;
+use App\User;
 use App\Group;
 use App\UserGroup;
 
@@ -41,22 +41,62 @@ class RegisterController extends Controller
     {
         //redirect segun beneficio
 
-        $beneficio = $request->beneficio;
+         //get code
+        $numcode = Code::whereNotNull('user_id')->count();
+        $code_asig = intval($numcode+1);
+
+        $beneficio = 1;
+
+        $grupo = new Group();
+
+        $grupo->name = $request->nombres;
+        $grupo->save();
+
+        $user = new User();
+       // $user->beneficio = $request->beneficio;
+        $user->alias = $request->alias;
+        $user->numero = $request->telefono;
+        $user->email = $request->email;
+        //usuario lider
+        $user->role_id = 1;
+        //$user->autorizar = $request->autorizar;
+        $user->save();
+
+        $codigo = Code::where('id',$code_asig)->first();
+        $codigo->user_id = $user->id;
+        $codigo->save();
+
+        $usergroup = new UserGroup();
+        $usergroup->user_id =  $user->id;
+        $usergroup->group_id = $grupo->id;
+
+        $usergroup->save();
 
         switch ($beneficio) {
-            case 'gigas':
+            case '1':
              $url = 'gracias_gigas';
             break;
 
-            case 'millas':
+            case '2':
             $url = 'gracias_millas';
             break;
-
-
         }
 
         return redirect($url);
+       /* $grupores = Group::where('name',$request->nombres)->with('users')->first();
+
+        foreach($grupores->users as $group){
+
+              echo $group->alias."<br>";
+              echo $group->numero."<br>";
+              echo $group->email."<br>";
+              echo $group->role->name;
+
+        } */
+
     }
+
+
 
     public function crearpata(Request $request){
 

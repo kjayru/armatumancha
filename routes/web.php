@@ -21,7 +21,9 @@ Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->
 Route::post('/lista-mancha','front\HomeController@listamanchaingreso')->name('home.listamancha');
 
 //sesionado
-Route::post('/lista-sesion-mancha','front\HomeController@listamanchasesion')->name('home.listasesionmancha');
+Route::get('/lista-sesion-mancha','front\HomeController@listamanchasesion')->name('home.listasesionmancha');
+Route::get('/gracias_gigas','front\HomeController@graciasgigas')->name('home.graciasgigas');
+Route::get('/gracias_millas','front\HomeController@graciasmillas')->name('home.graciasmillas');
 
 //FILE
 Route::get('/flat-file','front\HomeController@flatfile');

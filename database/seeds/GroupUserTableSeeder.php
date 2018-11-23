@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-class UserGroupTableSeeder extends Seeder
+class GroupUserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class UserGroupTableSeeder extends Seeder
 
         $userQuantity = 100;
 
-        factory(App\UserGroup::class, $userQuantity)->create();
+        factory(App\GroupUser::class, $userQuantity)->create();
 
     }
 }

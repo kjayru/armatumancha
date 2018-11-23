@@ -17,7 +17,7 @@
               <section class="section1">
                 <div class="section1__align">
                   <div class="section1__header">
-                    <div class="links"><a class="btnBack" href="index.html"> <span>Volver</span></a></div>
+                    <div class="links"><a class="btnBack" href=""> <span>Volver</span></a></div>
                     <div class="title">
                       <h2>¡Ya vas obteniendo <span>5 </span>GB por línea! </h2>
                     </div>
@@ -104,7 +104,7 @@
                       </div>
                     </div>
                     <div class="code">
-                      <form class="form" action="{{ action('front\HomeController@listamanchasesion') }}" method="POST">
+                      <form class="form" action="" method="POST">
                         @csrf
                         <input type="hidden" name="_method" value="POST">
                         <div class="form__row1">
