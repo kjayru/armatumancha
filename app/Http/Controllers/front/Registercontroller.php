@@ -104,6 +104,8 @@ class RegisterController extends Controller
 
         //envio de sms
 
+
+
         switch ($beneficio) {
             case 'bonos':
             return redirect()->route('home.graciasgigas',['group_id'=> $grupo->id]);

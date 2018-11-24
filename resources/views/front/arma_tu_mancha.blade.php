@@ -174,8 +174,16 @@
                             </div>
                           </div>
                           <div class="form__row3">
-                            <div class="form__buttons">
-                              <button type="submit">chaptcha </button>
+                            <div class="form__buttons text-center">
+                              <!--<button type="submit">chaptcha </button>-->
+
+                              @php
+                                  $attributes = [
+                                        'data-theme' => 'dark',
+                                        'data-type' => 'audio',
+                                    ];
+                              @endphp
+                             {!! app('captcha')->display($attributes) !!}
                             </div>
                           </div>
                           <div class="form__row3">
