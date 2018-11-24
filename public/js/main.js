@@ -169,6 +169,9 @@ $.validator.methods.email = function( value, element ) {
             },
             'telefono[]':{
                 required:true,
+            },
+            autorizar:{
+                required:true
             }
 
 
@@ -178,16 +181,25 @@ $.validator.methods.email = function( value, element ) {
             lidername: "*Ingrese su alias de lider",
             lidercel: "*Ingrese su número de celular",
             'alias[]':"*Ingrese el alias de su pata",
-            'telefono[]':"*Ingrese el número de celular"
+            'telefono[]':"*Ingrese el número de celular",
+            autorizar:"*Marque esta casilla"
 
         }
     });
 
     $(document).on('click','.send-mancha',function(){
         if($("#fr-mancha").valid()===true){
+
+            var response = grecaptcha.getResponse();
+
+            if(response.length == 0){
+                alert("Captcha no verificado")
+                return false;
+            }
+
             $("#fr-mancha").submit();
         }else{
-            alert('complete el form');
+
             return false;
         }
     });

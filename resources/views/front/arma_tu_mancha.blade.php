@@ -177,13 +177,7 @@
                             <div class="form__buttons text-center">
                               <!--<button type="submit">chaptcha </button>-->
 
-                              @php
-                                  $attributes = [
-                                        'data-theme' => 'light',
-                                        'data-type' => 'audio',
-                                    ];
-                              @endphp
-                             {!! app('captcha')->display($attributes) !!}
+                              <div class="g-recaptcha" data-sitekey="6LfX1HwUAAAAAOaSaOP8bhE_IBKPUMpdzvf6ZI19"></div>
                             </div>
                           </div>
                           <div class="form__row3">
@@ -197,6 +191,15 @@
                   </div>
                 </section>
               </form>
+              @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
           </div>
         </div>

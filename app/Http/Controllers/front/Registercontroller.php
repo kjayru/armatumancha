@@ -40,13 +40,19 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
 
-      /*  $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
+
+       /* $validatedData = $request->validate([
+            'nombres' => 'required|unique:group|max:100',
+            'lidername' => 'required',
+            'lidercel' => 'required',
+            'alias[]' => 'required',
+            'telefono[]' => 'required',
+            'autorizar' => 'required',
             'g-recaptcha-response' => 'required|captcha'
         ]);*/
         //redirect segun beneficio
-        //dd($request);
+
+
          //get code
         $numcode = Code::whereNotNull('user_id')->count();
         $code_asig = intval($numcode+1);
