@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/','front\HomeController@endesarrollo')->name('home.desarrollo');
-Route::get('/inicio','front\HomeController@index')->name('home.index');
+//oute::get('/','front\HomeController@endesarrollo')->name('home.desarrollo');
+Route::get('/','front\HomeController@index')->name('home.index');
 Route::get('/arma-tu-mancha','front\HomeController@armatumancha')->name('home.armatumancha');
 Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->name('home.mirastatus');
 
