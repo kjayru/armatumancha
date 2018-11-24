@@ -126,9 +126,9 @@ class HomeController extends Controller
     public function test1(){
 
 
-        $mancha = "COMANCHE";
-        $codigo = "MN 458868";
-        $user_id = 1;
+        $mancha = "COMANCHE2";
+        $codigo = " MN 526442";
+        $user_id = 2;
 
           $notification = array(
                             'notificacion'=> array(
