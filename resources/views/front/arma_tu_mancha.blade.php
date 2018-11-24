@@ -5,7 +5,9 @@
         <div class="layout__main">
           <div class="page2">
             <div class="page2__main">
-
+            <form class="form"  method="POST" id="fr-data" >
+                    @csrf
+            </form>
               <form class="form" method="POST" id="fr-mancha" action="{{ action('front\RegisterController@store') }}" >
                 <input type="hidden" name="_method" value="POST">
                 <!-- VALUE BENEFICIO PARA REMITIR RUTA  gigas || millas -->

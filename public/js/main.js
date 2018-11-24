@@ -6,6 +6,29 @@ $(document).ready(function(){
     "use strict";
 
 
+    $("#nombres").on('blur',function(){
+        var valor = $(this).val();
+
+
+        var token = $("#fr-data input[name='_token']").val();
+
+         var sendata = {'_token':token,'_method':'POST','nombres':valor};
+        $.ajax({
+            url:'/disponibilidad-mancha',
+            type:'POST',
+            data:sendata,
+            dataType:'json',
+            success:function(response){
+                if(response.rpta == 'existe'){
+                    alert("El nombre del grupo existe, escoja otro nombre");
+                }else{
+                    alert("El nombre del grupo esta disponible");
+                }
+
+            }
+        });
+    });
+
     let slick1 = $("#list1").slick({
         responsive: [
           {
