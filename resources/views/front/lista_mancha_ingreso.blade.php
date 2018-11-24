@@ -80,7 +80,7 @@
                             <dl>
                               <dt>
                                 <input class="form__text1" type="text" name="codigo"/>
-                                <a href="/recuperar-codigo/{{$manchacelular}}"><span> Olvide mi código</span></a>
+                                <a href="/recuperar-codigo/@{{$manchacelular}}"><span> Olvide mi código</span></a>
                               </dt>
                               <dd>
                                 <button class="button1" type="submit">Continuar</button>
