@@ -29,7 +29,7 @@ Route::get('/gracias-millas','front\HomeController@graciasmillas')->name('home.g
 
 //FILE
 Route::get('/flat-file','front\HomeController@flatfile');
-//Route::get('/test1','front\HomeController@test1');
+Route::get('/test1','front\HomeController@test1');
 Route::get('/test2','front\RegisterController@testreg');
 
 /*asincronos*/

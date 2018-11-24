@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
+use Ixudra\Curl\Facades\Curl;
 use App\Code;
 use App\User;
 use App\Group;
@@ -50,6 +51,7 @@ class HomeController extends Controller
             return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
 
        }else{
+
             $contar2 = User::where('numero',$imancha)->count();
 
             if($contar2>0){
@@ -122,9 +124,12 @@ class HomeController extends Controller
 
 
     public function test1(){
-        $mancha = "testmancha";
-        $codigo = "34321";
-        $user_id = 2;
+
+
+        $mancha = "COMANCHE";
+        $codigo = "MN 458868";
+        $user_id = 1;
+
           $notification = array(
                             'notificacion'=> array(
                                 $mancha,
@@ -134,8 +139,16 @@ class HomeController extends Controller
                                 $user_id
                                 )
                         );
+        $cadena = json_encode(['data' => $notification]);
 
-        return response()->json([$notification]);
+    //dd($cadena);
+
+    $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                ->withData(['data'=>$notification])
+                ->post();
+
+    dd($response);
+       // return response()->json([$notification]);
     }
 
 

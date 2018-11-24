@@ -187,15 +187,16 @@ $.validator.methods.email = function( value, element ) {
             lidercel:{
                 required:true,
             },
+            autorizar:{
+                required:true
+            },
             'alias[]':{
                 required:true,
             },
             'telefono[]':{
                 required:true,
-            },
-            autorizar:{
-                required:true
             }
+
 
 
         },
@@ -203,9 +204,10 @@ $.validator.methods.email = function( value, element ) {
             nombres: "*Ingrese el nombre de su mancha",
             lidername: "*Ingrese su alias de lider",
             lidercel: "*Ingrese su número de celular",
-            'alias[]':"*Ingrese el alias de su pata",
-            'telefono[]':"*Ingrese el número de celular",
-            autorizar:"*Marque esta casilla"
+            autorizar: "*Marque esta casilla",
+            'alias[]': "*Ingrese el alias de su pata",
+            'telefono[]': "*Ingrese el número de celular"
+
 
         }
     });
