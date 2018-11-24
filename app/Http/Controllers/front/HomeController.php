@@ -127,8 +127,8 @@ class HomeController extends Controller
 
 
         $mancha = "COMANCHE2";
-        $codigo = " MN 526442";
-        $user_id = 2;
+        $codigo = "MN 829519";
+        $user_id = 3;
 
           $notification = array(
                             'notificacion'=> array(
