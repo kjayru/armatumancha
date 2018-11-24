@@ -8,7 +8,7 @@
               <section class="section1">
                 <div class="section1__align">
                   <div class="section1__header">
-                    <div class="links"><a class="btnBack" href="#"> <span>Volver</span></a></div>
+                    <div class="links"><a class="btnBack" href="{{ url()->previous() }}"> <span>Volver</span></a></div>
                   </div>
                   <div class="section1__main">
                     <div class="title">

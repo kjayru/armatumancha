@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
+use App\Code;
+use App\User;
+use App\Group;
+use App\GroupUser;
 
 class HomeController extends Controller
 {
@@ -26,59 +31,95 @@ class HomeController extends Controller
         return view('front.desarrollo');
     }
 
-    public function listamanchaingreso(){
+    public function listamanchaingreso(Request $request){
 
-        return view('front.lista_mancha_ingreso');
+        $group_id = Input::get('group_id');
+        $grupores = Group::where('id',$group_id)->with('users')->first();
+        return view('front.lista_mancha_ingreso',['grupores'=>$grupores]);
     }
 
-    public function listamanchasesion(){
-        return view('front.lista_mancha_sesion');
+    public function buscarmancha(Request $request){
+        $imancha = $request->manchacelular;
+        //busqueda mancha
+        $contar = Group::where('name','like','%'.$imancha.'%')->count();
+
+       if($contar>0){
+
+            $grupores = Group::where('name','like','%'.$imancha.'%')->with('users')->first();
+
+            return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
+
+       }else{
+            $contar2 = User::where('numero',$imancha)->count();
+
+            if($contar2>0){
+                $user = User::where('numero',$imancha)->first();
+
+                $group_id = $user->groups[0]->id;
+
+                $grupores = Group::where('id',$group_id)->with('users')->first();
+                return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
+            }else{
+
+                //redirect mirar-status-de-tu-mancha
+                return redirect()->route('home.mirastatus', ['mensaje' => 1 ]);
+            }
+       }
+
+
+
     }
 
-    //gracias gigas
+
+    public function listamanchasesion(Request $request){
+
+
+        $code = Code::where('code',$request->codigo)
+                    ->where('status',2)->first();
+
+        if($code){
+            $user_id = $code->user_id;
+
+            $user = User::where('id',$user_id)->first();
+
+            $grupores = Group::where('id',$user->groups[0]->id)->with('users')->first();
+
+
+
+            if($user->role->id==1){
+                return view('front.lista_mancha_sesion',['grupores'=>$grupores]);
+            }else{
+                return redirect()->route('home.listamancha',['group_id'=> $user->groups[0]->id,'mensaje'=>1]);
+            }
+
+        }else{
+            //dd("error");
+            return redirect()->route('home.mirastatus', ['mensaje' => 2 ]);
+        }
+
+
+
+    }
+
+
+
     public function graciasgigas(){
-        return view('front.confirmacion_mancha');
+
+       $group_id = Input::get('group_id');
+
+
+        return view('front.confirmacion_mancha',['group_id'=>$group_id]);
     }
-    //gracias millas
+
 
     public function graciasmillas(){
         return view('front.confirmacion_millas');
     }
 
-    public function store(Request $request){
-
-       // dd($request);
-       // $group = new Group();
-
-        //$user = new User();
-
-        //$usergroup = new UserGroup();
-
-        //send notification
-                    /*"data":[{
-                        "notifications":[
-                                            "creacion-mancha",
-                                            "codigo-seguridad"
-                                        ],
-                        "users":[1]
-                        }]*/
-        $mancha = "testmancha";
-        $codigo = "34321";
-        $user_id = 2;
-          $notification = array(
-                            'notificacion'=> array(
-                                $mancha,
-                                $codigo
-                               ),
-                            'users' => array(
-                                $user_id
-                                )
-                        );
-
-        return response()->json([$notification]);
 
 
-    }
+
+
 
     public function test1(){
         $mancha = "testmancha";

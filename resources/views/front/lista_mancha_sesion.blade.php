@@ -22,7 +22,7 @@
                         <a class="btnClose" href="{{ route('home.index') }}"> <span>Cerrar sesión</span></a>
                     </div>
                     <div class="title">
-                      <h2>AVENGERS</h2>
+                      <h2>{{ strtoupper($grupores->name)}}</h2>
                     </div>
                   </div>
                 </div>
@@ -32,9 +32,9 @@
                   <div class="section2__main">
                     <div class="grid">
                       <div class="grid__actions">
-                          <a v-on:click="showModal()"> <img src="assets/pg4_icon_add.svg" alt=""/><span>Agregar miembro</span></a>
-                          <a> <img src="assets/pg4_icon_leader.svg" alt=""/><span>Cambiar líder</span></a>
-                          <a> <img src="assets/pg4_icon_clean.svg" alt=""/><span>Eliminar miembro</span></a>
+                          <a href="#" class="modal-1"> <img src="assets/pg4_icon_add.svg" alt=""/><span>Agregar miembro</span></a>
+                          <a href="#"  class="modal-2" > <img src="assets/pg4_icon_leader.svg" alt=""/><span>Cambiar líder</span></a>
+                          <a href="#" class="modal-3" > <img src="assets/pg4_icon_clean.svg" alt=""/><span>Eliminar miembro</span></a>
                         </div>
                       <div class="grid__info">
                         <table>
@@ -49,57 +49,19 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td class="checkbox">
-                                <input type="checkbox" name="group_mancha"/>
-                              </td>
-                              <td class="star"><strong>Spiderman</strong></td>
-                              <td><span>996******</span></td>
-                              <td><span>corr***@prueba.com</span></td>
-                              <td><i class="ico_like"></i></td>
-                              <td><i class="ico_status1"></i></td>
-                            </tr>
-                            <tr>
-                              <td class="checkbox">
-                                <input type="checkbox" name="group_mancha"/>
-                              </td>
-                              <td><strong>Spiderman</strong></td>
-                              <td><span>996******</span></td>
-                              <td><span>corr***@prueba.com</span></td>
-                              <td><i class="ico_unlike"> </i></td>
-                              <td><i class="ico_status2"></i></td>
-                            </tr>
-                            <tr>
-                              <td class="checkbox">
-                                <input type="checkbox" name="group_mancha"/>
-                              </td>
-                              <td><strong>Spiderman</strong></td>
-                              <td><span>996******</span></td>
-                              <td><span>corr***@prueba.com</span></td>
-                              <td><i class="ico_status3"> </i></td>
-                              <td><i class="ico_status1"></i></td>
-                            </tr>
-                            <tr>
-                              <td class="checkbox">
-                                <input type="checkbox" name="group_mancha"/>
-                              </td>
-                              <td><strong>Spiderman</strong></td>
-                              <td><span>996******</span></td>
-                              <td><span>corr***@prueba.com</span></td>
-                              <td><i class="ico_unlike"> </i></td>
-                              <td><i class="ico_status1"></i></td>
-                            </tr>
-                            <tr>
-                              <td class="checkbox">
-                                <input type="checkbox" name="group_mancha"/>
-                              </td>
-                              <td><strong>Spiderman</strong></td>
-                              <td><span>996******</span></td>
-                              <td><span>corr***@prueba.com</span></td>
-                              <td><i class="ico_unlike"> </i></td>
-                              <td><i class="ico_status2"></i></td>
-                            </tr>
-                          </tbody>
+                                @foreach($grupores->users as $group)
+                                <tr>
+                                  <td class="checkbox">
+                                    <input type="checkbox" class="estado-client" data-id="{{ $group->id}}"   name="group_mancha"/>
+                                  </td>
+                                  <td @if($group->role->id==1) data-liderid="{{ $group->id}}" class="star" @endif><strong>{{ $group->alias }}</strong></td>
+                                  <td><span>{{ $group->numero }}</span></td>
+                                  <td><span>{{ $group->email }}</span></td>
+                                  <td><i @if($group->status==1) class="ico_status3" @elseif($group->status==2)  class="ico_like" @else class="ico_unlike" @endif></i></td>
+                                  <td><i  @if($group->califica==1) class="ico_status3" @elseif($group->califica==2)  class="ico_status2" @else class="ico_status1" @endif></i></td>
+                                </tr>
+                                @endforeach
+                              </tbody>
                         </table>
                       </div>
                     </div>
@@ -123,13 +85,16 @@
             </div>
           </div>
         </div>
+        <form id="fordata">
+            @csrf
+        </form>
         <transition name="fade">
-          <div class="layout__modal" v-if="modal.show" v-bind:class="{active: modal.show}">
+          <div class="layout__modal" style="display:none;">
             <div class="overlay">
               <div class="box">
                 <div class="box__inset">
-                  <div class="page1" v-if="modal.page1">
-                    <div class="page1__close" v-on:click="closeModal()">Cerrar</div>
+                  <div class="page1">
+                    <div class="page1__close">Cerrar</div>
                     <section class="section1">
                       <div class="section1__header">
                         <div class="title">
@@ -138,14 +103,16 @@
                       </div>
                       <div class="section1__main">
                         <div class="register">
-                          <form class="form" action="">
+                          <form class="form" id="fr-nuevopata">
+                              @csrf
+                              <input type="hidden" name="group_id" value="{{ $grupores->id }}">
                             <div class="form__row1">
                               <div class="form__fields">
                                 <dl>
                                   <dt>
-                                    <input class="form__text1" type="text" name="nombres" placeholder="Alias"/>
+                                    <input class="form__text1" type="text" name="alias" placeholder="Alias"/>
                                   </dt>
-                                  <dd><span class="form__error">error</span></dd>
+                                  <dd></dd>
                                 </dl>
                               </div>
                             </div>
@@ -153,9 +120,9 @@
                               <div class="form__fields">
                                 <dl>
                                   <dt>
-                                    <input class="form__text1" type="text" name="nombres" placeholder="Teléfono"/>
+                                    <input class="form__text1" type="text" name="telefono" placeholder="Teléfono"/>
                                   </dt>
-                                  <dd><span class="form__error">error</span></dd>
+                                  <dd></dd>
                                 </dl>
                               </div>
                             </div>
@@ -163,15 +130,15 @@
                               <div class="form__fields">
                                 <dl>
                                   <dt>
-                                    <input class="form__text1" type="text" name="nombres" placeholder="Email"/>
+                                    <input class="form__text1" type="text" name="email" placeholder="Email"/>
                                   </dt>
-                                  <dd><span class="form__error">error</span></dd>
+                                  <dd></dd>
                                 </dl>
                               </div>
                             </div>
                             <div class="form__row3">
                               <div class="form__buttons">
-                                <button class="button1" type="button" v-on:click="closeModal()">Registrar</button>
+                                <button class="button1 btn-nuevopata" type="button">Registrar</button>
                               </div>
                             </div>
                           </form>
@@ -179,20 +146,22 @@
                       </div>
                     </section>
                   </div>
-                  <div class="page2" v-if="modal.page2">
-                    <div class="page2__close" v-on:click="closeModal()">Cerrar</div>
+                  <div class="page2" style="display:none">
+                    <div class="page2__close">Cerrar</div>
                     <section class="section1">
                       <div class="section1__main">
                         <div class="content">
-                          <iframe width="800" height="600" src="https://www.youtube.com/embed/DOG5FlZJ81g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+
                         </div>
                       </div>
                     </section>
                   </div>
-                  <div class="page3" v-if="modal.page3">
+                  <div class="page3" style="display:none">
                     <section class="section1">
                       <div class="section1__main">
-                        <div class="loader"></div>
+                            <div class="content">
+
+                                </div>
                       </div>
                     </section>
                   </div>

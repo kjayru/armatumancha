@@ -17,10 +17,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('alias');
             $table->string('numero');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email')->nullable();
+
+            $table->string('beneficio');
             $table->integer('status')->default('1');
-            $table->integer('beneficio')->default('1');
+            $table->integer('califica')->default('1');
             $table->unsignedInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
 

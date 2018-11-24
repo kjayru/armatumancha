@@ -2,6 +2,7 @@
 
 use Faker\Generator as Faker;
 use App\Role;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -18,6 +19,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'alias' => $faker->name,
         'numero' => $faker->e164PhoneNumber,
         'email' => $faker->unique()->safeEmail,
+        'beneficio'=>$faker->randomElement([User::GIGAS, User::MILLAS]),
         'email_verified_at' => now(),
         'role_id'=>$faker->randomElement([Role::LIDER, Role::PATA]),
 

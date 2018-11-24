@@ -22,17 +22,17 @@
                       <h2>Ingresa el nombre de tu <strong>mancha </strong>o número <strong>celular</strong></h2>
                     </div>
                     <div class="code">
-                      <form class="form" action="{{ action('front\HomeController@listamanchaingreso') }}" method="POST">
+                      <form class="form" action="{{ action('front\HomeController@buscarmancha') }}" method="POST">
                           <input type="hidden" name="_method" value="POST">
                           @csrf
                         <div class="form__row2">
                           <div class="form__fields">
                             <dl>
                               <dt>
-                                <input class="form__text1" type="text" name="nombres"/>
+                                <input class="form__text1" type="text" name="manchacelular"/>
                               </dt>
                               <dd>
-                                <button class="button1" type="submit">Continuar</button>
+                                <button class="button1 btn-buscar" type="submit">Continuar</button>
                               </dd>
                             </dl>
                           </div>

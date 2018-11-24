@@ -14,16 +14,18 @@
 Route::get('/','front\HomeController@endesarrollo')->name('home.desarrollo');
 Route::get('/inicio','front\HomeController@index')->name('home.index');
 Route::get('/arma-tu-mancha','front\HomeController@armatumancha')->name('home.armatumancha');
-Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->name('home.armatumancha');
+Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->name('home.mirastatus');
 
 
 
-Route::post('/lista-mancha','front\HomeController@listamanchaingreso')->name('home.listamancha');
+Route::get('/lista-mancha','front\HomeController@listamanchaingreso')->name('home.listamancha');
+
+Route::post('/buscar-mancha','front\HomeController@buscarmancha')->name('home.buscarmancha');
 
 //sesionado
-Route::get('/lista-sesion-mancha','front\HomeController@listamanchasesion')->name('home.listasesionmancha');
-Route::get('/gracias_gigas','front\HomeController@graciasgigas')->name('home.graciasgigas');
-Route::get('/gracias_millas','front\HomeController@graciasmillas')->name('home.graciasmillas');
+Route::post('/lista-sesion-mancha','front\HomeController@listamanchasesion')->name('home.listasesionmancha');
+Route::get('/gracias-gigas','front\HomeController@graciasgigas')->name('home.graciasgigas');
+Route::get('/gracias-millas','front\HomeController@graciasmillas')->name('home.graciasmillas');
 
 //FILE
 Route::get('/flat-file','front\HomeController@flatfile');
@@ -42,7 +44,7 @@ Route::delete('/borrar-pata/{id}','front\RegisterController@borrarpata')->name('
 
 Route::post('/validar-celular','front\RegisterController@validarcelular')->name('register.validarcelular');
 
-Route::post('/recuperar-codigo','front\RegisterController@recuperarcodigo')->name('register.recuperarcodigo');
+Route::get('/recuperar-codigo/{any}','front\RegisterController@recuperarcodigo')->name('register.recuperarcodigo');
 
 Route::post('/validar-codigo-recuperado','front\RegisterController@validarcodigorecuperado')->name('register.validarcodigorecuperado');
 
