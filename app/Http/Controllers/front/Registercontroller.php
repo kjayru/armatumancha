@@ -148,8 +148,8 @@ class RegisterController extends Controller
 
     public function crearpata(Request $request){
 
-        $numcode = Code::whereNotNull('user_id')->count();
-        $code_asig = intval($numcode+1);
+        $numcode = Code::whereNull('user_id')->first();
+        $code_asig = $numcode->id;
 
         $user = new User();
         $user->alias = $request->alias;
@@ -157,12 +157,12 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->beneficio = ' ';
         $user->role_id = 2;
-        //$user->save();
+        $user->save();
 
         $codigo = Code::where('id',$code_asig)->first();
         $codigo->user_id = $user->id;
-        //$codigo->save();
-        dd($code_asig." ".$codigo);
+        $codigo->save();
+
         //distribucion
         $usergroup = new GroupUser();
         $usergroup->user_id =  $user->id;
@@ -172,16 +172,20 @@ class RegisterController extends Controller
         return response()->json(['rpta'=>'ok']);
     }
 
-    public function asignarlider(Request $request,$id){
+    public function asignarlider(Request $request, $id){
         //actualiza estado en user
 
         //cambiar privilegio lider
         $user = User::where('id',$request->lider_id)
-            ->update(['role_id'=>'2']);
+           ->update(['role_id'=>'2']);
+
 
         $disabledCode = Code::where('user_id',$request->lider_id)->update(['status'=>3]);
         //
-        //insert user en code y extrae
+        //nuevo codigo lider
+        $numcode = Code::whereNull('user_id')->first();
+        $codesa= Code::where('id',$numcode->id)->update(['user_id'=>$request->lider_id,'status'=>2]);
+
 
         $user2 = User::where('id',$request->user_id)
             ->update(['role_id'=>'1']);
@@ -189,19 +193,16 @@ class RegisterController extends Controller
         $disabledCode2 = Code::where('user_id',$request->user_id)->update(['status'=>3]);
 
         //nuevo codigo lider
-        $numcode = Code::whereNotNull('user_id')->count();
-        $code_asig = intval($numcode+1);
 
-         Code::where('id',$code_asig)
-            ->update(['user_id'=>$request->lider_id,'status'=>2]);
 
         //nuevo codigo user
 
-        $numcode2 = Code::whereNotNull('user_id')->count();
-        $code_asig2 = intval($numcode2+1);
+        $numcode2 = Code::whereNull('user_id')->first();
 
-         Code::where('id',$code_asig2)
+         Code::where('id',$numcode2->id)
             ->update(['user_id'=>$request->user_id,'status'=>2]);
+
+
 
         //send new code sms
 
@@ -273,21 +274,45 @@ class RegisterController extends Controller
 
 
     public function listamanchasesion(Request $request){
+        //verifico mi grupo
+        $user = User::where('id',Auth::id())->first();
+
+        $group_id = $user->groups[0]->id;
+        $code = false;
+        //dd($grupo_id);
+        //extraigo de grupo users
+        $patas = Group::where('id',$group_id)->with('users')->first();
+
+        //$code = Code::where('code',$request->codigo)
+         //           ->where('status',2)->first();
 
 
-        $code = Code::where('code',$request->codigo)
-                    ->where('status',2)->first();
+        foreach( $patas->users as $pata){
+
+            foreach($pata->codes as $icode){
+               // crear arreglo de codigos
+
+                if( $icode->code==$request->codigo && $icode->status==2){
+                    $user_id = $icode->id;
+                    $user_rol = $pata->role_id;
+
+                    $code = true;
+                }
+            }
+
+          }
+
 
         if($code){
-            $user_id = $code->user_id;
+
 
             $user = User::where('id',$user_id)->first();
 
-            $grupores = Group::where('id',$user->groups[0]->id)->with('users')->first();
+            $grupores = Group::where('id',$group_id)->with('users')->first();
 
 
 
-            if($user->role->id==1){
+            if($user_rol==1){
                 return view('front.lista_mancha_sesion',['grupores'=>$grupores]);
             }else{
                 return redirect()->route('home.listamancha',['mensaje'=>1]);
@@ -295,7 +320,8 @@ class RegisterController extends Controller
 
         }else{
             //dd("error");
-            return redirect()->route('home.mirastatus', ['mensaje' => 2 ]);
+            return redirect()->route('home.listamancha',['mensaje'=>2]);
+
         }
 
 

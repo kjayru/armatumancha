@@ -271,6 +271,7 @@ $.validator.methods.email = function( value, element ) {
                 let token = $("#fordata input[name='_token']").val();
 
                 let dataform = ({'_token':token,'_method':'PUT','user_id':id, 'lider_id':liderid});
+                console.log(dataform);
                 $.ajax({
                     url:'/asignar-lider/'+id,
                     method:'POST',
