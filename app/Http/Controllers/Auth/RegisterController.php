@@ -67,8 +67,8 @@ class RegisterController extends Controller
         //event(new Registered($user = $this->create($request->all())));
 
 
-        $numcode = Code::whereNotNull('user_id')->count();
-        $code_asig = intval($numcode+1);
+        $numcode = Code::whereNull('user_id')->first();
+        $code_asig = $numcode->id;
 
         $beneficio =  $request->beneficio;
 
@@ -100,8 +100,8 @@ class RegisterController extends Controller
 
         for($i=0; $i<$numpatas; $i++){
 
-            $numcode2 = Code::whereNotNull('user_id')->count();
-            $code_asig2 = intval($numcode2+1);
+            $numcode2 = Code::whereNull('user_id')->first();
+            $code_asig2 = $numcode2->id;
 
             $pata = new User();
 
