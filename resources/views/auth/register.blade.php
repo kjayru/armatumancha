@@ -113,13 +113,13 @@
                                               <div class="form__fields">
                                                 <dl>
                                                   <dt>
-                                                    <input class="form__text2" type="text" name="lidername" value="{{ old('alias') }}"   placeholder="Alias"/>
+                                                    <input class="form__text2" type="text" name="lidername" id="lidername" value="{{ old('alias') }}" maxlength="20"  placeholder="Alias"/>
                                                   </dt>
                                                   <dd></dd>
                                                 </dl>
                                                 <dl>
                                                   <dt>
-                                                    <input class="form__text2" type="text" name="lidercel" value="{{ old('numero') }}"   placeholder="Teléfono"/>
+                                                    <input class="form__text2" type="text" name="lidercel" id="lidercel" maxlength="9" value="{{ old('numero') }}"   placeholder="Teléfono"/>
                                                   </dt>
                                                   <dd></dd>
                                                 </dl>
@@ -149,13 +149,13 @@
                                                   </div>
                                                   <dl>
                                                     <dt>
-                                                      <input name="alias[]" class="form__text2" type="text" value="{{ old('alias[]') }}"  placeholder="Alias" />
+                                                      <input name="alias[]" class="form__text2" type="text"  maxlength="20" value="{{ old('alias[]') }}"  placeholder="Alias" />
                                                     </dt>
                                                     <dd></dd>
                                                   </dl>
                                                   <dl>
                                                     <dt>
-                                                      <input class="form__text2" name="telefono[]" type="text" value="{{ old('numero[]') }}"  placeholder="Teléfono" />
+                                                      <input class="form__text2 cellpata" maxlength="9" name="telefono[]" type="text" value="{{ old('numero[]') }}"  placeholder="Teléfono" />
                                                       <dd></dd>
                                                     </dt>
                                                   </dl>
@@ -205,7 +205,7 @@
                                             </div>
                                             <div class="form__row3">
                                               <div class="form__buttons">
-                                                <button class="button2 send-mancha disabled" type="buttom" >Registrar</button>
+                                                <button class="button2 send-mancha disabled" type="buttom" disabled>Registrar</button>
                                               </div>
                                             </div>
                                           </div>

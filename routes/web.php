@@ -31,6 +31,8 @@ Route::get('/flat-file','front\HomeController@flatfile');
 Route::get('/test1','front\HomeController@test1');
 Route::get('/test2','front\RegisterController@testreg');
 
+Route::get('/vercodigo','front\HomeController@vercodigo');
+Route::post('/mostrarcodigo','front\HomeController@mostrarcodigo');
 /*asincronos*/
 //Route::post('/save-data-group','front\RegisterController@store')->name('register.store');
 

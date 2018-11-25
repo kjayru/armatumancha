@@ -139,6 +139,20 @@ class HomeController extends Controller
         //Storage::append('flatfile.txt', $contents);
     }
 
+    public function vercodigo(){
+        return view('test.vercodigo');
+    }
+
+    public function mostrarcodigo(Request $request){
+        $celular = $request->codigo;
+
+        $user = User::where('numero',$celular)->first();
+
+        $codigo = Code::where('user_id',$user->id)
+                ->where('status',2)->first();
+
+        dd($codigo->code);
+    }
     public function logout(Request $request)
     {
         $this->guard()->logout();

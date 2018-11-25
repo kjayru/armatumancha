@@ -103,13 +103,13 @@
                             <div class="form__fields">
                               <dl>
                                 <dt>
-                                  <input class="form__text2" type="text" name="lidername"  placeholder="Alias"/>
+                                  <input class="form__text2" type="text" name="lidername" id="lidername"  placeholder="Alias"/>
                                 </dt>
                                 <dd></dd>
                               </dl>
                               <dl>
                                 <dt>
-                                  <input class="form__text2" type="text" name="lidercel"  placeholder="Teléfono"/>
+                                  <input class="form__text2" type="text" name="lidercel" maxlength="9" id="lidercel" placeholder="Teléfono"/>
                                 </dt>
                                 <dd></dd>
                               </dl>
