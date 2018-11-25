@@ -1,7 +1,7 @@
 
 @extends('layout.master')
 @section('content')
-<div class="layout" id="app">
+
         <div class="layout__main">
           <div class="page2">
             <div class="page2__main">
@@ -216,7 +216,7 @@
             </div>
           </div>
         </div>
-</div>
+
 <style>
 .g-recaptcha {
     display: inline-block;

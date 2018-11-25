@@ -13,16 +13,18 @@
 
 //oute::get('/','front\HomeController@endesarrollo')->name('home.desarrollo');
 Route::get('/','front\HomeController@index')->name('home.index');
-Route::get('/arma-tu-mancha','front\HomeController@armatumancha')->name('home.armatumancha');
+
+
+//Route::get('/arma-tu-mancha','front\HomeController@armatumancha')->name('home.armatumancha');
+
 Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->name('home.mirastatus');
 
 
 
-Route::get('/lista-mancha','front\HomeController@listamanchaingreso')->name('home.listamancha');
+//Route::get('/lista-mancha','front\HomeController@listamanchaingreso')->name('home.listamancha');
 
 Route::post('/buscar-mancha','front\HomeController@buscarmancha')->name('home.buscarmancha');
 
-Route::get('/ingrese-celular','front\HomeController@ingresecelular')->name('home.ingresecelular');
 
 //FILE
 Route::get('/flat-file','front\HomeController@flatfile');
@@ -30,7 +32,23 @@ Route::get('/test1','front\HomeController@test1');
 Route::get('/test2','front\RegisterController@testreg');
 
 /*asincronos*/
-Route::post('/save-data-group','front\RegisterController@store')->name('register.store');
+//Route::post('/save-data-group','front\RegisterController@store')->name('register.store');
+
+
+
+//Route::resource('consultas','ConsultaController');
+
+//sesionado
+
+
+
+Auth::routes();
+
+Route::get('/gracias-gigas','front\RegisterController@graciasgigas')->name('home.graciasgigas');
+Route::get('/gracias-millas','front\RegisterController@graciasmillas')->name('home.graciasmillas');
+Route::get('/dashboard','front\RegisterController@listamanchaingreso')->name('home.listamancha');
+Route::post('/lista-sesion-mancha','front\RegisterController@listamanchasesion')->name('home.listasesionmancha');
+
 
 Route::post('/disponibilidad-mancha','front\RegisterController@disponibilidadmancha')->name('register.disponibilidadmancha');
 Route::post('/validar-codigo','front\RegisterController@validarcodigo')->name('register.validarcodigo');
@@ -45,19 +63,8 @@ Route::post('/recuperar-codigo','front\RegisterController@recuperarcodigo')->nam
 
 Route::post('/validar-codigo-recuperado','front\RegisterController@validarcodigorecuperado')->name('register.validarcodigorecuperado');
 
+Route::get('/logout','front\HomeController@logout')->name('logout');
 
-//Route::resource('consultas','ConsultaController');
-Route::get('/gracias-gigas','front\HomeController@graciasgigas')->name('home.graciasgigas');
-Route::get('/gracias-millas','front\HomeController@graciasmillas')->name('home.graciasmillas');
+Route::get('/ingrese-celular','front\RegisterController@ingresecelular')->name('home.ingresecelular');
 
-//sesionado
-
-//Route::group(['prefix'=>'dashboard','middleware'=>CheckCode::class],function(){
-    Route::post('/lista-sesion-mancha','front\HomeController@listamanchasesion')->name('home.listasesionmancha');
-
-//})
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

@@ -7,8 +7,29 @@
             </div>
         <div class="layout__header--button"></div>
             <ul>
-                <li><a  href="/arma-tu-mancha"> <img src="assets/menu_ico_star.svg" alt="">Arma tu mancha  </a></li>
+
+
+            @guest
+
+                <li><a  href="{{ route('register') }}"> <img src="assets/menu_ico_star.svg" alt="">Arma tu mancha  </a></li>
                 <li><a href="/mira-el-status-de-tu-mancha"> <img src="assets/menu_ico_consultar.svg" alt="">Consulta tu mancha  </a></li>
+
+
+            @else
+                <li class="nav-item dropdown">
+
+                        <a class="btnClose"  href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            Salir
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                </li>
+            @endguest
             </ul>
         </nav>
     </div>

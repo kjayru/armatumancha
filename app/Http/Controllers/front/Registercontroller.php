@@ -4,6 +4,13 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
+use Ixudra\Curl\Facades\Curl;
+use Illuminate\Support\Facades\Auth;
+
+
 use App\Code;
 use App\User;
 use App\Group;
@@ -11,6 +18,11 @@ use App\GroupUser;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function testreg(){
         return view('test.test');
     }
@@ -134,8 +146,6 @@ class RegisterController extends Controller
 
     }
 
-
-
     public function crearpata(Request $request){
 
         $numcode = Code::whereNotNull('user_id')->count();
@@ -198,6 +208,8 @@ class RegisterController extends Controller
         return response()->json(['rpta'=>'ok']);
     }
 
+
+
     public function borrarpata($id){
 
 
@@ -243,5 +255,77 @@ class RegisterController extends Controller
 
         return response()->json(['rpta'=>'ok']);
     }
+
+
+
+    public function listamanchaingreso(){
+
+
+        $user = User::where('id',Auth::id())->first();
+
+        $group_id = $user->groups[0]->id;
+
+        $grupores = Group::where('id',$group_id)->with('users')->first();
+
+
+        return view('front.lista_mancha_ingreso',['grupores'=>$grupores]);
+    }
+
+
+    public function listamanchasesion(Request $request){
+
+
+        $code = Code::where('code',$request->codigo)
+                    ->where('status',2)->first();
+
+        if($code){
+            $user_id = $code->user_id;
+
+            $user = User::where('id',$user_id)->first();
+
+            $grupores = Group::where('id',$user->groups[0]->id)->with('users')->first();
+
+
+
+            if($user->role->id==1){
+                return view('front.lista_mancha_sesion',['grupores'=>$grupores]);
+            }else{
+                return redirect()->route('home.listamancha',['mensaje'=>1]);
+            }
+
+        }else{
+            //dd("error");
+            return redirect()->route('home.mirastatus', ['mensaje' => 2 ]);
+        }
+
+
+
+    }
+
+
+
+    public function graciasgigas(){
+
+       $group_id = Input::get('group_id');
+
+
+        return view('front.confirmacion_mancha',['group_id'=>$group_id]);
+    }
+
+
+    public function graciasmillas(){
+
+        $group_id = Input::get('group_id');
+
+        return view('front.confirmacion_millas',['group_id'=>$group_id]);
+    }
+
+
+    public function ingresecelular()
+    {
+        return view('front.numero_celular');
+    }
+
+
 
 }

@@ -18,8 +18,8 @@
                 <div class="section1__align">
                   <div class="section1__header">
                     <div class="links">
-                        <a class="btnBack" href="{{ route('home.index') }}"> <span>Volver</span></a>
-                        <a class="btnClose" href="{{ route('home.index') }}"> <span>Cerrar sesión</span></a>
+                        <a class="btnBack" href="/dashboard"> <span>Volver</span></a>
+                        <!--<a class="btnClose" href="{{ route('home.index') }}"> <span>Cerrar sesión</span></a>-->
                     </div>
                     <div class="title">
                       <h2>{{ strtoupper($grupores->name)}}</h2>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="form__row3">
                           <div class="form__buttons">
-                            <button class="button2" type="submit">Actualizar</button>
+                            <button class="button2 btn-actualizar" type="button">Actualizar</button>
                           </div>
                         </div>
                       </form>

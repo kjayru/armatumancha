@@ -16,12 +16,13 @@
                       <p>enviado por SMS</p>
                     </div>
                     <div class="code">
-                      <form class="form" action="">
+                      <form class="form" method="POST" action="{{ action('front\RegisterController@listamanchasesion') }}">
+                        @csrf
                         <div class="form__row2">
                           <div class="form__fields">
                             <dl>
                               <dt>
-                                <input class="form__text1" type="text" name="nombres"/>
+                                <input class="form__text1" type="text" name="codigo"/>
                               </dt>
                               <dd>
                                 <button class="button1" type="submit">Continuar</button>

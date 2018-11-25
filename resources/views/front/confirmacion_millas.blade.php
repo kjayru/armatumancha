@@ -22,7 +22,7 @@
                         <h3>Mira quiénes ya forman parte de tu mancha </h3>
                       </div>
                     </div>
-                    <div class="links"><a href="/lista-mancha?group_id={{$group_id}}">Continuar</a></div>
+                    <div class="links"><a href="/dashboard">Continuar</a></div>
                   </div>
                 </div>
               </section>

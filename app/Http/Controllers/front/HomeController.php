@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Ixudra\Curl\Facades\Curl;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 use App\Code;
 use App\User;
 use App\Group;
@@ -15,6 +20,13 @@ use App\GroupUser;
 
 class HomeController extends Controller
 {
+    use AuthenticatesUsers;
+
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     public function index()
     {
 
@@ -32,12 +44,6 @@ class HomeController extends Controller
         return view('front.desarrollo');
     }
 
-    public function listamanchaingreso(Request $request){
-
-        $group_id = Input::get('group_id');
-        $grupores = Group::where('id',$group_id)->with('users')->first();
-        return view('front.lista_mancha_ingreso',['grupores'=>$grupores]);
-    }
 
     public function buscarmancha(Request $request){
         $imancha = $request->manchacelular;
@@ -48,7 +54,12 @@ class HomeController extends Controller
 
             $grupores = Group::where('name','like','%'.$imancha.'%')->with('users')->first();
 
-            return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
+           // dd($grupores->users[0]);
+            $this->guard()->login($grupores->users[0]);
+
+
+            return redirect()->route('home.listamancha');
+            //return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
 
        }else{
 
@@ -73,55 +84,7 @@ class HomeController extends Controller
     }
 
 
-    public function listamanchasesion(Request $request){
 
-
-        $code = Code::where('code',$request->codigo)
-                    ->where('status',2)->first();
-
-        if($code){
-            $user_id = $code->user_id;
-
-            $user = User::where('id',$user_id)->first();
-
-            $grupores = Group::where('id',$user->groups[0]->id)->with('users')->first();
-
-
-
-            if($user->role->id==1){
-                return view('front.lista_mancha_sesion',['grupores'=>$grupores]);
-            }else{
-                return redirect()->route('home.listamancha',['group_id'=> $user->groups[0]->id,'mensaje'=>1]);
-            }
-
-        }else{
-            //dd("error");
-            return redirect()->route('home.mirastatus', ['mensaje' => 2 ]);
-        }
-
-
-
-    }
-
-
-
-    public function graciasgigas(){
-
-       $group_id = Input::get('group_id');
-
-
-        return view('front.confirmacion_mancha',['group_id'=>$group_id]);
-    }
-
-
-    public function graciasmillas(){
-        return view('front.confirmacion_millas');
-    }
-
-    public function ingresecelular()
-    {
-        return view('front.numero_celular');
-    }
 
 
 
@@ -175,5 +138,20 @@ class HomeController extends Controller
         Storage::put('ftp/flatfile.txt', $contents);
         //Storage::append('flatfile.txt', $contents);
     }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/');
+    }
+
+    protected function loggedOut(Request $request)
+    {
+        //
+    }
+
 
 }

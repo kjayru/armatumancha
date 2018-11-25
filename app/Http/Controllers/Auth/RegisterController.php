@@ -6,10 +6,17 @@ use App\Code;
 use App\User;
 use App\Group;
 use App\GroupUser;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -31,7 +38,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -43,6 +50,109 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+     public function showRegistrationForm()
+        {
+            return view('auth.register');
+        }
+
+
+    public function register(Request $request)
+    {
+
+
+         $this->validator($request->all())->validate();
+
+         //dd("primer paso");
+        //event(new Registered($user = $this->create($request->all())));
+
+
+        $numcode = Code::whereNotNull('user_id')->count();
+        $code_asig = intval($numcode+1);
+
+        $beneficio =  $request->beneficio;
+
+        $grupo = new Group();
+        $grupo->name = $request->nombres;
+        $grupo->save();
+
+        $usuario = new User();
+        $usuario->alias = $request->lidername;
+        $usuario->numero = $request->lidercel;
+        $usuario->email = $request->lideremail;
+        $usuario->beneficio = $request->beneficio;
+        $usuario->role_id = 1;
+        $usuario->save();
+
+        //distribucion
+        $usergroup = new GroupUser();
+        $usergroup->user_id =  $usuario->id;
+        $usergroup->group_id = $grupo->id;
+        $usergroup->save();
+
+        //codigo
+        $codigo = Code::where('id',$code_asig)
+                      ->update(['user_id'=>$usuario->id,'status'=>2]);
+
+
+        ///bucle patas
+        $numpatas = count($request->alias);
+
+        for($i=0; $i<$numpatas; $i++){
+
+            $numcode2 = Code::whereNotNull('user_id')->count();
+            $code_asig2 = intval($numcode2+1);
+
+            $pata = new User();
+
+            $pata->alias = $request->alias[$i];
+            $pata->numero = $request->telefono[$i];
+            $pata->beneficio = $beneficio;
+
+            if($request->email[$i]){
+                 $pata->email = $request->email[$i];
+            }
+
+            $pata->role_id = '2';
+            $pata->save();
+
+            $usergroup = new GroupUser();
+            $usergroup->user_id =  $pata->id;
+            $usergroup->group_id = $grupo->id;
+
+            $usergroup->save();
+
+            $codigo2 = Code::where('id',$code_asig2)
+            ->update(['user_id'=>$pata->id,'status'=>2]);
+
+        }
+
+        //envio de sms
+
+
+        $this->guard()->login($usuario);
+        switch ($beneficio) {
+            case 'bonos':
+
+            return redirect()->route('home.graciasgigas',['group_id'=> $grupo->id]);
+
+            break;
+
+            case 'latam':
+            return redirect()->route('home.graciasmillas',['group_id'=> $grupo->id]);
+            break;
+        }
+
+        /*$this->guard()->login($usuario);
+
+        return $this->registered($request, $usuario)
+                        ?: redirect($this->redirectPath());*/
+
+
+
+
+
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -51,10 +161,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'beneficio' =>['required','string','max:255'],
+            'nombres' => ['required', 'string', 'max:255'],
+            'lidername' => ['required', 'string', 'max:255'],
+            'lidercel' => ['required','numeric','min:9'],
+            'lideremail' => ['sometimes','required','email'],
+
         ]);
     }
 
@@ -71,5 +185,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+
+    protected function registered(Request $request, $user)
+    {
+        //
     }
 }

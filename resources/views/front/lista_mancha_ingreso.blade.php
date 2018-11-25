@@ -66,10 +66,10 @@
                       </div>
                     </div>
                     <div class="code">
-                      <form class="form" action="{{ action('front\HomeController@listamanchasesion') }}" method="POST">
+                      <form class="form" action="{{ action('front\RegisterController@listamanchasesion') }}" method="POST">
                         @csrf
                         <input type="hidden" name="_method" value="POST">
-                        <input type="hidden" name="manchacelular"  value="{{ $manchacelular }}">
+
                         <div class="form__row1">
                           <div class="form__info">
                             <p>Si eres el líder y quieres actualizar tu mancha,<br/>ingresa tu código.</p>
@@ -116,7 +116,7 @@
                       </div>
                       <div class="section1__main">
                         <div class="register">
-                          <form class="form" action="{{ action('front\HomeController@listamanchasesion') }}">
+                          <form class="form" action="{{ action('front\RegisterController@listamanchasesion') }}">
                             <div class="form__row1">
                               <div class="form__fields">
                                 <dl>

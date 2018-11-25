@@ -57,7 +57,7 @@
                   </div>
                   <div class="content">
                     <div class="content__item">
-                      <blockquote><a href="/arma-tu-mancha">
+                      <blockquote><a href="/register">
                           <figure>
                             <h4>Arma tu mancha</h4><img src="assets/pg1_img4.svg" alt=""/>
                           </figure>

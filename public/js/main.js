@@ -276,7 +276,7 @@ $.validator.methods.email = function( value, element ) {
                     data:dataform,
                     success:function(response){
                         if(response.rpta=='ok'){
-                           // window.location.reload();
+                            window.location.reload();
                         }
                     }
 
@@ -398,6 +398,9 @@ $.validator.methods.email = function( value, element ) {
 
     });
 
+    $(".btn-actualizar").on('click',function(){
+        window.location.reload();
+    });
 });
 
 function eventoplus() {
