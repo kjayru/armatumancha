@@ -70,8 +70,11 @@ class HomeController extends Controller
 
                 $group_id = $user->groups[0]->id;
 
-                $grupores = Group::where('id',$group_id)->with('users')->first();
-                return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
+                $this->guard()->login($user);
+
+               // $grupores = Group::where('id',$group_id)->with('users')->first();
+                //return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
+                return redirect()->route('home.listamancha');
             }else{
 
                 //redirect mirar-status-de-tu-mancha
