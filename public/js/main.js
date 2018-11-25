@@ -162,7 +162,8 @@ $(document).ready(function(){
 
       $(".listado").append(pata);
         }else{
-            alert("completo su maxima lista de amigos");
+            $(this).addClass('disabled');
+
         }
       });
 
@@ -196,9 +197,6 @@ $.validator.methods.email = function( value, element ) {
             'telefono[]':{
                 required:true,
             }
-
-
-
         },
         messages: {
             nombres: "*Ingrese el nombre de su mancha",
@@ -212,13 +210,25 @@ $.validator.methods.email = function( value, element ) {
         }
     });
 
+    $("#Autorizar").change(function(){
+        if($("#Autorizar").is(':checked')){
+            $(".lbl-autorizar").html("");
+        }
+    });
     $(document).on('click','.send-mancha',function(){
         if($("#fr-mancha").valid()===true){
 
+           if($("#Autorizar").is(':checked')){
+
+            }else{
+                $(".lbl-autorizar").html("*Campo obligatorio");
+                return false;
+            }
             var response = grecaptcha.getResponse();
 
             if(response.length == 0){
-                alert("Captcha no verificado")
+
+                $(".lbl-captcha").html("Validación obligatoria");
                 return false;
             }
 
@@ -228,6 +238,7 @@ $.validator.methods.email = function( value, element ) {
             return false;
         }
     });
+
 
 
 //session button
@@ -265,7 +276,7 @@ $.validator.methods.email = function( value, element ) {
                     data:dataform,
                     success:function(response){
                         if(response.rpta=='ok'){
-                            window.location.reload();
+                           // window.location.reload();
                         }
                     }
 
@@ -345,6 +356,12 @@ $.validator.methods.email = function( value, element ) {
             });
 
            $(this).prop('checked',true);
+           $(".modal-2").removeClass('disabled').prop('disabled',false);
+           $(".modal-3").removeClass('disabled').prop('disabled',false);
+
+        }else{
+            $(".modal-2").addClass('disabled').prop('disabled',true);
+           $(".modal-3").addClass('disabled').prop('disabled',true);
         }
     });
 
@@ -382,3 +399,8 @@ $.validator.methods.email = function( value, element ) {
     });
 
 });
+
+function eventoplus() {
+   $(".lbl-captcha").html();
+   $(".send-mancha").removeClass('disabled');
+};

@@ -212,56 +212,31 @@ class RegisterController extends Controller
         return response()->json(['rpta'=>'ok']);
     }
 
-    public function recuperarcodigo($nombrecelular){
-        $imancha = $nombrecelular;
+    public function recuperarcodigo(Request $request){
 
-        //busqueda mancha
-        $contar = Group::where('name','like','%'.$imancha.'%')->count();
-
-       if($contar>0){
-
-            $grupores = Group::where('name','like','%'.$imancha.'%')->with('users')->first();
-           if($grupores->users[0]->role_id==1){
-
-
-                $user = User::where('id',$grupores->users[0]->id)->first();
-                $user_id = $user->id;
-
-                $codigo = Code::where('user_id',$user_id)
-                        ->where('status','2')->first();
-
-                $codigosms = $codigo->code;
-
-                ///ENVIO DE NOTIFICACION
-           }
-
-
-       }else{
-            $contar2 = User::where('numero',$imancha)->count();
+            $contar2 = User::where('numero',$request->numerocel)->where('role_id',1)->count();
 
             if($contar2 > 0){
-                $user = User::where('numero',$imancha)->first();
-                $group_id = $user->groups[0]->id;
-                $grupores = Group::where('id',$group_id)->with('users')->first();
-
-                if($grupores->users[0]->role_id==1){
+                $user = User::where('numero',$request->numerocel)->first();
 
 
-                    $user = User::where('id',$grupores->users[0]->id)->first();
                     $user_id = $user->id;
-
-                    $codigo = Code::where('user_id',$user_id)
+                    $codigo = Code::where('user_id',$user->id)
                             ->where('status','2')->first();
 
                     $codigosms = $codigo->code;
-                    //ENVIO DE NOTIFICACION
-               }
+                    //Enviar notificacion
 
+                return view('front.olvide_codigo');
+
+            }else{
+
+               return redirect()->route('home.ingresecelular',['mensaje'=>1]);
             }
-       }
 
 
-        return view('front.olvide_codigo');
+
+
     }
 
     public function validarcodigorecuperado($codigo){

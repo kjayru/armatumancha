@@ -69,7 +69,7 @@
                       <form class="form" action="{{ action('front\HomeController@listamanchasesion') }}" method="POST">
                         @csrf
                         <input type="hidden" name="_method" value="POST">
-                        <input type="hidden" name="manchacelular"  value="@{{ $manchacelular }}">
+                        <input type="hidden" name="manchacelular"  value="{{ $manchacelular }}">
                         <div class="form__row1">
                           <div class="form__info">
                             <p>Si eres el líder y quieres actualizar tu mancha,<br/>ingresa tu código.</p>
@@ -80,7 +80,7 @@
                             <dl>
                               <dt>
                                 <input class="form__text1" type="text" name="codigo"/>
-                                <a href="/recuperar-codigo/@{{$manchacelular}}"><span> Olvide mi código</span></a>
+                                <a href="/ingrese-celular"><span> Olvide mi código</span></a>
                               </dt>
                               <dd>
                                 <button class="button1" type="submit">Continuar</button>

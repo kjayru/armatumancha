@@ -22,10 +22,7 @@ Route::get('/lista-mancha','front\HomeController@listamanchaingreso')->name('hom
 
 Route::post('/buscar-mancha','front\HomeController@buscarmancha')->name('home.buscarmancha');
 
-//sesionado
-Route::post('/lista-sesion-mancha','front\HomeController@listamanchasesion')->name('home.listasesionmancha');
-Route::get('/gracias-gigas','front\HomeController@graciasgigas')->name('home.graciasgigas');
-Route::get('/gracias-millas','front\HomeController@graciasmillas')->name('home.graciasmillas');
+Route::get('/ingrese-celular','front\HomeController@ingresecelular')->name('home.ingresecelular');
 
 //FILE
 Route::get('/flat-file','front\HomeController@flatfile');
@@ -44,13 +41,23 @@ Route::delete('/borrar-pata/{id}','front\RegisterController@borrarpata')->name('
 
 Route::post('/validar-celular','front\RegisterController@validarcelular')->name('register.validarcelular');
 
-Route::get('/recuperar-codigo/{any}','front\RegisterController@recuperarcodigo')->name('register.recuperarcodigo');
+Route::post('/recuperar-codigo','front\RegisterController@recuperarcodigo')->name('register.recuperarcodigo');
 
 Route::post('/validar-codigo-recuperado','front\RegisterController@validarcodigorecuperado')->name('register.validarcodigorecuperado');
 
 
 //Route::resource('consultas','ConsultaController');
+Route::get('/gracias-gigas','front\HomeController@graciasgigas')->name('home.graciasgigas');
+Route::get('/gracias-millas','front\HomeController@graciasmillas')->name('home.graciasmillas');
 
-Auth::routes();
+//sesionado
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::group(['prefix'=>'dashboard','middleware'=>CheckCode::class],function(){
+    Route::post('/lista-sesion-mancha','front\HomeController@listamanchasesion')->name('home.listasesionmancha');
+
+//})
+
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

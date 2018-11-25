@@ -32,9 +32,12 @@
                   <div class="section2__main">
                     <div class="grid">
                       <div class="grid__actions">
-                          <a href="#" class="modal-1"> <img src="assets/pg4_icon_add.svg" alt=""/><span>Agregar miembro</span></a>
-                          <a href="#"  class="modal-2" > <img src="assets/pg4_icon_leader.svg" alt=""/><span>Cambiar líder</span></a>
-                          <a href="#" class="modal-3" > <img src="assets/pg4_icon_clean.svg" alt=""/><span>Eliminar miembro</span></a>
+                            <div class="grid__actions">
+                                    <button type="button" class="modal-1"><img src="assets/pg4_icon_add.svg" alt=""/><span>Agregar miembro</span></button>
+                                    <button type="button" class="modal-2 disabled" disabled><img src="assets/pg4_icon_leader.svg" alt=""/><span>Cambiar líder</span></button>
+                                    <button type="button" class="modal-3 disabled" disabled><img src="assets/pg4_icon_clean.svg" alt=""/><span>Eliminar miembro</span></button>
+                                  </div>
+
                         </div>
                       <div class="grid__info">
                         <table>
@@ -49,12 +52,13 @@
                             </tr>
                           </thead>
                           <tbody>
+
                                 @foreach($grupores->users as $group)
                                 <tr>
-                                  <td class="checkbox">
-                                    <input type="checkbox" class="estado-client" data-id="{{ $group->id}}"   name="group_mancha"/>
+                                  <td class="checkbox" {{ $group->role_id }}>
+                                        @if($group->role_id==2)<input type="checkbox" class="estado-client" data-id="{{ $group->id}}"   name="group_mancha"/>@endif
                                   </td>
-                                  <td @if($group->role->id==1) data-liderid="{{ $group->id}}" class="star" @endif><strong>{{ $group->alias }}</strong></td>
+                                  <td @if($group->role_id==1) data-liderid="{{ $group->id}}" class="star" @endif><strong>{{ $group->alias }}</strong></td>
                                   <td><span>{{ $group->numero }}</span></td>
                                   <td><span>{{ $group->email }}</span></td>
                                   <td><i @if($group->status==1) class="ico_status3" @elseif($group->status==2)  class="ico_like" @else class="ico_unlike" @endif></i></td>

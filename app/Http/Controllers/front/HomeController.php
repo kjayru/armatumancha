@@ -118,6 +118,11 @@ class HomeController extends Controller
         return view('front.confirmacion_millas');
     }
 
+    public function ingresecelular()
+    {
+        return view('front.numero_celular');
+    }
+
 
 
 
@@ -126,9 +131,9 @@ class HomeController extends Controller
     public function test1(){
 
 
-        $mancha = "COMANCHE3";
-        $codigo = "MN 159967";
-        $user_id = 4;
+        $mancha = "COMANCHE";
+        $codigo = "MN 458868";
+        $user_id = 2;
 
           $notification = array(
                             'notificacion'=> array(
@@ -141,7 +146,7 @@ class HomeController extends Controller
                         );
         $cadena = json_encode(['data' => $notification]);
 
-    //dd($cadena);
+   // dd($cadena);
 
     $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
                 ->withData(['data'=>$notification])

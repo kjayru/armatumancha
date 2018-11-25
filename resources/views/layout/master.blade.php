@@ -9,9 +9,11 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css?v={{ uniqid() }}">
   </head>
   <body>
-
+    <div class="layout" id="app">
+     @include('layout.partials.navigation');
        @yield('content')
-
+     @include('layout.partials.footer');
+    </div>
     <script type="text/javascript" src="/js/vendor/jquery.min.js"></script>
     <script src="/js/vendor/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/js/vendor/slick.js" charset="utf-8"></script>
