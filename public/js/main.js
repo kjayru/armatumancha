@@ -162,6 +162,7 @@ $(document).ready(function(){
 
       $(".listado").append(pata);
       $(".cellpata").numeric();
+      $(".fr-mancha").destroy();
         }else{
             $(this).addClass('disabled');
 

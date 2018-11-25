@@ -46,7 +46,7 @@ class HomeController extends Controller
 
 
     public function buscarmancha(Request $request){
-        $imancha = $request->manchacelular;
+        $imancha = strtolower($request->manchacelular);
         //busqueda mancha
         $contar = Group::where('name','like','%'.$imancha.'%')->count();
 

@@ -73,7 +73,7 @@ class RegisterController extends Controller
         $beneficio =  $request->beneficio;
 
         $grupo = new Group();
-        $grupo->name = $request->nombres;
+        $grupo->name = strtolower($request->nombres);
         $grupo->save();
 
         $usuario = new User();
@@ -163,11 +163,8 @@ class RegisterController extends Controller
     {
 
         return Validator::make($data, [
-            'beneficio' =>['required','string','max:255'],
+
             'nombres' => ['required', 'string', 'max:255'],
-            'lidername' => ['required', 'string', 'max:255'],
-            'lidercel' => ['required','numeric','min:9'],
-            'lideremail' => ['sometimes','required','email'],
 
         ]);
     }
