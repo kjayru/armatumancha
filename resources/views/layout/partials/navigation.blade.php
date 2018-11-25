@@ -7,8 +7,8 @@
             </div>
         <div class="layout__header--button"></div>
             <ul>
-                <li><a class="active" href="#"> <img src="assets/menu_ico_star.svg" alt="">Arma tu mancha  </a></li>
-                <li><a href="#"> <img src="assets/menu_ico_consultar.svg" alt="">Consulta tu mancha  </a></li>
+                <li><a  href="/arma-tu-mancha"> <img src="assets/menu_ico_star.svg" alt="">Arma tu mancha  </a></li>
+                <li><a href="/mira-el-status-de-tu-mancha"> <img src="assets/menu_ico_consultar.svg" alt="">Consulta tu mancha  </a></li>
             </ul>
         </nav>
     </div>

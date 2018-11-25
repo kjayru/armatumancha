@@ -58,6 +58,6 @@ Route::get('/gracias-millas','front\HomeController@graciasmillas')->name('home.g
 //})
 
 
-//Auth::routes();
+Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
