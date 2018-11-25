@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Input;
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Auth;
 
-
+use App\Petition;
 use App\Code;
 use App\User;
 use App\Group;
@@ -66,81 +66,6 @@ class RegisterController extends Controller
 
 
          //get code
-        $numcode = Code::whereNotNull('user_id')->count();
-        $code_asig = intval($numcode+1);
-
-        $beneficio =  $request->beneficio;
-
-        $grupo = new Group();
-        $grupo->name = $request->nombres;
-        $grupo->save();
-
-        $usuario = new User();
-        $usuario->alias = $request->lidername;
-        $usuario->numero = $request->lidercel;
-        $usuario->email = $request->lideremail;
-        $usuario->beneficio = $request->beneficio;
-        $usuario->role_id = 1;
-        $usuario->save();
-
-        //distribucion
-        $usergroup = new GroupUser();
-        $usergroup->user_id =  $usuario->id;
-        $usergroup->group_id = $grupo->id;
-        $usergroup->save();
-
-        //codigo
-        $codigo = Code::where('id',$code_asig)
-                      ->update(['user_id'=>$usuario->id,'status'=>2]);
-
-
-        ///bucle patas
-        $numpatas = count($request->alias);
-
-        for($i=0; $i<$numpatas; $i++){
-
-            $numcode2 = Code::whereNotNull('user_id')->count();
-            $code_asig2 = intval($numcode2+1);
-
-            $pata = new User();
-
-            $pata->alias = $request->alias[$i];
-            $pata->numero = $request->telefono[$i];
-            $pata->beneficio = $beneficio;
-
-            if($request->email[$i]){
-                 $pata->email = $request->email[$i];
-            }
-
-            $pata->role_id = '2';
-            $pata->save();
-
-            $usergroup = new GroupUser();
-            $usergroup->user_id =  $pata->id;
-            $usergroup->group_id = $grupo->id;
-
-            $usergroup->save();
-
-            $codigo2 = Code::where('id',$code_asig2)
-            ->update(['user_id'=>$pata->id,'status'=>2]);
-
-        }
-
-        //envio de sms
-
-
-
-        switch ($beneficio) {
-            case 'bonos':
-            return redirect()->route('home.graciasgigas',['group_id'=> $grupo->id]);
-
-            break;
-
-            case 'latam':
-            return redirect()->route('home.graciasmillas',['group_id'=> $grupo->id]);
-            break;
-        }
-
 
 
 
@@ -172,41 +97,28 @@ class RegisterController extends Controller
         return response()->json(['rpta'=>'ok']);
     }
 
-    public function asignarlider(Request $request, $id){
-        //actualiza estado en user
+    public function asignarlider(Request $request){
 
-        //cambiar privilegio lider
-        $user = User::where('id',$request->lider_id)
-           ->update(['role_id'=>'2']);
+        $contar = User::where('id',$request->user_id)
+                    ->where('status',2)->count();
 
-
-        $disabledCode = Code::where('user_id',$request->lider_id)->update(['status'=>3]);
-        //
-        //nuevo codigo lider
-        $numcode = Code::whereNull('user_id')->first();
-        $codesa= Code::where('id',$numcode->id)->update(['user_id'=>$request->lider_id,'status'=>2]);
+        if($contar>0){
+            $codigo = Code::where('user_id',$request->user_id)
+                        ->where('status',2)->first();
 
 
-        $user2 = User::where('id',$request->user_id)
-            ->update(['role_id'=>'1']);
+            $peticion = new Petition();
 
-        $disabledCode2 = Code::where('user_id',$request->user_id)->update(['status'=>3]);
+            $peticion->owner_user_id = $request->lider_id;
+            $peticion->sucessor_user_id = $request->user_id;
+            $peticion->code_id = $codigo->id;
 
-        //nuevo codigo lider
+            $peticion->save();
+            return response()->json(['rpta'=>'ok','mensaje'=>'Se envio una petición a tu pata.']);
+        }else{
+            return response()->json(['rpta'=>'error','mensaje'=>'El usuario aun no participa..']);
+        }
 
-
-        //nuevo codigo user
-
-        $numcode2 = Code::whereNull('user_id')->first();
-
-         Code::where('id',$numcode2->id)
-            ->update(['user_id'=>$request->user_id,'status'=>2]);
-
-
-
-        //send new code sms
-
-        return response()->json(['rpta'=>'ok']);
     }
 
 
@@ -277,6 +189,13 @@ class RegisterController extends Controller
         //verifico mi grupo
         $user = User::where('id',Auth::id())->first();
 
+        $peticion = Petition::where('owner_user_id',Auth::id())->count();
+
+        if($peticion>0){
+            $existe_peticion = true;
+        }else{
+            $existe_peticion = false;
+        }
         $group_id = $user->groups[0]->id;
         $code = false;
         //dd($grupo_id);
@@ -313,7 +232,7 @@ class RegisterController extends Controller
 
 
             if($user_rol==1){
-                return view('front.lista_mancha_sesion',['grupores'=>$grupores]);
+                return view('front.lista_mancha_sesion',['grupores'=>$grupores,'peticion'=>$existe_peticion]);
             }else{
                 return redirect()->route('home.listamancha',['mensaje'=>1]);
             }
@@ -352,6 +271,47 @@ class RegisterController extends Controller
         return view('front.numero_celular');
     }
 
+
+
+
+
+    public function validarasignacion(Request $request){
+        //leer flat para ejecucion
+        $conteo = Code::where('code',$request->code)->count();
+
+        if($conteo>0){
+            $code = Code::where('code',$request->code)->first();
+
+            $peticion = Petition::where('code_id',$code_id)
+                            ->where('status',1)->first();
+
+            //ejecuta asignacion de lider a pata
+            User::where('user_id',$petition->owner_user_id)->update(['role_id'=>2]);
+
+            //ejecuta asignacion de pata a lider
+            User::where('user_id',$petition->sucesor_user_id)->update(['role_id'=>1]);
+
+
+            $disabledCode = Code::where('user_id',$request->owner_user_id)->update(['status'=>3]);
+            //
+            //nuevo codigo lider
+            $numcode = Code::whereNull('user_id')->first();
+            $codesa= Code::where('id',$numcode->id)->update(['user_id'=>$request->owner_user_id,'status'=>2]);
+
+
+
+            $disabledCode2 = Code::where('user_id',$request->sucesor_user_id)->update(['status'=>3]);
+
+
+            $numcode2 = Code::whereNull('user_id')->first();
+
+             Code::where('id',$numcode2->id)
+                ->update(['user_id'=>$request->sucesor_user_id,'status'=>2]);
+        }
+        ///se envian nuevos codigos ..notificacion
+        dd("asignacion ejecutada..");
+
+    }
 
 
 }

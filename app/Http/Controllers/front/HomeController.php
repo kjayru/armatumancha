@@ -17,6 +17,7 @@ use App\Code;
 use App\User;
 use App\Group;
 use App\GroupUser;
+use App\Petition;
 
 class HomeController extends Controller
 {
@@ -153,15 +154,74 @@ class HomeController extends Controller
         $contar = User::where('numero',$celular)->count();
         if($contar>0){
             $codigo = Code::where('user_id',$user->id)
-                ->where('status',2)->first();
+                ->where('status',2)->get();
 
-        dd($codigo->code);
+         foreach($codigo as $cod){
+            echo "codigo =".$cod->code." estado:".$cod->status;
+         }
         }else{
 
             dd('el numero no tiene codigo asignado');
         }
 
     }
+
+    public function validarpatasms(){
+        return view('test.ingresarsmscode');
+    }
+
+
+
+
+    public function aceptarlider(){
+
+        return view('test.aceptarlider');
+    }
+
+
+    public function validarasignacion(Request $request){
+        //leer flat para ejecucion
+        $conteo = Code::where('code',$request->code)->count();
+
+        if($conteo>0){
+            $code = Code::where('code',$request->code)->first();
+
+            $peticion = Petition::where('code_id',$code->id)
+                            ->where('status',1)->first();
+
+            //ejecuta asignacion de lider a pata
+            User::where('id',$peticion->owner_user_id)->update(['role_id'=>2]);
+
+            //ejecuta asignacion de pata a lider
+            User::where('id',$peticion->sucessor_user_id)->update(['role_id'=>1]);
+
+
+             Code::where('user_id',$request->owner_user_id)->update(['status'=>3]);
+            //
+            //nuevo codigo lider
+            $numcode = Code::whereNull('user_id')->first();
+
+           Code::where('id',$numcode->id)->update(['user_id'=>$peticion->owner_user_id,'status'=>2]);
+
+
+
+            Code::where('user_id',$peticion->sucessor_user_id)->update(['status'=>3]);
+
+
+            $numcode2 = Code::whereNull('user_id')->first();
+
+            Code::where('id',$numcode2->id)
+                ->update(['user_id'=>$peticion->sucessor_user_id,'status'=>2]);
+
+             Petition::where('code_id',$code->id)->update(['status'=>2]);
+
+        }
+        ///se envian nuevos codigos ..notificacion
+        dd("asignacion ejecutada..");
+
+    }
+
+
     public function logout(Request $request)
     {
         $this->guard()->logout();
@@ -176,5 +236,23 @@ class HomeController extends Controller
         //
     }
 
+
+    public function ProcesoValidaPata(Request $request)
+    {
+        $conteo = Code::where('code',$request->code)->count();
+
+        if($conteo>0){
+            $code = Code::where('code',$request->code)->first();
+
+            User::where('user_id',$code->user_id)->update(['status'=>2]);
+            Code::where('code',$request->code)->update(['status'=>2]);
+
+            dd("Tu pata fue validado");
+        }else{
+            dd("El codigo no es válido");
+        }
+
+        return response()->json(["rpta"=>"ok"]);
+    }
 
 }

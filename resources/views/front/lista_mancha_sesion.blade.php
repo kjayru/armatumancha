@@ -40,6 +40,7 @@
 
                         </div>
                       <div class="grid__info">
+                         @if($peticion) <p style="color:green;">Existe un petición de cambio de lider</p>@endif
                         <table>
                           <thead>
                             <tr>

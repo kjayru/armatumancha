@@ -33,6 +33,12 @@ Route::get('/test2','front\RegisterController@testreg');
 
 Route::get('/vercodigo','front\HomeController@vercodigo');
 Route::post('/mostrarcodigo','front\HomeController@mostrarcodigo');
+
+Route::get('/validar-pata-sms','front\HomeController@validarpatasms');
+Route::post('/procesovalidarpata','front\HomeController@procesovalidapata')->name('home.procesovalidapata');
+
+Route::get('/aceptarlider','front\HomeController@aceptarlider');
+Route::post('/procesovalidarpata','front\HomeController@validarasignacion');
 /*asincronos*/
 //Route::post('/save-data-group','front\RegisterController@store')->name('register.store');
 
@@ -56,7 +62,7 @@ Route::post('/disponibilidad-mancha','front\RegisterController@disponibilidadman
 Route::post('/validar-codigo','front\RegisterController@validarcodigo')->name('register.validarcodigo');
 
 Route::post('/crear-pata','front\RegisterController@crearpata')->name('register.crearpata');
-Route::put('/asignar-lider/{id}','front\RegisterController@asignarlider')->name('register.asignarlider');
+Route::post('/asignar-lider','front\RegisterController@asignarlider')->name('register.asignarlider');
 Route::delete('/borrar-pata/{id}','front\RegisterController@borrarpata')->name('register.borrarpata');
 
 Route::post('/validar-celular','front\RegisterController@validarcelular')->name('register.validarcelular');

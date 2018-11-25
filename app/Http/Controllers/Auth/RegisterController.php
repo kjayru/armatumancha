@@ -81,6 +81,7 @@ class RegisterController extends Controller
         $usuario->numero = $request->lidercel;
         $usuario->email = $request->lideremail;
         $usuario->beneficio = $request->beneficio;
+        $usuario->status = 2;
         $usuario->role_id = 1;
         $usuario->save();
 
@@ -123,7 +124,7 @@ class RegisterController extends Controller
             $usergroup->save();
 
             $codigo2 = Code::where('id',$code_asig2)
-            ->update(['user_id'=>$pata->id,'status'=>2]);
+            ->update(['user_id'=>$pata->id,'status'=>1]);
 
         }
 

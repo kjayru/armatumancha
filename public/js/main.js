@@ -270,16 +270,21 @@ $.validator.methods.email = function( value, element ) {
                 }
                 let token = $("#fordata input[name='_token']").val();
 
-                let dataform = ({'_token':token,'_method':'PUT','user_id':id, 'lider_id':liderid});
-                console.log(dataform);
+                let dataform = ({'_token':token,'_method':'POST','user_id':id, 'lider_id':liderid});
+
                 $.ajax({
-                    url:'/asignar-lider/'+id,
+                    url:'/asignar-lider',
                     method:'POST',
                     dataType:'json',
                     data:dataform,
                     success:function(response){
+                        console.log(response);
                         if(response.rpta=='ok'){
-                            window.location.reload();
+                            alert(response.mensaje);
+                        }
+                        if(response.rpta=='error'){
+                            let msn = response.mensaje;
+                            alert(msn);
                         }
                     }
 
