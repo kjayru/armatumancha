@@ -189,7 +189,7 @@ class RegisterController extends Controller
         //verifico mi grupo
         $user = User::where('id',Auth::id())->first();
 
-        $peticion = Petition::where('owner_user_id',Auth::id())->count();
+        $peticion = Petition::where('owner_user_id',Auth::id())->where('status',1)->count();
 
         if($peticion>0){
             $existe_peticion = true;

@@ -25,6 +25,11 @@ Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->
 
 Route::post('/buscar-mancha','front\HomeController@buscarmancha')->name('home.buscarmancha');
 
+Route::get('/validarpatasms','front\HomeController@validarpatasms');
+Route::post('/procesopatas','front\HomeController@procesovalidapata')->name('home.procesovalidapata');
+
+Route::get('/aceptarlider','front\HomeController@aceptarlider');
+Route::post('/procesovalidarpata','front\HomeController@validarasignacion');
 
 //FILE
 Route::get('/flat-file','front\HomeController@flatfile');
@@ -34,11 +39,7 @@ Route::get('/test2','front\RegisterController@testreg');
 Route::get('/vercodigo','front\HomeController@vercodigo');
 Route::post('/mostrarcodigo','front\HomeController@mostrarcodigo');
 
-Route::get('/validar-pata-sms','front\HomeController@validarpatasms');
-Route::post('/procesovalidarpata','front\HomeController@procesovalidapata')->name('home.procesovalidapata');
 
-Route::get('/aceptarlider','front\HomeController@aceptarlider');
-Route::post('/procesovalidarpata','front\HomeController@validarasignacion');
 /*asincronos*/
 //Route::post('/save-data-group','front\RegisterController@store')->name('register.store');
 
