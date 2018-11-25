@@ -10,9 +10,9 @@
   </head>
   <body>
     <div class="layout" id="app">
-     @include('layout.partials.navigation');
+     @include('layout.partials.navigation')
        @yield('content')
-     @include('layout.partials.footer');
+     @include('layout.partials.footer')
     </div>
     <script type="text/javascript" src="/js/vendor/jquery.min.js"></script>
     <script src="/js/vendor/jquery.validate.min.js"></script>
