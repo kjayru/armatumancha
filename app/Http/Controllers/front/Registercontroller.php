@@ -157,12 +157,12 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->beneficio = ' ';
         $user->role_id = 2;
-        $user->save();
+        //$user->save();
 
         $codigo = Code::where('id',$code_asig)->first();
         $codigo->user_id = $user->id;
-        $codigo->save();
-
+        //$codigo->save();
+        dd($code_asig." ".$codigo);
         //distribucion
         $usergroup = new GroupUser();
         $usergroup->user_id =  $user->id;
