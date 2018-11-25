@@ -147,11 +147,17 @@ class HomeController extends Controller
         $celular = $request->codigo;
 
         $user = User::where('numero',$celular)->first();
-
-        $codigo = Code::where('user_id',$user->id)
+        $contar = User::where('numero',$celular)->count();
+        if($contar>0){
+            $codigo = Code::where('user_id',$user->id)
                 ->where('status',2)->first();
 
         dd($codigo->code);
+        }else{
+
+            dd('el numero no tiene codigo asignado');
+        }
+
     }
     public function logout(Request $request)
     {
