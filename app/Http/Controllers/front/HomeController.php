@@ -87,10 +87,12 @@ class HomeController extends Controller
 
     public function test1(){
 
+        $grupo = Group::where('id',14)->first();
+        $codigo = Code::where('user_id',31)->first();
 
-        $mancha = "COMANCHE";
-        $codigo = "MN 458868";
-        $user_id = 2;
+        $mancha = $group->name;
+        $codigo = $codigo->code;
+        $user_id = 14;
 
           $notification = array(
                             'notificacion'=> array(
@@ -103,7 +105,7 @@ class HomeController extends Controller
                         );
         $cadena = json_encode(['data' => $notification]);
 
-   // dd($cadena);
+    dd($cadena);
 
     $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
                 ->withData(['data'=>$notification])

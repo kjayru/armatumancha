@@ -11,15 +11,9 @@
 |
 */
 
-
 Route::get('/','front\HomeController@index')->name('home.index');
-
-
 Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->name('home.mirastatus');
-
-
 Route::post('/buscar-mancha','front\HomeController@buscarmancha')->name('home.buscarmancha');
-
 Route::get('/validarpatasms','front\HomeController@validarpatasms');
 
 Route::post('/acepto-participar','front\HomeController@aceptoParticipacion');
