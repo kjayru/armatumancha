@@ -99,7 +99,7 @@ class HomeController extends Controller
             'users' => array($user_id)
           );
 
-        //$cadena = json_encode([ $notification]);
+        $cadena = json_encode([ $notification]);
 
     dd($cadena);
 
