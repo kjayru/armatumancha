@@ -78,7 +78,7 @@ class RegisterController extends Controller
 
         $usuario = new User();
         $usuario->alias = $request->lidername;
-        $usuario->numero = $request->lidercel;
+        $usuario->numero = "519".$request->lidercel;
         $usuario->email = $request->lideremail;
         $usuario->beneficio = $request->beneficio;
         $usuario->status = 2;
@@ -107,7 +107,7 @@ class RegisterController extends Controller
             $pata = new User();
 
             $pata->alias = $request->alias[$i];
-            $pata->numero = $request->telefono[$i];
+            $pata->numero = "519".$request->telefono[$i];
             $pata->beneficio = $beneficio;
 
             if($request->email[$i]){
