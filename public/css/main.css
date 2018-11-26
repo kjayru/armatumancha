@@ -4,3 +4,9 @@
     display: block;
     max-width: 90%;
 }
+
+.title2 h2{
+    font: normal 500 2.1875em "Roboto";
+    color: #ffffff;
+    position: relative;
+}

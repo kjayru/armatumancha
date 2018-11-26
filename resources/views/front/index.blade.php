@@ -20,7 +20,12 @@
                         <div class="info">
                                 <p>¡A partir del <span>27 de diciembre</span> podrás registrar a tu mancha!</p>
                             </div>
+                        <div class="title2">
+                            <h2>¿Cómo armo mi mancha?</h2>
+                        </div>
                     <div class="list" id="list1">
+
+
                       <div class="item">
                         <figure><img src="assets/pg1_img1.svg" alt=""/></figure>
                         <figcaption>
