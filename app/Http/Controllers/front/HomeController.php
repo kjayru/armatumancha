@@ -96,7 +96,7 @@ class HomeController extends Controller
 
           $notification = array(
             'notification' => 'codigo-seguridad',
-            'users' => array(11,12)
+            'users' => array(13,14,15)
           );
 
         $cadena = json_encode([ $notification]);
