@@ -87,7 +87,7 @@ class HomeController extends Controller
 
     public function test1(){
 
-        $grupo = Group::where('id',5)->first();
+        $grupo = Group::where('id',2)->first();
         $codigo = Code::where('user_id',5)->first();
 
         $mancha = $grupo->name;
