@@ -66,7 +66,7 @@
                       </div>
                     </div>
                     <div class="code">
-                      <form class="form" action="{{ action('front\RegisterController@listamanchasesion') }}" method="POST">
+                      <form class="form" id="fr-code-lider" action="{{ action('front\RegisterController@listamanchasesion') }}" method="POST">
                         @csrf
                         <input type="hidden" name="_method" value="POST">
 
@@ -83,7 +83,7 @@
                                 <a href="/ingrese-celular"><span> Olvide mi código</span></a>
                               </dt>
                               <dd>
-                                <button class="button1" type="submit">Continuar</button>
+                                <button class="button1 send-code-lider" type="button">Continuar</button>
                               </dd>
                             </dl>
                           </div>

@@ -17,16 +17,16 @@
                       <p>y recibirás tu código de seguridad  por SMS</p>
                     </div>
                     <div class="code">
-                      <form class="form" method="POST" action="{{ action('front\RegisterController@recuperarcodigo') }}">
+                      <form class="form" id="fr-recuperar" method="POST" action="{{ action('front\RegisterController@recuperarcodigo') }}">
                           @csrf
                         <div class="form__row2">
                           <div class="form__fields">
                             <dl>
                               <dt>
-                                <input class="form__text1" type="text" name="numerocel"/>
+                                <input class="form__text1" type="text" maxlength="9" name="numerocel"/>
                               </dt>
                               <dd>
-                                <button class="button1" type="submit">Continuar</button>
+                                <button class="button1 btn-recuperar" type="button">Continuar</button>
                               </dd>
                             </dl>
                           </div>

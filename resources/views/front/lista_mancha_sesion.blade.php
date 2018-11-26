@@ -125,7 +125,7 @@
                               <div class="form__fields">
                                 <dl>
                                   <dt>
-                                    <input class="form__text1" type="text" name="telefono" placeholder="Teléfono"/>
+                                    <input class="form__text1" type="text" maxlength="9" id="telfpata" name="telefono" placeholder="Teléfono"/>
                                   </dt>
                                   <dd></dd>
                                 </dl>

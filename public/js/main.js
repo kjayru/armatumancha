@@ -492,44 +492,11 @@ $.validator.methods.email = function( value, element ) {
     });
 
 
-    //neuvo pata
-    $(".btn-nuevopata").on('click',function(){
-        let token = $("#fr-nuevopata input[name='_token']").val();
-        let alias = $("#fr-nuevopata input[name='alias']").val();
-        let telefono = $("#fr-nuevopata input[name='telefono']").val();
-        let email = $("#fr-nuevopata input[name='email']").val();
-        let group_id = $("#fr-nuevopata input[name='group_id']").val();
 
-
-        let dataform = ({'_token':token,'_method':'POST','alias':alias, 'telefono':telefono,'email':email,'group_id':group_id});
-                $.ajax({
-                    url:'/crear-pata',
-                    method:'POST',
-                    dataType:'json',
-                    data:dataform,
-                    success:function(response){
-                        if(response.rpta=='ok'){
-                            $(".box__inset").fadeOut(350,'swing',function(){
-                                $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
-
-                                    window.location.reload();
-                                });
-                            });
-
-                        }
-                    }
-
-                });
-
-
-    });
-
-    $(".btn-actualizar").on('click',function(){
-        window.location.reload();
-    });
 
     $("#lidercel").numeric();
     $(".cellpata").numeric();
+    $("#telfpata").numeric();
 
 
 
@@ -579,6 +546,141 @@ $.validator.methods.email = function( value, element ) {
 
         });
     });
+
+
+    $("#fr-consulta-mancha").validate({
+        rules: {
+            manchacelular:{
+                required:true
+            },
+        },
+        messages: {
+            manchacelular: {
+                required:"Campo obligatorio"
+           }
+        }
+    });
+
+    $(".btn-buscar").click(function(){
+        if($("#fr-consulta-mancha").valid()===true){
+            $("#fr-consulta-mancha").submit();
+        }
+    });
+
+
+
+
+    $("#fr-code-lider").validate({
+        rules: {
+            codigo:{
+                required:true
+            },
+        },
+        messages: {
+            codigo: {
+                required:"Campo obligatorio"
+           }
+        }
+    });
+
+    $(".send-code-lider").click(function(){
+        if($("#fr-code-lider").valid()===true){
+            $("#fr-code-lider").submit();
+        }
+    });
+
+
+
+    $("#fr-nuevopata").validate({
+        rules: {
+            alias:{
+                required:true
+            },
+            telefono:{
+                required:true,
+                minlength:9
+            },
+            email:{
+                email:true
+            }
+        },
+        messages: {
+            alias: {
+                required:"Campo obligatorio"
+            },
+            telefono: {
+                required:"Campo obligatorio",
+                minlength:"Ingrese un número válido"
+            },
+            email: "Ingrese un email válido"
+
+        }
+    });
+
+
+
+     //neuvo pata
+     $(".btn-nuevopata").on('click',function(){
+
+        if($("#fr-nuevopata").valid()===true){
+
+        let token = $("#fr-nuevopata input[name='_token']").val();
+        let alias = $("#fr-nuevopata input[name='alias']").val();
+        let telefono = $("#fr-nuevopata input[name='telefono']").val();
+        let email = $("#fr-nuevopata input[name='email']").val();
+        let group_id = $("#fr-nuevopata input[name='group_id']").val();
+
+
+        let dataform = ({'_token':token,'_method':'POST','alias':alias, 'telefono':telefono,'email':email,'group_id':group_id});
+                $.ajax({
+                    url:'/crear-pata',
+                    method:'POST',
+                    dataType:'json',
+                    data:dataform,
+                    success:function(response){
+                        if(response.rpta=='ok'){
+                            $(".box__inset").fadeOut(350,'swing',function(){
+                                $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
+
+                                    window.location.reload();
+                                });
+                            });
+
+                        }
+                    }
+
+                });
+
+        }
+    });
+
+    $(".btn-actualizar").on('click',function(){
+        window.location.reload();
+    });
+
+
+
+
+
+    $("#fr-recuperar").validate({
+        rules: {
+            numerocel:{
+                required:true
+            },
+        },
+        messages: {
+            numerocel: {
+                required:"Campo obligatorio"
+           }
+        }
+    });
+
+    $(".btn-recuperar").click(function(){
+        if($("#fr-recuperar").valid()===true){
+            $("#fr-recuperar").submit();
+        }
+    });
+///end
 });
 
 function eventoplus() {
@@ -588,9 +690,6 @@ function eventoplus() {
 };
 
 function validacion(){
-
-
-
     $("#fr-mancha").validate({
 
         rules: {

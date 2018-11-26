@@ -22,7 +22,7 @@
                       <h2>Ingresa el nombre de tu <strong>mancha </strong>o número <strong>celular</strong></h2>
                     </div>
                     <div class="code">
-                      <form class="form" action="{{ action('front\HomeController@buscarmancha') }}" method="POST">
+                      <form class="form" action="{{ action('front\HomeController@buscarmancha') }}"  id="fr-consulta-mancha" method="POST">
                           <input type="hidden" name="_method" value="POST">
                           @csrf
                         <div class="form__row2">
