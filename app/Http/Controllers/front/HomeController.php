@@ -104,7 +104,7 @@ class HomeController extends Controller
                         )
                    );
 
-        $cadena = json_encode(['data' => $notification]);
+        $cadena = json_encode([ $notification]);
 
    // dd($cadena);
 
