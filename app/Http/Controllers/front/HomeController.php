@@ -90,7 +90,7 @@ class HomeController extends Controller
         $grupo = Group::where('id',14)->first();
         $codigo = Code::where('user_id',31)->first();
 
-        $mancha = $group->name;
+        $mancha = $grupo->name;
         $codigo = $codigo->code;
         $user_id = 14;
 
