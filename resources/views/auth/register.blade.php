@@ -209,7 +209,7 @@
                                             </div>
                                             <div class="form__row3">
                                               <div class="form__buttons">
-                                                <button class="button2 send-mancha " type="buttom" >Registrar</button>
+                                                <button class="button2 send-mancha disabled" type="buttom" disabled>Registrar</button>
                                               </div>
                                             </div>
                                           </div>
