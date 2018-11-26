@@ -95,13 +95,11 @@ class HomeController extends Controller
         $user_id = 14;
 
           $notification = array(
-                         'data' => array(
-                            'notification' => 'codigo-seguridad',
-                            'users' => array($user_id)
-            )
-        );
+            'notification' => 'codigo-seguridad',
+            'users' => array($user_id)
+          );
 
-        $cadena = json_encode([ $notification]);
+        //$cadena = json_encode([ $notification]);
 
    // dd($cadena);
 
