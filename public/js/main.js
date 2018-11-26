@@ -113,14 +113,14 @@ $(document).ready(function(){
           if( $(this).parent('div').hasClass('active')){
 
             $(this).parent('div').parent('div').children('.considerations__data')
-            .css({'max-height':657})
+            .css({'max-height':3500})
             .animate({'max-height':0},350,'swing');
             $(this).parent('div').removeClass("active");
           }else{
             $(this).parent('div').addClass("active");
             $(this).parent('div').parent('div').children('.considerations__data')
             .css({'max-height':0})
-            .animate({'max-height':467},350,'swing');
+            .animate({'max-height':3500},350,'swing');
           }
 
 

@@ -13,11 +13,7 @@
 .slick-dots{
     display:none !important;
 }
-.layout__main .page1__main .considerations__info {
-    padding: 20px 25px;
-    height: 400px;
-    overflow: scroll;
-}
+
 
 @media screen and (max-width: 425px){
     .layout__main .page1__main .section1__main .content {
