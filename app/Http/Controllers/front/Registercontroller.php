@@ -65,7 +65,7 @@ class RegisterController extends Controller
 
         $user = new User();
         $user->alias = $request->alias;
-        $user->numero = $request->telefono;
+        $user->numero = "51".$request->telefono;
         $user->email = $request->email;
         $user->beneficio = ' ';
         $user->role_id = 2;
@@ -125,11 +125,11 @@ class RegisterController extends Controller
     }
 
     public function recuperarcodigo(Request $request){
-
-            $contar2 = User::where('numero',$request->numerocel)->where('role_id',1)->count();
+            $numero = '51'.$request->numerocel;
+            $contar2 = User::where('numero',$numero)->where('role_id',1)->count();
 
             if($contar2 > 0){
-                $user = User::where('numero',$request->numerocel)->first();
+                $user = User::where('numero',$numero)->first();
 
 
                     $user_id = $user->id;
@@ -257,9 +257,6 @@ class RegisterController extends Controller
     {
         return view('front.numero_celular');
     }
-
-
-
 
 
     public function validarasignacion(Request $request){

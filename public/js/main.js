@@ -155,8 +155,8 @@ $(document).ready(function(){
           </dl>
           <dl>
             <dt>
-            <input type="text"class="form__text2 f1" name="prefix"  value="51-9" readonly>
-            <input class="form__text2 f2 cellpata" maxlength="8"   name="telefono[]" type="text" id="cellpata${c}"  placeholder="Teléfono" />
+            <input type="text"class="form__text2 f1" name="prefix"  value="51" readonly>
+            <input class="form__text2 f2 cellpata" maxlength="9"   name="telefono[]" type="text" id="cellpata${c}"  placeholder="Teléfono" />
 
               <dd></dd>
             </dt>
@@ -209,17 +209,7 @@ $.validator.methods.email = function( value, element ) {
         var valor = $(this).val();
         numpatas.push(valor);
 
-        console.log(numpatas.length);
-        /*$(".cellpata").each(function(i,e){
-            console.log(valor+' - '+$(this).val());
-           if($(this).val()===valor){
-            var pr = $(this).prop("name");
-            $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Número ya ingresado</label>`);
-            $(this).parent().children(".error").show();
-            $(this).addClass("error");
-              return false;
-           }
-        });*/
+
     });
     $(document).on('blur',".aliaspata",function(){
 
@@ -614,7 +604,7 @@ function validacion(){
             },
             lidercel:{
                 required:true,
-                minlength:8
+                minlength:9
             },
 
             lideremail:{
@@ -627,7 +617,7 @@ function validacion(){
             },
             'telefono[]':{
                 required:true,
-                minlength:8
+                minlength:9
             }
 
 

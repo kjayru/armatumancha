@@ -60,25 +60,22 @@ class HomeController extends Controller
 
 
             return redirect()->route('home.listamancha');
-            //return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
+
 
        }else{
-
-            $contar2 = User::where('numero',$imancha)->count();
+            $numero = '51'.$imancha;
+            $contar2 = User::where('numero',$numero)->count();
 
             if($contar2>0){
-                $user = User::where('numero',$imancha)->first();
+                $user = User::where('numero',$numero)->first();
 
                 $group_id = $user->groups[0]->id;
 
                 $this->guard()->login($user);
 
-               // $grupores = Group::where('id',$group_id)->with('users')->first();
-                //return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'manchacelular'=>$imancha]);
                 return redirect()->route('home.listamancha');
             }else{
 
-                //redirect mirar-status-de-tu-mancha
                 return redirect()->route('home.mirastatus', ['mensaje' => 1 ]);
             }
        }
@@ -86,13 +83,6 @@ class HomeController extends Controller
 
 
     }
-
-
-
-
-
-
-
 
 
     public function test1(){
@@ -148,13 +138,12 @@ class HomeController extends Controller
     }
 
     public function mostrarcodigo(Request $request){
-        $celular = $request->codigo;
+        $celular = '51'.$request->codigo;
 
         $user = User::where('numero',$celular)->first();
         $contar = User::where('numero',$celular)->count();
         if($contar>0){
-            $codigo = Code::where('user_id',$user->id)
-                ->where('status',2)->get();
+            $codigo = Code::where('user_id',$user->id)->get();
 
          foreach($codigo as $cod){
             echo "codigo =".$cod->code." estado:".$cod->status;
@@ -170,11 +159,7 @@ class HomeController extends Controller
         return view('test.ingresarsmscode');
     }
 
-
-
-
     public function aceptarlider(){
-
         return view('test.aceptarlider');
     }
 
@@ -214,11 +199,10 @@ class HomeController extends Controller
                 ->update(['user_id'=>$peticion->sucessor_user_id,'status'=>2]);
 
              Petition::where('code_id',$code->id)->update(['status'=>2]);
-
+             dd("asignación ejecutada..");
+        }else{
+            dd("En numero ingresado no tiene asignación.");
         }
-        ///se envian nuevos codigos ..notificacion
-        dd("asignación ejecutada..");
-
     }
 
 
@@ -235,9 +219,6 @@ class HomeController extends Controller
     {
 
     }
-
-
-
 
     public function aceptoParticipacion(Request $request){
 
@@ -258,7 +239,7 @@ class HomeController extends Controller
 
     //validar cel-lider
     public function comprobarCel(Request $request){
-        $numero = '519'.$request->numero;
+        $numero = '51'.$request->numero;
         $user = User::where('numero',$numero)->count();
 
         if($user>0){
