@@ -101,7 +101,7 @@ class HomeController extends Controller
 
         $cadena = json_encode([ $notification]);
 
-    dd($cadena);
+    //dd($cadena);
 
     $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
                 ->withData(['data'=>$notification])
