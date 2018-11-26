@@ -87,12 +87,12 @@ class HomeController extends Controller
 
     public function test1(){
 
-        $grupo = Group::where('id',14)->first();
-        $codigo = Code::where('user_id',31)->first();
+        $grupo = Group::where('id',1)->first();
+        $codigo = Code::where('user_id',1)->first();
 
         $mancha = $grupo->name;
         $codigo = $codigo->code;
-        $user_id = 14;
+        $user_id = 1;
 
           $notification = array(
             'notification' => 'codigo-seguridad',
