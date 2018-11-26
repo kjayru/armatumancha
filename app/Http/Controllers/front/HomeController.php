@@ -87,16 +87,16 @@ class HomeController extends Controller
 
     public function test1(){
 
-        $grupo = Group::where('id',2)->first();
-        $codigo = Code::where('user_id',6)->first();
+        $grupo = Group::where('id',4)->first();
+       // $codigo = Code::where('user_id',6)->first();
 
         $mancha = $grupo->name;
-        $codigo = $codigo->code;
+       // $codigo = $codigo->code;
         $user_id = 6;
 
           $notification = array(
             'notification' => 'codigo-seguridad',
-            'users' => array($user_id)
+            'users' => array(11,12)
           );
 
         $cadena = json_encode([ $notification]);
