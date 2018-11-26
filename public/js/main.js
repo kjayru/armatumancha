@@ -296,6 +296,7 @@ $.validator.methods.email = function( value, element ) {
         }
 
         $(".cellpata").each(function(){
+            $(".cellpata").parent().children('label').remove();
             if($(this).val()==""){
                 var pr = $(this).prop("name");
                 $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Campo Obligatorio</label>`);
@@ -305,6 +306,7 @@ $.validator.methods.email = function( value, element ) {
 
         });
         $(".aliaspata").each(function(){
+            $(".aliaspata").parent().children('label').remove();
             if($(this).val()==""){
                 var pr = $(this).prop("name");
                 $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Campo Obligatorio</label>`);

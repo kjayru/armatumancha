@@ -258,13 +258,13 @@ class HomeController extends Controller
 
     //validar cel-lider
     public function comprobarCel(Request $request){
-
-        $user = User::where('numero',$request->numero)->count();
+        $numero = '519'.$request->numero;
+        $user = User::where('numero',$numero)->count();
 
         if($user>0){
              //verificar lider
 
-             $usertipo = User::where('numero',$request->numero)->where('status',2)->first();
+             $usertipo = User::where('numero',$numero)->where('status',2)->first();
 
              if($usertipo->role_id == 1){
                  $mensaje = "El número que ingresaste es lider de un equipo";
