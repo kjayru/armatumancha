@@ -94,20 +94,21 @@ class HomeController extends Controller
        // $codigo = $codigo->code;
         $user_id = 6;
 
+
+
           $notification = array(
             'notification' => 'codigo-seguridad',
-            'users' => array(13,14,15)
+            'users' => array(9)
           );
 
-        $cadena = json_encode([ $notification]);
-
-    //dd($cadena);
 
     $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
                 ->withData(['data'=>$notification])
                 ->post();
 
     dd($response);
+
+
         return response()->json([$notification]);
     }
 
