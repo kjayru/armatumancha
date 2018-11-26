@@ -95,12 +95,13 @@ class HomeController extends Controller
         $user_id = 14;
 
           $notification = array(
+
+                        'users' => array(
+                            $user_id
+                        ),
                         'notificacion'=> array(
                             $mancha,
                             $codigo
-                        ),
-                        'users' => array(
-                            $user_id
                         )
                    );
 
