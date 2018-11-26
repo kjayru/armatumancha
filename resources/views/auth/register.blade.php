@@ -71,6 +71,7 @@
                                         <div class="register">
                                           <!--form.form(action="")-->
                                           <div class="form">
+                                              <div id="summary"></div>
                                            <div class="listado">
                                             <div class="form__row1">
                                               <div class="form__label">
@@ -119,7 +120,8 @@
                                                 </dl>
                                                 <dl>
                                                   <dt>
-                                                    <input class="form__text2" type="text" name="lidercel" id="lidercel" maxlength="9" value="{{ old('numero') }}"   placeholder="Teléfono"/>
+                                                    <input type="text"class="form__text2 f1" name="prefix"  value="51-9" readonly>
+                                                    <input class="form__text2  f2" type="text"  name="lidercel" id="lidercel" maxlength="8" value="{{ old('numero') }}"   placeholder="Teléfono"/>
                                                   </dt>
                                                   <dd></dd>
                                                 </dl>
@@ -149,15 +151,17 @@
                                                   </div>
                                                   <dl>
                                                     <dt>
-                                                      <input name="alias[]" class="form__text2" type="text"  maxlength="20" value="{{ old('alias[]') }}"  placeholder="Alias" />
+                                                      <input name="alias[]" class="form__text2 aliaspata" type="text"  maxlength="20" value="{{ old('alias[]') }}"  placeholder="Alias" />
                                                     </dt>
                                                     <dd></dd>
                                                   </dl>
                                                   <dl>
                                                     <dt>
-                                                      <input class="form__text2 cellpata" maxlength="9" name="telefono[]" type="text" value="{{ old('numero[]') }}"  placeholder="Teléfono" />
-                                                      <dd></dd>
+                                                      <input type="text"class="form__text2 f1" name="prefix"  value="51-9" readonly>
+                                                      <input class="form__text2 f2 cellpata" maxlength="8"   name="telefono[]" type="text" value="{{ old('numero[]') }}"  placeholder="Teléfono" />
+
                                                     </dt>
+                                                    <dd></dd>
                                                   </dl>
                                                   <dl>
                                                     <dt>
@@ -186,8 +190,8 @@
                                                   <dl class="type2">
                                                   <dt>
                                                       <div class="form__checkbox1">
-                                                      <input type="checkbox" name="autorizar"  id="Autorizar"/>
-                                                      <label for="Autorizar"></label><span>Con mi registro, autorizo a CLARO para el envío de información sobre esta campaña y contenido comercial de CLARO.</span>
+                                                      <input type="checkbox" name="autorizar"  id="autorizar"/>
+                                                      <label for="autorizar" id="lbl-autoriza"></label><span>Con mi registro, autorizo a CLARO para el envío de información sobre esta campaña y contenido comercial de CLARO.</span>
                                                       </div>
                                                   </dt>
                                                   <dd><span class="lbl-autorizar form__error" ></span></dd>
@@ -205,7 +209,7 @@
                                             </div>
                                             <div class="form__row3">
                                               <div class="form__buttons">
-                                                <button class="button2 send-mancha disabled" type="buttom" disabled>Registrar</button>
+                                                <button class="button2 send-mancha " type="buttom" >Registrar</button>
                                               </div>
                                             </div>
                                           </div>

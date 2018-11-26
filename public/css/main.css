@@ -14,7 +14,17 @@
     display:none !important;
 }
 
+input.form__text2.f1 {
+    width: 52px !important;
+}
+input.f2 {
+    width: 163px !important;
+    margin-left: -15px;
+}
 
+#lbl-autoriza {
+    display:inline-block !important;
+}
 @media screen and (max-width: 425px){
     .layout__main .page1__main .section1__main .content {
         border: none;

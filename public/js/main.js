@@ -4,8 +4,8 @@
 //eventos first mobile
 $(document).ready(function(){
     "use strict";
-
-
+    prefix();
+    $("#lidercel").numeric();
     $("#nombres").on('blur',function(){
         var valor = $(this).val();
 
@@ -13,20 +13,29 @@ $(document).ready(function(){
         var token = $("#fr-data input[name='_token']").val();
 
          var sendata = {'_token':token,'_method':'POST','nombres':valor};
-        $.ajax({
-            url:'/disponibilidad-mancha',
-            type:'POST',
-            data:sendata,
-            dataType:'json',
-            success:function(response){
-                if(response.rpta == 'existe'){
-                    contenedor.addClass('error');
-                    contenedor.after(`<span class="error">El nombre esta registrado</span>`);
-                }
+         if(valor.length>0){
+            $.ajax({
+                url:'/disponibilidad-mancha',
+                type:'POST',
+                data:sendata,
+                dataType:'json',
+                success:function(response){
+                    if(response.rpta == 'existe'){
+                        contenedor.addClass('error');
+                        contenedor.after(`<span class="error"> Nombre de mancha ya utilizado </span>`);
+                    }
 
-            }
-        });
+                }
+            });
+        }
     });
+
+    $("#nombres").focusin(function(e){
+        e.preventDefault();
+
+         $(this).parent('dt').children("span").remove();
+     });
+
 
     let slick1 = $("#list1").slick({
         responsive: [
@@ -140,13 +149,15 @@ $(document).ready(function(){
           </div>
           <dl>
             <dt>
-              <input name="alias[]" class="form__text2" type="text" maxlength="20" id="alias${c}" placeholder="Alias" />
+              <input name="alias[]" class="form__text2 aliaspata" type="text" maxlength="20" id="alias${c}" placeholder="Alias" />
             </dt>
             <dd></dd>
           </dl>
           <dl>
             <dt>
-              <input class="form__text2 cellpata" maxlength="9"  name="telefono[]" id="cellpata${c}" type="text" placeholder="Teléfono" />
+            <input type="text"class="form__text2 f1" name="prefix"  value="51-9" readonly>
+            <input class="form__text2 f2 cellpata" maxlength="8"   name="telefono[]" type="text" id="cellpata${c}"  placeholder="Teléfono" />
+
               <dd></dd>
             </dt>
           </dl>
@@ -162,7 +173,7 @@ $(document).ready(function(){
       $(".listado").append(pata);
       $(`#cellpata${c}`).numeric();
 
-      $('#fr-mancha').validate().checkForm();
+
 
         }else{
             $(this).addClass('disabled');
@@ -172,6 +183,9 @@ $(document).ready(function(){
 
 
 //validate
+
+
+
 $.validator.methods.email = function( value, element ) {
     return this.optional( element ) || /[a-z0-9]+@[a-z0-9]+\.[a-z]+/.test( value );
   };
@@ -179,52 +193,164 @@ $.validator.methods.email = function( value, element ) {
     return arg !== value;
    }, "Valor no es igual");
 
+   validacion();
 
-    $("#fr-mancha").validate({
-        rules: {
-            nombres:{
-                required:true,
-            },
-            lidername:{
-                required:true,
-            },
-            lidercel:{
-                required:true,
-            },
-            autorizar:{
-                required:true
-            }
-
-        },
-        messages: {
-            nombres: "*Ingrese el nombre de su mancha",
-            lidername: "*Ingrese su alias de lider",
-            lidercel: "*Ingrese su número de celular",
-            autorizar: "*Marque esta casilla"
-
-
-
-        }
-    });
 
     $("#Autorizar").change(function(){
         if($("#Autorizar").is(':checked')){
             $(".lbl-autorizar").html("");
         }
     });
+
+    var numpatas =[];
+    var nompata = [];
+    $(document).on('blur',".cellpata",function(){
+
+        var valor = $(this).val();
+        numpatas.push(valor);
+
+        console.log(numpatas.length);
+        /*$(".cellpata").each(function(i,e){
+            console.log(valor+' - '+$(this).val());
+           if($(this).val()===valor){
+            var pr = $(this).prop("name");
+            $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Número ya ingresado</label>`);
+            $(this).parent().children(".error").show();
+            $(this).addClass("error");
+              return false;
+           }
+        });*/
+    });
+    $(document).on('blur',".aliaspata",function(){
+
+        var valor = $(this).val();
+        nompata.push(valor);
+
+
+
+    });
+
+   /* $(document).on('blur',".aliaspata",function(){
+
+        var valor = $(this).val();
+        $(".cellpata").each(function(){
+           if($(this).val()==valor){
+            var pr = $(this).prop("name");
+            $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Alias ya utilizado</label>`);
+            $(this).parent().children(".error").show();
+            $(this).addClass("error");
+              return false;
+           }
+        });
+    });*/
+
+    $(document).on('focusin',".cellpata",function(){
+        $(this).parent().children('label').remove();
+
+    });
+
+    $(document).on('focusin',".aliaspata",function(){
+        $(this).parent().children('label').remove();
+
+    });
+    let display=false;
+
+    $("#lbl-autoriza").click(function(){
+
+        if($(this).hasClass("lbl-autoriza-activo")){
+            $(this).removeClass("lbl-autoriza-activo");
+            $("#autorizar").attr('checked',false);
+
+
+        }else{
+          $(this).addClass("lbl-autoriza-activo");
+          $("#autorizar").attr('checked',true);
+        }
+
+    });
+
+
+
+    if(display===true){
+        console.log(display);
+        $("#autorizar").attr('checked',true);
+    }else if(display===false){
+        console.log(display);
+        $("#autorizar").attr('checked',false);
+    }
+
+    $(document).on('focusin',".activo-cellpata",function(){
+        numpatas=[];
+        console.log(numpatas.length);
+    });
+
+    $(document).on('focusin',".activo-aliaspata",function(){
+        nompata=[];
+        console.log(nompata.length);
+    });
+
     $(document).on('click','.send-mancha',function(){
-        var validator = $( "#fr-mancha" ).validate();
+        if($("#autorizar").is(':checked')){
+        }else{
+            $(".lbl-autorizar").html("*Campo obligatorio");
+        }
 
-        validator.element("#");
+        $(".cellpata").each(function(){
+            if($(this).val()==""){
+                var pr = $(this).prop("name");
+                $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Campo Obligatorio</label>`);
+                $(this).parent().children(".error").show();
+                $(this).addClass("error");
+            }
+
+        });
+        $(".aliaspata").each(function(){
+            if($(this).val()==""){
+                var pr = $(this).prop("name");
+                $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Campo Obligatorio</label>`);
+                $(this).parent().children(".error").show();
+                $(this).addClass("error");
+            }
+        });
         if($("#fr-mancha").valid()===true){
+            //duplicados pata
+            var recipientsArray = numpatas.sort();
 
+            var reportRecipientsDuplicate = [];
+            for (var i = 0; i < recipientsArray.length - 1; i++) {
+                if (recipientsArray[i + 1] == recipientsArray[i]) {
+                    reportRecipientsDuplicate.push(recipientsArray[i]);
+                }
+            }
+            if(reportRecipientsDuplicate.length>0){
+                alert("tiene numeros duplicados");
+                $(".cellpata").addClass('activo-cellpata');
+                return false;
+            }
+            //duplaicados cellpata
 
-           if($("#Autorizar").is(':checked')){
+            var recipientsArray2 = nompata.sort();
+
+            var reportRecipientsDuplicate2 = [];
+            for (var i = 0; i < recipientsArray2.length - 1; i++) {
+                if (recipientsArray2[i + 1] == recipientsArray2[i]) {
+                    reportRecipientsDuplicate2.push(recipientsArray[i]);
+                }
+            }
+            if(reportRecipientsDuplicate2.length>0){
+                alert("tiene alias duplicados");
+                $(".aliaspata").addClass('activo-aliaspata');
+                return false;
+            }
+
+            if($("#autorizar").is(':checked')){
 
             }else{
                 $(".lbl-autorizar").html("*Campo obligatorio");
                 return false;
             }
+
+
             var response = grecaptcha.getResponse();
 
             if(response.length == 0){
@@ -302,6 +428,7 @@ $.validator.methods.email = function( value, element ) {
 
 
     });
+
 
     $(".modal-3").on('click',function(e){
         e.preventDefault();
@@ -425,9 +552,11 @@ $.validator.methods.email = function( value, element ) {
             dataType:'json',
             data:datasend,
             success:function(response){
+                var pr = contenedor.prop("name");
+                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response}</label>`);
+                contenedor.parent().children(".error").show();
+                contenedor.addClass("error");
 
-                contenedor.addClass('error');
-                contenedor.after(`<span class="error">${response}</span>`);
                 $("#registrado").value("existe");
             }
 
@@ -445,7 +574,11 @@ $.validator.methods.email = function( value, element ) {
             dataType:'json',
             data:datasend,
             success:function(response){
-                contenedor.after(`<span class="error">${response}</span>`);
+
+                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response}</label>`);
+                contenedor.parent().children(".error").show();
+                contenedor.addClass("error");
+
                 $("#registrado").value("existe");
             },
             complete:function(){
@@ -462,4 +595,76 @@ function eventoplus() {
 
 };
 
+function validacion(){
+
+
+
+    $("#fr-mancha").validate({
+
+        rules: {
+            ignore: [],
+            nombres:{
+                required:true,
+                maxlength:15
+            },
+            lidername:{
+                required:true,
+            },
+            lidercel:{
+                required:true,
+                minlength:8
+            },
+
+            lideremail:{
+                email:true
+
+            },
+            'alias[]':{
+                required:true,
+                maxlength:20
+            },
+            'telefono[]':{
+                required:true,
+                minlength:8
+            }
+
+
+
+        },
+        messages: {
+            nombres: {
+                required:"Ingresa el nombre de tu mancha",
+                maxlength:"Máximo 15 caracteres"
+            },
+            lidername: "Ingrese su alias de lider",
+            lidercel:{
+                 required:"Ingrese su número de celular",
+                 minlength:"Ingresa un número celular válido"
+            },
+            lidermail: "Ingrese un email válido",
+            'alias[]':{
+                required:"Completar Alias",
+                maxlength:"Máximo 20 caracteres"
+            },
+            'telefono[]':{
+                required:"Ingrese su número de celular",
+                 minlength:"Ingresa un número celular válido"
+            }
+
+
+
+        }
+    });
+
+
+}
 eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('(2($){$.c.f=2(p){p=$.d({g:"!@#$%^&*()+=[]\\\\\\\';,/{}|\\":<>?~`.- ",4:"",9:""},p);7 3.b(2(){5(p.G)p.4+="Q";5(p.w)p.4+="n";s=p.9.z(\'\');x(i=0;i<s.y;i++)5(p.g.h(s[i])!=-1)s[i]="\\\\"+s[i];p.9=s.O(\'|\');6 l=N M(p.9,\'E\');6 a=p.g+p.4;a=a.H(l,\'\');$(3).J(2(e){5(!e.r)k=o.q(e.K);L k=o.q(e.r);5(a.h(k)!=-1)e.j();5(e.u&&k==\'v\')e.j()});$(3).B(\'D\',2(){7 F})})};$.c.I=2(p){6 8="n";8+=8.P();p=$.d({4:8},p);7 3.b(2(){$(3).f(p)})};$.c.t=2(p){6 m="A";p=$.d({4:m},p);7 3.b(2(){$(3).f(p)})}})(C);',53,53,'||function|this|nchars|if|var|return|az|allow|ch|each|fn|extend||alphanumeric|ichars|indexOf||preventDefault||reg|nm|abcdefghijklmnopqrstuvwxyz|String||fromCharCode|charCode||alpha|ctrlKey||allcaps|for|length|split|1234567890|bind|jQuery|contextmenu|gi|false|nocaps|replace|numeric|keypress|which|else|RegExp|new|join|toUpperCase|ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('|'),0,{}));
+
+function prefix(){
+$(".ibacor_fi").focus(function(){var a=$(this).data("prefix"),ibacor_currentId=$(this).attr('id'),ibacor_val=$(this).val();if(ibacor_val==''){$(this).val(a)}ibacor_fi(a.replace('ibacorat',''),ibacor_currentId);return false});function ibacor_fi(d,e){$('#'+e).keydown(function(c){setTimeout(function(){var a=bcr_riplis($('#'+e).val()),qq=bcr_riplis(d),ibacor_jumlah=qq.length,ibacor_cek=a.substring(0,ibacor_jumlah);if(a.match(new RegExp(qq))&&ibacor_cek==qq){$('#'+e).val(bcr_unriplis(a))}else{if(c.key=='Control'||c.key=='Backspace'||c.key=='Del'){$('#'+e).val(bcr_unriplis(qq))}else{var b=bcr_unriplis(qq)+c.key;$('#'+e).val(b.replace("undefined",""))}}},50)})}function bcr_riplis(a){var f=['+','$','^','*','?'];var r=['ibacorat','ibacordolar','ibacorhalis','ibacorkali','ibacortanya'];$.each(f,function(i,v){a=a.replace(f[i],r[i])});return a}function bcr_unriplis(a){var f=['+','$','^','*','?'];var r=['ibacorat','ibacordolar','ibacorhalis','ibacorkali','ibacortanya'];$.each(f,function(i,v){a=a.replace(r[i],f[i])});return a}
+}
+function resetFormValidator(formId) {
+    $(formId).removeData('validator',null);
+    $(formId).removeData('unobtrusiveValidation');
+    $.validator.unobtrusive.parse(formId);
+}

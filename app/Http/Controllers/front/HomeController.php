@@ -161,7 +161,7 @@ class HomeController extends Controller
          }
         }else{
 
-            dd('el numero no tiene codigo asignado');
+            dd('El número no tiene código asignado');
         }
 
     }
@@ -217,7 +217,7 @@ class HomeController extends Controller
 
         }
         ///se envian nuevos codigos ..notificacion
-        dd("asignacion ejecutada..");
+        dd("asignación ejecutada..");
 
     }
 
@@ -251,7 +251,7 @@ class HomeController extends Controller
 
             dd("Tu pata fue validado");
         }else{
-            dd("El codigo no es válido");
+            dd("El código no es válido");
         }
         return view('test.test');
     }
@@ -267,11 +267,11 @@ class HomeController extends Controller
              $usertipo = User::where('numero',$request->numero)->where('status',2)->first();
 
              if($usertipo->role_id == 1){
-                 $mensaje = "El numero que ingresaste es lider de un equipo";
+                 $mensaje = "El número que ingresaste es lider de un equipo";
              }
              //verificar pata
              if($usertipo->role_id == 2){
-                $mensaje = "El numero que ingresaste es pata de un equipo";
+                $mensaje = "El número que ingresaste es pata de un equipo";
             }
 
             return response()->json($mensaje);
@@ -284,7 +284,7 @@ class HomeController extends Controller
         $imancha = strtolower($request->nombres);
 
 
-        $contar = Group::where('name','like','%'.$imancha.'%')->count();
+        $contar = Group::where('name',$imancha)->count();
 
        if($contar>0){
         $rpta = 'existe';

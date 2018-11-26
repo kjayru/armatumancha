@@ -15,7 +15,10 @@
      @include('layout.partials.footer')
     </div>
     <script type="text/javascript" src="/js/vendor/jquery.min.js"></script>
-    <script src="/js/vendor/jquery.validate.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js"></script>
     <script type="text/javascript" src="/js/vendor/slick.js" charset="utf-8"></script>
     <script src='//www.google.com/recaptcha/api.js'></script>
     <script type="text/javascript" src="/js/main.js?v={{ uniqid() }}"></script>

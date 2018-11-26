@@ -18,7 +18,7 @@
                   <!--desktop-->
                   <div class="content">
                         <div class="info">
-                                <p>¡A partir del <span>27 de noviembre</span> podrás registrar a tu mancha!</p>
+                                <p>¡A partir del <span>27 de diciembre</span> podrás registrar a tu mancha!</p>
                             </div>
                         <div class="title2">
                             <h2>¿Cómo armo mi mancha?</h2>
@@ -30,7 +30,7 @@
                         <figure><img src="assets/pg1_img1.svg" alt=""/></figure>
                         <figcaption>
                           <h4>Sé el líder de tu mancha</h4>
-                          <p>Elige el beneficio para tu mancha  e ingresa tus datos.</p>
+                          <p>Elige el beneficio para tu mancha  e ingresa tus datos</p>
                         </figcaption>
                         <div class="arrow"></div>
                       </div>
@@ -38,7 +38,7 @@
                         <figure><img src="assets/pg1_img2.svg" alt=""/></figure>
                         <figcaption>
                           <h4>Arma tu mancha</h4>
-                          <p>Registra a los miembros de tu mancha.</p>
+                          <p>Registra a los miembros de tu mancha</p>
                         </figcaption>
                         <div class="arrow"></div>
                       </div>
@@ -46,7 +46,7 @@
                         <figure><img src="assets/pg1_img3.svg" alt=""/></figure>
                         <figcaption>
                           <h4>Recibe un SMS</h4>
-                          <p>Tendrás un código de líder y los miembros de tu mancha recibirán un SMS de invitación.</p>
+                          <p>Tendrás un código de líder y los miembros de tu mancha recibirán un SMS de invitación</p>
                         </figcaption>
                       </div>
                     </div>
@@ -100,7 +100,6 @@
                   <div class="title">
                     <h2>Bono de gigas</h2>
                     <p>Cámbiate a Claro, renueva o pásate de Prepago a Postpago Max Internacional. <br/>¡Hay un <span>súper bono </span>de hasta <span>10 GB </span>para navegar por 12 meses! </p>
-                    <p>Cámbiate a Claro, renueva o pásate de Prepago a Postpago Max Internacional.</p>
                     <h3>A más miembros, ¡más gigas!</h3>
 
                   </div>
@@ -227,14 +226,14 @@
                   <div class="title">
                     <h2>Bono de Millas LATAM Pass</h2>
                     <p>Cámbiate a Claro, renueva o pásate de Prepago a Postpago desde <br/>Max Internacional 69.90 con un equipo HUAWEI, LG o MOTOROLA. <br/>¡Hay un súper bono de hasta <span>3,000 </span><span>Millas LATAM Pass</span>!</p>
-                    <p>Cámbiate a Claro, renueva o pásate de Prepago a Postpago desde Max Internacional 69.90 con un equipo HUAWEI, LG o MOTOROLA.</p>
+
                     <h3>A más miembros, ¡más Millas LATAM Pass!</h3>
                   </div>
                   <div class="list">
                     <ul id="list3">
                       <li>
                          <blockquote>
-                          <h5>8 a 10 miembros</h5>
+                          <h5>8 a 10 mimebros</h5>
                         </blockquote>
                         <blockquote>
                           <div>
@@ -247,7 +246,7 @@
                       </li>
                       <li>
                         <blockquote>
-                          <h5>5 a 7 miembros</h5>
+                          <h5>5 a 7 mimebros</h5>
                         </blockquote>
                         <blockquote>
                           <div>
