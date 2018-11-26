@@ -56,7 +56,7 @@
               </div>
             </section>
             <section class="section2">
-              <div class="section2__align">
+              <div class="section2__align" style="display:none">
                 <div class="section2__main">
                   <div class="title">
                     <h2>¡Elige entre!</h2>
