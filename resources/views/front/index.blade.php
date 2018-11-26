@@ -307,7 +307,7 @@
                         </li>
                         <li>Condiciones para el Registro de Manchas
                           <ul>
-                            <li>Registro de Manchas válido del 26/11/2018 al 02/01/2019.</li>
+                            <li>Registro de Manchas válido del 27/11/2018 al 02/01/2019.</li>
                             <li>La línea del líder deberá pertenecer a una sola mancha </li>
                             <li>La mancha debe estar conformada por 2 miembros como mínimo y máximo 10, incluido el líder.</li>
                             <li>El nombre de la mancha debe ser único (alfanumérico  entre mayúsculas, minúsculas y números) con una longitud máxima de 15 caracteres, no se consideran los espacios y no se podrá editar una vez creada la mancha.</li>
