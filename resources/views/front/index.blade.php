@@ -279,7 +279,7 @@
             </section>
 
             <section class="section6">
-              <div class="section6__align">
+              <div class="section6__align" style="display:none">
                 <div class="section6__main">
                   <div class="content">
                     <h4>¡Comparte la promo con tu <span>mancha!</span></h4><span><a href="javascript:fbShare('http://armatumancha.claro.com.pe', 'Arma tu mancha', 'Arma tu mancha claro', 'https://static.claro.com.pe/landings/havas/arma_tu_mancha/v2/assets/Banner_Landing_Arma_tu_Mancha_Tablet_V_768x400.jpg', 520, 350)"><img src="assets/pg1_ico_facebook.svg" alt=""/></a><a href="whatsapp://send?text=http://armatumancha.claro.com.pe/" data-action="share/whatsapp/share"><img src="assets/pg1_ico_whatsapp.svg" alt=""/></a></span>
