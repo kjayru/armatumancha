@@ -26,8 +26,8 @@ Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->
 Route::post('/buscar-mancha','front\HomeController@buscarmancha')->name('home.buscarmancha');
 
 Route::get('/validarpatasms','front\HomeController@validarpatasms');
-Route::post('/procesopatas','front\HomeController@procesovalidapata')->name('home.procesovalidapata');
 
+Route::post('/acepto-participar','front\HomeController@aceptoParticipacion');
 Route::get('/aceptarlider','front\HomeController@aceptarlider');
 Route::post('/procesovalidarpata','front\HomeController@validarasignacion');
 

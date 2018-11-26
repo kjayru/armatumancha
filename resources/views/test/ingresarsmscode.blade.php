@@ -10,7 +10,7 @@
             </div>
 
                 <div class="card">
-                        <form class="form" action=""  method="POST" id="fr-data2">
+                        <form class="form" action="{{ action('front\HomeController@aceptoParticipacion')}}"  method="POST" id="fr-data2">
                          @csrf
                         <div class="form-group">
                             <input type="text" name="code" class="form">

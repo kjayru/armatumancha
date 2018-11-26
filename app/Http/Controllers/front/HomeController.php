@@ -237,22 +237,23 @@ class HomeController extends Controller
     }
 
 
-    public function ProcesoValidaPata(Request $request)
-    {
+
+
+    public function aceptoParticipacion(Request $request){
+
         $conteo = Code::where('code',$request->code)->count();
 
         if($conteo>0){
             $code = Code::where('code',$request->code)->first();
 
-            User::where('user_id',$code->user_id)->update(['status'=>2]);
+            User::where('id',$code->user_id)->update(['status'=>2]);
             Code::where('code',$request->code)->update(['status'=>2]);
 
             dd("Tu pata fue validado");
         }else{
             dd("El codigo no es válido");
         }
-
-        return response()->json(["rpta"=>"ok"]);
+        return view('test.test');
     }
 
 }
