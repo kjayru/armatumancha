@@ -10,3 +10,12 @@
     color: #ffffff;
     position: relative;
 }
+.slick-dots{
+    display:none !important;
+}
+@media screen and (max-width: 425px){
+    .layout__main .page1__main .section1__main .content {
+        border: none;
+        padding-bottom: 58px;
+    }
+}
