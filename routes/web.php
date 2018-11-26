@@ -11,17 +11,12 @@
 |
 */
 
-//oute::get('/','front\HomeController@endesarrollo')->name('home.desarrollo');
+
 Route::get('/','front\HomeController@index')->name('home.index');
 
 
-//Route::get('/arma-tu-mancha','front\HomeController@armatumancha')->name('home.armatumancha');
-
 Route::get('/mira-el-status-de-tu-mancha','front\HomeController@miratustatus')->name('home.mirastatus');
 
-
-
-//Route::get('/lista-mancha','front\HomeController@listamanchaingreso')->name('home.listamancha');
 
 Route::post('/buscar-mancha','front\HomeController@buscarmancha')->name('home.buscarmancha');
 
@@ -41,12 +36,8 @@ Route::post('/mostrarcodigo','front\HomeController@mostrarcodigo');
 
 
 /*asincronos*/
-//Route::post('/save-data-group','front\RegisterController@store')->name('register.store');
-
-
-
-//Route::resource('consultas','ConsultaController');
-
+Route::post('/comprobar-cel','front\HomeController@comprobarCel');
+Route::post('/disponibilidad-mancha','front\HomeController@disponibilidadmancha')->name('register.disponibilidadmancha');
 //sesionado
 
 
@@ -59,7 +50,7 @@ Route::get('/dashboard','front\RegisterController@listamanchaingreso')->name('ho
 Route::post('/lista-sesion-mancha','front\RegisterController@listamanchasesion')->name('home.listasesionmancha');
 
 
-Route::post('/disponibilidad-mancha','front\RegisterController@disponibilidadmancha')->name('register.disponibilidadmancha');
+
 Route::post('/validar-codigo','front\RegisterController@validarcodigo')->name('register.validarcodigo');
 
 Route::post('/crear-pata','front\RegisterController@crearpata')->name('register.crearpata');
@@ -76,4 +67,3 @@ Route::get('/logout','front\HomeController@logout')->name('logout');
 
 Route::get('/ingrese-celular','front\RegisterController@ingresecelular')->name('home.ingresecelular');
 
-//Route::get('/home', 'HomeController@index')->name('home');

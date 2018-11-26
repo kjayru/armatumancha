@@ -9,7 +9,7 @@ $(document).ready(function(){
     $("#nombres").on('blur',function(){
         var valor = $(this).val();
 
-
+        let contenedor = $(this);
         var token = $("#fr-data input[name='_token']").val();
 
          var sendata = {'_token':token,'_method':'POST','nombres':valor};
@@ -20,9 +20,8 @@ $(document).ready(function(){
             dataType:'json',
             success:function(response){
                 if(response.rpta == 'existe'){
-                    alert("El nombre del grupo existe, escoja otro nombre");
-                }else{
-                    alert("El nombre del grupo esta disponible");
+                    contenedor.addClass('error');
+                    contenedor.after(`<span class="error">El nombre esta registrado</span>`);
                 }
 
             }
@@ -141,19 +140,19 @@ $(document).ready(function(){
           </div>
           <dl>
             <dt>
-              <input name="alias[]" class="form__text2" type="text" maxlength="20" placeholder="Alias" />
+              <input name="alias[]" class="form__text2" type="text" maxlength="20" id="alias${c}" placeholder="Alias" />
             </dt>
             <dd></dd>
           </dl>
           <dl>
             <dt>
-              <input class="form__text2 cellpata" maxlength="9"  name="telefono[]" type="text" placeholder="Teléfono" />
+              <input class="form__text2 cellpata" maxlength="9"  name="telefono[]" id="cellpata${c}" type="text" placeholder="Teléfono" />
               <dd></dd>
             </dt>
           </dl>
           <dl>
             <dt>
-              <input class="form__text2"  name="email[]" type="text" placeholder="Email (opcional)" />
+              <input class="form__text2"  name="email[]" type="text" id="email${c}" placeholder="Email (opcional)" />
             </dt>
             <dd></dd>
           </dl>
@@ -161,8 +160,10 @@ $(document).ready(function(){
       </div>`;
 
       $(".listado").append(pata);
-      $(".cellpata").numeric();
-      $(".fr-mancha").destroy();
+      $(`#cellpata${c}`).numeric();
+
+      $('#fr-mancha').validate().checkForm();
+
         }else{
             $(this).addClass('disabled');
 
@@ -192,21 +193,15 @@ $.validator.methods.email = function( value, element ) {
             },
             autorizar:{
                 required:true
-            },
-            'alias[]':{
-                required:true,
-            },
-            'telefono[]':{
-                required:true,
             }
+
         },
         messages: {
             nombres: "*Ingrese el nombre de su mancha",
             lidername: "*Ingrese su alias de lider",
             lidercel: "*Ingrese su número de celular",
-            autorizar: "*Marque esta casilla",
-            'alias[]': "*Ingrese el alias de su pata",
-            'telefono[]': "*Ingrese el número de celular"
+            autorizar: "*Marque esta casilla"
+
 
 
         }
@@ -218,7 +213,11 @@ $.validator.methods.email = function( value, element ) {
         }
     });
     $(document).on('click','.send-mancha',function(){
+        var validator = $( "#fr-mancha" ).validate();
+
+        validator.element("#");
         if($("#fr-mancha").valid()===true){
+
 
            if($("#Autorizar").is(':checked')){
 
@@ -412,6 +411,49 @@ $.validator.methods.email = function( value, element ) {
 
     $("#lidercel").numeric();
     $(".cellpata").numeric();
+
+
+
+    $(document).on('blur','.cellpata',function(){
+        let celular = $(this).val();
+        let contenedor = $(this);
+        let token = $("#fr-mancha input[name='_token']").val();
+        let datasend = ({'_method':'POST','_token':token,'numero':celular});
+        $.ajax({
+            url:'/comprobar-cel',
+            method:'POST',
+            dataType:'json',
+            data:datasend,
+            success:function(response){
+
+                contenedor.addClass('error');
+                contenedor.after(`<span class="error">${response}</span>`);
+                $("#registrado").value("existe");
+            }
+
+        });
+    });
+
+    $(document).on('blur','#lidercel',function(){
+        let celular = $(this).val();
+        let contenedor = $(this);
+        let token = $("#fr-mancha input[name='_token']").val();
+        let datasend = ({'_method':'POST','_token':token,'numero':celular});
+        $.ajax({
+            url:'/comprobar-cel',
+            method:'POST',
+            dataType:'json',
+            data:datasend,
+            success:function(response){
+                contenedor.after(`<span class="error">${response}</span>`);
+                $("#registrado").value("existe");
+            },
+            complete:function(){
+                contenedor.addClass('error').removeClass('valid');
+            }
+
+        });
+    });
 });
 
 function eventoplus() {

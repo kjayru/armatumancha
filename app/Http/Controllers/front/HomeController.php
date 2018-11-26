@@ -233,7 +233,7 @@ class HomeController extends Controller
 
     protected function loggedOut(Request $request)
     {
-        //
+
     }
 
 
@@ -254,6 +254,44 @@ class HomeController extends Controller
             dd("El codigo no es válido");
         }
         return view('test.test');
+    }
+
+    //validar cel-lider
+    public function comprobarCel(Request $request){
+
+        $user = User::where('numero',$request->numero)->count();
+
+        if($user>0){
+             //verificar lider
+
+             $usertipo = User::where('numero',$request->numero)->where('status',2)->first();
+
+             if($usertipo->role_id == 1){
+                 $mensaje = "El numero que ingresaste es lider de un equipo";
+             }
+             //verificar pata
+             if($usertipo->role_id == 2){
+                $mensaje = "El numero que ingresaste es pata de un equipo";
+            }
+
+            return response()->json($mensaje);
+        }
+
+    }
+
+    public function disponibilidadmancha(Request $request){
+
+        $imancha = strtolower($request->nombres);
+
+
+        $contar = Group::where('name','like','%'.$imancha.'%')->count();
+
+       if($contar>0){
+        $rpta = 'existe';
+       }else{
+        $rpta = 'libre';
+       }
+        return response()->json(['rpta'=>$rpta]);
     }
 
 }

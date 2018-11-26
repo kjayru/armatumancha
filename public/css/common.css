@@ -3647,12 +3647,13 @@ html.fp-enabled,
                 .layout__main .page1__main .section1__main .content .list .item .arrow {
                   display: none !important; } }
         .layout__main .page1__main .section1__main .content .info {
-          width: 650px;
-          height: 40px;
-          margin-top: 0px;
-          margin-bottom: 41px;
-          position: relative;
-          display: inline-block; }
+            width: 650px;
+            height: 40px;
+            top: -61px;
+            margin-bottom: 41px;
+            position: relative;
+            display: inline-block;
+         }
           @media screen and (max-width: 425px) {
             .layout__main .page1__main .section1__main .content .info {
               width: 100%;

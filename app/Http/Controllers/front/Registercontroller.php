@@ -27,20 +27,7 @@ class RegisterController extends Controller
         return view('test.test');
     }
 
-    public function disponibilidadmancha(Request $request){
 
-        $imancha = strtolower($request->nombres);
-
-
-        $contar = Group::where('name','like','%'.$imancha.'%')->count();
-
-       if($contar>0){
-        $rpta = 'existe';
-       }else{
-        $rpta = 'libre';
-       }
-        return response()->json(['rpta'=>$rpta]);
-    }
 
     public function validarcodigo($codigo){
 

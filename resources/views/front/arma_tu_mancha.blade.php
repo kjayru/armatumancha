@@ -10,8 +10,10 @@
             </form>
               <form class="form" method="POST" id="fr-mancha" action="{{ action('front\RegisterController@store') }}" >
                 <input type="hidden" name="_method" value="POST">
-                @csrf
 
+                @csrf
+                <input type="hidden" name="regmancha" id="regmancha" >
+                <input type="hidden" name="regcelular" id="regcelular" >
 
                 <section class="section1">
                         <div class="section1__align">
