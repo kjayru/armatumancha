@@ -4,6 +4,12 @@
 //eventos first mobile
 $(document).ready(function(){
     "use strict";
+
+
+    $(".layout__header--button").click(function(){
+        $(this).toggleClass("active");
+        $(this).parent("nav").children("ul").toggleClass("active");
+    });
     prefix();
     $("#lidercel").numeric();
     $("#nombres").on('blur',function(){
