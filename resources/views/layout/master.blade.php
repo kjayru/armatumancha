@@ -7,8 +7,17 @@
 
     <link rel="stylesheet" type="text/css" href="/css/common.css?v={{ uniqid() }}">
     <link rel="stylesheet" type="text/css" href="/css/main.css?v={{ uniqid() }}">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41368265-9"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+          gtag('config', 'UA-41368265-9');
+        </script>
   </head>
   <body>
+
     <div class="layout" id="app">
      @include('layout.partials.navigation')
        @yield('content')
