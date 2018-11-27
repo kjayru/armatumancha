@@ -539,7 +539,7 @@ campo15=false,campo16=false;
     }
 
 if($("#fr-mancha").valid()===true){
-
+/*
     if(campo1==false){
         return false;
     }
@@ -588,7 +588,7 @@ if($("#fr-mancha").valid()===true){
     if(campo16 ==false){
         return false;
     }
-
+*/
 
             if($("#autorizar").is(':checked')){
 
