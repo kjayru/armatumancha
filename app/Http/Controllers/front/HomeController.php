@@ -90,10 +90,10 @@ class HomeController extends Controller
 
 
 
-          $notification = array(
-            'notification' => 'codigo-seguridad',
-            'users' => array('17')
-          );
+    $notification = array(
+        'notification' => 'codigo-seguridad',
+        'users' => array('17')
+    );
 
     $noti = json_encode(['data'=>$notification]);
     $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')

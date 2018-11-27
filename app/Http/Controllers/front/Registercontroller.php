@@ -81,15 +81,17 @@ class RegisterController extends Controller
         $usergroup->group_id = $request->group_id;
         $usergroup->save();
 
+
+
         $notification = array(
-            'notification' => 'invitacion',
+            'notification' => 'codigo-seguridad',
             'users' => array($user->id)
-          );
-         $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                ->withData(['data'=>$notification])
-                ->post();
+        );
 
-
+        $noti = json_encode(['data'=>$notification]);
+        $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                    ->withData($noti)
+                    ->post();
         return response()->json(['rpta'=>'ok']);
     }
 
@@ -112,14 +114,17 @@ class RegisterController extends Controller
             $peticion->save();
 
             //validacion cambio de lider
+
+
             $notification = array(
                 'notification' => 'solicitud-cambio-lider',
                 'users' => array($request->user_id)
             );
-            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                    ->withData(['data'=>$notification])
-                    ->post();
 
+            $noti = json_encode(['data'=>$notification]);
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                        ->withData($noti)
+                        ->post();
 
             return response()->json(['rpta'=>'ok','mensaje'=>'Se envio una petición a tu pata.']);
         }else{
@@ -158,13 +163,17 @@ class RegisterController extends Controller
 
                     $codigosms = $codigo->code;
             //Enviar notificacion
+
+
             $notification = array(
                 'notification' => 'recupero-codigo-seguridad',
                 'users' => array($request->user_id)
             );
+
+            $noti = json_encode(['data'=>$notification]);
             $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                    ->withData(['data'=>$notification])
-                    ->post();
+                        ->withData($noti)
+                        ->post();
 
                 return view('front.olvide_codigo');
 
@@ -300,7 +309,7 @@ class RegisterController extends Controller
             User::where('user_id',$petition->owner_user_id)->update(['role_id'=>2]);
 
             //ejecuta asignacion de pata a lider
-            User::where('user_id',$petition->sucesor_user_id)->update(['role_id'=>1]);
+            User::where('user_id',$petition->sucessor_user_id)->update(['role_id'=>1]);
 
 
             $disabledCode = Code::where('user_id',$request->owner_user_id)->update(['status'=>3]);
@@ -311,24 +320,27 @@ class RegisterController extends Controller
 
 
 
-            $disabledCode2 = Code::where('user_id',$request->sucesor_user_id)->update(['status'=>3]);
+            $disabledCode2 = Code::where('user_id',$request->sucessor_user_id)->update(['status'=>3]);
 
 
             $numcode2 = Code::whereNull('user_id')->first();
 
              Code::where('id',$numcode2->id)
-                ->update(['user_id'=>$request->sucesor_user_id,'status'=>2]);
+                ->update(['user_id'=>$request->sucessor_user_id,'status'=>2]);
 
 
             //Enviar notificacion
+
+
             $notification = array(
                 'notification' => 'cambio-lider',
-                'users' => array($request->sucesor_user_id)
+                'users' => array($request->sucessor_user_id)
             );
-            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                    ->withData(['data'=>$notification])
-                    ->post();
 
+            $noti = json_encode(['data'=>$notification]);
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                        ->withData($noti)
+                        ->post();
 
         }
         ///se envian nuevos codigos ..notificacion

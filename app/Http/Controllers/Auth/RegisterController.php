@@ -99,10 +99,12 @@ class RegisterController extends Controller
         $notification = array(
             'notification' => 'creacion-mancha',
             'users' => array($usuario->id)
-          );
-         $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                ->withData(['data'=>$notification])
-                ->post();
+        );
+
+        $noti = json_encode(['data'=>$notification]);
+        $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                    ->withData($noti)
+                    ->post();
 
         ///bucle patas
         $numpatas = count($request->alias);
@@ -135,14 +137,15 @@ class RegisterController extends Controller
             ->update(['user_id'=>$pata->id,'status'=>1]);
 
 
-            //dispara codigo lider
-        $notification = array(
-            'notification' => 'codigo-seguridad',
-            'users' => array($pata->id)
-          );
-         $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                ->withData(['data'=>$notification])
-                ->post();
+            $notification = array(
+                'notification' => 'codigo-seguridad',
+                'users' => array($pata->id)
+            );
+
+            $noti = json_encode(['data'=>$notification]);
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                        ->withData($noti)
+                        ->post();
 
         }
 
@@ -168,12 +171,10 @@ class RegisterController extends Controller
                         ?: redirect($this->redirectPath());*/
 
     }
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+
+
+
+
     protected function validator(array $data)
     {
 
