@@ -102,12 +102,12 @@ class RegisterController extends Controller
         $contar = User::where('id',$request->user_id)
                     ->where('status',2)->count();
 
-        dd($contar);
+
         if($contar>0){
             $codigo = Code::where('user_id',$request->user_id)
                         ->where('status',2)->first();
 
-
+            dd($codigo);
             $peticion = new Petition();
 
             $peticion->owner_user_id = $request->lider_id;
