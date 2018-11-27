@@ -95,9 +95,9 @@ class HomeController extends Controller
             'users' => array('17')
           );
 
-    $noti = json_encode($notification);
+    $noti = json_encode(array('data'=>$noti));
     $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                ->withData(['data'=>$noti])
+                ->withData([$notification])
                 ->post();
 
     dd($noti);
