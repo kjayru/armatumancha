@@ -356,7 +356,9 @@ $.validator.addMethod("unique", function(value, element) {
 }, "* Duplicate");
 
 
-
+let campo1=false,campo2 = false,campo3=false,campo4=false,campo5=false,campo6=false,campo7=false,
+campo8=false,campo9=false,campo10=false,campo11=false,campo12=false,campo13=false,campo14=false,
+campo15=false,campo16=false;
 
     $(document).on('click','.send-mancha',function(){
         //verifica duplicidad
@@ -368,119 +370,224 @@ $.validator.addMethod("unique", function(value, element) {
         $(".error2").html("");
 
     if($("#fr-mancha input").hasClass("cellpata2")){
-        validaton.element("#cellpata2");
-        if(!validaton.check('#cellpata2')){
-          $("#cellpata2").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+
+        if(validaton.check('#cellpata2')===false){
+            $("#cellpata2").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+
+            campo1 = false;
+
+        }else{
+
+            campo1 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("cellpata3")){
-        validaton.element("#cellpata3");
-        if(!validaton.check('#cellpata3')){
-          $("#cellpata3").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+       // validaton.element("#cellpata3");
+        if(validaton.check('#cellpata3')===false){
+           $("#cellpata3").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo2 =  false;
+        }else{
+            campo2 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("cellpata4")){
-        validaton.element("#cellpata4");
-        if(!validaton.check('#cellpata4')){
-          $("#cellpata4").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+       // validaton.element("#cellpata4");
+        if(validaton.check('#cellpata4')===false){
+         $("#cellpata4").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo3 = false;
+        }else{
+            campo3 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("cellpata5")){
-        validaton.element("#cellpata5");
-        if(!validaton.check('#cellpata5')){
+        //validaton.element("#cellpata5");
+        if(validaton.check('#cellpata5')===false){
           $("#cellpata5").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo4 = false;
+        }else{
+            campo4 = true;
         }
+
     }
 
     if($("#fr-mancha input").hasClass("cellpata6")){
-        validaton.element("#cellpata6");
-        if(!validaton.check('#cellpata6')){
+       // validaton.element("#cellpata6");
+        if(validaton.check('#cellpata6')===false){
           $("#cellpata6").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+           campo5 = false;
+        }else{
+            campo5 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("cellpata7")){
-        validaton.element("#cellpata7");
-        if(!validaton.check('#cellpata7')){
+        //validaton.element("#cellpata7");
+        if(validaton.check('#cellpata7')===false){
           $("#cellpata7").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+
+          campo6 = false;
+        }else{
+          campo6 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("cellpata8")){
-        validaton.element("#cellpata8");
-        if(!validaton.check('#cellpata8')){
+       // validaton.element("#cellpata8");
+        if(validaton.check('#cellpata8')===false){
           $("#cellpata8").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo7 = false;
+        }else{
+            campo7 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("cellpata9")){
-        validaton.element("#cellpata9");
-        if(!validaton.check('#cellpata9')){
+        //validaton.element("#cellpata9");
+        if(validaton.check('#cellpata9')===false){
           $("#cellpata9").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo8 = false;
+        }else{
+            campo8 = true;
         }
     }
 ///alias
 
     if($("#fr-mancha input").hasClass("alias2")){
-        validaton.element("#alias2");
-        if(!validaton.check('#alias2')){
+      //  validaton.element("#alias2");
+        if(validaton.check('#alias2')===false){
           $("#alias2").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo9 = false;
+        }else{
+            campo9 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("alias3")){
-        validaton.element("#alias3");
-        if(!validaton.check('#alias3')){
+        //validaton.element("#alias3");
+        if(validaton.check('#alias3')===false){
           $("#alias3").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo10 = false;
+        }else{
+            campo10 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("alias4")){
-        validaton.element("#alias4");
-        if(!validaton.check('#alias4')){
+      //  validaton.element("#alias4");
+        if(validaton.check('#alias4')===false){
           $("#alias4").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          campo11 = false;
+        }else{
+          campo11 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("alias5")){
-        validaton.element("#alias5");
-        if(!validaton.check('#alias5')){
+       // validaton.element("#alias5");
+        if(validaton.check('#alias5')===false){
           $("#alias5").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+
+          campo12 = false;
+        }else{
+          campo12 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("alias6")){
-        validaton.element("#alias6");
-        if(!validaton.check('#alias6')){
+        //validaton.element("#alias6");
+        if(validaton.check('#alias6')===false){
           $("#alias6").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+
+            campo13 = false;
+        }else{
+            campo13 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("alias7")){
-        validaton.element("#alias7");
-        if(!validaton.check('#alias7')){
+        //validaton.element("#alias7");
+        if(validaton.check('#alias7')===false){
           $("#alias7").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+
+            campo14 = false;
+        }else{
+            campo14 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("alias8")){
-        validaton.element("#alias8");
-        if(!validaton.check('#alias8')){
+       // validaton.element("#alias8");
+        if(validaton.check('#alias8')===false){
           $("#alias8").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo15 = false;
+        }else{
+            campo15 = true;
         }
     }
 
     if($("#fr-mancha input").hasClass("alias9")){
-        validaton.element("#alias9");
-        if(!validaton.check('#alias9')){
+       // validaton.element("#alias9");
+        if(!validaton.check('#alias9')===false){
           $("#alias9").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+            campo16 = false;
+        }else{
+            campo16 = true;
         }
     }
 
-        if($("#fr-mancha").valid()===true){
+if($("#fr-mancha").valid()===true){
+
+    if(campo1==false){
+        return false;
+    }
+    if(campo2==false){
+        return false;
+    }
+    if(campo3==false){
+        return false;
+    }
+    if(campo4==false){
+        return false;
+    }
+    if(campo5==false){
+        return false;
+    }
+    if(campo6==false){
+        return false;
+    }
+    if(campo7==false){
+        return false;
+    }
+    if(campo8==false){
+        return false;
+    }
+    if(campo9==false){
+        return false;
+    }
+    if(campo10==false){
+        return false;
+    }
+    if(campo11==false){
+        return false;
+    }
+    if(campo12==false){
+        return false;
+    }
+    if(campo13==false){
+        return false;
+    }
+    if(campo14 ==false){
+        return false;
+    }
+    if(campo15 ==false){
+        return false;
+    }
+    if(campo16 ==false){
+        return false;
+    }
 
 
             if($("#autorizar").is(':checked')){
