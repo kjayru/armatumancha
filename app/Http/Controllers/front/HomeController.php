@@ -111,7 +111,7 @@ class HomeController extends Controller
 
 
 
-        return response()->json([$notification]);
+        return response()->json(['data'=>$notification]);
     }
 
 
