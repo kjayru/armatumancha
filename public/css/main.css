@@ -25,6 +25,24 @@ input.f2 {
 #lbl-autoriza {
     display:inline-block !important;
 }
+.layout__header a.btnClose {
+    width: 134px;
+    height: 41px;
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font: normal 400 0.875em "Roboto" !important;
+    color: #da272c !important;
+    cursor: pointer;
+    background: url(../assets/pg4_closebutton1.svg) no-repeat center center;
+    text-align: left;
+    line-height: inherit;
+    padding-top: 10px;
+    padding-left: 20px;
+
+}
+
 @media screen and (max-width: 425px){
     .layout__main .page1__main .section1__main .content {
         border: none;
