@@ -87,7 +87,7 @@ class HomeController extends Controller
 
     public function test1(){
 
-        $grupo = Group::where('id',4)->first();
+     /*   $grupo = Group::where('id',4)->first();
        // $codigo = Code::where('user_id',6)->first();
 
         $mancha = $grupo->name;
@@ -104,13 +104,16 @@ class HomeController extends Controller
 
     $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
                 ->withData(['data'=>$notification])
-                ->post();
+                ->post();*/
 
-    dd($response);
+
+
+    dd("detalle");
 
 
         return response()->json([$notification]);
     }
+
 
 
 

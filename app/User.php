@@ -34,7 +34,29 @@ class User extends Authenticatable
     public function codes(){
         return $this->hasMany('App\Code');
     }
-    public static function  reemplazar($cadena){
-       // $numero = strlen $cadena;
+
+
+    public static function correoslice($correo){
+
+        $corte = explode("@",$correo);
+        $cnueva = $corte[0];
+        @$exten = $corte[1];
+        $resultado = substr($cnueva, 0,4);
+        $generado = $resultado."***@".$exten;
+        return $generado;
+    }
+
+    public static function numeroslice($numero){
+        $resultado = substr($numero, 2,3);
+        $resultado2 =  substr($resultado, 0,3);
+
+        return $resultado."******";
+    }
+
+    public static function numerosview($numero){
+        $resultado = substr($numero, 2,9);
+
+
+        return $resultado;
     }
 }
