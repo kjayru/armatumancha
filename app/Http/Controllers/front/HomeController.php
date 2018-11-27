@@ -98,7 +98,7 @@ class HomeController extends Controller
 
           $notification = array(
             'notification' => 'codigo-seguridad',
-            'users' => array('15')
+            'users' => array("15")
           );
 
 
