@@ -356,9 +356,9 @@ $.validator.addMethod("unique", function(value, element) {
 }, "* Duplicate");
 
 
-let campo1=false,campo2 = false,campo3=false,campo4=false,campo5=false,campo6=false,campo7=false,
-campo8=false,campo9=false,campo10=false,campo11=false,campo12=false,campo13=false,campo14=false,
-campo15=false,campo16=false;
+let campo1,campo2 ,campo3,campo4,campo5,campo6,campo7,
+campo8,campo9,campo10,campo11,campo12,campo13,campo14,
+campo15,campo16;
 
     $(document).on('click','.send-mancha',function(){
         //verifica duplicidad
@@ -539,7 +539,7 @@ campo15=false,campo16=false;
     }
 
 if($("#fr-mancha").valid()===true){
-/*
+
     if(campo1==false){
         return false;
     }
@@ -588,7 +588,7 @@ if($("#fr-mancha").valid()===true){
     if(campo16 ==false){
         return false;
     }
-*/
+
 
             if($("#autorizar").is(':checked')){
 
