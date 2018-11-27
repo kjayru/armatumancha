@@ -76,4 +76,11 @@ input.f2 {
         border: none;
         padding-bottom: 58px;
     }
+    .layout__main .page1__main .section1__main .content .info {
+        width: 100% !important;
+        height: 45px !important;
+        margin-top: 71px;
+        padding: 0 20px;
+        margin-bottom: 0;
+    }
 }
