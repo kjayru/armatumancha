@@ -19,7 +19,7 @@
                   <div class="content">
 
                         <div class="title2">
-                            <h2>¿Cómo armo mi mancha?</h2>
+
                         </div>
                     <div class="list" id="list1">
 
