@@ -106,6 +106,17 @@ class RegisterController extends Controller
                     ->withData($noti)
                     ->post();
 
+        //dispara codigo lider
+        $notification = array(
+            'notification' => 'codigo-seguridad',
+            'users' => array($usuario->id)
+        );
+
+        $noti = json_encode(['data'=>$notification]);
+        $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                    ->withData($noti)
+                    ->post();
+
         ///bucle patas
         $numpatas = count($request->alias);
 
