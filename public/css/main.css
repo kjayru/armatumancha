@@ -50,6 +50,16 @@ input.f2 {
     background: url(../assets/pg4_icon_like.svg) no-repeat center center;
 }
 
+.layout__main .page2__main .section2__main .register .form dl dt input[type="email"] {
+    padding: 10px 10px;
+    height: 47px;
+    line-height: 47px;
+    display: table-cell;
+    background: transparent;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
 @media screen and (max-width: 425px){
     .layout__main .page1__main .section1__main .content {
         border: none;

@@ -151,21 +151,21 @@ $(document).ready(function(){
           </div>
           <dl>
             <dt>
-              <input name="alias[]" class="form__text2 aliaspata" type="text" maxlength="20" id="alias${c}" placeholder="Alias" />
+              <input name="alias[]" class="form__text2 aliaspata unique alias${c}"  type="text" maxlength="20" id="alias${c}" placeholder="Alias" />
             </dt>
             <dd></dd>
           </dl>
           <dl>
             <dt>
 
-            <input class="form__text2  cellpata" maxlength="9"   name="telefono[]" type="text" id="cellpata${c}"  placeholder="Teléfono" />
+            <input class="form__text2  cellpata unique cellpata${c}" maxlength="9"  name="telefono[]" type="text" id="cellpata${c}"  placeholder="Teléfono" />
 
               <dd></dd>
             </dt>
           </dl>
           <dl>
             <dt>
-              <input class="form__text2"  name="email[]" type="text" id="email${c}" placeholder="Email (opcional)" />
+              <input class="form__text2"  name="email[]" type="email"  id="email${c}" placeholder="Email (opcional)" />
             </dt>
             <dd></dd>
           </dl>
@@ -195,7 +195,10 @@ $.validator.methods.email = function( value, element ) {
     return arg !== value;
    }, "Valor no es igual");
 
-   validacion();
+
+
+
+
 
 
     $("#Autorizar").change(function(){
@@ -207,10 +210,8 @@ $.validator.methods.email = function( value, element ) {
     var numpatas =[];
     var nompata = [];
     $(document).on('blur',".cellpata",function(){
-
         var valor = $(this).val();
         numpatas.push(valor);
-
 
     });
     $(document).on('blur',".aliaspata",function(){
@@ -222,31 +223,20 @@ $.validator.methods.email = function( value, element ) {
 
     });
 
-   /* $(document).on('blur',".aliaspata",function(){
-
-        var valor = $(this).val();
-        $(".cellpata").each(function(){
-           if($(this).val()==valor){
-            var pr = $(this).prop("name");
-            $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Alias ya utilizado</label>`);
-            $(this).parent().children(".error").show();
-            $(this).addClass("error");
-              return false;
-           }
-        });
-    });*/
 
     $(document).on('focusin',".cellpata",function(){
         $(this).parent().children('label').remove();
+        $(this).removeClass("error");
 
     });
 
     $(document).on('focusin',".aliaspata",function(){
         $(this).parent().children('label').remove();
-
+        $(this).removeClass("error");
     });
     $(document).on('focusin',"#lidercel",function(){
         $(this).parent().children('label').remove();
+        $(this).removeClass("error");
         $("#existelider").val(0);
     });
 
@@ -285,62 +275,213 @@ $.validator.methods.email = function( value, element ) {
         nompata=[];
         console.log(nompata.length);
     });
+///validador principal
+
+var validaton =  $("#fr-mancha").validate({
+
+    rules: {
+        ignore: [],
+        nombres:{
+            required:true,
+            maxlength:15
+        },
+        lidername:{
+            required:true,
+        },
+        lidercel:{
+            required:true,
+            minlength:9
+        },
+
+        lideremail:{
+            email:true
+
+        },
+        'alias[]':{
+            required:true,
+            maxlength:20
+        },
+        'telefono[]':{
+            required:true,
+            minlength:9
+        }
+
+
+
+    },
+    messages: {
+        nombres: {
+            required:"Ingresa el nombre de tu mancha",
+            maxlength:"Máximo 15 caracteres",
+            unique: "Esta valor debe ser unico"
+        },
+        lidername:{
+            required:"Ingrese su alias de lider",
+            unique: "Esta valor debe ser unico"
+        },
+        lidercel:{
+             required:"Ingrese su número de celular",
+             minlength:"Ingresa un número celular válido",
+             unique: "Esta valor debe ser unico"
+        },
+        lidermail: "Ingrese un email válido",
+        'alias[]':{
+            required:"Completar Alias",
+            maxlength:"Máximo 20 caracteres",
+            unique: "Esta valor debe ser unico"
+        },
+        'telefono[]':{
+            required:"Ingrese su número de celular",
+             minlength:"Ingresa un número celular válido",
+             unique: "Esta valor debe ser unico"
+        }
+
+
+
+    }
+});
+
+$.validator.addMethod("unique", function(value, element) {
+    var parentForm = $(element).closest('form');
+    var timeRepeated = 0;
+    if (value != '') {
+        $(parentForm.find(':text')).each(function () {
+            if ($(this).val() === value) {
+                timeRepeated++;
+            }
+        });
+    }
+    return timeRepeated === 1 || timeRepeated === 0;
+
+}, "* Duplicate");
+
+
+
 
     $(document).on('click','.send-mancha',function(){
+        //verifica duplicidad
+
         if($("#autorizar").is(':checked')){
         }else{
             $(".lbl-autorizar").html("*Campo obligatorio");
         }
+        $(".error2").html("");
 
-        $(".cellpata").each(function(){
-            $(".cellpata").parent().children('label').remove();
-            if($(this).val()==""){
-                var pr = $(this).prop("name");
-                $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Campo Obligatorio</label>`);
-                $(this).parent().children(".error").show();
-                $(this).addClass("error");
-            }
+    if($("#fr-mancha input").hasClass("cellpata2")){
+        validaton.element("#cellpata2");
+        if(!validaton.check('#cellpata2')){
+          $("#cellpata2").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
 
-        });
-        $(".aliaspata").each(function(){
-            $(".aliaspata").parent().children('label').remove();
-            if($(this).val()==""){
-                var pr = $(this).prop("name");
-                $(this).parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">Campo Obligatorio</label>`);
-                $(this).parent().children(".error").show();
-                $(this).addClass("error");
-            }
-        });
+    if($("#fr-mancha input").hasClass("cellpata3")){
+        validaton.element("#cellpata3");
+        if(!validaton.check('#cellpata3')){
+          $("#cellpata3").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("cellpata4")){
+        validaton.element("#cellpata4");
+        if(!validaton.check('#cellpata4')){
+          $("#cellpata4").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("cellpata5")){
+        validaton.element("#cellpata5");
+        if(!validaton.check('#cellpata5')){
+          $("#cellpata5").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("cellpata6")){
+        validaton.element("#cellpata6");
+        if(!validaton.check('#cellpata6')){
+          $("#cellpata6").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("cellpata7")){
+        validaton.element("#cellpata7");
+        if(!validaton.check('#cellpata7')){
+          $("#cellpata7").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("cellpata8")){
+        validaton.element("#cellpata8");
+        if(!validaton.check('#cellpata8')){
+          $("#cellpata8").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("cellpata9")){
+        validaton.element("#cellpata9");
+        if(!validaton.check('#cellpata9')){
+          $("#cellpata9").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+///alias
+
+    if($("#fr-mancha input").hasClass("alias2")){
+        validaton.element("#alias2");
+        if(!validaton.check('#alias2')){
+          $("#alias2").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("alias3")){
+        validaton.element("#alias3");
+        if(!validaton.check('#alias3')){
+          $("#alias3").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("alias4")){
+        validaton.element("#alias4");
+        if(!validaton.check('#alias4')){
+          $("#alias4").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("alias5")){
+        validaton.element("#alias5");
+        if(!validaton.check('#alias5')){
+          $("#alias5").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("alias6")){
+        validaton.element("#alias6");
+        if(!validaton.check('#alias6')){
+          $("#alias6").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("alias7")){
+        validaton.element("#alias7");
+        if(!validaton.check('#alias7')){
+          $("#alias7").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("alias8")){
+        validaton.element("#alias8");
+        if(!validaton.check('#alias8')){
+          $("#alias8").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
+    if($("#fr-mancha input").hasClass("alias9")){
+        validaton.element("#alias9");
+        if(!validaton.check('#alias9')){
+          $("#alias9").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+        }
+    }
+
         if($("#fr-mancha").valid()===true){
-            //duplicados pata
-            var recipientsArray = numpatas.sort();
 
-            var reportRecipientsDuplicate = [];
-            for (var i = 0; i < recipientsArray.length - 1; i++) {
-                if (recipientsArray[i + 1] == recipientsArray[i]) {
-                    reportRecipientsDuplicate.push(recipientsArray[i]);
-                }
-            }
-            if(reportRecipientsDuplicate.length>0){
-                alert("tiene numeros duplicados");
-                $(".cellpata").addClass('activo-cellpata');
-                return false;
-            }
-            //duplaicados cellpata
-
-            var recipientsArray2 = nompata.sort();
-
-            var reportRecipientsDuplicate2 = [];
-            for (var i = 0; i < recipientsArray2.length - 1; i++) {
-                if (recipientsArray2[i + 1] == recipientsArray2[i]) {
-                    reportRecipientsDuplicate2.push(recipientsArray[i]);
-                }
-            }
-            if(reportRecipientsDuplicate2.length>0){
-                alert("tiene alias duplicados");
-                $(".aliaspata").addClass('activo-aliaspata');
-                return false;
-            }
 
             if($("#autorizar").is(':checked')){
 
@@ -349,7 +490,7 @@ $.validator.methods.email = function( value, element ) {
                 return false;
             }
 
-
+            //captpcha
             var response = grecaptcha.getResponse();
 
             if(response.length == 0){
@@ -718,66 +859,7 @@ function eventoplus() {
 
 };
 
-function validacion(){
-    $("#fr-mancha").validate({
 
-        rules: {
-            ignore: [],
-            nombres:{
-                required:true,
-                maxlength:15
-            },
-            lidername:{
-                required:true,
-            },
-            lidercel:{
-                required:true,
-                minlength:9
-            },
-
-            lideremail:{
-                email:true
-
-            },
-            'alias[]':{
-                required:true,
-                maxlength:20
-            },
-            'telefono[]':{
-                required:true,
-                minlength:9
-            }
-
-
-
-        },
-        messages: {
-            nombres: {
-                required:"Ingresa el nombre de tu mancha",
-                maxlength:"Máximo 15 caracteres"
-            },
-            lidername: "Ingrese su alias de lider",
-            lidercel:{
-                 required:"Ingrese su número de celular",
-                 minlength:"Ingresa un número celular válido"
-            },
-            lidermail: "Ingrese un email válido",
-            'alias[]':{
-                required:"Completar Alias",
-                maxlength:"Máximo 20 caracteres"
-            },
-            'telefono[]':{
-                required:"Ingrese su número de celular",
-                 minlength:"Ingresa un número celular válido"
-            }
-
-
-
-        }
-    });
-
-
-}
 eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('(2($){$.c.f=2(p){p=$.d({g:"!@#$%^&*()+=[]\\\\\\\';,/{}|\\":<>?~`.- ",4:"",9:""},p);7 3.b(2(){5(p.G)p.4+="Q";5(p.w)p.4+="n";s=p.9.z(\'\');x(i=0;i<s.y;i++)5(p.g.h(s[i])!=-1)s[i]="\\\\"+s[i];p.9=s.O(\'|\');6 l=N M(p.9,\'E\');6 a=p.g+p.4;a=a.H(l,\'\');$(3).J(2(e){5(!e.r)k=o.q(e.K);L k=o.q(e.r);5(a.h(k)!=-1)e.j();5(e.u&&k==\'v\')e.j()});$(3).B(\'D\',2(){7 F})})};$.c.I=2(p){6 8="n";8+=8.P();p=$.d({4:8},p);7 3.b(2(){$(3).f(p)})};$.c.t=2(p){6 m="A";p=$.d({4:m},p);7 3.b(2(){$(3).f(p)})}})(C);',53,53,'||function|this|nchars|if|var|return|az|allow|ch|each|fn|extend||alphanumeric|ichars|indexOf||preventDefault||reg|nm|abcdefghijklmnopqrstuvwxyz|String||fromCharCode|charCode||alpha|ctrlKey||allcaps|for|length|split|1234567890|bind|jQuery|contextmenu|gi|false|nocaps|replace|numeric|keypress|which|else|RegExp|new|join|toUpperCase|ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('|'),0,{}));
 
 function prefix(){
