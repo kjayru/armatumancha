@@ -100,7 +100,7 @@ class HomeController extends Controller
             'notification' => 'codigo-seguridad',
             'users' => array(18)
           );
-
+          dd($notification);
 
     $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
                 ->withData(['data'=>$notification])
@@ -108,7 +108,7 @@ class HomeController extends Controller
 
 
 
-    dd($response);
+
 
 
         return response()->json([$notification]);
