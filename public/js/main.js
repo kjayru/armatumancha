@@ -365,7 +365,7 @@ $.validator.methods.email = function( value, element ) {
                 return false;
             }
             if(ilider == "1"){
-                alert("Este numero de lider esta registrado como lider.");
+                alert("Este numero de lider esta registrado en otro grupo.");
 
                 return false;
 
