@@ -107,7 +107,7 @@ class RegisterController extends Controller
             $codigo = Code::where('user_id',$request->user_id)
                         ->where('status',2)->first();
 
-            dd($codigo);
+
             $peticion = new Petition();
 
             $peticion->owner_user_id = $request->lider_id;
