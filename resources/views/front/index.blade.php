@@ -17,9 +17,7 @@
                   <!--.title: h2 ¿Qué pasos sigo?-->
                   <!--desktop-->
                   <div class="content">
-                        <div class="info">
-                                <p>¡A partir del <span>27 de diciembre</span> podrás registrar a tu mancha!</p>
-                            </div>
+
                         <div class="title2">
                             <h2>¿Cómo armo mi mancha?</h2>
                         </div>
@@ -50,6 +48,10 @@
                         </figcaption>
                       </div>
                     </div>
+                    <div class="info">
+
+                            <p>¡Recuerda! Tienes hasta el <span>2 de enero del 2019 </span>para registrar tu mancha.</p>
+                        </div>
 
                   </div>
                 </div>

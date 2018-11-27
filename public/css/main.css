@@ -63,6 +63,14 @@ input.f2 {
 .modal-2{
     display: none!important;
 }
+.layout__main .page1__main .section1__main .content .info {
+    width: 650px;
+    height: 40px;
+    top: 0;
+    margin-bottom: 41px;
+    position: relative;
+    display: inline-block;
+}
 @media screen and (max-width: 425px){
     .layout__main .page1__main .section1__main .content {
         border: none;
