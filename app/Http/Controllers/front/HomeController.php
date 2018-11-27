@@ -108,7 +108,7 @@ class HomeController extends Controller
 
 
 
-    dd("detalle");
+    dd($response);
 
 
         return response()->json([$notification]);
