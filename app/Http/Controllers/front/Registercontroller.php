@@ -221,7 +221,7 @@ class RegisterController extends Controller
 
 
 
-        if($user->beneficio=="bono")
+        if($user->beneficio=="bonos")
         {
             $copy = "10 Gb por mes durante 1 año!";
             if($numusuarios==0){
@@ -257,8 +257,7 @@ class RegisterController extends Controller
             if($numusuarios==10){
                 $slogan = "10 GB";
             }
-        }else
-        {
+        }else{
             $copy = "3,000 millas LATAM Pass!";
             if($numusuarios==0){
                 $slogan = "0 Millas";
