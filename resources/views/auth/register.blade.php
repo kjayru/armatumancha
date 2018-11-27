@@ -120,8 +120,8 @@
                                                 </dl>
                                                 <dl>
                                                   <dt>
-                                                    <input type="text"class="form__text2 f1" name="prefix"  value="51" readonly>
-                                                    <input class="form__text2  f2" type="text"  name="lidercel" id="lidercel" maxlength="9" value="{{ old('numero') }}"   placeholder="Teléfono"/>
+
+                                                    <input class="form__text2 " type="text"  name="lidercel" id="lidercel" maxlength="9" value="{{ old('numero') }}"   placeholder="Teléfono"/>
                                                   </dt>
                                                   <dd></dd>
                                                 </dl>
@@ -157,8 +157,8 @@
                                                   </dl>
                                                   <dl>
                                                     <dt>
-                                                      <input type="text"class="form__text2 f1" name="prefix"  value="51" readonly>
-                                                      <input class="form__text2 f2 cellpata" maxlength="9"   name="telefono[]" type="text" value="{{ old('numero[]') }}"  placeholder="Teléfono" />
+
+                                                      <input class="form__text2  cellpata" maxlength="9"   name="telefono[]" type="text" value="{{ old('numero[]') }}"  placeholder="Teléfono" />
 
                                                     </dt>
                                                     <dd></dd>
