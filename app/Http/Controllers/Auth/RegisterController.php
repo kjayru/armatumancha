@@ -149,7 +149,7 @@ class RegisterController extends Controller
 
 
             $notification = array(
-                'notification' => 'invitado',
+                'notification' => 'invitacion',
                 'users' => array($pata->id)
             );
 
