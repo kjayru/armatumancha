@@ -81,6 +81,15 @@ class RegisterController extends Controller
         $usergroup->group_id = $request->group_id;
         $usergroup->save();
 
+        $notification = array(
+            'notification' => 'invitacion',
+            'users' => array($user->id)
+          );
+         $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                ->withData(['data'=>$notification])
+                ->post();
+
+
         return response()->json(['rpta'=>'ok']);
     }
 
@@ -101,6 +110,17 @@ class RegisterController extends Controller
             $peticion->code_id = $codigo->id;
 
             $peticion->save();
+
+            //validacion cambio de lider
+            $notification = array(
+                'notification' => 'solicitud-cambio-lider',
+                'users' => array($request->user_id)
+            );
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                    ->withData(['data'=>$notification])
+                    ->post();
+
+
             return response()->json(['rpta'=>'ok','mensaje'=>'Se envio una petición a tu pata.']);
         }else{
             return response()->json(['rpta'=>'error','mensaje'=>'El usuario aun no participa..']);
@@ -137,7 +157,14 @@ class RegisterController extends Controller
                             ->where('status','2')->first();
 
                     $codigosms = $codigo->code;
-                    //Enviar notificacion
+            //Enviar notificacion
+            $notification = array(
+                'notification' => 'recupero-codigo-seguridad',
+                'users' => array($request->user_id)
+            );
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                    ->withData(['data'=>$notification])
+                    ->post();
 
                 return view('front.olvide_codigo');
 
@@ -291,6 +318,18 @@ class RegisterController extends Controller
 
              Code::where('id',$numcode2->id)
                 ->update(['user_id'=>$request->sucesor_user_id,'status'=>2]);
+
+
+            //Enviar notificacion
+            $notification = array(
+                'notification' => 'cambio-lider',
+                'users' => array($request->sucesor_user_id)
+            );
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                    ->withData(['data'=>$notification])
+                    ->post();
+
+
         }
         ///se envian nuevos codigos ..notificacion
         dd("asignacion ejecutada..");

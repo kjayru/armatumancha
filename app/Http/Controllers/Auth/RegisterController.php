@@ -8,7 +8,7 @@ use App\Group;
 use App\GroupUser;
 
 use App\Http\Controllers\Controller;
-
+use Ixudra\Curl\Facades\Curl;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -95,6 +95,14 @@ class RegisterController extends Controller
         $codigo = Code::where('id',$code_asig)
                       ->update(['user_id'=>$usuario->id,'status'=>2]);
 
+        //dispara codigo lider
+        $notification = array(
+            'notification' => 'creacion-mancha',
+            'users' => array($usuario->id)
+          );
+         $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                ->withData(['data'=>$notification])
+                ->post();
 
         ///bucle patas
         $numpatas = count($request->alias);
@@ -125,6 +133,16 @@ class RegisterController extends Controller
 
             $codigo2 = Code::where('id',$code_asig2)
             ->update(['user_id'=>$pata->id,'status'=>1]);
+
+
+            //dispara codigo lider
+        $notification = array(
+            'notification' => 'invitacion',
+            'users' => array($pata->id)
+          );
+         $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                ->withData(['data'=>$notification])
+                ->post();
 
         }
 

@@ -199,6 +199,15 @@ class HomeController extends Controller
 
              Petition::where('code_id',$code->id)->update(['status'=>2]);
              dd("asignación ejecutada..");
+
+             //Enviar notificacion
+            $notification = array(
+                'notification' => 'cambio-lider',
+                'users' => array($request->sucesor_user_id)
+            );
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                    ->withData(['data'=>$notification])
+                    ->post();
         }else{
             dd("En numero ingresado no tiene asignación.");
         }
@@ -228,6 +237,15 @@ class HomeController extends Controller
 
             User::where('id',$code->user_id)->update(['status'=>2]);
             Code::where('code',$request->code)->update(['status'=>2]);
+
+            //Enviar notificacion
+            $notification = array(
+                'notification' => 'cambio-lider',
+                'users' => array($code->user_id)
+            );
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                    ->withData(['data'=>$notification])
+                    ->post();
 
             dd("Tu pata fue validado");
         }else{
