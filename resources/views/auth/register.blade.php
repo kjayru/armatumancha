@@ -15,7 +15,9 @@
 
                                   @csrf
 
-
+                                 <input type="hidden" name="existepata" id="existepata" value="">
+                                 <input type="hidden" name="existelider" id="existelider" value="">
+                                 <input type="hidden" name="existemancha" id="existemancha" value="">
                                   <section class="section1">
                                           <div class="section1__align">
                                             <div class="section1__header">

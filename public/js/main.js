@@ -23,6 +23,7 @@ $(document).ready(function(){
                     if(response.rpta == 'existe'){
                         contenedor.addClass('error');
                         contenedor.after(`<span class="error"> Nombre de mancha ya utilizado </span>`);
+                        $("#existemancha").val(1);
                     }
 
                 }
@@ -34,6 +35,7 @@ $(document).ready(function(){
         e.preventDefault();
 
          $(this).parent('dt').children("span").remove();
+         $("#existemancha").val(0);
      });
 
 
@@ -243,6 +245,11 @@ $.validator.methods.email = function( value, element ) {
         $(this).parent().children('label').remove();
 
     });
+    $(document).on('focusin',"#lidercel",function(){
+        $(this).parent().children('label').remove();
+        $("#existelider").val(0);
+    });
+
     let display=false;
 
     $("#lbl-autoriza").click(function(){
@@ -350,8 +357,25 @@ $.validator.methods.email = function( value, element ) {
                 $(".lbl-captcha").html("Validación obligatoria");
                 return false;
             }
+            let imancha =  $("#existemancha").val();
+            let ilider = $("#existelider").val();
 
-            $("#fr-mancha").submit();
+            if(imancha == "1"){
+                alert("Este nombre ya existe.");
+                return false;
+            }
+            if(ilider == "1"){
+                alert("Este numero de lider esta registrado como lider.");
+
+                return false;
+
+            }else{
+
+
+                $("#fr-mancha").submit();
+            }
+
+
         }else{
 
             return false;
@@ -512,11 +536,13 @@ $.validator.methods.email = function( value, element ) {
             data:datasend,
             success:function(response){
                 var pr = contenedor.prop("name");
-                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response}</label>`);
+                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response.mensaje}</label>`);
                 contenedor.parent().children(".error").show();
                 contenedor.addClass("error");
 
-                $("#registrado").value("existe");
+
+
+
             }
 
         });
@@ -533,12 +559,15 @@ $.validator.methods.email = function( value, element ) {
             dataType:'json',
             data:datasend,
             success:function(response){
-
-                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response}</label>`);
+                var pr = contenedor.prop("name");
+                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response.mensaje}</label>`);
                 contenedor.parent().children(".error").show();
                 contenedor.addClass("error");
 
-                $("#registrado").value("existe");
+
+                    $("#existelider").val(1);
+
+
             },
             complete:function(){
                 contenedor.addClass('error').removeClass('valid');

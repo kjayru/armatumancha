@@ -265,7 +265,7 @@ class HomeController extends Controller
                 $mensaje = "El número que ingresaste es pata de un equipo";
             }
 
-            return response()->json($mensaje);
+            return response()->json(["rpta"=>"ok","mensaje"=>$mensaje,"role"=>$usertipo->role_id]);
         }
 
     }
