@@ -19,7 +19,11 @@
                   <div class="section1__header">
                     <div class="links"><a class="btnBack" href="{{ url()->previous() }}"> <span>Volver</span></a></div>
                     <div class="title">
-                      <h2>¡Ya vas obteniendo <span>5 </span>GB por línea! </h2>
+                      <h2>¡Ya vas obteniendo
+
+                            {{ $slogan }}
+                        por línea!
+                        </h2>
                     </div>
                   </div>
                   <div class="section1__main">

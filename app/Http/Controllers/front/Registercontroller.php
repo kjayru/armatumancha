@@ -204,13 +204,75 @@ class RegisterController extends Controller
         $grupores = Group::where('id',$group_id)->with('users')->first();
 
 
-        return view('front.lista_mancha_ingreso',['grupores'=>$grupores]);
+        foreach($grupores->users as $k => $nu){
+
+            if($nu->status==2){
+                $con[]=$nu->status;
+            }
+        }
+
+        $slogan ='';
+        $numusuarios = intval(count($con));
+
+
+
+        if($user->beneficio=="bono")
+        {
+            if($numusuarios==1){
+            $slogan = "1 GB";
+            }
+            if($numusuarios==2){
+                $slogan = "2 GB";
+            }
+            if($numusuarios==3){
+                $slogan = "3 GB";
+            }
+            if($numusuarios==4){
+                $slogan = "4 GB";
+            }
+            if($numusuarios==5){
+                $slogan = "5 GB";
+            }
+            if($numusuarios==6){
+                $slogan = "6 GB";
+            }
+            if($numusuarios==7){
+                $slogan = "7 GB";
+            }
+            if($numusuarios==8){
+                $slogan = "8 GB";
+            }
+            if($numusuarios==9){
+                $slogan = "9 GB";
+            }
+            if($numusuarios==10){
+                $slogan = "10 GB";
+            }
+        }else
+        {
+
+            if($numusuarios>0 && $numusuarios<4){
+                $slogan = "1,000 Millas";
+            }
+            if($numusuarios>4 &&$numusuarios<7){
+                $slogan = "2,000 Millas";
+            }
+            if($numusuarios>7 &&$numusuarios<10){
+                $slogan = "3,000 Millas";
+            }
+        }
+
+
+
+        return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'user'=>$user,'slogan'=>$slogan]);
     }
 
 
     public function listamanchasesion(Request $request){
         //verifico mi grupo
         $user = User::where('id',Auth::id())->first();
+
+
 
         $peticion = Petition::where('owner_user_id',Auth::id())->where('status',1)->count();
 
@@ -252,10 +314,12 @@ class RegisterController extends Controller
 
             $grupores = Group::where('id',$group_id)->with('users')->first();
 
+            $numusuarios = count($grupores->users);
 
+            $invitados = $numusuarios - 1;
 
             if($user_rol==1){
-                return view('front.lista_mancha_sesion',['grupores'=>$grupores,'peticion'=>$existe_peticion]);
+                return view('front.lista_mancha_sesion',['grupores'=>$grupores,'peticion'=>$existe_peticion,'user'=>$user,'invitados'=>$invitados]);
             }else{
                 return redirect()->route('home.listamancha',['mensaje'=>1]);
             }

@@ -9,7 +9,7 @@
                   <div class="section1__header">
                     <div class="links"><a class="btnBack" href="#"> <span>Volver </span></a></div>
                     <div class="title">
-                      <h2>Bono de MILLAS<img src="assets/pg2_icon_giga.svg" alt=""/></h2>
+                      <h2><img src="assets/pg2_icon_latam.svg" alt=""/></h2>
                     </div>
                   </div>
                   <div class="section1__main">
