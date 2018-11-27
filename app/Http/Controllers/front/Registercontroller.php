@@ -102,6 +102,7 @@ class RegisterController extends Controller
         $contar = User::where('id',$request->user_id)
                     ->where('status',2)->count();
 
+        dd($contar);
         if($contar>0){
             $codigo = Code::where('user_id',$request->user_id)
                         ->where('status',2)->first();

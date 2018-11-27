@@ -390,7 +390,7 @@ $.validator.methods.email = function( value, element ) {
                 let dataform = ({'_token':token,'_method':'POST','user_id':id, 'lider_id':liderid});
 
                 $.ajax({
-                    url:'/asignar-lider',
+                    url:'/asignar-lidermancha',
                     method:'POST',
                     dataType:'json',
                     data:dataform,
