@@ -48,7 +48,9 @@ Route::post('/lista-sesion-mancha','front\RegisterController@listamanchasesion')
 Route::post('/validar-codigo','front\RegisterController@validarcodigo')->name('register.validarcodigo');
 
 Route::post('/crear-pata','front\RegisterController@crearpata')->name('register.crearpata');
-Route::post('/asignar-lider','front\RegisterController@asignarlider')->name('register.asignarlider');
+
+Route::post('/asignar-lider','front\RegisterController@asignarlidermancha')->name('register.asignarlider');
+
 Route::delete('/borrar-pata/{id}','front\RegisterController@borrarpata')->name('register.borrarpata');
 
 Route::post('/validar-celular','front\RegisterController@validarcelular')->name('register.validarcelular');

@@ -97,7 +97,7 @@ class RegisterController extends Controller
 
 /**Asignar lider */
 
-    public function asignarlider(Request $request){
+    public function asignarlidermancha(Request $request){
 
         $contar = User::where('id',$request->user_id)
                     ->where('status',2)->count();
