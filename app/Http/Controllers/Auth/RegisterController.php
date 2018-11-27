@@ -137,7 +137,7 @@ class RegisterController extends Controller
 
             //dispara codigo lider
         $notification = array(
-            'notification' => 'invitacion',
+            'notification' => 'codigo-seguridad',
             'users' => array($pata->id)
           );
          $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
