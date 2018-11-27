@@ -18,8 +18,7 @@
                 <div class="section1__align">
                   <div class="section1__header">
                     <div class="links">
-                        <a class="btnBack" href="/dashboard"> <span>Volver</span></a>
-                        <!--<a class="btnClose" href="{{ route('home.index') }}"> <span>Cerrar sesión</span></a>-->
+
                     </div>
                     <div class="title">
                       <h2>{{ strtoupper($grupores->name)}}</h2>
