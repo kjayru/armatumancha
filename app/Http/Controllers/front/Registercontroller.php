@@ -95,6 +95,8 @@ class RegisterController extends Controller
         return response()->json(['rpta'=>'ok']);
     }
 
+/**Asignar lider */
+
     public function asignarlider(Request $request){
 
         $contar = User::where('id',$request->user_id)
@@ -218,6 +220,7 @@ class RegisterController extends Controller
 
         if($user->beneficio=="bono")
         {
+            $copy = "10 Gb por mes durante 1 año!";
             if($numusuarios==1){
             $slogan = "1 GB";
             }
@@ -250,7 +253,7 @@ class RegisterController extends Controller
             }
         }else
         {
-
+            $copy = "3,000 millas LATAM Pass!";
             if($numusuarios>0 && $numusuarios<4){
                 $slogan = "1,000 Millas";
             }
@@ -264,7 +267,7 @@ class RegisterController extends Controller
 
 
 
-        return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'user'=>$user,'slogan'=>$slogan]);
+        return view('front.lista_mancha_ingreso',['grupores'=>$grupores,'user'=>$user,'slogan'=>$slogan,"copy"=>$copy]);
     }
 
 

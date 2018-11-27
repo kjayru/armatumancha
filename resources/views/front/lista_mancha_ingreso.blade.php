@@ -28,7 +28,7 @@
                   </div>
                   <div class="section1__main">
                     <div class="title">
-                      <h2>¡Sigue juntando a más patas para obtener<br/>hasta 10 GB por mes durante 1 año!</h2>
+                      <h2>¡Sigue juntando a más patas para obtener<br/>hasta {{$copy}}</h2>
                     </div>
                   </div>
                 </div>
