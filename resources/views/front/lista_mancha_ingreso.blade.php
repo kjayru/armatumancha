@@ -57,7 +57,7 @@
                               <td @if($group->role->id==1) class="star" @endif><strong>{{ $group->alias }}</strong></td>
                               <td><span>{{ \App\User::numeroslice($group->numero) }}</span></td>
                               <td><span>@if($group->email){{ \App\User::correoslice($group->email) }} @endif</span></td>
-                              <td><i @if($group->status==1) class="ico_status3" @elseif($group->status==2)  class="ico_like" @else class="ico_unlike" @endif></i></td>
+                              <td><i @if($group->status==1) class="ico_status3" @elseif($group->status==2)  class="ico_status4" @else class="ico_unlike" @endif></i></td>
                               <td><i  @if($group->califica==1) class="ico_status3" @elseif($group->califica==2)  class="ico_status2" @else class="ico_status1" @endif></i></td>
                             </tr>
                             @endforeach

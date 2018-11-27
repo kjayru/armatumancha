@@ -42,6 +42,13 @@ input.f2 {
     padding-left: 20px;
 
 }
+.layout__main .page4__main .section2__main .grid__info table td i.ico_status4:before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 37px;
+    background: url(../assets/pg4_icon_like.svg) no-repeat center center;
+}
 
 @media screen and (max-width: 425px){
     .layout__main .page1__main .section1__main .content {
