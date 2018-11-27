@@ -209,8 +209,10 @@ class RegisterController extends Controller
 
         foreach($grupores->users as $k => $nu){
 
-            if($nu->status==2){
-                $con[]=$nu->status;
+            if($nu->califica==2){
+                $con[]=$nu->califica;
+            }else{
+                $con=array();
             }
         }
 
@@ -222,6 +224,9 @@ class RegisterController extends Controller
         if($user->beneficio=="bono")
         {
             $copy = "10 Gb por mes durante 1 año!";
+            if($numusuarios==0){
+                $slogan = "0 GB";
+                }
             if($numusuarios==1){
             $slogan = "1 GB";
             }
@@ -255,6 +260,9 @@ class RegisterController extends Controller
         }else
         {
             $copy = "3,000 millas LATAM Pass!";
+            if($numusuarios==0){
+                $slogan = "0 Millas";
+                }
             if($numusuarios>0 && $numusuarios<4){
                 $slogan = "1,000 Millas";
             }
