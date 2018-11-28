@@ -206,13 +206,11 @@ class RegisterController extends Controller
 
         $grupores = Group::where('id',$group_id)->with('users')->first();
 
-
+        $con=[];
         foreach($grupores->users as $k => $nu){
 
             if($nu->status==2){
                 $con[]=$nu->status;
-            }else{
-                $con=array();
             }
         }
 
@@ -259,10 +257,10 @@ class RegisterController extends Controller
             }
         }else{
             $copy = "3,000 millas LATAM Pass!";
-            if($numusuarios==0){
+            if($numusuarios<2){
                 $slogan = "<span>0 Millas</span>";
                 }
-            if($numusuarios>0 && $numusuarios<4){
+            if($numusuarios>2 && $numusuarios<4){
                 $slogan = "<span>1,000 Millas</span>";
             }
             if($numusuarios>4 &&$numusuarios<7){

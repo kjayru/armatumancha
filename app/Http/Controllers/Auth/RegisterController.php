@@ -167,12 +167,12 @@ class RegisterController extends Controller
         switch ($beneficio) {
             case 'bonos':
 
-            return redirect()->route('home.graciasgigas',['group_id'=> $grupo->id]);
+            return redirect()->route('home.graciasgigas');
 
             break;
 
             case 'latam':
-            return redirect()->route('home.graciasmillas',['group_id'=> $grupo->id]);
+            return redirect()->route('home.graciasmillas');
             break;
         }
 
