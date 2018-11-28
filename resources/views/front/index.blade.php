@@ -17,7 +17,9 @@
                   <!--.title: h2 ¿Qué pasos sigo?-->
                   <!--desktop-->
                   <div class="content">
-
+                        <div class="title">
+                    <h2>¿Cómo armo mi mancha?</h2>
+                  </div>
                         <div class="title2">
 
                         </div>
@@ -27,30 +29,30 @@
                       <div class="item">
                         <figure><img src="assets/pg1_img1.svg" alt=""/></figure>
                         <figcaption>
-                          <h4>Sé el líder de tu mancha</h4>
-                          <p>Elige el beneficio para tu mancha  e ingresa tus datos</p>
+                          <h4>Sé el líder de tu mancha.</h4>
+                          <p>Elige el beneficio para tu mancha  e ingresa tus datos.</p>
                         </figcaption>
                         <div class="arrow"></div>
                       </div>
                       <div class="item">
                         <figure><img src="assets/pg1_img2.svg" alt=""/></figure>
                         <figcaption>
-                          <h4>Arma tu mancha</h4>
-                          <p>Registra a los miembros de tu mancha</p>
+                          <h4>Arma tu mancha.</h4>
+                          <p>Registra a los miembros de tu mancha.</p>
                         </figcaption>
                         <div class="arrow"></div>
                       </div>
                       <div class="item">
                         <figure><img src="assets/pg1_img3.svg" alt=""/></figure>
                         <figcaption>
-                          <h4>Recibe un SMS</h4>
-                          <p>Tendrás un código de líder y los miembros de tu mancha recibirán un SMS de invitación</p>
+                          <h4>Recibe un SMS.</h4>
+                          <p>Tendrás un código de líder y los miembros de tu mancha recibirán un SMS de invitación.</p>
                         </figcaption>
                       </div>
                     </div>
                     <div class="info">
 
-                            <p>¡Recuerda! Tienes hasta el <span>2 de enero del 2019 </span>para registrar tu mancha.</p>
+                            <p>¡Recuerda! Tienes hasta el <span>2 de enero <br>del 2019 </span>para registrar tu mancha.</p>
                         </div>
 
                   </div>
@@ -61,7 +63,7 @@
               <div class="section2__align" >
                 <div class="section2__main">
                   <div class="title">
-                    <h2>¡Elige entre!</h2>
+                    <h2>¿Qué quieres hacer?</h2>
                   </div>
                   <div class="content">
                     <div class="content__item">
@@ -102,7 +104,8 @@
                   <div class="title">
                     <h2>Bono de gigas</h2>
                     <p>Cámbiate a Claro, renueva o pásate de Prepago a Postpago Max Internacional. <br/>¡Hay un <span>súper bono </span>de hasta <span>10 GB </span>para navegar por 12 meses! </p>
-                    <h3>A más miembros, ¡más gigas!</h3>
+                    <p>Cámbiate a Claro, renueva o pásate de    Prepago a Postpago y llévate un súper bono  </p>
+                    <h3>A más miembros, ¡podrán ganar más gigas!</h3>
 
                   </div>
                   <div class="list" id="list2">
@@ -228,14 +231,14 @@
                   <div class="title">
                     <h2>Bono de Millas LATAM Pass</h2>
                     <p>Cámbiate a Claro, renueva o pásate de Prepago a Postpago desde <br/>Max Internacional 69.90 con un equipo HUAWEI, LG o MOTOROLA. <br/>¡Hay un súper bono de hasta <span>3,000 </span><span>Millas LATAM Pass</span>!</p>
-
-                    <h3>A más miembros, ¡más Millas LATAM Pass!</h3>
+                    <p>Cámbiate a Claro, renueva o pásate de Prepago a Postpago desde el plan Max Internacional 69.90</p>
+                    <h3>A más miembros, ¡podrán ganar más Millas LATAM Pass!</h3>
                   </div>
                   <div class="list">
                     <ul id="list3">
                       <li>
                          <blockquote>
-                          <h5>8 a 10 mimebros</h5>
+                          <h5>8 a 10 miembros</h5>
                         </blockquote>
                         <blockquote>
                           <div>
@@ -248,7 +251,7 @@
                       </li>
                       <li>
                         <blockquote>
-                          <h5>5 a 7 mimebros</h5>
+                          <h5>5 a 7 miembros</h5>
                         </blockquote>
                         <blockquote>
                           <div>
@@ -289,176 +292,241 @@
                 </div>
               </div>
             </section>
+            <section class="questions">
+              <div class="questions__align">
+                <div class="questions__content">
+                  <div class="questions__title">
+                    <h2>Preguntas frecuentes</h2>
+                  </div>
+                  <div class="questions__list">
+                    <ul>
+                      <li>
+                        <h3><span></span>¿Cuál es la cantidad mínima y máxima de miembros que puede conformar una mancha?</h3>
+                        <div>
+                          <p>Recuerda que la cantidad mínima es 2 (líder y un miembro) y la máxima es 10 (líder y 9 miembros).</p>
+                          <!--<p>Se aplicarán las mismas tarifas como si estuvieras llamando desde Perú a ese país. Por ejemplo, si llamas a Ecuador la tarifa sería S/ 0.69. Conoce las tarifas LDI <a href="http://claromax.com/tarifas" target="_blank">aquí.</a></p>-->
+                        </div>
+                      </li>
+                      <li>
+                        <h3><span></span>¿Puedo armar o ser parte de una mancha si mi línea no es Claro?</h3>
+                        <div>
+                          <p>Si, solo recuerda que debes cumplir con los requisitos de la promoción para acceder a tu beneficio.</p>
+                          <!--<p>Estando en Perú o en los países que forman parte de Cobertura Sin Frontera, los consumos adicionales tendrán las mismas tarifas. Conoce las tarifas  <a href="http://claromax.com/tarifas" target="_blank">aquí.</a></p>-->
+                        </div>
+                      </li>
+                      <li>
+                        <h3><span></span>¿Cuáles son los requisitos para acceder a estos beneficios?</h3>
+                        <div>
+                          <p>Los requisitos varían según el beneficio que elijas tú y tu mancha:</p>
+                          <p><strong>•  Bono de gigas</strong><br>
+                          Tú y tu mancha deberán cambiarse a Claro, renovar o pasarse de Prepago a Postpago Max Internacional. </p>
+                          <p><strong>•  Bono de gigas</strong><br>
+                          Tú y tu mancha deberán cambiarse a Claro, renovar o pasarse de Prepago a Postpago Max Internacional. </p>
+                          <p><strong>• Bono de Millas LATAM Pass</strong><br>
+                          Tú y tu mancha deberán cambiarse a Claro, renovar o pasarse de Prepago a Postpago desde un plan Max Internacional 69.90 con un equipo de las siguientes marcas: Motorola, Huawei y LG. </p>
+                          <!--<p>Si viajas a otros países que no sean parte de Cobertura Sin Frontera, te recomendamos activar el servicio Roaming. Conoce más <a href="http://roaming.claro.com.pe/" target="_blank">aquí.</a></p>-->
+                        </div>
+                      </li>
+                      <li>
+                        <h3><span></span>Para acceder al beneficio, ¿es necesario que toda la mancha se cambie, renueve o migre de Prepago a Postpago?</h3>
+                        <div>
+                          <p>Dependiendo del beneficio seleccionado:</p>
+                          <p>- Si eligieron bono de gigas: En caso la línea líder pertenezca a Claro, tendrá la opción de no realizar una portabilidad, renovación o pasarse de prepago a plan postpago Max Internacional. El resto de miembros de la mancha sí debe realizar alguna de las transacciones mencionadas. <br>- Si optaron por bono de Millas LATAM Pass: Es obligatorio que todos los miembros realice una renovación, portabilidad o pasarse de prepago a postpago desde un plan Max Internacional 69.90 con un equipo Motorola, Huawei o LG.
+                          </p>
+                          <!--<p>Si, solo recuerda que debes cumplir con los requisitos de la promoción para acceder a tu beneficio.</p>
+                          <p>Estando en Perú o en los países que forman parte de Cobertura Sin Frontera, los consumos adicionales tendrán las mismas tarifas. Conoce las tarifas  <a href="http://claromax.com/tarifas" target="_blank">aquí.</a></p>-->
+                        </div>
+                      </li>
+                      <li>
+                        <h3><span></span>A más miembros en mi mancha, ¿más beneficios?</h3>
+                        <div>
+                          <p>Sí. Si eligen bono de gigas pueden obtener hasta 10 GB por línea por mes, durante 1 año o si optan por Millas LATAM Pass pueden llevarse hasta 3,000 Millas LATAM Pass. Sujeto al cumplimiento de las condiciones.</p>
+                        </div>
+                      </li>
+                      <li>
+                        <h3><span></span>¿En qué casos pierdo el beneficio?</h3>
+                        <div>
+                          <p>- Si migras de Postpago a Prepago.<br>- Si tu línea es dada de baja o se realiza algún tipo de bloqueo.</p>
+                        </div>
+                      </li>
+                      <li>
+                        <h3><span></span>Si ya acepté inscribirme a una mancha, ¿puedo acceder a cualquier beneficio?</h3>
+                        <div>
+                          <p>Recuerda que el líder es quien elige el beneficio para la mancha, sea bono de gigas o Millas LATAM Pass.</p>
+                        </div>
+                      </li>
+                      <li>
+                        <h3><span></span>He recibido invitaciones a más de una mancha, ¿puedo aceptar a todas?</h3>
+                        <div>
+                          <p>No, recuerda que solo puedes confirmar tu inscripción a una mancha. </p>
+                        </div>
+                      </li>
+                       <li>
+                        <h3><span></span>Tengo una línea Prepago de CLARO, ¿puedo acceder a esta promoción?</h3>
+                        <div>
+                          <p>Sí, siempre y cuando migres a un plan postpago Max Internacional (ver consideraciones de la promoción). Tienes hasta el 2 de enero del 2019 para pasarte a postpago Max Internacional y acceder al beneficio que escoja el líder de tu mancha.</p>
+                        </div>
+                      </li>
+                      <li>
+                        <h3><span></span>¿Para qué me sirven las Millas LATAM Pass?</h3>
+                        <div>
+                          <p>El beneficio de Millas LATAM Pass te servirá para viajar. Recuerda que, ¡a más miembros en tu mancha, más millas!<br>Para acumular millas debes ser Socio LATAM Pass, sin aún no lo eres regístrate aquí: <a href="https://www.latam.com/es_pe/apps/personas/registration" target="_blank">https://www.latam.com/es_pe/apps/personas/registration</a></p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
             <section class="considerations">
               <div class="considerations__align">
                 <div class="considerations__title">
                   <h2>¡Ten en cuenta!</h2>
                 </div>
                 <div class="considerations__content">
-                  <div class="considerations__subtitle"><a>Consideraciones Generales</a><i></i></div>
+                  <div class="considerations__subtitle"><a>Consideraciones generales para el registro de tu mancha</a><i></i></div>
                   <div class="considerations__data">
                     <div class="considerations__info">
                       <ul>
-                        <li>Pasos para participar de la promoción:
+                        <li>Registro de Manchas válido del 27/11/2018 al 02/01/2019</li>
+                        <li>Todas las líneas (incluyendo la del líder) deberán pertenecer a una sola mancha </li>
+                        <li>La mancha debe estar conformada por 2 miembros como mínimo y máximo 10, incluido el líder.</li>
+                        <li>El nombre de la mancha debe ser único (alfanumérico  entre mayúsculas, minúsculas y números) con una longitud máxima de 15 caracteres, no se consideran los espacios y no se podrá editar una vez creada la mancha.</li>
+                        <li>Los miembros pueden hacer seguimiento del estado de su mancha</li>
+                        <li>Se considerarán únicamente en el registro aquellas líneas activas sin bloqueos, suspensiones o bajas.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="considerations__content">
+                  <div class="considerations__subtitle"><a>Consideraciones aplicables al beneficio de Bono GB</a><i></i></div>
+                  <div class="considerations__data">
+                    <div class="considerations__info">
+                      <ul>
+                        <li>El período para el cumplimiento de las condiciones aplicables al beneficio de Bono de GB es del 27/11/2018 al 02/01/2019</li>
+                        <li>Las líneas de la mancha deberán estar activas sin bloqueos, suspensiones o bajas.</li>
+                        <li>Cada línea de la mancha debe haber realizado durante este período, una de las siguientes acciones (ver excepción aplicable al líder en el siguiente punto):
                           <ul>
-                            <li>Arma tu mancha en la web: <a href="http://armatumancha.claro.com.pe/arma-tu-mancha" target="_blank">armatumancha.claro.com.pe</a></li>
-                            <li>Elige uno de los beneficios: GB o Millas LATAM Pass. Para la aplicación de este último beneficio (Millas LATAM Pass), el titular de cada línea debe tener una cuenta LATAM Pass activa.</li>
-                            <li>Invita a tus amigos</li>
-                            <li>Tus amigos deberán aceptar la invitación</li>
+                            <li>Portarse a Claro (la línea debe tener 30 días de antigüedad mínima en el operador cedente).</li>
+                            <li>Renovar (la línea debe tener 06 meses de antigüedad mínima en Claro). </li>
+                            <li>Migrar de modalidad prepago a postpago (la línea debe tener 06 meses de antigüedad mínima).</li>
                           </ul>
                         </li>
-                        <li>Condiciones para el Registro de Manchas
+                        <li>En caso la línea líder pertenezca a Claro, tendrá la opción de no realizar ninguna de las transacciones mencionadas (portabilidad, renovación o migración).</li>
+                        <li>Los planes a portar, renovar o migrar de prepago a postpago son los Planes Max Internacional.</li>
+                        <li>Mensualmente, se validará la cantidad de líneas de la mancha que cumplen las condiciones y, en función de ello, se calculará la cantidad de GB que será entregada durante cada período, y se les notificará vía SMS a todas las líneas de la mancha.</li>
+                        <li>Para la entrega del beneficio de bono de GB, las líneas deberán estar activas. </li>
+                        <li>El bono de GB no utilizado durante ese período en el que la línea no estuvo activa, no podrá ser recuperado.</li>
+                        <li>La entrega de GB se realizará durante 12 periodos consecutivos.</li>
+                        <li>Los GB entregados durante cada período tendrán una vigencia de 31 días.</li>
+                        <li>Los GB no son acumulables.</li>
+                        <li>La cantidad de GB a entregar de acuerdo al número de líneas en la mancha que hayan cumplido con todas las condiciones, se realizará según la siguiente tabla:
+                            <table>
+                              <tr>
+                                <td>Cantidad de Personas </td>
+                                <td>Bonos</td>
+                              </tr>
+                              <tr>
+                                <td>2 </td>
+                                <td>2 GB por línea</td>
+                              </tr>
+                              <tr>
+                                <td>3 </td>
+                                <td>3 GB por línea</td>
+                              </tr>
+                              <tr>
+                                <td>4 </td>
+                                <td>4 GB por línea</td>
+                              </tr>
+                              <tr>
+                                <td>5 </td>
+                                <td>5 GB por línea</td>
+                              </tr>
+                              <tr>
+                                <td>6 </td>
+                                <td>6 GB por línea</td>
+                              </tr>
+                              <tr>
+                                <td>7 </td>
+                                <td>7 GB por línea</td>
+                              </tr>
+                              <tr>
+                                <td>8 </td>
+                                <td>8 GB por línea</td>
+                              </tr>
+                              <tr>
+                                <td>9 </td>
+                                <td>9 GB por línea</td>
+                              </tr>
+                              <tr>
+                                <td>10 </td>
+                                <td>10 GB por línea</td>
+                              </tr>
+                            </table>
+                        </li>
+                        <li>Mensualmente, se validará la cantidad de líneas de la mancha que cumplen las condiciones y, en función de ello, se calculará la cantidad de GB que será entregada durante cada período, y se les notificará vía SMS a todas las líneas de la mancha.</li>
+
+                        <li>En los planes ilimitados, el beneficio de bono de GB se entregará en cada ciclo de facturación durante 12 periodos, y será utilizado para incrementar la cantidad de GB calculados previa a la reducción de velocidad de internet. </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="considerations__content">
+                  <div class="considerations__subtitle"><a>Consideraciones aplicables al beneficio de Millas LATAM Pass</a><i></i></div>
+                  <div class="considerations__data">
+                    <div class="considerations__info">
+                      <ul>
+                        <li>El período para el cumplimiento de las condiciones aplicables al beneficio de Millas LATAM Pass es del 27/11/2018 al 02/01/2019</li>
+                        <li>Las líneas de la mancha deberán estar activas sin bloqueos, suspensiones o bajas.</li>
+                        <li>Cada línea de la mancha debe haber realizado durante este período, una de las siguientes acciones:
                           <ul>
-                            <li>Registro de Manchas válido del 27/11/2018 al 02/01/2019.</li>
-                            <li>La línea del líder deberá pertenecer a una sola mancha </li>
-                            <li>La mancha debe estar conformada por 2 miembros como mínimo y máximo 10, incluido el líder.</li>
-                            <li>El nombre de la mancha debe ser único (alfanumérico  entre mayúsculas, minúsculas y números) con una longitud máxima de 15 caracteres, no se consideran los espacios y no se podrá editar una vez creada la mancha.</li>
-                            <li>Los miembros pueden ver el estado de su mancha y si califican o no en la Web buscando por:
-                              <ul>
-                                <li>Nombre de la mancha </li>
-                                <li>Línea móvil</li>
-                              </ul>
-                            </li>
-                            <li>Se considerarán únicamente en el registro aquellas líneas activas sin bloqueos, suspensiones o bajas.</li>
+                            <li>Portarse a Claro (la línea debe tener 30 días de antigüedad mínima en el operador cedente).</li>
+                            <li>Renovar (la línea debe tener 06 meses de antigüedad mínima en Claro).</li>
+                            <li>Migrar de modalidad prepago a postpago (la línea debe tener 06 meses de antigüedad mínima).</li>
                           </ul>
                         </li>
-                        <li>Condiciones aplicables al beneficio de Bono de GB
-                          <ul>
-                            <li>El período para el cumplimiento de las condiciones aplicables al beneficio de Bono de GB es del <b>  26/12/2018 al 02/01/2019.</b></li>
-                            <li>Las líneas de la mancha deberán estar activas sin bloqueos, suspensiones o bajas.</li>
-                            <li>Cada línea de la mancha debe haber realizado durante este período, una de las siguientes acciones:
-                              <ul>
-                                <li>La línea a portar debe tener 30 días de antiguedad mínima en el operador cedente.</li>
-                                <li>La línea a renovar debe tener 06 meses de antiguedad mínima. </li>
-                                <li>La línea a migrar de modalidad prepago a postpago debe tener 06 meses de antiguedad mínima.</li>
-                              </ul>
-                            </li>
-                            <li>Los planes a portar, renovar o migrar de prepago a postpago son los Planes Max Internacional.</li>
-                            <li>En caso la línea líder pertenezca a Claro, tendrá la opción de no realizar ninguna de las transacciones mencionadas (portabilidad, renovación o migración).</li>
-                            <li>Mensualmente, se validará la cantidad de líneas de la mancha que cumplen las condiciones y, en función de ello, se calculará la cantidad de GB que será entregada durante cada período, y se les notificará vía SMS.</li>
-                            <li>El cálculo de la cantidad de GB a entregar se realizará según la tabla del punto V.</li>
-                          </ul>
-                        </li>
-                        <li>Condiciones aplicables al beneficio de Millas LATAM Pass:
-                          <ul>
-                            <li>El período para el cumplimiento de las condiciones aplicables al beneficio de Millas LATAM Pass es del <b>  26/12/2018 al 02/01/2019.</b></li>
-                            <li>Las líneas de la mancha deberán estar activas sin bloqueos, suspensiones o bajas.</li>
-                            <li>Cada línea de la mancha debe haber realizado durante este período, una de las siguientes acciones:
-                              <ul>
-                                <li>La línea a portar con equipo debe tener 30 días de antiguedad mínima en el operador cedente.</li>
-                                <li>La línea a renovar con equipo debe tener 06 meses de antiguedad mínima</li>
-                                <li>La línea a migrar con equipo de modalidad prepago a postpago debe tener 06 meses de antiguedad mínima.</li>
-                              </ul>
-                            </li>
-                            <li>Las líneas se podrán portar, renovar o migrar de prepago a postpago desde el plan Max Internacional 69.90 con equipos de las marcas Motorola, Huawei y LG. </li>
-                            <li>Sujeto a firma de acuerdo de equipos en la modalidad elegida por el cliente.</li>
-                            <li>El titular de cada línea debe ser socio activo de LATAM Pass.</li>
-                            <li>Se enviará un SMS a las líneas de la mancha que cumplan con las condiciones descritas anteriormente. En este SMS se les indicará la cantidad de Millas LATAM Pass que recibirán, la fecha de entrega y condiciones de la misma. </li>
-                            <li>En caso el titular de la línea no sea socio activo LATAM Pass, tendrá hasta el <b>02 de enero </b>de 2019 para registrarse como tal. </li>
-                            <li>El cálculo de la cantidad de millas LATAM Pass a entregar se realizará según la tabla del punto VI.</li>
-                          </ul>
-                        </li>
-                        <li>Condiciones aplicables a la entrega del beneficio de Bono de GB
-                          <ul>
-                            <li>Las líneas deberán estar activas para recibir el beneficio de Bono de GB. El bono de GB no utilizado durante ese período en el que la línea no estuvo activa, no podrá ser recuperado.</li>
-                            <li>La entrega de GB se realizará durante 12 periodos consecutivos.</li>
-                            <li>Los GB entregados durante cada período tendrán una vigencia de 31 días.</li>
-                            <li>Los GB no son acumulables.</li>
-                            <li>El cálculo de la cantidad de GB a entregar se realizará según la siguiente tabla:
-                              <ul>
-                                <table>
-                                  <tr>
-                                    <td>Cantidad de Personas </td>
-                                    <td>Bonos</td>
-                                  </tr>
-                                  <tr>
-                                    <td>2 </td>
-                                    <td>2 GB por línea</td>
-                                  </tr>
-                                  <tr>
-                                    <td>3 </td>
-                                    <td>3 GB por línea</td>
-                                  </tr>
-                                  <tr>
-                                    <td>4 </td>
-                                    <td>4 GB por línea</td>
-                                  </tr>
-                                  <tr>
-                                    <td>5 </td>
-                                    <td>5 GB por línea</td>
-                                  </tr>
-                                  <tr>
-                                    <td>6 </td>
-                                    <td>6 GB por línea</td>
-                                  </tr>
-                                  <tr>
-                                    <td>7 </td>
-                                    <td>7 GB por línea</td>
-                                  </tr>
-                                  <tr>
-                                    <td>8 </td>
-                                    <td>8 GB por línea</td>
-                                  </tr>
-                                  <tr>
-                                    <td>9 </td>
-                                    <td>9 GB por línea</td>
-                                  </tr>
-                                  <tr>
-                                    <td>10 </td>
-                                    <td>10 GB por línea</td>
-                                  </tr>
-                                </table>
-                              </ul>
-                            </li>
-                            <li>Mensualmente, se validará la cantidad de líneas de la mancha que cumplen las condiciones y, en función de ello, se calculará la cantidad de GB que será entregada durante cada período, y se les notificará vía SMS.</li>
-                            <li>En los planes ilimitados, el beneficio de bono de GB se entregará en cada ciclo de facturación durante 12 periodos, y será utilizado para incrementar la cantidad de GB calculados previa a la reducción de velocidad de internet.</li>
-                          </ul>
-                        </li>
-                        <li>Condiciones aplicables a la entrega del beneficio de Millas LATAM Pass
-                          <ul>
-                            <li>Las Millas LatamPass se entregarán a los titulares de las líneas activas que sean socios LATAM Pass.</li>
-                            <li>En caso el titular de la línea no sea socio activo LATAM Pass, tendrá hasta el 2 de enero de 2019 para registrarse como tal. </li>
-                            <li>El cálculo de la cantidad de millas a entregar se realizará según la siguiente tabla:
-                              <ul>
-                                <table>
-                                  <tr>
-                                    <td>Cantidad de Personas </td>
-                                    <td>Millas</td>
-                                  </tr>
-                                  <tr>
-                                    <td>2 </td>
-                                    <td rowspan="3">1000</td>
-                                  </tr>
-                                  <tr>
-                                    <td>3 </td>
-                                  </tr>
-                                  <tr>
-                                    <td>4 </td>
-                                  </tr>
-                                  <tr>
-                                    <td>5 </td>
-                                    <td rowspan="3">2000</td>
-                                  </tr>
-                                  <tr>
-                                    <td>6 </td>
-                                  </tr>
-                                  <tr>
-                                    <td>7 </td>
-                                  </tr>
-                                  <tr>
-                                    <td>8 </td>
-                                    <td rowspan="3">3000</td>
-                                  </tr>
-                                  <tr>
-                                    <td>9 </td>
-                                  </tr>
-                                  <tr>
-                                    <td>10 </td>
-                                  </tr>
-                                </table>
-                              </ul>
-                            </li>
-                          </ul>
+                        <li>Las líneas se podrán portar, renovar o migrar de prepago a postpago desde el plan Max Internacional 69.90 con equipos de las marcas Motorola, Huawei y LG. </li>
+                        <li>Sujeto a firma de acuerdo de equipos en la modalidad elegida por el cliente.</li>
+                        <li>El titular de cada línea debe ser socio activo de LATAM Pass.</li>
+                        <li>Se enviará un SMS a las líneas de la mancha que cumplan con las condiciones descritas anteriormente. En este SMS se les indicará la cantidad de Millas LATAM Pass que recibirán, la fecha de entrega y condiciones de la misma. </li>
+                        <li>En caso el titular de la línea no sea socio activo LATAM Pass, tendrá hasta el 8 de enero de 2019 para registrarse como tal. </li>
+                        <li>El cálculo de la cantidad de millas a entregar se realizará según la siguiente tabla:
+                          <table>
+                            <tr>
+                              <td>Cantidad de Personas </td>
+                              <td>Millas</td>
+                            </tr>
+                            <tr>
+                              <td>2 </td>
+                              <td rowspan="3">1000</td>
+                            </tr>
+                            <tr>
+                              <td>3 </td>
+                            </tr>
+                            <tr>
+                              <td>4 </td>
+                            </tr>
+                            <tr>
+                              <td>5 </td>
+                              <td rowspan="3">2000</td>
+                            </tr>
+                            <tr>
+                              <td>6 </td>
+                            </tr>
+                            <tr>
+                              <td>7 </td>
+                            </tr>
+                            <tr>
+                              <td>8 </td>
+                              <td rowspan="3">3000</td>
+                            </tr>
+                            <tr>
+                              <td>9 </td>
+                            </tr>
+                            <tr>
+                              <td>10 </td>
+                            </tr>
+                          </table>
                         </li>
                       </ul>
                     </div>

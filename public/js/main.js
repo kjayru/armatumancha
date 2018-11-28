@@ -124,7 +124,7 @@ $(document).ready(function(){
       });
 
 
-      $(".considerations__subtitle a").on('click',function(e){
+      /*$(".considerations__subtitle a").on('click',function(e){
           e.preventDefault();
 
           if( $(this).parent('div').hasClass('active')){
@@ -140,6 +140,66 @@ $(document).ready(function(){
             .animate({'max-height':3500},350,'swing');
           }
 
+
+      });*/
+
+      var questions = Array.apply(null, document.querySelectorAll('.questions__list ul li h3'));
+
+      questions.filter(function (element, index) {
+
+        /*element.firstChild.addEventListener("click", function(event){ 
+          if (event.stopPropagation) {
+            event.stopPropagation();
+          } else {
+            event.cancelBubble = true;
+          }
+        });*/
+
+        element.addEventListener("click", function(event){ 
+
+          var buttonClass = this.parentNode.classList;
+
+          if(buttonClass.contains("active")){
+            buttonClass.remove("active");
+          }else{
+            buttonClass.add("active");
+          }
+
+          var panel = this.nextElementSibling;
+
+          if (panel.style.maxHeight){
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          } 
+
+        });
+
+      });
+
+      var considerations = Array.apply(null, document.querySelectorAll('.considerations__subtitle'));
+
+      considerations.filter(function (element, index) {
+
+        element.addEventListener("click", function(event){ 
+
+          var buttonClass = event.target.parentNode.parentNode.children[0].classList;
+
+          if(buttonClass.contains("active")){
+            buttonClass.remove("active");
+          }else{
+            buttonClass.add("active");
+          }
+
+          var panel = this.nextElementSibling;
+
+          if (panel.style.maxHeight){
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          } 
+
+        });
 
       });
 

@@ -7,14 +7,13 @@
 
     <link rel="stylesheet" type="text/css" href="/css/common.css?v={{ uniqid() }}">
     <link rel="stylesheet" type="text/css" href="/css/main.css?v={{ uniqid() }}">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41368265-9"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-          gtag('config', 'UA-41368265-9');
-        </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41368265-10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-41368265-10');
+    </script>
   </head>
   <body>
 
@@ -31,6 +30,9 @@
     <script type="text/javascript" src="/js/vendor/slick.js" charset="utf-8"></script>
     <script src='//www.google.com/recaptcha/api.js'></script>
     <script type="text/javascript" src="/js/main.js?v={{ uniqid() }}"></script>
+
+    
+
 
   </body>
 </html>
