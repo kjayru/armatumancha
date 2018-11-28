@@ -209,8 +209,8 @@ class RegisterController extends Controller
 
         foreach($grupores->users as $k => $nu){
 
-            if($nu->califica==2){
-                $con[]=$nu->califica;
+            if($nu->status==2){
+                $con[]=$nu->status;
             }else{
                 $con=array();
             }
@@ -223,53 +223,53 @@ class RegisterController extends Controller
 
         if($user->beneficio=="bonos")
         {
-            $copy = "10 Gb por mes durante 1 año!";
+            $copy = "10 Gb por línea!";
             if($numusuarios==0){
-                $slogan = "0 GB";
+                $slogan = "<span>0 GB</span>";
                 }
             if($numusuarios==1){
-            $slogan = "1 GB";
+            $slogan = "<span>1 GB</span>";
             }
             if($numusuarios==2){
-                $slogan = "2 GB";
+                $slogan = "<span>2 GB</span>";
             }
             if($numusuarios==3){
-                $slogan = "3 GB";
+                $slogan = "<span>3 GB</span>";
             }
             if($numusuarios==4){
-                $slogan = "4 GB";
+                $slogan = "<span>4 GB</span>";
             }
             if($numusuarios==5){
-                $slogan = "5 GB";
+                $slogan = "<span>5 GB</span>";
             }
             if($numusuarios==6){
-                $slogan = "6 GB";
+                $slogan = "<span>6 GB</span>";
             }
             if($numusuarios==7){
-                $slogan = "7 GB";
+                $slogan = "<span>7 GB</span>";
             }
             if($numusuarios==8){
-                $slogan = "8 GB";
+                $slogan = "<span>8 GB</span>";
             }
             if($numusuarios==9){
-                $slogan = "9 GB";
+                $slogan = "<span>9 GB</span>";
             }
             if($numusuarios==10){
-                $slogan = "10 GB";
+                $slogan = "<span>10 GB</span>";
             }
         }else{
             $copy = "3,000 millas LATAM Pass!";
             if($numusuarios==0){
-                $slogan = "0 Millas";
+                $slogan = "<span>0 Millas</span>";
                 }
             if($numusuarios>0 && $numusuarios<4){
-                $slogan = "1,000 Millas";
+                $slogan = "<span>1,000 Millas</span>";
             }
             if($numusuarios>4 &&$numusuarios<7){
-                $slogan = "2,000 Millas";
+                $slogan = "<span>2,000 Millas</span>";
             }
             if($numusuarios>7 &&$numusuarios<10){
-                $slogan = "3,000 Millas";
+                $slogan = "<span>3,000 Millas</span>";
             }
         }
 

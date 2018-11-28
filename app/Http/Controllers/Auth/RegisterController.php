@@ -129,7 +129,7 @@ class RegisterController extends Controller
 
             $pata->alias = $request->alias[$i];
             $pata->numero = "51".$request->telefono[$i];
-            $pata->beneficio = $beneficio;
+            $pata->beneficio = $request->beneficio;
 
             if($request->email[$i]){
                  $pata->email = $request->email[$i];

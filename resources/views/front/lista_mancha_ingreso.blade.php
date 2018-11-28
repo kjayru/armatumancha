@@ -19,9 +19,9 @@
                   <div class="section1__header">
                     <div class="links"></div>
                     <div class="title">
-                      <h2>¡Ya vas obteniendo
+                      <h2>¡Ya irían obteniendo
 
-                            {{ $slogan }}
+                            {!! $slogan !!}
                         por línea!
                         </h2>
                     </div>
