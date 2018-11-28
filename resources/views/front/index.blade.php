@@ -246,6 +246,7 @@
                             <h3>3,000</h3>
                             <h3>3,000</h3><span>Millas
                               <!--span dto.--></span>
+                              <p>x linea</p>
                           </div>
                         </blockquote>
                       </li>
@@ -259,6 +260,7 @@
                             <h3>2,000</h3>
                             <h3>2,000</h3><span>Millas
                               <!--span dto.--></span>
+                              <p>x linea</p>
                             <!--p x 12 meses-->
                           </div>
                         </blockquote>
@@ -273,6 +275,7 @@
                             <h3>1,000</h3>
                             <h3>1,000</h3><span>Millas
                               <!--span dto.--></span>
+                              <p>x linea</p>
                             <!--p x 12 meses-->
                           </div>
                         </blockquote>

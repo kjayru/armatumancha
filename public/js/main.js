@@ -28,7 +28,7 @@ $(document).ready(function(){
                 success:function(response){
                     if(response.rpta == 'existe'){
                         contenedor.addClass('error');
-                        contenedor.after(`<span class="error"> Nombre de mancha ya utilizado </span>`);
+                        contenedor.after('<span class="error"> Nombre de mancha ya utilizado </span>');
                         $("#existemancha").val(1);
                     }
 
