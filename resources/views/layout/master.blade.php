@@ -86,8 +86,6 @@ Creation date: 11/27/2018
     </noscript>
 <!-- End of event snippet: Please do not remove -->
 @endif
-
-
 @if(Route::current()->getName() == 'register')
 <!--
 Event snippet for LPG_LandingPage02_2018-11-27 on http://armatumancha.claro.com.pe/register: Please do not remove.
@@ -99,8 +97,8 @@ Creation date: 11/27/2018
             'allow_custom_scripts': true,
             'send_to': 'DC-4532500/claro00g/lpg_l000+standard'
             });
-        </script>
-        <noscript>
+     </script>
+     <noscript>
         <img src="https://ad.doubleclick.net/ddm/activity/src=4532500;type=claro00g;cat=lpg_l000;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?" width="1" height="1" alt=""/>
     </noscript>
 <!-- End of event snippet: Please do not remove -->

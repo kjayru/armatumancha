@@ -28,7 +28,7 @@ $(document).ready(function(){
                 success:function(response){
                     if(response.rpta == 'existe'){
                         contenedor.addClass('error');
-                        contenedor.after(`<span class="error"> Nombre de mancha ya utilizado </span>`);
+                        contenedor.after('<span class="error"> Nombre de mancha ya utilizado </span>');
                         $("#existemancha").val(1);
                     }
 
@@ -210,36 +210,15 @@ $(document).ready(function(){
 
         if(c<10){
 
-        let pata =  `<div class="form__members">
-        <div class="form__fields ">
-          <div class="form__fields--title">
-            <h3>Miembro # <span>${c}</span></h3>
-          </div>
-          <dl>
-            <dt>
-              <input name="alias[]" class="form__text2 aliaspata unique alias${c}"  type="text" maxlength="20" id="alias${c}" placeholder="Alias" />
-            </dt>
-            <dd></dd>
-          </dl>
-          <dl>
-            <dt>
-
-            <input class="form__text2  cellpata unique cellpata${c}" maxlength="9"  name="telefono[]" type="text" id="cellpata${c}"  placeholder="Teléfono" />
-
-              <dd></dd>
-            </dt>
-          </dl>
-          <dl>
-            <dt>
-              <input class="form__text2"  name="email[]" type="email"  id="email${c}" placeholder="Email (opcional)" />
-            </dt>
-            <dd></dd>
-          </dl>
-        </div>
-      </div>`;
+        let pata = '<div class="form__members"><div class="form__fields "> <div class="form__fields--title">';
+        pata +='<h3>Miembro # <span>'+c+'</span></h3></div><dl><dt><input name="alias[]" class="form__text2 aliaspata unique alias${c}"  type="text" maxlength="20" id="alias'+c+'" placeholder="Alias" />';
+        pata +='</dt><dd></dd> </dl> <dl><dt> <input class="form__text2  cellpata unique cellpata'+c+'" maxlength="9"  name="telefono[]" type="text" id="cellpata'+c+'"  placeholder="Teléfono" /><dd></dd>';
+        pata +='</dt> </dl> <dl> <dt> <input class="form__text2"  name="email[]" type="email"  id="email+'+c+'" placeholder="Email (opcional)" />';
+        pata +='</dt><dd></dd> </dl> </div></div>';
 
       $(".listado").append(pata);
-      $(`#cellpata${c}`).numeric();
+      let cell = '#cellpata'+c;
+      $(cell).numeric();
 
 
 
@@ -830,8 +809,6 @@ if($("#fr-mancha").valid()===true){
     });
 
 
-
-
     $("#lidercel").numeric();
     $(".cellpata").numeric();
     $("#telfpata").numeric();
@@ -850,7 +827,7 @@ if($("#fr-mancha").valid()===true){
             data:datasend,
             success:function(response){
                 var pr = contenedor.prop("name");
-                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response.mensaje}</label>`);
+                contenedor.parent().append('<label id="'+pr+'-error" class="error" for="'+pr+'" style="display:block;">'+response.mensaje+'</label>');
                 contenedor.parent().children(".error").show();
                 contenedor.addClass("error");
             }
@@ -870,7 +847,7 @@ if($("#fr-mancha").valid()===true){
             data:datasend,
             success:function(response){
                 var pr = contenedor.prop("name");
-                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response.mensaje}</label>`);
+                contenedor.parent().append('<label id="'+pr+'-error" class="error" for="'+pr+'" style="display:block;">'+response.mensaje+'</label>');
                 contenedor.parent().children(".error").show();
                 contenedor.addClass("error");
 
@@ -907,8 +884,6 @@ if($("#fr-mancha").valid()===true){
     });
 
 
-
-
     $("#fr-code-lider").validate({
         rules: {
             codigo:{
@@ -927,8 +902,6 @@ if($("#fr-mancha").valid()===true){
             $("#fr-code-lider").submit();
         }
     });
-
-
 
     $("#fr-nuevopata").validate({
         rules: {
@@ -955,8 +928,6 @@ if($("#fr-mancha").valid()===true){
 
         }
     });
-
-
 
      //neuvo pata
      $(".btn-nuevopata").on('click',function(){
@@ -996,9 +967,6 @@ if($("#fr-mancha").valid()===true){
     $(".btn-actualizar").on('click',function(){
         window.location.reload();
     });
-
-
-
 
 
     $("#fr-recuperar").validate({
