@@ -19,7 +19,6 @@ Route::get('/validarpatasms','front\HomeController@validarpatasms');
 Route::post('/acepto-participar','front\HomeController@aceptoParticipacion');
 Route::get('/aceptarlider','front\HomeController@aceptarlider');
 Route::post('/procesovalidarpata','front\HomeController@validarasignacion');
-
 //FILE
 Route::get('/flat-file','front\HomeController@flatfile');
 Route::get('/test1','front\HomeController@test1');
