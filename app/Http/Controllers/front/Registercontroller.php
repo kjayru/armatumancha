@@ -226,7 +226,7 @@ class RegisterController extends Controller
                 $slogan = "<span>0 GB</span>";
                 }
             if($numusuarios==1){
-            $slogan = "<span>1 GB</span>";
+            $slogan = "<span>0 GB</span>";
             }
             if($numusuarios==2){
                 $slogan = "<span>2 GB</span>";
