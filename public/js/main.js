@@ -31,6 +31,11 @@ $(document).ready(function(){
                         contenedor.after('<span class="error"> Nombre de mancha ya utilizado </span>');
                         $("#existemancha").val(1);
                     }
+                    if(response.rpta == ''){
+                        contenedor.addClass('error');
+                        contenedor.after('<span class="error"> No use caracteres especiales </span>');
+                        $("#existemancha").val(1);
+                    }
 
                 }
             });

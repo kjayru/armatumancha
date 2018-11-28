@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function index()
     {
-       
+
         return view('front.index');
     }
 
@@ -48,8 +48,13 @@ class HomeController extends Controller
 
     public function buscarmancha(Request $request){
         $imancha = strtolower($request->manchacelular);
+
+
+
         //busqueda mancha
+
         $contar = Group::where('name','like','%'.$imancha.'%')->count();
+
 
        if($contar>0){
 
@@ -78,11 +83,8 @@ class HomeController extends Controller
 
                 return redirect()->route('home.mirastatus', ['mensaje' => 1 ]);
             }
-       }
-
-
-
-    }
+     }
+}
 
 
     public function test1(){
@@ -272,9 +274,9 @@ class HomeController extends Controller
 
     public function disponibilidadmancha(Request $request){
 
-        $imancha = strtolower($request->nombres);
+        $imancha = strtolower(Group::remove_emoji($request->nombres));
 
-
+        return response()->json(['rpta'=>$imancha]);
         $contar = Group::where('name',$imancha)->count();
 
        if($contar>0){
