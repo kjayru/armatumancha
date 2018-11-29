@@ -67,7 +67,7 @@
                   </div>
                   <div class="content">
                     <div class="content__item">
-                      <blockquote><a href="/register">
+                      <blockquote><a href="/register" onclick="ga('send',{ hitType: 'event', eventCategory: 'Qué quieres hacer?', eventAction: 'Eleccion', eventLabel: 'Arma tu mancha' });">
                           <figure>
                             <h4>Arma tu mancha</h4><img src="assets/pg1_img4.svg" alt=""/>
                           </figure>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="content__arrow"></div>
                     <div class="content__item">
-                      <blockquote><a href="/mira-el-status-de-tu-mancha">
+                      <blockquote><a href="/mira-el-status-de-tu-mancha" onclick="ga('send',{ hitType: 'event', eventCategory: 'Qué quieres hacer?', eventAction: 'Eleccion', eventLabel: 'Consulta tu mancha' });">
                           <figure>
                             <h4>Mira el status<br/>de tu mancha</h4><img src="assets/pg1_img5.svg" alt=""/>
                           </figure>
@@ -409,7 +409,7 @@
                           <p>Si. Pero recuerda que un mismo número no puede formar parte de la misma mancha.</p>
                         </div>
                       </li>
-                      
+
                     </ul>
                   </div>
                 </div>

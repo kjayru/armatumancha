@@ -423,9 +423,9 @@ $.validator.addMethod("unique", function(value, element) {
 
 
 $("#fr-mancha input[name='beneficio']:radio").change(function(){
-    if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {  
+    if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {
       $('.content__error').hide();
-      
+
       var position = $('#formu_register').offset().top - 100;
 
       $("body, html").animate({
@@ -434,7 +434,7 @@ $("#fr-mancha input[name='beneficio']:radio").change(function(){
 
     }else{
       $('.content__error').show();
-      
+
     }
 });
 
@@ -446,7 +446,7 @@ campo15,campo16;
     $(document).on('click','.send-mancha',function(){
         //verifica duplicidad
 
-        if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {  
+        if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {
           $('.content__error').hide();
           campo0 = true;
         }else{
@@ -557,7 +557,7 @@ campo15,campo16;
     if($("#fr-mancha input").hasClass("alias2")){
       //  validaton.element("#alias2");
         if(validaton.check('#alias2')===false){
-          $("#alias2").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          $("#alias2").addClass("activado").after('<label class="error2">Completar Alias</label>');
             campo9 = false;
         }else{
             campo9 = true;
@@ -567,7 +567,7 @@ campo15,campo16;
     if($("#fr-mancha input").hasClass("alias3")){
         //validaton.element("#alias3");
         if(validaton.check('#alias3')===false){
-          $("#alias3").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          $("#alias3").addClass("activado").after('<label class="error2">Completar Alias</label>');
             campo10 = false;
         }else{
             campo10 = true;
@@ -577,7 +577,7 @@ campo15,campo16;
     if($("#fr-mancha input").hasClass("alias4")){
       //  validaton.element("#alias4");
         if(validaton.check('#alias4')===false){
-          $("#alias4").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          $("#alias4").addClass("activado").after('<label class="error2">Completar Alias</label>');
           campo11 = false;
         }else{
           campo11 = true;
@@ -587,7 +587,7 @@ campo15,campo16;
     if($("#fr-mancha input").hasClass("alias5")){
        // validaton.element("#alias5");
         if(validaton.check('#alias5')===false){
-          $("#alias5").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          $("#alias5").addClass("activado").after('<label class="error2">Completar Alias</label>');
 
           campo12 = false;
         }else{
@@ -598,7 +598,7 @@ campo15,campo16;
     if($("#fr-mancha input").hasClass("alias6")){
         //validaton.element("#alias6");
         if(validaton.check('#alias6')===false){
-          $("#alias6").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          $("#alias6").addClass("activado").after('<label class="error2">Completar Alias</label>');
 
             campo13 = false;
         }else{
@@ -609,7 +609,7 @@ campo15,campo16;
     if($("#fr-mancha input").hasClass("alias7")){
         //validaton.element("#alias7");
         if(validaton.check('#alias7')===false){
-          $("#alias7").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          $("#alias7").addClass("activado").after('<label class="error2">Completar Alias</label>');
 
             campo14 = false;
         }else{
@@ -620,7 +620,7 @@ campo15,campo16;
     if($("#fr-mancha input").hasClass("alias8")){
        // validaton.element("#alias8");
         if(validaton.check('#alias8')===false){
-          $("#alias8").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          $("#alias8").addClass("activado").after('<label class="error2">Completar Alias</label>');
             campo15 = false;
         }else{
             campo15 = true;
@@ -630,7 +630,7 @@ campo15,campo16;
     if($("#fr-mancha input").hasClass("alias9")){
        // validaton.element("#alias9");
         if(!validaton.check('#alias9')===false){
-          $("#alias9").addClass("activado").after('<label class="error2">Ingrese su número de celular</label>');
+          $("#alias9").addClass("activado").after('<label class="error2">Completar Alias</label>');
             campo16 = false;
         }else{
             campo16 = true;
@@ -689,7 +689,7 @@ if($("#fr-mancha").valid()===true){
     }
 
 
-    if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {  
+    if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {
     }else{
       return false;
     }
@@ -701,7 +701,7 @@ if($("#fr-mancha").valid()===true){
     else {
       $('.content__error').hide();
       return false;
-    } */  
+    } */
 
 
             if($("#autorizar").is(':checked')){

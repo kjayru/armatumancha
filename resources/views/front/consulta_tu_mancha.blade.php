@@ -32,7 +32,7 @@
                                 <input class="form__text1" type="text" name="manchacelular"/>
                               </dt>
                               <dd>
-                                <button class="button1 btn-buscar" type="submit">Continuar</button>
+                                <button class="button1 btn-buscar" type="submit" onclick="ga('send',{ hitType: 'event', eventCategory: 'Consulta', eventAction: 'Continuar', eventLabel: '-' });">Continuar</button>
                               </dd>
                             </dl>
                           </div>

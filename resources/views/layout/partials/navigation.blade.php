@@ -11,8 +11,10 @@
 
             @guest
 
-                <li class="normal"><a  href="{{ route('register') }}" {{{ (Request::is('register') ? 'class=active' : '') }}}> <img src="assets/menu_ico_star.svg" alt="">Arma tu mancha  </a></li>
-                <li class="normal"><a href="{{ route('home.mirastatus') }}" {{{ (Request::is('mira-el-status-de-tu-mancha') ? 'class=active' : '') }}}> <img src="assets/menu_ico_consultar.svg" alt="">Consulta tu mancha  </a></li>
+                <li class="normal"><a  href="{{ route('register') }}" {{{ (Request::is('register') ? 'class=active' : '') }}} onclick="ga('send',{ hitType: 'event', eventCategory: 'Navegacion', eventAction: 'Cambio de Tab', eventLabel: 'Arma tu mancha' });"
+> <img src="assets/menu_ico_star.svg" alt="">Arma tu mancha  </a></li>
+                <li class="normal"><a href="{{ route('home.mirastatus') }}" {{{ (Request::is('mira-el-status-de-tu-mancha') ? 'class=active' : '') }}}
+                onclick="ga('send',{ hitType: 'event', eventCategory: 'Navegacion', eventAction: 'Cambio de Tab', eventLabel: 'Consulta tu mancha' });"> <img src="assets/menu_ico_consultar.svg" alt="">Consulta tu mancha  </a></li>
 
 
             @else
