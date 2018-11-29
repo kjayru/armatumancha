@@ -1,6 +1,6 @@
 <div class="layout__header">
     <div class="layout__header--align">
-        <h1 class="layout__header--logo"> </h1>
+        <a class="layout__header--logo" href="{{ route('home.index')}}"> </a>
             <nav class="layout__header--links">
             <div class="layout__header--title">
                 <h3></h3>
