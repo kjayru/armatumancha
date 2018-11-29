@@ -60,6 +60,10 @@ class RegisterController extends Controller
 
     public function crearpata(Request $request){
 
+        $user = User::where('id',Auth::id())->first();
+
+        $beneficio = $user->beneficio;
+
         $numcode = Code::whereNull('user_id')->first();
         $code_asig = $numcode->id;
 
@@ -67,7 +71,7 @@ class RegisterController extends Controller
         $user->alias = $request->alias;
         $user->numero = "51".$request->telefono;
         $user->email = $request->email;
-        $user->beneficio = ' ';
+        $user->beneficio = $beneficio;
         $user->role_id = 2;
         $user->save();
 
