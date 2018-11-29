@@ -60,7 +60,9 @@ input.f2 {
     -moz-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
 }
-
+.modal-2{
+    display: none!important;
+}
 .layout__main .page1__main .section1__main .content .info {
     width: 650px;
     height: 40px;
