@@ -85,7 +85,7 @@ input.f2 {
     .layout__main .page4__main .questions__align {
       width: 1119px;
       margin: 0 auto;
-      padding: 90px 0 90px 0; }
+      padding: 0px 0 0px 0; }
       @media screen and (max-width: 480px) {
         .layout__main .page4__main .questions__align {
           width: 100%;
@@ -94,10 +94,10 @@ input.f2 {
         .layout__main .page4__main .questions__align {
           width: 99%; } }
     .layout__main .page4__main .questions__content {
-      padding: 50px 0 50px 0;
+      padding: 50px 0 70px 0;
       position: relative;
-      border-top: 1px solid #d4d4d4;
-      border-bottom: 1px solid #d4d4d4; }
+      /*border-top: 1px solid #d4d4d4;
+      border-bottom: 1px solid #d4d4d4; */}
       @media screen and (max-width: 480px) {
         .layout__main .page4__main .questions__content {
           padding: 35px 20px 35px 20px; } }

@@ -295,7 +295,7 @@
                 </div>
               </div>
             </section>
-            <section class="questions">
+            <!--<section class="questions">
               <div class="questions__align">
                 <div class="questions__content">
                   <div class="questions__title">
@@ -414,7 +414,7 @@
                   </div>
                 </div>
               </div>
-            </section>
+            </section>-->
             <section class="considerations">
               <div class="considerations__align">
                 <div class="considerations__title">
@@ -506,9 +506,6 @@
                               </tr>
                             </table>
                         </li>
-                        <li>Mensualmente, se validará la cantidad de líneas de la mancha que cumplen las condiciones y, en función de ello, se calculará la cantidad de GB que será entregada durante cada período, y se les notificará vía SMS a todas las líneas de la mancha.</li>
-
-                        <!--<li>En los planes ilimitados, el beneficio de bono de GB se entregará en cada ciclo de facturación durante 12 periodos, y será utilizado para incrementar la cantidad de GB calculados previa a la reducción de velocidad de internet. </li>-->
                         <li>En los planes ilimitados, el beneficio de bono de GB es aplicable para cada ciclo de facturación durante 12 períodos, y servirá para incrementar la cantidad de GB al tope máximo, luego del cual se efectuará la reducción de velocidad de internet.</li>
                       </ul>
                     </div>
@@ -545,7 +542,7 @@
                             </tr>
                             <tr>
                               <td>2 </td>
-                              <td rowspan="3">1000</td>
+                              <td rowspan="3">1000 <br> <span>millas por linea</span></td>
                             </tr>
                             <tr>
                               <td>3 </td>
@@ -555,7 +552,7 @@
                             </tr>
                             <tr>
                               <td>5 </td>
-                              <td rowspan="3">2000</td>
+                              <td rowspan="3">2000 <br> <span>millas por linea</span></td>
                             </tr>
                             <tr>
                               <td>6 </td>
@@ -565,7 +562,7 @@
                             </tr>
                             <tr>
                               <td>8 </td>
-                              <td rowspan="3">3000</td>
+                              <td rowspan="3">3000 <br> <span>millas por linea</span></td>
                             </tr>
                             <tr>
                               <td>9 </td>

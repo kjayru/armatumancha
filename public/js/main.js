@@ -445,7 +445,10 @@ $.validator.addMethod("unique", function(value, element) {
 }, "* Duplicate");
 
 
-$("#fr-mancha input[name='beneficio']:radio").change(function(){
+$("#fr-mancha input[name='beneficio']:radio").change(function(e){
+
+    e.stopPropagation();
+
     if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {
       $('.content__error').hide();
 
@@ -453,7 +456,7 @@ $("#fr-mancha input[name='beneficio']:radio").change(function(){
 
       $("body, html").animate({
         scrollTop: position
-      } /* speed */ );
+      }  );
 
     }else{
       $('.content__error').show();
@@ -466,8 +469,11 @@ let campo0,campo1,campo2 ,campo3,campo4,campo5,campo6,campo7,
 campo8,campo9,campo10,campo11,campo12,campo13,campo14,
 campo15,campo16;
 
-    $(document).on('click','.send-mancha',function(){
+    $(document).on('click','.send-mancha',function(e){
         //verifica duplicidad
+
+        e.stopPropagation();
+
 
         if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {
           $('.content__error').hide();

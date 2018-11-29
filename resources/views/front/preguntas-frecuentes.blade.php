@@ -22,9 +22,9 @@
             <section class="questions">
               <div class="questions__align">
                 <div class="questions__content">
-                  <div class="questions__title">
+                  <!--<div class="questions__title">
                     <h2>Preguntas frecuentes</h2>
-                  </div>
+                  </div>-->
                   <div class="questions__list">
                     <ul>
                       <li>
