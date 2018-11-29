@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function index()
     {
-       
+
         return view('front.index');
     }
 
@@ -283,6 +283,11 @@ class HomeController extends Controller
         $rpta = 'libre';
        }
         return response()->json(['rpta'=>$rpta]);
+    }
+
+
+    public function preguntas(){
+        return view('front.preguntas-frecuentes');
     }
 
 }

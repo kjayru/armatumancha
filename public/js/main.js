@@ -1,6 +1,29 @@
-//metodos globales
+/**PREGUNTAS FRECUENTES */
+var questions = Array.apply(null, document.querySelectorAll('.questions__list ul li h3'));
 
+questions.filter(function (element, index) {
 
+  element.addEventListener("click", function(event){
+    e.preventDefault();
+    var buttonClass = this.parentNode.classList;
+
+    if(buttonClass.contains("active")){
+      buttonClass.remove("active");
+    }else{
+      buttonClass.add("active");
+    }
+
+    var panel = this.nextElementSibling;
+
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+
+  });
+
+});
 //eventos first mobile
 $(document).ready(function(){
     "use strict";
@@ -1087,3 +1110,5 @@ function resetFormValidator(formId) {
     $(formId).removeData('unobtrusiveValidation');
     $.validator.unobtrusive.parse(formId);
 }
+
+

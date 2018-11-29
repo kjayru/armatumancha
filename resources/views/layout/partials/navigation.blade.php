@@ -15,7 +15,8 @@
 > <img src="assets/menu_ico_star.svg" alt="">Arma tu mancha  </a></li>
                 <li class="normal"><a href="{{ route('home.mirastatus') }}" {{{ (Request::is('mira-el-status-de-tu-mancha') ? 'class=active' : '') }}}
                 onclick="ga('send',{ hitType: 'event', eventCategory: 'Navegacion', eventAction: 'Cambio de Tab', eventLabel: 'Consulta tu mancha' });"> <img src="assets/menu_ico_consultar.svg" alt="">Consulta tu mancha  </a></li>
-
+                <li class="normal"><a  href="{{ route('home.preguntas') }}" {{{ (Request::is('preguntas-frecuentes') ? 'class=active' : '') }}} onclick="ga('send',{ hitType: 'event', eventCategory: 'Navegacion', eventAction: 'Cambio de Tab', eventLabel: 'Preguntas frecuentes' });"
+> <img src="assets/menu_ico_star.svg" alt="">Preguntas frecuentes </a></li>
 
             @else
                 <li class="nav-item dropdown">
