@@ -31,7 +31,7 @@
                                                 <h2>Elige el beneficio</h2>
                                               </div>
                                               <div class="content">
-                                                <input class="content__radio" id="gigas" type="radio" value="bonos" checked="checked" name="beneficio" v-model="register.beneficio" v-validate="'required'"/>
+                                                <input class="content__radio" id="gigas" type="radio" value="bonos" name="beneficio" />
                                                 <label class="content__item" for="gigas">
                                                   <div class="content__bg">
                                                     <blockquote>
@@ -46,7 +46,7 @@
                                                     </div>
                                                   </div>
                                                 </label>
-                                                <input class="content__radio" id="latam" type="radio" value="latam" name="beneficio" v-model="register.beneficio" v-validate="'required'"/>
+                                                <input class="content__radio" id="latam" type="radio" value="latam" name="beneficio" />
                                                 <label class="content__item" for="latam">
                                                   <div class="content__bg">
                                                     <blockquote>
@@ -67,7 +67,7 @@
                                           </div>
                                         </section>
 
-                                  <section class="section2">
+                                  <section class="section2" id="formu_register">
                                     <div class="section2__align">
                                       <div class="section2__main">
                                         <div class="register">
@@ -193,7 +193,7 @@
                                                   <dt>
                                                       <div class="form__checkbox1">
                                                       <input type="checkbox" name="autorizar"  id="autorizar"/>
-                                                      <label for="autorizar" id="lbl-autoriza"></label><span>Con mi registro, autorizo a CLARO para el envío de información sobre esta campaña y contenido comercial de CLARO.</span>
+                                                      <label for="autorizar" id="lbl-autoriza"></label><span>Con mi registro, autorizo a CLARO para enviarme información sobre esta promoción y otra publicidad de Claro a la línea registrada como parte de la mancha.</span>
                                                       </div>
                                                   </dt>
                                                   <dd><span class="lbl-autorizar form__error" ></span></dd>

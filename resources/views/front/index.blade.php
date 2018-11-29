@@ -307,14 +307,12 @@
                         <h3><span></span>¿Cuál es la cantidad mínima y máxima de miembros que puede conformar una mancha?</h3>
                         <div>
                           <p>Recuerda que la cantidad mínima es 2 (líder y un miembro) y la máxima es 10 (líder y 9 miembros).</p>
-                          <!--<p>Se aplicarán las mismas tarifas como si estuvieras llamando desde Perú a ese país. Por ejemplo, si llamas a Ecuador la tarifa sería S/ 0.69. Conoce las tarifas LDI <a href="http://claromax.com/tarifas" target="_blank">aquí.</a></p>-->
                         </div>
                       </li>
                       <li>
                         <h3><span></span>¿Puedo armar o ser parte de una mancha si mi línea no es Claro?</h3>
                         <div>
                           <p>Si, solo recuerda que debes cumplir con los requisitos de la promoción para acceder a tu beneficio.</p>
-                          <!--<p>Estando en Perú o en los países que forman parte de Cobertura Sin Frontera, los consumos adicionales tendrán las mismas tarifas. Conoce las tarifas  <a href="http://claromax.com/tarifas" target="_blank">aquí.</a></p>-->
                         </div>
                       </li>
                       <li>
@@ -323,11 +321,8 @@
                           <p>Los requisitos varían según el beneficio que elijas tú y tu mancha:</p>
                           <p><strong>•  Bono de gigas</strong><br>
                           Tú y tu mancha deberán cambiarse a Claro, renovar o pasarse de Prepago a Postpago Max Internacional. </p>
-                          <p><strong>•  Bono de gigas</strong><br>
-                          Tú y tu mancha deberán cambiarse a Claro, renovar o pasarse de Prepago a Postpago Max Internacional. </p>
                           <p><strong>• Bono de Millas LATAM Pass</strong><br>
                           Tú y tu mancha deberán cambiarse a Claro, renovar o pasarse de Prepago a Postpago desde un plan Max Internacional 69.90 con un equipo de las siguientes marcas: Motorola, Huawei y LG. </p>
-                          <!--<p>Si viajas a otros países que no sean parte de Cobertura Sin Frontera, te recomendamos activar el servicio Roaming. Conoce más <a href="http://roaming.claro.com.pe/" target="_blank">aquí.</a></p>-->
                         </div>
                       </li>
                       <li>
@@ -336,8 +331,6 @@
                           <p>Dependiendo del beneficio seleccionado:</p>
                           <p>- Si eligieron bono de gigas: En caso la línea líder pertenezca a Claro, tendrá la opción de no realizar una portabilidad, renovación o pasarse de prepago a plan postpago Max Internacional. El resto de miembros de la mancha sí debe realizar alguna de las transacciones mencionadas. <br>- Si optaron por bono de Millas LATAM Pass: Es obligatorio que todos los miembros realice una renovación, portabilidad o pasarse de prepago a postpago desde un plan Max Internacional 69.90 con un equipo Motorola, Huawei o LG.
                           </p>
-                          <!--<p>Si, solo recuerda que debes cumplir con los requisitos de la promoción para acceder a tu beneficio.</p>
-                          <p>Estando en Perú o en los países que forman parte de Cobertura Sin Frontera, los consumos adicionales tendrán las mismas tarifas. Conoce las tarifas  <a href="http://claromax.com/tarifas" target="_blank">aquí.</a></p>-->
                         </div>
                       </li>
                       <li>
@@ -349,7 +342,12 @@
                       <li>
                         <h3><span></span>¿En qué casos pierdo el beneficio?</h3>
                         <div>
-                          <p>- Si migras de Postpago a Prepago.<br>- Si tu línea es dada de baja o se realiza algún tipo de bloqueo.</p>
+                          <p>
+                            - Si migras de Postpago a Prepago.
+                            <br>- Si tu línea es dada de baja o se realiza algún tipo de bloqueo.
+                            <br>- Si haces portabilidad a otro operador
+                            <br>- Para el beneficio de millas LATAM Pass, en caso no tengas con una cuenta activa de Socio LATAM Pass
+                          </p>
                         </div>
                       </li>
                       <li>
@@ -367,7 +365,7 @@
                        <li>
                         <h3><span></span>Tengo una línea Prepago de CLARO, ¿puedo acceder a esta promoción?</h3>
                         <div>
-                          <p>Sí, siempre y cuando migres a un plan postpago Max Internacional (ver consideraciones de la promoción). Tienes hasta el 2 de enero del 2019 para pasarte a postpago Max Internacional y acceder al beneficio que escoja el líder de tu mancha.</p>
+                          <p>Sí, siempre y cuando te hayan invitado a formar parte de una mancha y migres a un plan postpago Max Internacional (ver consideraciones de la promoción). Tienes hasta el 2 de enero del 2019 para pasarte a postpago Max Internacional y acceder al beneficio que escoja el líder de tu mancha.</p>
                         </div>
                       </li>
                       <li>
@@ -376,6 +374,42 @@
                           <p>El beneficio de Millas LATAM Pass te servirá para viajar. Recuerda que, ¡a más miembros en tu mancha, más millas!<br>Para acumular millas debes ser Socio LATAM Pass, sin aún no lo eres regístrate aquí: <a href="https://www.latam.com/es_pe/apps/personas/registration" target="_blank">https://www.latam.com/es_pe/apps/personas/registration</a></p>
                         </div>
                       </li>
+
+                      <li>
+                        <h3><span></span>¿Qué pasa si cumplí las condiciones pero todavía no formo parte de ninguna mancha?</h3>
+                        <div>
+                          <p>Si portaste, renovaste o migraste de Prepago a Postpago después del 25/11¡NO te quedes sin tus beneficios! Arma tu mancha ahora y elige entre Millas o GB (Cierre de registro: 02/01/2019).</p>
+                        </div>
+                      </li>
+
+                      <li>
+                        <h3><span></span>¿Qué pasa si me invitaron a una mancha de millas y quiero GB?</h3>
+                        <div>
+                          <p>Si no confirmaste la invitación, puedes formar tu propia mancha o aceptar unirte a otra que haya elegido el beneficio de GB, siempre dentro del periodo máximo de registro.</p>
+                        </div>
+                      </li>
+
+                      <li>
+                        <h3><span></span>¿Me invitaron a unirme a una mancha pero quiero armar mi propia mancha?</h3>
+                        <div>
+                          <p>No te preocupes, si no aceptaste la invitación puedes formar tu propia mancha y elegir el beneficio que desees mientras esté vigente el periodo de registro.</p>
+                        </div>
+                      </li>
+
+                      <li>
+                        <h3><span></span>¿Puedo cambiar de beneficio?</h3>
+                        <div>
+                          <p>El beneficio escogido por líder no puede ser reemplazado.</p>
+                        </div>
+                      </li>
+
+                      <li>
+                        <h3><span></span>¿Si tengo varias líneas puedo integrar otras manchas?</h3>
+                        <div>
+                          <p>Si. Pero recuerda que un mismo número no puede formar parte de la misma mancha.</p>
+                        </div>
+                      </li>
+                      
                     </ul>
                   </div>
                 </div>
@@ -392,11 +426,13 @@
                     <div class="considerations__info">
                       <ul>
                         <li>Registro de Manchas válido del 27/11/2018 al 02/01/2019</li>
-                        <li>Todas las líneas (incluyendo la del líder) deberán pertenecer a una sola mancha </li>
+                        <!--<li>Todas las líneas (incluyendo la del líder) deberán pertenecer a una sola mancha </li>-->
+                        <li>Todas las líneas registradas podrán pertenecer a una sola mancha</li>
                         <li>La mancha debe estar conformada por 2 miembros como mínimo y máximo 10, incluido el líder.</li>
                         <li>El nombre de la mancha debe ser único (alfanumérico  entre mayúsculas, minúsculas y números) con una longitud máxima de 15 caracteres, no se consideran los espacios y no se podrá editar una vez creada la mancha.</li>
                         <li>Los miembros pueden hacer seguimiento del estado de su mancha</li>
-                        <li>Se considerarán únicamente en el registro aquellas líneas activas sin bloqueos, suspensiones o bajas.</li>
+                        <!--<li>Se considerarán únicamente en el registro aquellas líneas activas sin bloqueos, suspensiones o bajas.</li>-->
+                        <li>Para la validez del registro, se considerarán únicamente aquellas líneas activas sin bloqueos, suspensiones o bajas.</li>
                       </ul>
                     </div>
                   </div>
@@ -407,7 +443,9 @@
                     <div class="considerations__info">
                       <ul>
                         <li>El período para el cumplimiento de las condiciones aplicables al beneficio de Bono de GB es del 27/11/2018 al 02/01/2019</li>
-                        <li>Las líneas de la mancha deberán estar activas sin bloqueos, suspensiones o bajas.</li>
+                        <li>Las condiciones para el beneficio pueden haber sido cumplidas antes del registro de la mancha siempre y cuando estas se hayan realizado entre del 27/11/2018 al 02/01/2019. Recuerda que el cumplimiento de las condiciones no exonera el registro de la mancha y está siempre sujeto a la revisión de Claro.</li>
+                        <!--<li>Las líneas de la mancha deberán estar activas sin bloqueos, suspensiones o bajas.</li>-->
+                        <li>Las líneas de la mancha, durante los 12 meses que comprende el beneficio, deberán estar activas sin bloqueos, suspensiones o bajas.</li>
                         <li>Cada línea de la mancha debe haber realizado durante este período, una de las siguientes acciones (ver excepción aplicable al líder en el siguiente punto):
                           <ul>
                             <li>Portarse a Claro (la línea debe tener 30 días de antigüedad mínima en el operador cedente).</li>
@@ -417,7 +455,8 @@
                         </li>
                         <li>En caso la línea líder pertenezca a Claro, tendrá la opción de no realizar ninguna de las transacciones mencionadas (portabilidad, renovación o migración).</li>
                         <li>Los planes a portar, renovar o migrar de prepago a postpago son los Planes Max Internacional.</li>
-                        <li>Mensualmente, se validará la cantidad de líneas de la mancha que cumplen las condiciones y, en función de ello, se calculará la cantidad de GB que será entregada durante cada período, y se les notificará vía SMS a todas las líneas de la mancha.</li>
+                        <!--<li>Mensualmente, se validará la cantidad de líneas de la mancha que cumplen las condiciones y, en función de ello, se calculará la cantidad de GB que será entregada durante cada período, y se les notificará vía SMS a todas las líneas de la mancha.</li>-->
+                        <li>Mensualmente, se validará la cantidad de líneas de la mancha que hayan mantenido las condiciones del beneficio y, en función de ello, se calculará nuevamente la cantidad de GB que corresponda entregar en dicho período, y se les notificará vía SMS a todas las líneas de la mancha.</li>
                         <li>Para la entrega del beneficio de bono de GB, las líneas deberán estar activas. </li>
                         <li>El bono de GB no utilizado durante ese período en el que la línea no estuvo activa, no podrá ser recuperado.</li>
                         <li>La entrega de GB se realizará durante 12 periodos consecutivos.</li>
@@ -469,7 +508,8 @@
                         </li>
                         <li>Mensualmente, se validará la cantidad de líneas de la mancha que cumplen las condiciones y, en función de ello, se calculará la cantidad de GB que será entregada durante cada período, y se les notificará vía SMS a todas las líneas de la mancha.</li>
 
-                        <li>En los planes ilimitados, el beneficio de bono de GB se entregará en cada ciclo de facturación durante 12 periodos, y será utilizado para incrementar la cantidad de GB calculados previa a la reducción de velocidad de internet. </li>
+                        <!--<li>En los planes ilimitados, el beneficio de bono de GB se entregará en cada ciclo de facturación durante 12 periodos, y será utilizado para incrementar la cantidad de GB calculados previa a la reducción de velocidad de internet. </li>-->
+                        <li>En los planes ilimitados, el beneficio de bono de GB es aplicable para cada ciclo de facturación durante 12 períodos, y servirá para incrementar la cantidad de GB al tope máximo, luego del cual se efectuará la reducción de velocidad de internet.</li>
                       </ul>
                     </div>
                   </div>
@@ -480,7 +520,10 @@
                     <div class="considerations__info">
                       <ul>
                         <li>El período para el cumplimiento de las condiciones aplicables al beneficio de Millas LATAM Pass es del 27/11/2018 al 02/01/2019</li>
-                        <li>Las líneas de la mancha deberán estar activas sin bloqueos, suspensiones o bajas.</li>
+                        <li>Las condiciones para el beneficio pueden haber sido cumplidas antes del registro de la mancha siempre y cuando estas se hayan realizado entre del 27/11/2018 al 02/01/2019. Recuerda que el cumplimiento de la condiciones no exonera el registro de la mancha y está siempre sujeto a la revisión de Claro.</li>
+                        <li>Entrega de millas que corresponda se efectuará entre el 10 y el 31 de enero de 2019. </li>
+                        <!--<li>Las líneas de la mancha deberán estar activas sin bloqueos, suspensiones o bajas.</li>-->
+                        <li>Las líneas de la mancha, al momento de entrega del beneficio, deberán estar activas sin bloqueos, suspensiones o bajas.</li>
                         <li>Cada línea de la mancha debe haber realizado durante este período, una de las siguientes acciones:
                           <ul>
                             <li>Portarse a Claro (la línea debe tener 30 días de antigüedad mínima en el operador cedente).</li>
@@ -490,7 +533,8 @@
                         </li>
                         <li>Las líneas se podrán portar, renovar o migrar de prepago a postpago desde el plan Max Internacional 69.90 con equipos de las marcas Motorola, Huawei y LG. </li>
                         <li>Sujeto a firma de acuerdo de equipos en la modalidad elegida por el cliente.</li>
-                        <li>El titular de cada línea debe ser socio activo de LATAM Pass.</li>
+                        <!--<li>El titular de cada línea debe ser socio activo de LATAM Pass.</li>-->
+                        <li>El titular de cada línea debe ser socio activo de LATAM Pass. El bono de millas será entregado a la cuenta LATAM Pass asociada al DNI del titular de la línea registrada, la cual deberá encontrarse activa.</li>
                         <li>Se enviará un SMS a las líneas de la mancha que cumplan con las condiciones descritas anteriormente. En este SMS se les indicará la cantidad de Millas LATAM Pass que recibirán, la fecha de entrega y condiciones de la misma. </li>
                         <li>En caso el titular de la línea no sea socio activo LATAM Pass, tendrá hasta el 8 de enero de 2019 para registrarse como tal. </li>
                         <li>El cálculo de la cantidad de millas a entregar se realizará según la siguiente tabla:

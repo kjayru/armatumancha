@@ -28,7 +28,7 @@
                               <h2>Elige el beneficio</h2>
                             </div>
                             <div class="content">
-                              <input class="content__radio" id="gigas" type="radio" value="bonos" checked="checked" name="beneficio" v-model="register.beneficio" v-validate="'required'"/>
+                              <input class="content__radio" id="gigas" type="radio" value="bonos" name="beneficio" v-model="register.beneficio" v-validate="'required'"/>
                               <label class="content__item" for="gigas">
                                 <div class="content__bg">
                                   <blockquote>

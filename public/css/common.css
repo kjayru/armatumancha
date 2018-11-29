@@ -5822,6 +5822,10 @@ html.fp-enabled,
 
         transition: all 0.2s ease 0s; }
 
+        .layout__header--links ul li.normal a:hover {
+          background: #0e8d79;
+        }
+
         @media screen and (max-width: 768px) {
 
           .layout__header--links ul li a {
@@ -11504,7 +11508,7 @@ html.fp-enabled,
 
         text-align: left;
 
-		margin-left: 10px; }
+		margin-left: 40px; }
 
         .layout__main .page2__main .section2__main .register .form__info p {
 
@@ -11515,6 +11519,12 @@ html.fp-enabled,
 		  margin-left: 11px;}
 
           @media screen and (max-width: 425px) {
+
+            .layout__main .page2__main .section2__main .register .form__info {
+
+        text-align: left;
+
+    margin-left: 0px; }
 
             .layout__main .page2__main .section2__main .register .form__info p {
 
