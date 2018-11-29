@@ -88,7 +88,7 @@ class RegisterController extends Controller
 
 
         $notification = array(
-            'notification' => 'codigo-seguridad',
+            'notification' => 'invitacion',
             'users' => array($user->id)
         );
 
