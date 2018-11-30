@@ -31,7 +31,7 @@
                                                 <h2>Elige el beneficio</h2>
                                               </div>
                                               <div class="content">
-                                                <input class="content__radio" id="gigas" type="radio" value="bonos" name="beneficio" onclick="ga('send',{ hitType: 'event', eventCategory: 'Registro', eventAction: 'Eleccion', eventLabel: 'Gigas' });"/>
+                                                <input class="content__radio" id="gigas" type="radio" value="bonos" name="beneficio" onclick="gtag('event', 'Eleccion', {  'event_category' : 'Registro',  'event_label' : 'Gigas'});"/>
                                                 <label class="content__item" for="gigas" onclick="event.stopPropagation();">
                                                   <div class="content__bg">
                                                     <blockquote>
@@ -46,7 +46,7 @@
                                                     </div>
                                                   </div>
                                                 </label>
-                                                <input class="content__radio" id="latam" type="radio" value="latam" name="beneficio" onclick="ga('send',{ hitType: 'event', eventCategory: 'Registro', eventAction: 'Eleccion', eventLabel: 'Millas' });"/>
+                                                <input class="content__radio" id="latam" type="radio" value="latam" name="beneficio" onclick="gtag('event', 'Eleccion', {  'event_category' : 'Registro',  'event_label' : 'Millas'});"/>
                                                 <label class="content__item" for="latam" onclick="event.stopPropagation();">
                                                   <div class="content__bg">
                                                     <blockquote>
@@ -178,7 +178,7 @@
 
                                             <div class="form__row2">
                                               <div class="form__buttons">
-                                                <button class="button1 add-pata" type="button" onclick="ga('send',{ hitType: 'event', eventCategory: 'Registro', eventAction: 'Añadir', eventLabel: 'agregar-participante' });"><i>+ </i>Agregar otro participante </button>
+                                                <button class="button1 add-pata" type="button" onclick="gtag('event', 'Añadir', {  'event_category' : 'Registro',  'event_label' : 'agregar-participante'});"><i>+ </i>Agregar otro participante </button>
                                               </div>
                                             </div>
 
@@ -211,7 +211,7 @@
                                             </div>
                                             <div class="form__row3">
                                               <div class="form__buttons">
-                                                <button class="button2 send-mancha " type="button" onclick="ga('send',{ hitType: 'event', eventCategory: 'Registro', eventAction: 'Añadir', eventLabel: 'registrar' });">Registrar</button>
+                                                <button class="button2 send-mancha " type="button" onclick="gtag('event', 'Exitoso', {  'event_category' : 'Registro',  'event_label' : 'registrar'});">Registrar</button>
                                               </div>
                                             </div>
                                           </div>

@@ -12462,9 +12462,19 @@ html.fp-enabled,
 
         background: url("../assets/pg2_bg_section1_1.svg") no-repeat center 150%; }
 
+      @media screen and (max-width: 425px) {
+
+        .lytpl1 .layout__main .page4__main .section1:before {
+
+        background: url("../assets/pg2_bg_section1_1.svg") no-repeat center 180%; }
+
+      }
+
       .lytpl2 .layout__main .page4__main .section1:before {
 
         background: url("../assets/pg2_bg_section1_1.svg") no-repeat center 150%; }
+
+
 
     .layout__main .page4__main .section1__align {
 
@@ -12980,7 +12990,7 @@ html.fp-enabled,
 
           text-align: center;
 
-          padding: 0px 0 40px 0; }
+          padding: 0px 0 20px 0; }
 
           .layout__main .page4__main .section2__main .grid__actions button {
 
