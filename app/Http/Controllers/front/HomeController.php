@@ -90,20 +90,18 @@ class HomeController extends Controller
     public function test1(){
 
 
+            $users = User::where('id','<',218)->get();
 
+            foreach($users as $user){
 
-    $notification = array(
-        'notification' => 'codigo-seguridad',
-        'users' => array('17')
-    );
+                $data1 = User::updateHora($user->created_at);
+                $data2 = User::updateHora($user->updated_at);
 
-    $noti = json_encode(['data'=>$notification]);
-    $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                ->withData($noti)
-                ->post();
+                echo $data1."<br>";
+                User::where('id',$user->id)->update(['created_at'=>$data1,'updated_at'=>$data2]);
+            };
 
-    dd($noti);
-        return response()->json($response);
+            dd("actualizacion realizada");
     }
 
 
@@ -128,11 +126,11 @@ class HomeController extends Controller
     }
 
     public function vercodigo(){
-        return view('test.vercodigo');
+       // return view('test.vercodigo');
     }
 
     public function mostrarcodigo(Request $request){
-        $celular = '51'.$request->codigo;
+       /* $celular = '51'.$request->codigo;
 
         $user = User::where('numero',$celular)->first();
         $contar = User::where('numero',$celular)->count();
@@ -145,22 +143,22 @@ class HomeController extends Controller
         }else{
 
             dd('El número no tiene código asignado');
-        }
+        }*/
 
     }
 
     public function validarpatasms(){
-        return view('test.ingresarsmscode');
+       // return view('test.ingresarsmscode');
     }
 
     public function aceptarlider(){
-        return view('test.aceptarlider');
+        //return view('test.aceptarlider');
     }
 
 
     public function validarasignacion(Request $request){
         //leer flat para ejecucion
-        $conteo = Code::where('code',$request->code)->count();
+     /*   $conteo = Code::where('code',$request->code)->count();
 
         if($conteo>0){
             $code = Code::where('code',$request->code)->first();
@@ -205,7 +203,7 @@ class HomeController extends Controller
                     ->post();
         }else{
             dd("En numero ingresado no tiene asignación.");
-        }
+        }*/
     }
 
 
@@ -225,7 +223,7 @@ class HomeController extends Controller
 
     public function aceptoParticipacion(Request $request){
 
-        $conteo = Code::where('code',$request->code)->count();
+      /*  $conteo = Code::where('code',$request->code)->count();
 
         if($conteo>0){
             $code = Code::where('code',$request->code)->first();
@@ -246,7 +244,7 @@ class HomeController extends Controller
         }else{
             dd("El código no es válido");
         }
-        return view('test.test');
+        return view('test.test');*/
     }
 
     //validar cel-lider

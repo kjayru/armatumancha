@@ -59,4 +59,59 @@ class User extends Authenticatable
 
         return $resultado;
     }
+
+    public static function updateHora($registro){
+        //2018-11-28 05:22:08
+        $difhora = 7;
+
+        $h = explode(" ",$registro);
+
+        $fecha = $h[0];
+        $hora  = $h[1];
+
+        $f = explode("-",$fecha);
+
+        $dia = $f[2];
+        $mes = $f[1];
+        $year = $f[0];
+
+        //sumas
+
+        $hm = explode(":",$hora);
+
+        $horax   = $hm[0];
+        $minuto  = $hm[1];
+        $segundo = $hm[2];
+
+        //suma horaria
+
+        $result = $horax + $difhora;
+
+        if($result>23){
+            $ndia = $dia + 1;
+            $det = $result - 24;
+
+            $dig =  strlen($det);
+            if($dig==1){
+                $horanueva = "0".$det;
+            }else{
+                $horanueva = $det;
+            }
+        }else{
+            $ndia = $dia;
+            $dig =  strlen($result);
+            if($dig==1){
+                $horanueva = "0".$result;
+            }else{
+                $horanueva = $result;
+            }
+        }
+
+        //composicion de registro
+
+        $horagenerada =$year."-".$mes."-".$ndia." ".$horanueva.":".$minuto.":".$segundo;
+
+        return $horagenerada;
+
+    }
 }
