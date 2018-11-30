@@ -423,6 +423,40 @@ class RegisterController extends Controller
         ///se envian nuevos codigos ..notificacion
         dd("asignacion ejecutada..");
 
+
+
+    }
+
+    public function comprobarCelPata(Request $request){
+        $numero = '51'.$request->telefono;
+
+        $user = User::where('numero',$numero)->count();
+
+        if($user>0){
+             //verificar lider
+              $mensaje = "este numero esta registrado en tu mancha";
+
+            return response()->json(["rpta"=>"error","mensaje"=>$mensaje]);
+        }else{
+            return response()->json(["rpta"=>"ok"]);
+        }
+
+    }
+
+    public function comprobarAlias(Request $request){
+        $alias = $request->alias;
+
+        $user = User::where('alias','lik')->count();
+
+        if($user>0){
+             //verificar lider
+              $mensaje = "este numero esta registrado en tu mancha";
+
+            return response()->json(["rpta"=>"error","mensaje"=>$mensaje]);
+        }else{
+            return response()->json(["rpta"=>"ok"]);
+        }
+
     }
 
 

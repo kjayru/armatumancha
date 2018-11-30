@@ -32,6 +32,9 @@ Route::get('/preguntas-frecuentes','front\HomeController@preguntas')->name('home
 
 /*asincronos*/
 Route::post('/comprobar-cel','front\HomeController@comprobarCel');
+
+Route::post('/comprobar-cel-pata','front\RegisterController@comprobarCelPata');
+
 Route::post('/disponibilidad-mancha','front\HomeController@disponibilidadmancha')->name('register.disponibilidadmancha');
 //sesionado
 

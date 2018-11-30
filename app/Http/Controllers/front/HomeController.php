@@ -270,9 +270,12 @@ class HomeController extends Controller
 
     }
 
+
+
+
     public function disponibilidadmancha(Request $request){
 
-        $imancha = strtolower(Group::remove_emoji($request->nombres));
+        $imancha = strtolower($request->nombres);
 
         return response()->json(['rpta'=>$imancha]);
         $contar = Group::where('name',$imancha)->count();

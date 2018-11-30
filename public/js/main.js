@@ -1053,24 +1053,48 @@ if($("#fr-mancha").valid()===true){
 
 
         let dataform = ({'_token':token,'_method':'POST','alias':alias, 'telefono':telefono,'email':email,'group_id':group_id});
-                $.ajax({
-                    url:'/crear-pata',
-                    method:'POST',
-                    dataType:'json',
-                    data:dataform,
-                    success:function(response){
-                        if(response.rpta=='ok'){
-                            $(".box__inset").fadeOut(350,'swing',function(){
-                                $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
 
-                                    window.location.reload();
+
+        let datasend = ({'_token':token,'_method':'POST', 'telefono':telefono});
+
+        //comprobamos si el pata existe
+
+        $.ajax({
+            url:'/comprobar-cel-pata',
+            method:'POST',
+            dataType:'json',
+            data:datasend,
+            success:function(response){
+                debugger
+                if(response.rpta=="error"){
+                    $(".pataerror").html(response.mensaje);
+
+                    return false;
+                }else{
+                    $.ajax({
+                        url:'/crear-pata',
+                        method:'POST',
+                        dataType:'json',
+                        data:dataform,
+                        success:function(response){
+                            if(response.rpta=='ok'){
+                                $(".box__inset").fadeOut(350,'swing',function(){
+                                    $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
+
+                                        window.location.reload();
+                                    });
                                 });
-                            });
 
+                            }
                         }
-                    }
 
-                });
+                    });
+                }
+            }
+
+        });
+
+
 
         }
     });
