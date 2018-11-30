@@ -31,30 +31,30 @@
                                                 <h2>Elige el beneficio</h2>
                                               </div>
                                               <div class="content">
-                                                <input class="content__radio" id="gigas" type="radio" value="bonos" checked="checked" name="beneficio" v-model="register.beneficio" v-validate="'required'"/>
-                                                <label class="content__item" for="gigas">
+                                                <input class="content__radio" id="gigas" type="radio" value="bonos" name="beneficio" onclick="gtag('event', 'Eleccion', {  'event_category' : 'Registro',  'event_label' : 'Gigas'});"/>
+                                                <label class="content__item" for="gigas" onclick="event.stopPropagation();">
                                                   <div class="content__bg">
                                                     <blockquote>
                                                       <figure><img src="assets/pg2_icon_gigas.svg" alt=""/></figure>
                                                       <figcaption>
                                                         <h4>Bono de gigas</h4>
                                                       </figcaption>
-                                                      <div class="tooltip"><i><span>El bono de GB se entregará durante 12 periodos consecutivos y dependerá de la cantidad de miembros que cumplan las condiciones.</span></i></div>
+                                                      <div class="tooltip"><i onclick="event.target.classList.toggle('active')"><span>El bono de GB se entregará durante 12 periodos consecutivos y dependerá de la cantidad de miembros que cumplan las condiciones.</span></i></div>
                                                     </blockquote>
                                                     <div class="content__info">
                                                       <p>Acabas de seleccionar el beneficio de bono de gigas para ti y tu mancha.</p>
                                                     </div>
                                                   </div>
                                                 </label>
-                                                <input class="content__radio" id="latam" type="radio" value="latam" name="beneficio" v-model="register.beneficio" v-validate="'required'"/>
-                                                <label class="content__item" for="latam">
+                                                <input class="content__radio" id="latam" type="radio" value="latam" name="beneficio" onclick="gtag('event', 'Eleccion', {  'event_category' : 'Registro',  'event_label' : 'Millas'});"/>
+                                                <label class="content__item" for="latam" onclick="event.stopPropagation();">
                                                   <div class="content__bg">
                                                     <blockquote>
                                                       <figure><img src="assets/pg2_icon_latam.svg" alt=""/></figure>
                                                       <figcaption>
                                                         <h4>Millas LATAM Pass </h4>
                                                       </figcaption>
-                                                      <div class="tooltip"><i><span>Las Millas LATAM Pass será entregados a los socios activos de LATAM Pass y dependerá de la cantidad de miembros que cumplan las condiciones.</span></i></div>
+                                                      <div class="tooltip"><i onclick="event.target.classList.toggle('active')"><span>Las Millas LATAM Pass será entregados a los socios activos de LATAM Pass y dependerá de la cantidad de miembros que cumplan las condiciones.</span></i></div>
                                                     </blockquote>
                                                     <div class="content__info">
                                                       <p>Acabas de seleccionar el beneficio de bono de millas LATAM Pass para ti y tu mancha.</p>
@@ -67,7 +67,7 @@
                                           </div>
                                         </section>
 
-                                  <section class="section2">
+                                  <section class="section2" id="formu_register">
                                     <div class="section2__align">
                                       <div class="section2__main">
                                         <div class="register">
@@ -178,7 +178,7 @@
 
                                             <div class="form__row2">
                                               <div class="form__buttons">
-                                                <button class="button1 add-pata" type="button"><i>+ </i>Agregar otro participante </button>
+                                                <button class="button1 add-pata" type="button" onclick="gtag('event', 'Añadir', {  'event_category' : 'Registro',  'event_label' : 'agregar-participante'});"><i>+ </i>Agregar otro participante </button>
                                               </div>
                                             </div>
 
@@ -193,7 +193,7 @@
                                                   <dt>
                                                       <div class="form__checkbox1">
                                                       <input type="checkbox" name="autorizar"  id="autorizar"/>
-                                                      <label for="autorizar" id="lbl-autoriza"></label><span>Con mi registro, autorizo a CLARO para el envío de información sobre esta campaña y contenido comercial de CLARO.</span>
+                                                      <label for="autorizar" id="lbl-autoriza"></label><span>Con mi registro, autorizo a CLARO para enviarme información sobre esta promoción y otra publicidad de Claro a la línea registrada como parte de la mancha.</span>
                                                       </div>
                                                   </dt>
                                                   <dd><span class="lbl-autorizar form__error" ></span></dd>
@@ -211,7 +211,7 @@
                                             </div>
                                             <div class="form__row3">
                                               <div class="form__buttons">
-                                                <button class="button2 send-mancha " type="buttom" >Registrar</button>
+                                                <button class="button2 send-mancha " type="button" onclick="gtag('event', 'Exitoso', {  'event_category' : 'Registro',  'event_label' : 'registrar'});">Registrar</button>
                                               </div>
                                             </div>
                                           </div>

@@ -287,4 +287,9 @@ class HomeController extends Controller
         return response()->json(['rpta'=>$rpta]);
     }
 
+
+    public function preguntas(){
+        return view('front.preguntas-frecuentes');
+    }
+
 }

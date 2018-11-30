@@ -2,7 +2,7 @@
         <div class="layout__footer--align">
           <div class="layout__footer--content">
             <div class="layout__footer--subtitle">
-              <h4>Todos los derechos reservados, Claro 2017</h4>
+              <h4>Todos los derechos reservados, Claro 2018</h4>
             </div>
             <div class="layout__footer--data">
               <div class="box">

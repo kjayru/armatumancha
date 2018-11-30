@@ -27,6 +27,8 @@ Route::get('/test2','front\RegisterController@testreg');
 Route::get('/vercodigo','front\HomeController@vercodigo');
 Route::post('/mostrarcodigo','front\HomeController@mostrarcodigo');
 
+Route::get('/preguntas-frecuentes','front\HomeController@preguntas')->name('home.preguntas');
+
 
 /*asincronos*/
 Route::post('/comprobar-cel','front\HomeController@comprobarCel');
