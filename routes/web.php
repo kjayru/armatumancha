@@ -35,6 +35,8 @@ Route::post('/comprobar-cel','front\HomeController@comprobarCel');
 
 Route::post('/comprobar-cel-pata','front\RegisterController@comprobarCelPata');
 
+Route::post('/comprobar-alias','front\RegisterController@comprobarAlias');
+
 Route::post('/disponibilidad-mancha','front\HomeController@disponibilidadmancha')->name('register.disponibilidadmancha');
 //sesionado
 

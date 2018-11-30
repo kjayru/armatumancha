@@ -140,6 +140,11 @@
                                 </dl>
                               </div>
                             </div>
+                            <div class="form__row1">
+                                <div class="error pataerror">
+
+                                </div>
+                            </div>
                             <div class="form__row3">
                               <div class="form__buttons">
                                 <button class="button1 btn-nuevopata" type="button">Registrar</button>

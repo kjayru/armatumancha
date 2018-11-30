@@ -444,13 +444,25 @@ class RegisterController extends Controller
     }
 
     public function comprobarAlias(Request $request){
-        $alias = $request->alias;
+        $user = User::where('id',Auth::id())->first();
+        $filtro=[];
+        $group = Group::where('id',$user->groups[0]->id)->with('users')->get();
 
-        $user = User::where('alias','lik')->count();
+        foreach($group[0]->users as  $usuario){
 
-        if($user>0){
+
+            if(strtolower($usuario->alias) == strtolower($request->alias)){
+
+                $filtro[] = $request->alias;
+
+            }
+        }
+
+
+
+        if(count($filtro)>0){
              //verificar lider
-              $mensaje = "este numero esta registrado en tu mancha";
+              $mensaje = "este alias esta registrado en tu mancha";
 
             return response()->json(["rpta"=>"error","mensaje"=>$mensaje]);
         }else{

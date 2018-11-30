@@ -1057,38 +1057,60 @@ if($("#fr-mancha").valid()===true){
 
         let datasend = ({'_token':token,'_method':'POST', 'telefono':telefono});
 
+        let datalias = ({'_token':token,'_method':'POST', 'alias':alias});
+
         //comprobamos si el pata existe
 
         $.ajax({
-            url:'/comprobar-cel-pata',
+            url:'/comprobar-alias',
             method:'POST',
             dataType:'json',
-            data:datasend,
+            data:datalias,
             success:function(response){
-                debugger
+
+
                 if(response.rpta=="error"){
                     $(".pataerror").html(response.mensaje);
 
                     return false;
                 }else{
+                    ///comprobar alias en grupo
                     $.ajax({
-                        url:'/crear-pata',
+                        url:'/comprobar-cel-pata',
                         method:'POST',
                         dataType:'json',
-                        data:dataform,
+                        data:datasend,
                         success:function(response){
-                            if(response.rpta=='ok'){
-                                $(".box__inset").fadeOut(350,'swing',function(){
-                                    $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
+                            if(response.rpta=='error'){
+                                $(".pataerror").html(response.mensaje);
+                                return false;
+                            }else{
 
-                                        window.location.reload();
-                                    });
+
+                                $.ajax({
+                                    url:'/crear-pata',
+                                    method:'POST',
+                                    dataType:'json',
+                                    data:dataform,
+                                    success:function(response){
+                                        if(response.rpta=='ok'){
+                                            $(".box__inset").fadeOut(350,'swing',function(){
+                                                $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
+
+                                                    window.location.reload();
+                                                });
+                                            });
+
+                                        }
+                                    }
+
                                 });
 
                             }
                         }
-
                     });
+
+
                 }
             }
 
