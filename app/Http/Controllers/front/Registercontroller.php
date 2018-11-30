@@ -144,10 +144,16 @@ class RegisterController extends Controller
 
     public function borrarpata($id){
 
+        $nivel = User::where('id',$id)->where('status',2)->count();
 
-        User::where('id',$id)->delete();
+        if($nivel>0){
 
-        return response()->json(['rpta'=>'ok']);
+            return response()->json(['rpta'=>'error']);
+        }else{
+            User::where('id',$id)->delete();
+            return response()->json(['rpta'=>'ok']);
+        }
+
     }
 
 

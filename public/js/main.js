@@ -924,6 +924,8 @@ if($("#fr-mancha").valid()===true){
                     success:function(response){
                         if(response.rpta=='ok'){
                             window.location.reload();
+                        }else{
+                            alert("No es posible eliminar a un participante confirmado");
                         }
                     }
 
