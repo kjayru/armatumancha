@@ -60,8 +60,10 @@ input.f2 {
     -moz-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
 }
-.modal-2{
-    /*display: none!important;*/
+span.i-borrar {
+    font-size: 18px !important;
+    color: black !important;
+    font-weight: bold !important;
 }
 .layout__main .page1__main .section1__main .content .info {
     width: 650px;

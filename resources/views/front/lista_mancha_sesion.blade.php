@@ -56,9 +56,9 @@
                                 @foreach($grupores->users as $group)
                                 <tr>
                                   <td class="checkbox" {{ $group->role_id }}>
-                                        @if($group->role_id==2)<input type="checkbox" class="estado-client" data-id="{{ $group->id}}"   name="group_mancha"/>@endif
+                                        @if($group->role_id==2)<input type="checkbox" class="estado-client" data-id="{{ $group->id}}"  data-aliaspata="{{ $group->alias }}" data-mancha="{{$grupores->name}}"  name="group_mancha"/>@endif
                                   </td>
-                                  <td @if($group->role_id==1) data-liderid="{{ $group->id}}" class="star" @endif><strong>{{ $group->alias }}</strong></td>
+                                  <td @if($group->role_id==1) data-aliaslider="{{ $group->alias}}" data-liderid="{{ $group->id}}" class="star" @endif><strong>{{ $group->alias }}</strong></td>
                                   <td><span> {{ \App\User::numerosview($group->numero) }}</span></td>
                                   <td><span>{{ $group->email }}</span></td>
                                   <td><i @if($group->status==1) class="ico_status3" @elseif($group->status==2)  class="ico_status4" @else class="ico_unlike" @endif></i></td>
@@ -97,7 +97,7 @@
             <div class="overlay">
               <div class="box">
                 <div class="box__inset">
-                  <div class="page1">
+                  <div class="page1 mod-agregar-pata" style="display:none;">
                     <div class="page1__close">Cerrar</div>
                     <section class="section1">
                       <div class="section1__header">
@@ -155,25 +155,80 @@
                       </div>
                     </section>
                   </div>
-                  <div class="page2" style="display:none">
-                    <div class="page2__close">Cerrar</div>
-                    <section class="section1">
-                      <div class="section1__main">
-                        <div class="content">
+                  <div class="page2 mod-lider" style="display:none">
+                    <div class="page2__close" >Cerrar</div>
+                    <section class="section1 confirma" style="display:none">
+                      <div class="section1__header">
+                        <div class="title ico_check" >
+                          <h2>¡Listo! <br>
+                              Esperamos la confirmación por SMS a <span></span> para que acepte ser el nuevo líder.</br></br>
+                              Recuérdale que tiene 24 horas para aceptar
 
+                          </h2>
+                        </div>
+                      </div>
+                      <div class="section1__main">
+                        <div class="register">
+                          <form class="form" action="">
+                            <div class="form__row3">
+                              <div class="form__buttons">
+                                <button class="button1 btn-ok" type="button">Aceptar</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="section1 esta-seguro" style="display:none">
+                      <div class="section1__header">
+                        <div class="title ico_alert">
+                          <h2>¿Estás seguro que
+                              <strong class="i-lider">**<span></span>**</strong> <br>
+                              quiere ser líder de <strong class="i-nombre">** <span></span>   ?**</strong>
+                          </h2>
+                        </div>
+                      </div>
+                      <div class="section1__main">
+                        <div class="register">
+                          <form class="form" action="">
+                            <div class="form__row3">
+                              <div class="form__buttons">
+                                <a class="button1 btn-lider-si" type="button">Si</button>
+                                <a class="button1 btn-lider-no" type="button">No</button>
+                                <input type="hidden" name="datalider" id="datalider">
+                                <input type="hidden" name="datapata" id="datapata">
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </section>
                   </div>
-                  <div class="page3" style="display:none">
+                  <div class="page2 mod-delete" style="display:none;">
+                    <div class="page2__close">Cerrar</div>
                     <section class="section1">
+                      <div class="section1__header">
+                        <div class="title ico_error">
+                          <h2>¿Está seguro que desea eliminar a <span class="i-borrar"></span> de la mancha?</h2>
+                        </div>
+                      </div>
                       <div class="section1__main">
-                            <div class="content">
-
-                                </div>
+                        <div class="register">
+                          <form class="form" action="">
+                            <div class="form__row3">
+                              <div class="form__buttons">
+                                <button class="button1 btn-delete" type="button" >Si</button>
+                                <button class="button1 btn-delete-no" type="button" >No</button>
+                                <input type="hidden" name="datapata2" id="datapata2">
+                              </div>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                     </section>
                   </div>
+                </div>
+
                 </div>
               </div>
             </div>

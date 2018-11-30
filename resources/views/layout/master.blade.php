@@ -111,6 +111,7 @@ Creation date: 11/27/2018
      @include('layout.partials.footer')
 </div>
     <script type="text/javascript" src="/js/vendor/jquery.min.js"></script>
+    <script src="/js/vendor/jquery-migrate-1.4.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 
     <script src="//cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.js"></script>

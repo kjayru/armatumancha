@@ -801,31 +801,31 @@ if($("#fr-mancha").valid()===true){
                 let id = $(this).data('id');
                 let liderid = $('.star').data('liderid');
 
-                if(id===liderid){
-                    alert("Ya eres lider esta acción no procede");
-                    return false;
-                }
-                let token = $("#fordata input[name='_token']").val();
+                let aliaspata = $(this).data('aliaspata');
 
-                let dataform = ({'_token':token,'_method':'POST','user_id':id, 'lider_id':liderid});
+                let aliaslider = $(this).parent().parent().parent().children("tr").children('td:nth-child(2)').data('aliaslider');
 
-                $.ajax({
-                    url:'/asignar-lidermancha',
-                    method:'POST',
-                    dataType:'json',
-                    data:dataform,
-                    success:function(response){
-                        console.log(response);
-                        if(response.rpta=='ok'){
-                            alert(response.mensaje);
-                        }
-                        if(response.rpta=='error'){
-                            let msn = response.mensaje;
-                            alert(msn);
-                        }
-                    }
+                let grupo = $(this).data('mancha');
 
+
+                //modal de consulta
+
+                $(".layout__modal").fadeIn(350,'swing',function(){
+                    $(".box__inset").delay(350).fadeIn(350,'swing',function(){
+                        $(".mod-lider").fadeIn(350);
+                        $(".esta-seguro").show();
+                        $(".i-lider").html(aliaspata);
+                        $(".i-nombre").html(grupo);
+
+                        $("#datapata").val(id);
+                        $("#datalider").val(liderid);
+
+
+                        return false;
+                    });
                 });
+
+
             }
 
 
@@ -851,11 +851,31 @@ if($("#fr-mancha").valid()===true){
                 let id = $(this).data('id');
                 let liderid = $('.star').data('liderid');
 
+                let aliaspata = $(this).data('aliaspata');
+
                 if(id===liderid){
                     alert("esta acción no procede");
                     return false;
                 }
-                let token = $("#fordata input[name='_token']").val();
+
+
+                $(".layout__modal").fadeIn(350,'swing',function(){
+                    $(".box__inset").delay(350).fadeIn(350,'swing',function(){
+                        $(".mod-lider").hide();
+                        $(".esta-seguro").hide();
+                        $(".mod-delete").show();
+
+                        $(".i-borrar").html(aliaspata);
+
+                        $("#datapata2").val(id);
+
+
+
+                        return false;
+                    });
+                });
+
+                /*let token = $("#fordata input[name='_token']").val();
 
                 let dataform = ({'_token':token,'_method':'DELETE','user_id':id, 'lider_id':liderid});
                 $.ajax({
@@ -869,7 +889,7 @@ if($("#fr-mancha").valid()===true){
                         }
                     }
 
-                });
+                });*/
             }
 
 
@@ -883,15 +903,105 @@ if($("#fr-mancha").valid()===true){
         }
     });
 
+
+    $(".btn-delete").click(function(e){
+        e.preventDefault();
+        let id =  $("#datapata2").val();
+
+        let token = $("#fordata input[name='_token']").val();
+
+                let dataform = ({'_token':token,'_method':'DELETE','user_id':id});
+                $.ajax({
+                    url:'/borrar-pata/'+id,
+                    method:'POST',
+                    dataType:'json',
+                    data:dataform,
+                    success:function(response){
+                        if(response.rpta=='ok'){
+                            window.location.reload();
+                        }
+                    }
+
+                });
+    });
     $(".page1__close").on('click',function(e){
         e.preventDefault();
         $(".box__inset").fadeOut(350,'swing',function(){
             $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
                 $(".page1").fadeOut(350);
+                $(".page2").fadeOut(350);
+            });
+        });
+    });
+    $(".page2__close").on('click',function(e){
+        e.preventDefault();
+        $(".box__inset").fadeOut(350,'swing',function(){
+            $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
+                $(".page1").fadeOut(350);
+                $(".page2").fadeOut(350);
             });
         });
     });
 
+    $(".btn-ok").on('click',function(e){
+        e.preventDefault();
+        $(".box__inset").fadeOut(350,'swing',function(){
+            $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
+                $(".page1").fadeOut(350);
+                $(".page2").fadeOut(350);
+                $(".esta-seguro").hide();
+                $(".confirma").hide();
+            });
+        });
+    });
+
+    $(".btn-lider-no").on('click',function(e){
+        e.preventDefault();
+        $(".box__inset").fadeOut(350,'swing',function(){
+            $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
+                $(".page1").fadeOut(350);
+                $(".page2").fadeOut(350);
+                $(".esta-seguro").hide();
+                $(".confirma").hide();
+            });
+        });
+    });
+
+    let i=0;
+    $(".btn-lider-si").on('click',function(e){
+        e.preventDefault();
+        console.log("eventoooo");
+        let token = $("#fordata input[name='_token']").val();
+        let id =  $("#datapata").val();
+        let liderid =  $("#datalider").val();
+
+                let dataform = ({'_token':token,'_method':'POST','user_id':id, 'lider_id':liderid});
+
+
+                $.ajax({
+                    url:'/asignar-lidermancha',
+                    method:'POST',
+                    dataType:'json',
+                    data:dataform,
+                    beforeSend:function(){
+                        console.log("enviando");
+                    },
+                    success:function(rps){
+                        console.log(rps);
+                        if(rps.rpta=='ok'){
+                            $(".esta-seguro").fadeOut(350,'swing',function(){
+                                $(".confirma").fadeIn(350,'swing');
+                            });
+                        }
+                        if(rps.rpta=='error'){
+                            let msn = rps.mensaje;
+                            alert(msn);
+                        }
+                    }
+
+                });
+
+    });
 
     $(".estado-client").change(function(){
 
