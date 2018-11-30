@@ -285,9 +285,13 @@ $(document).ready(function(){
 $.validator.methods.email = function( value, element ) {
     return this.optional( element ) || /[a-z0-9]+@[a-z0-9]+\.[a-z]+/.test( value );
   };
-  $.validator.addMethod("valueNotEquals", function(value, element, arg){
+$.validator.addMethod("valueNotEquals", function(value, element, arg){
     return arg !== value;
    }, "Valor no es igual");
+
+$.validator.addMethod("alphanumeric", function(value, element) {
+    return this.optional(element) || /^[\w.]+$/i.test(value);
+}, "Solo Letras y números  por favor");
 
 
 
@@ -377,7 +381,8 @@ var validaton =  $("#fr-mancha").validate({
         ignore: [],
         nombres:{
             required:true,
-            maxlength:15
+            maxlength:15,
+            alphanumeric:true
         },
         lidername:{
             required:true,
