@@ -90,7 +90,7 @@ class HomeController extends Controller
     public function test1(){
 
 
-            $users = User::where('id','<',218)->get();
+        /*    $users = User::where('id','<',218)->get();
 
             foreach($users as $user){
 
@@ -101,7 +101,7 @@ class HomeController extends Controller
                 User::where('id',$user->id)->update(['created_at'=>$data1,'updated_at'=>$data2]);
             };
 
-            dd("actualizacion realizada");
+            dd("actualizacion realizada");*/
     }
 
 
