@@ -61,19 +61,35 @@ class RegisterController extends Controller
     {
 
 
-         $this->validator($request->all())->validate();
+        // $this->validator($request->all())->validate();
 
          //dd("primer paso");
         //event(new Registered($user = $this->create($request->all())));
 
 
+
+       $request->validate([
+            'name' => 'required|unique:groups|string|max:21',
+            'lidername' => 'required|string|max:16',
+            'lidercel' => 'required|numeric',
+            'beneficio' => 'required|string|max:90'
+
+        ], [
+            'name.required' => 'Ingrese el nombre de la mancha',
+            'lidername.required' => 'Ingrese un alias',
+            'lidercel.required' => 'Ingrese su número',
+            'beneficio.required' => 'Seleccione su beneficio'
+        ]);
+
+
         $numcode = Code::whereNull('user_id')->first();
+
         $code_asig = $numcode->id;
 
         $beneficio =  $request->beneficio;
 
         $grupo = new Group();
-        $grupo->name = strtolower($request->nombres);
+        $grupo->name = strtolower($request->name);
         $grupo->save();
 
         $usuario = new User();
@@ -191,9 +207,13 @@ class RegisterController extends Controller
 
         return Validator::make($data, [
 
-            'nombres' => ['required','max:20'],
-
+            'nombres' => ['required','unique:groups','max:20'],
+            'alias' => ['required','max:15'],
+            'numero' => ['required','numeric','max:9'],
+            'email' => ['required','email','max:90'],
+            'beneficio' => ['required','max:90']
         ]);
+
     }
 
     /**

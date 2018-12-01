@@ -12,7 +12,7 @@
                               </form>
 
                             <form class="form" method="POST" id="fr-mancha" action="{{ route('register') }}" >
-
+                                   @method('POST')
                                   @csrf
 
                                  <input type="hidden" name="existepata" id="existepata" value="">
@@ -66,7 +66,15 @@
                                             </div>
                                           </div>
                                         </section>
-
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                   <section class="section2" id="formu_register">
                                     <div class="section2__align">
                                       <div class="section2__main">
@@ -89,15 +97,11 @@
                                               <div class="form__fields">
                                                 <dl class="type1">
                                                   <dt>
-                                                    <input class="form__text1 unique"  type="text" id="nombres" name="nombres" value="{{ old('nombres') }}" />
+                                                    <input class="form__text1 unique"  type="text" id="nombres" name="name" value="{{ old('name') }}" />
 
                                                   </dt>
                                                    <dd><span class="form__error" ></span>
-                                                 @if ($errors->has('nombres'))
-                                                    <span class="invalid-feedback form__error" role="alert">
-                                                       {{ $errors->first('nombres') }}
-                                                    </span>
-                                                 @endif
+
                                                 </dd>
                                                 </dl>
                                               </div>
@@ -116,20 +120,20 @@
                                               <div class="form__fields">
                                                 <dl>
                                                   <dt>
-                                                    <input class="form__text2 unique" type="text"  name="lidername" id="lidername" value="{{ old('alias') }}" maxlength="20"  placeholder="Alias"/>
+                                                    <input class="form__text2 unique" type="text"  name="lidername" id="lidername" value="{{ old('lidername') }}" maxlength="20"  placeholder="Alias"/>
                                                   </dt>
                                                   <dd></dd>
                                                 </dl>
                                                 <dl>
                                                   <dt>
 
-                                                    <input class="form__text2 unique" type="text"   name="lidercel" id="lidercel" maxlength="9" value="{{ old('numero') }}"   placeholder="Teléfono"/>
+                                                    <input class="form__text2 unique" type="text"   name="lidercel" id="lidercel" maxlength="9" value="{{ old('lidercel') }}"   placeholder="Teléfono"/>
                                                   </dt>
                                                   <dd></dd>
                                                 </dl>
                                                 <dl>
                                                   <dt>
-                                                    <input class="form__text2" type="email"  name="lideremail" value="{{ old('email') }}"   placeholder="Email (opcional)"/>
+                                                    <input class="form__text2" type="email"  name="lideremail" value="{{ old('lideremail') }}"   placeholder="Email (opcional)"/>
                                                   </dt>
                                                   <dd></dd>
                                                 </dl>
@@ -153,21 +157,21 @@
                                                   </div>
                                                   <dl>
                                                     <dt>
-                                                      <input name="alias[]" class="form__text2  aliaspata"  type="text"  maxlength="20" value="{{ old('alias[]') }}"  placeholder="Alias" />
+                                                      <input name="alias[]" class="form__text2  aliaspata"  type="text"  maxlength="20" value=""  placeholder="Alias" />
                                                     </dt>
                                                     <dd></dd>
                                                   </dl>
                                                   <dl>
                                                     <dt>
 
-                                                      <input class="form__text2   cellpata" maxlength="9"    name="telefono[]" type="text" value="{{ old('numero[]') }}"  placeholder="Teléfono" />
+                                                      <input class="form__text2   cellpata" maxlength="9"    name="telefono[]" type="text" value=""  placeholder="Teléfono" />
 
                                                     </dt>
                                                     <dd></dd>
                                                   </dl>
                                                   <dl>
                                                     <dt>
-                                                      <input class="form__text2 "  name="email[]" type="email" value="{{ old('email[]') }}"  placeholder="Email (opcional)" />
+                                                      <input class="form__text2 "  name="email[]" type="email" value=""  placeholder="Email (opcional)" />
                                                     </dt>
                                                     <dd></dd>
                                                   </dl>

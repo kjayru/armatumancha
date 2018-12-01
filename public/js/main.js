@@ -474,7 +474,13 @@ $("#fr-mancha input[name='beneficio']:radio").change(function(e){
     }
 });
 
+$(document).on('blur','#fr-mancha input',function(){
 
+    $('.send-mancha').attr('disabled',false).html('Registrar');
+});
+$(".content__item").on('click',function(){
+    $('.send-mancha').attr('disabled',false).html('Registrar');
+});
 let campo0,campo1,campo2 ,campo3,campo4,campo5,campo6,campo7,
 campo8,campo9,campo10,campo11,campo12,campo13,campo14,
 campo15,campo16;
@@ -484,6 +490,7 @@ campo15,campo16;
 
         e.stopPropagation();
 
+        $(this).attr('disabled','disabled').html('Validando..');
 
         if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {
           $('.content__error').hide();
@@ -1048,10 +1055,17 @@ if($("#fr-mancha").valid()===true){
             dataType:'json',
             data:datasend,
             success:function(response){
-                var pr = contenedor.prop("name");
-                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response.mensaje}</label>`);
-                contenedor.parent().children(".error").show();
-                contenedor.addClass("error");
+                try {
+                    if(response.rpta=='ok'){
+                        var pr = contenedor.prop("name");
+                        contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response.mensaje}</label>`);
+                        contenedor.parent().children(".error").show();
+                        contenedor.addClass("error");
+                        }
+                } catch (error) {
+                    console.log('sin aventos');
+                }
+
             }
 
         });
@@ -1068,13 +1082,19 @@ if($("#fr-mancha").valid()===true){
             dataType:'json',
             data:datasend,
             success:function(response){
-                var pr = contenedor.prop("name");
-                contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response.mensaje}</label>`);
-                contenedor.parent().children(".error").show();
-                contenedor.addClass("error");
+                try {
+                    if(response.rpta=='ok'){
+                        var pr = contenedor.prop("name");
+                        contenedor.parent().append(`<label id="${pr}-error" class="error" for="${pr}" style="display:block;">${response.mensaje}</label>`);
+                        contenedor.parent().children(".error").show();
+                        contenedor.addClass("error");
 
 
-                    $("#existelider").val(1);
+                            $("#existelider").val(1);
+                        }
+                } catch (error) {
+                    console.log('sin eventos');
+                }
 
 
             },

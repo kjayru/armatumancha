@@ -12,13 +12,14 @@ use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
 
 use App\Code;
 use App\User;
 use App\Group;
 use App\GroupUser;
 use App\Petition;
-
+use App\Duplicated;
 class HomeController extends Controller
 {
     use AuthenticatesUsers;
@@ -102,6 +103,35 @@ class HomeController extends Controller
             };
 
             dd("actualizacion realizada");*/
+
+           // $codes = Code::where('user_id','<>','NULL')->get();
+            //SELECT * FROM codes group by code having count(*) >= 2
+
+          /*  $codes = DB::table('codes')
+                    ->groupBy('code')
+                    ->havingRaw('count(*) >= ?',[2])
+                    ->get();*/
+
+                   // $codes = DB::select(DB::raw("SELECT * FROM codes group by code having count(*) >= 2"));
+
+                   $codes = Duplicated::all();
+
+           // dd($codes);
+
+
+            foreach($codes as $c){
+                 $duplica = Code::where('code',$c->code)->count();
+                 if($duplica>0){
+                    $dato =  Code::where('code',$c->code)->first();
+                     if($c->id != $dato->id){
+                        $cadena= $c->id." ".$c->code." = ".$dato->id." ".$dato->code;
+                        echo $cadena;
+                        Code::where('id',$dato->id)->delete();
+                        // dd("duplicado eliminado");
+                     }
+                 }
+            }
+            dd("Proceso terminado");
     }
 
 
