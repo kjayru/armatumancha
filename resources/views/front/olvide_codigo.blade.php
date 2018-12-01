@@ -12,8 +12,8 @@
                   </div>
                   <div class="section1__main">
                     <div class="title">
-                      <h2>Ingresa el código de seguridad</h2>
-                      <p>enviado por SMS</p>
+                      <h2>Te hemos enviado tu código de líder</h2>
+                      <p>y recibiras tu código de seguridad por SMS</p>
                     </div>
                     <div class="code">
                       <form class="form" method="POST" action="{{ action('front\RegisterController@listamanchasesion') }}">

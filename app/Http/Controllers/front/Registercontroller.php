@@ -171,22 +171,39 @@ class RegisterController extends Controller
 
 
                     $user_id = $user->id;
-                    $codigo = Code::where('user_id',$user->id)
-                            ->where('status','2')->first();
 
-                    $codigosms = $codigo->code;
-            //Enviar notificacion
+                    $existe = Code::where('user_id',$user->id)
+                            ->where('status','2')->count();
+
+                    if($existe>0){
+                        $codigo = Code::where('user_id',$user->id)
+                        ->where('status','2')->first();
+
+                        $codigosms = $codigo->code;
+
+                    }else{
+                        //asigna nuevo codigo
+                        $numcode = Code::whereNull('user_id')->first();
+                        $code_asig = $numcode->id;
+                        $nuevo_codigo = $numcode->code;
+                        $codigo = Code::where('id',$code_asig)->first();
+                        $codigo->user_id = $user->id;
+                        $codigo->status = '2';
+                        $codigo->save();
+                    }
+
+                    //Enviar notificacion
 
 
-            $notification = array(
-                'notification' => 'recupero-codigo-seguridad',
-                'users' => array($request->user_id)
-            );
+                    $notification = array(
+                        'notification' => 'recupero-codigo-seguridad',
+                        'users' => array($user->id)
+                    );
 
-            $noti = json_encode(['data'=>$notification]);
-            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                        ->withData($noti)
-                        ->post();
+                    $noti = json_encode(['data'=>$notification]);
+                    $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                                ->withData($noti)
+                                ->post();
 
                 return view('front.olvide_codigo');
 
