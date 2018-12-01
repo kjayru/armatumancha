@@ -307,15 +307,17 @@ class HomeController extends Controller
 
         $imancha = strtolower($request->nombres);
 
-        return response()->json(['rpta'=>$imancha]);
+
         $contar = Group::where('name',$imancha)->count();
 
        if($contar>0){
-        $rpta = 'existe';
+
+        return response()->json(['rpta'=>'existe']);
        }else{
-        $rpta = 'libre';
+
+        return response()->json(['rpta'=>'libre']);
        }
-        return response()->json(['rpta'=>$rpta]);
+
     }
 
 
