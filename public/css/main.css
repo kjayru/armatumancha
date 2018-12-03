@@ -98,7 +98,12 @@ span.i-borrar {
     position: relative; }
     @media screen and (max-width: 480px) {
       .layout__main .page4__main .questions {
-        height: 100%; } }
+        height: 100%; }
+    .layout__main .page6__main .section1__main .code .form dl dd {
+            display: initial !important;
+
+    }
+    }
     @media screen and (min-width: 481px) and (max-width: 1024px) {
       .layout__main .page4__main .questions {
         height: auto; } }
