@@ -8,7 +8,7 @@
               <section class="section1">
                 <div class="section1__align">
                   <div class="section1__header">
-                    <div class="links"><a class="btnBack" href="{{ url()->previous() }}"> <span>Volver</span></a></div>
+                    <div class="links"><a class="btnBack" href="/dashboard"> <span>Volver</span></a></div>
                   </div>
                   <div class="section1__main">
                     <div class="title">
@@ -16,21 +16,21 @@
                       <p>y recibiras tu código de seguridad por SMS</p>
                     </div>
                     <div class="code">
-                      <form class="form" method="POST" action="{{ action('front\RegisterController@listamanchasesion') }}">
+                    <form class="form" method="POST" action="{{ action('front\RegisterController@listamanchasesion') }}">
                         @csrf
                         <div class="form__row2">
                           <div class="form__fields">
                             <dl>
-                              <dt>
+                              <!--<dt>
                                 <input class="form__text1" type="text" name="codigo"/>
-                              </dt>
+                              </dt>-->
                               <dd>
-                                <button class="button1" type="submit">Continuar</button>
+                                <button class="button1" id="regresar-dashboard" type="button">Ingresar</button>
                               </dd>
                             </dl>
                           </div>
                         </div>
-                      </form>
+                      </form>-
                     </div>
                   </div>
                 </div>

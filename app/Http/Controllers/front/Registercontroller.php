@@ -209,7 +209,7 @@ class RegisterController extends Controller
 
             }else{
 
-               return redirect()->route('home.ingresecelular',['mensaje'=>1]);
+               return redirect()->route('home.ingresecelular')->with('info','Código inválido');
             }
 
 
@@ -362,7 +362,7 @@ class RegisterController extends Controller
 
         }else{
             //dd("error");
-            return redirect()->route('home.listamancha',['mensaje'=>2]);
+            return redirect()->route('home.listamancha')->with('info','Código inválido');;
 
         }
 

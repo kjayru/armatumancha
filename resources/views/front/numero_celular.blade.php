@@ -23,7 +23,7 @@
                           <div class="form__fields">
                             <dl>
                               <dt>
-                                <input class="form__text1" type="text" maxlength="9" name="numerocel"/>
+                                <input class="form__text1" type="text" maxlength="9" id="recupercel" name="numerocel"/>
                               </dt>
                               <dd>
                                 <button class="button1 btn-recuperar" type="button">Continuar</button>

@@ -1284,6 +1284,12 @@ if($("#fr-mancha").valid()===true){
             $("#fr-recuperar").submit();
         }
     });
+
+    $("#recupercel").numeric();
+
+    $("#regresar-dashboard").on('click',function(){
+        window.location.href="/dashboard";
+    });
 ///end
 });
 

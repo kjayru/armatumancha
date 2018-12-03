@@ -25,6 +25,24 @@ input.f2 {
 #lbl-autoriza {
     display:inline-block !important;
 }
+
+button#regresar-dashboard {
+    display: inline;
+}
+.layout__main .page6__main .section1__main .code .form dl dd {
+    display: table-cell;
+    vertical-align: top;
+
+}
+.layout__main .page6__main .section1__main .code .form dl {
+    display: table;
+    height: 100px;
+    width: 100% !important;
+}
+.layout__main .page6__main .section1__main .code .form dd {
+    width: 100% !important;
+    text-align: center;
+}
 .layout__header a.btnClose {
     width: 134px;
     height: 41px;
