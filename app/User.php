@@ -62,7 +62,7 @@ class User extends Authenticatable
 
     public static function updateHora($registro){
         //2018-11-28 05:22:08
-        $difhora = 7;
+        $difhora = 5;
 
         $h = explode(" ",$registro);
 

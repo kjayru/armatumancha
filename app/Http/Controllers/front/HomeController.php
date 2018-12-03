@@ -91,7 +91,7 @@ class HomeController extends Controller
     public function test1(){
 
 
-        /*    $users = User::where('id','<',218)->get();
+            $users = User::where('id','<',946)->get();
 
             foreach($users as $user){
 
@@ -102,7 +102,7 @@ class HomeController extends Controller
                 User::where('id',$user->id)->update(['created_at'=>$data1,'updated_at'=>$data2]);
             };
 
-            dd("actualizacion realizada");*/
+            dd("actualizacion realizada");
 
            // $codes = Code::where('user_id','<>','NULL')->get();
             //SELECT * FROM codes group by code having count(*) >= 2
@@ -114,11 +114,11 @@ class HomeController extends Controller
 
                    // $codes = DB::select(DB::raw("SELECT * FROM codes group by code having count(*) >= 2"));
 
-                   $codes = Duplicated::all();
+           //        $codes = Duplicated::all();
 
            // dd($codes);
 
-
+/*
             foreach($codes as $c){
                  $duplica = Code::where('code',$c->code)->count();
                  if($duplica>0){
@@ -131,7 +131,7 @@ class HomeController extends Controller
                      }
                  }
             }
-            dd("Proceso terminado");
+            dd("Proceso terminado");*/
     }
 
 
