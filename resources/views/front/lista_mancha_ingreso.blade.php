@@ -96,7 +96,7 @@
                             <dl>
                               <dt>
                                 <input class="form__text1" type="text" name="codigo"/>
-                                <a href="/ingrese-celular" ><span> Olvide mi código</span></a>
+                                <a href="/ingrese-celular" ><span> Olvidé mi código</span></a>
                               </dt>
                               <dd>
                                 <button class="button1 send-code-lider" type="button">Continuar</button>
