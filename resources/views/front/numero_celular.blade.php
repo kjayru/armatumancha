@@ -5,11 +5,16 @@
 <div class="layout" id="app">
         <div class="layout__main">
           <div class="page6">
+                @if (session('alert'))
+                <div class="alert alert-success">
+                    {{ session('alert') }}
+                </div>
+                 @endif
             <div class="page6__main">
               <section class="section1">
                 <div class="section1__align">
                   <div class="section1__header">
-                    <div class="links"><a href="{{ url()->previous() }}" class="btnBack"> <span>Volver</span></a></div>
+                    <div class="links"><a href="/dashboard" class="btnBack"> <span>Volver</span></a></div>
                   </div>
                   <div class="section1__main">
                     <div class="title">

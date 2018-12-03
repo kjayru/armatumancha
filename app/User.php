@@ -75,6 +75,7 @@ class User extends Authenticatable
         $mes = $f[1];
         $year = $f[0];
 
+
         //sumas
 
         $hm = explode(":",$hora);
@@ -88,7 +89,14 @@ class User extends Authenticatable
         $result = $horax + $difhora;
 
         if($result>23){
+
             $ndia = $dia + 1;
+            if( $mes===11){
+                if($ndia===31){
+                    $mes = 12;
+                    $ndia =  1;
+                }
+            }
             $det = $result - 24;
 
             $dig =  strlen($det);

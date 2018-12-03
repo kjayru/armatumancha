@@ -91,7 +91,7 @@ class HomeController extends Controller
     public function test1(){
 
 
-            $users = User::where('id','<',946)->get();
+            $users = User::where('id','<',944)->get();
 
             foreach($users as $user){
 
