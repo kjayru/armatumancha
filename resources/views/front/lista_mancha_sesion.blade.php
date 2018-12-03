@@ -184,7 +184,7 @@
                         <div class="title ico_alert">
                           <h2>¿Estás seguro que
                               <strong class="i-lider">**<span></span>**</strong> <br>
-                              quiere ser líder de <strong class="i-nombre">** <span></span>   ?**</strong>
+                              quiere ser líder de <strong class="i-nombre"> <b></b>?</strong>
                           </h2>
                         </div>
                       </div>
@@ -193,8 +193,8 @@
                           <form class="form" action="">
                             <div class="form__row3">
                               <div class="form__buttons">
-                                <a class="button1 btn-lider-si" type="button">Si</button>
-                                <a class="button1 btn-lider-no" type="button">No</button>
+                                <a class="button1 btn-lider-si" type="button">Si</a>
+                                <a class="button1 btn-lider-no" type="button">No</a>
                                 <input type="hidden" name="datalider" id="datalider">
                                 <input type="hidden" name="datapata" id="datapata">
                               </div>
@@ -221,7 +221,9 @@
                                 <button class="button1 btn-delete-no" type="button" >No</button>
                                 <input type="hidden" name="datapata2" id="datapata2">
                               </div>
+                              <p class="error" style="text-align: center"></p>
                             </div>
+
                           </form>
                         </div>
                       </div>

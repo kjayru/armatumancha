@@ -827,7 +827,7 @@ if($("#fr-mancha").valid()===true){
                         $(".mod-lider").fadeIn(350);
                         $(".esta-seguro").show();
                         $(".i-lider").html(aliaspata);
-                        $(".i-nombre").html(grupo);
+                        $(".i-nombre b").html(grupo);
 
                         $("#datapata").val(id);
                         $("#datalider").val(liderid);
@@ -932,7 +932,9 @@ if($("#fr-mancha").valid()===true){
                         if(response.rpta=='ok'){
                             window.location.reload();
                         }else{
-                            alert("No es posible eliminar a un participante confirmado");
+
+                            $(".mod-delete p").html("No es posible eliminar a un participante confirmado");
+                            return false;
                         }
                     }
 

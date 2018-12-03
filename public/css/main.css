@@ -21,6 +21,12 @@ input.f2 {
     width: 163px !important;
     margin-left: -15px;
 }
+p.error {
+    text-align: center;
+    padding-top: 12px;
+    max-width: 100% !important;
+    display: block;
+}
 
 #lbl-autoriza {
     display:inline-block !important;
@@ -286,4 +292,11 @@ span.i-borrar {
         padding: 0 20px;
         margin-bottom: 0;
     }
+}
+
+.alert.alert-success {
+    background: darkred;
+    color: white;
+    text-align: center;
+    padding: 10px;
 }

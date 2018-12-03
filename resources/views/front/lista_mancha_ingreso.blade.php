@@ -11,20 +11,15 @@
 
   </style>
 <div class="layout lytpl2" id="app">
-        <div class="box box-info">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-        </div>
+
 
         <div class="layout__main">
           <div class="page4">
+                @if (session('alert'))
+                <div class="alert alert-success">
+                    {{ session('alert') }}
+                </div>
+                 @endif
             <div class="page4__main">
               <section class="section1">
                 <div class="section1__align">

@@ -2,8 +2,14 @@
 @section('content')
 
 <div class="layout" id="app">
+
         <div class="layout__main">
           <div class="page7">
+                @if (session('alert'))
+                <div class="alert alert-success">
+                    {{ session('alert') }}
+                </div>
+                 @endif
             <div class="page7__main">
               <section class="section1">
                 <div class="section1__align">

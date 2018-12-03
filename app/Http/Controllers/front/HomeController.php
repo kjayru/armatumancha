@@ -82,7 +82,7 @@ class HomeController extends Controller
                 return redirect()->route('home.listamancha');
             }else{
 
-                return redirect()->route('home.mirastatus', ['mensaje' => 1 ]);
+                return redirect()->route('home.mirastatus')->with('alert','No se encuentra su busqueda');
             }
      }
 }

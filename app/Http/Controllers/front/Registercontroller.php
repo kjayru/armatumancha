@@ -357,12 +357,12 @@ class RegisterController extends Controller
             if($user_rol==1){
                 return view('front.lista_mancha_sesion',['grupores'=>$grupores,'peticion'=>$existe_peticion,'user'=>$user,'invitados'=>$invitados]);
             }else{
-                return redirect()->route('home.listamancha',['mensaje'=>1]);
+                return redirect()->route('home.listamancha')->with('alert','No eres lider de equipo');
             }
 
         }else{
             //dd("error");
-            return redirect()->route('home.listamancha')->with('info','Código inválido');;
+            return redirect()->route('home.listamancha')->with('alert','Código inválido');
 
         }
 
