@@ -122,4 +122,20 @@ class User extends Authenticatable
         return $horagenerada;
 
     }
+
+
+    public static function validarUsuarioGrupo($pata,$grupo){
+
+        //vericar registros patas y su status
+        $registrosPata = \App\User::where('numero',$pata)->get();
+
+        echo "<pre>";
+            print_r($registrosPata);
+
+        echo "</pre>";
+
+        //validar si pertence al grupo retorna boleano
+
+
+    }
 }

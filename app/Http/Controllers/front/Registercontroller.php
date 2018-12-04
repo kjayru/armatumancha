@@ -108,8 +108,22 @@ class RegisterController extends Controller
 
 
         if($contar>0){
-            $codigo = Code::where('user_id',$request->user_id)
-                        ->where('status',2)->first();
+
+            $ValidarCodePata = Code::where('user_id',$request->user_id)
+                        ->where('status',2)->count();
+
+
+            if($ValidarCodePata>0){
+                $codigo = Code::where('user_id',$request->user_id)
+                ->where('status',2)->first();
+            }else{
+                $numcode = Code::whereNull('user_id')->first();
+                 Code::where('id',$numcode->id)->update(['user_id'=>$request->user_id,'status'=>2]);
+                 $codigo = Code::where('user_id',$request->user_id)
+                 ->where('status',2)->first();
+            }
+
+
 
 
             $peticion = new Petition();
@@ -234,12 +248,13 @@ class RegisterController extends Controller
         $grupores = Group::where('id',$group_id)->with('users')->first();
 
         $con=[];
-        foreach($grupores->users as $k => $nu){
 
+        foreach($grupores->users as $k => $nu){
             if($nu->status==2){
                 $con[]=$nu->status;
             }
         }
+
 
         $slogan ='';
         $numusuarios = intval(count($con));
@@ -400,28 +415,39 @@ class RegisterController extends Controller
         $conteo = Code::where('code',$request->code)->count();
 
         if($conteo>0){
+
             $code = Code::where('code',$request->code)->first();
 
             $peticion = Petition::where('code_id',$code_id)
                             ->where('status',1)->first();
 
+
             //ejecuta asignacion de lider a pata
             User::where('user_id',$petition->owner_user_id)->update(['role_id'=>2]);
 
             //ejecuta asignacion de pata a lider
-            User::where('user_id',$petition->sucessor_user_id)->update(['role_id'=>1]);
+
+            //buscar codigo de pata
 
 
             $disabledCode = Code::where('user_id',$request->owner_user_id)->update(['status'=>3]);
+
+            User::where('user_id',$petition->sucessor_user_id)->update(['role_id'=>1]);
+
+
+
             //
             //nuevo codigo lider
             $numcode = Code::whereNull('user_id')->first();
             $codesa= Code::where('id',$numcode->id)->update(['user_id'=>$request->owner_user_id,'status'=>2]);
 
 
+            $findCodePata = Code::where('user_id',$petition->sucessor_user_id)->count();
 
+            if($findCodePata>0)
+            {
             $disabledCode2 = Code::where('user_id',$request->sucessor_user_id)->update(['status'=>3]);
-
+            }
 
             $numcode2 = Code::whereNull('user_id')->first();
 
