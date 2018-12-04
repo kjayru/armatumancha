@@ -347,12 +347,16 @@ class RegisterController extends Controller
             foreach($pata->codes as $icode){
                // crear arreglo de codigos
 
-                if( $icode->code==$request->codigo && $icode->status==2){
+
+
+                if( $icode->code == $request->codigo && $icode->status == 2){
                     $user_id = $icode->id;
                     $user_rol = $pata->role_id;
 
                     $code = true;
                 }
+
+
             }
 
           }

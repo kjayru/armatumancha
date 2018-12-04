@@ -299,4 +299,14 @@ span.i-borrar {
     color: white;
     text-align: center;
     padding: 10px;
+    font: normal 400 1em "Roboto";
+}
+
+.alert.alert-warning {
+    text-align: center;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    padding: 10px;
+    font: normal 400 1em "Roboto";
 }

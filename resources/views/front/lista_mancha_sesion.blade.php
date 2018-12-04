@@ -13,6 +13,11 @@
 <div class="layout lytpl1" id="app">
         <div class="layout__main">
           <div class="page4">
+            @if($peticion)
+                <div class="alert alert-warning" role="alert">
+                        Existe una petición de cambio de líder
+                </div>
+            @endif
             <div class="page4__main">
               <section class="section1">
                 <div class="section1__align">
@@ -39,7 +44,7 @@
 
                         </div>
                       <div class="grid__info">
-                         @if($peticion) <p style="color:green;">Existe un petición de cambio de lider</p>@endif
+
                         <table>
                           <thead>
                             <tr>

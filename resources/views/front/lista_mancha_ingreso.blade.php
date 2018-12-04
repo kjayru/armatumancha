@@ -20,6 +20,10 @@
                     {{ session('alert') }}
                 </div>
                  @endif
+
+
+
+
             <div class="page4__main">
               <section class="section1">
                 <div class="section1__align">

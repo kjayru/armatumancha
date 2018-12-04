@@ -21,8 +21,6 @@ class User extends Authenticatable
         'alias','numero','email','beneficio','role_id'
     ];
 
-
-
     public function groups(){
         return $this->belongsToMany('App\Group');
     }
@@ -128,14 +126,6 @@ class User extends Authenticatable
 
         //vericar registros patas y su status
         $registrosPata = \App\User::where('numero',$pata)->get();
-
-        echo "<pre>";
-            print_r($registrosPata);
-
-        echo "</pre>";
-
         //validar si pertence al grupo retorna boleano
-
-
     }
 }
