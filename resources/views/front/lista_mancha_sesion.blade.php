@@ -64,8 +64,8 @@
                                         @if($group->role_id==2)<input type="checkbox" class="estado-client" data-id="{{ $group->id}}"  data-aliaspata="{{ $group->alias }}" data-mancha="{{$grupores->name}}"  name="group_mancha"/>@endif
                                   </td>
                                   <td @if($group->role_id==1) data-aliaslider="{{ $group->alias}}" data-liderid="{{ $group->id}}" class="star" @endif><strong>{{ $group->alias }}</strong></td>
-                                  <td><span> {{ \App\User::numerosview($group->numero) }}</span></td>
-                                  <td><span>{{ $group->email }}</span></td>
+                                  <td><span> {{ \App\User::numerosview(\App\User::encrypt_decrypt('decrypt',$group->numero)) }}</span></td>
+                                  <td><span>{{ \App\User::encrypt_decrypt('decrypt',$group->email) }}</span></td>
                                   <td><i @if($group->status==1) class="ico_status3" @elseif($group->status==2)  class="ico_status4" @else class="ico_unlike" @endif></i></td>
                                   <td><i  @if($group->califica==1) class="ico_status3" @elseif($group->califica==2)  class="ico_status2" @else class="ico_status1" @endif></i></td>
                                 </tr>

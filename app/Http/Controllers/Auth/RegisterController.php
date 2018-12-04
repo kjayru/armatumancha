@@ -14,6 +14,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Jenssegers\Agent\Agent;
+
 
 use Illuminate\Support\Facades\Validator;
 
@@ -59,7 +61,7 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-
+        $agent = new Agent();
 
         // $this->validator($request->all())->validate();
 
@@ -94,11 +96,16 @@ class RegisterController extends Controller
 
         $usuario = new User();
         $usuario->alias = $request->lidername;
-        $usuario->numero = "51".$request->lidercel;
-        $usuario->email = $request->lideremail;
+        $usuario->numero = User::encrypt_decrypt('encrypt',"51".$request->lidercel);
+        $usuario->email = User::encrypt_decrypt('encrypt',$request->lideremail);
         $usuario->beneficio = $request->beneficio;
         $usuario->status = 2;
         $usuario->role_id = 1;
+
+        $usuario->browser = $agent->browser();
+        $usuario->device = $agent->device();
+        $usuario->platform = $agent->platform();
+
         $usuario->save();
 
         //distribucion
@@ -144,11 +151,11 @@ class RegisterController extends Controller
             $pata = new User();
 
             $pata->alias = $request->alias[$i];
-            $pata->numero = "51".$request->telefono[$i];
+            $pata->numero = User::encrypt_decrypt('encrypt',"51".$request->telefono[$i]);
             $pata->beneficio = $request->beneficio;
 
             if($request->email[$i]){
-                 $pata->email = $request->email[$i];
+                 $pata->email = User::encrypt_decrypt('encrypt',$request->email[$i]);
             }
 
             $pata->role_id = '2';

@@ -60,7 +60,7 @@ class User extends Authenticatable
 
     public static function updateHora($registro){
         //2018-11-28 05:22:08
-        $difhora = 5;
+      /*  $difhora = 5;
 
         $h = explode(" ",$registro);
 
@@ -118,14 +118,26 @@ class User extends Authenticatable
         $horagenerada =$year."-".$mes."-".$ndia." ".$horanueva.":".$minuto.":".$segundo;
 
         return $horagenerada;
-
+        */
     }
 
+//env('APP_HASH')
+     public static function encrypt_decrypt($action, $string) {
+        $output = false;
+        $encrypt_method = "AES-128-CBC";
+        $secret_key = '25D97D571C85FFBABB8FBA83E462EE2B';
+        $secret_iv = '62B22654DCE5DAD139AFA8ACE84ECFFF';
+        // hash
+        $key = hash('sha256', $secret_key);
 
-    public static function validarUsuarioGrupo($pata,$grupo){
-
-        //vericar registros patas y su status
-        $registrosPata = \App\User::where('numero',$pata)->get();
-        //validar si pertence al grupo retorna boleano
+        // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
+        $iv = substr(hash('sha256', $secret_iv), 0, 16);
+        if ( $action == 'encrypt' ) {
+            $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
+            $output = base64_encode($output);
+        } else if( $action == 'decrypt' ) {
+            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+        }
+        return $output;
     }
 }
