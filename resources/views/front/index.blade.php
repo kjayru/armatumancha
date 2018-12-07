@@ -44,7 +44,7 @@
                   </div>
                 </div>
                 <div class="links">
-                  <a href="">Tips para armar tu mancha</a>
+                  <a href="/tips">Tips para armar tu mancha</a>
                 </div>
               </div>
               <div class="section5__main">
