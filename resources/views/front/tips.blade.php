@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="links">
                                         <a href="/register" class="btn">Armar tu mancha ahora &#62; </a>
-                                        <a href="#">Revisa las condiciones aquí</a>
+
                                     </div>
                                 </div>
                             </div>

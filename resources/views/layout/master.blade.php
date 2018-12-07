@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
 
-    <meta name="description" content="Arma tu mancha"/>
+    <meta name="description" content="Esta Navidad, Claro te sorprende con unos premiazos, SIN SORTEOS NI CONCURSOS. Solo arma tu mancha, cumple con las condiciones de la promo y ¡listo! Tienen hasta el 02 de enero de 2019."/>
 
     <meta property="og:url" content="{{env('APP_URL')}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="ARMA TU MANCHA" />
-    <meta property="og:description" content="Arma tu mancha" />
+    <meta property="og:title" content="¡Arma tu mancha y podrás ganar Bono de Gigas o Millas Latam Pass!" />
+    <meta property="og:description" content="Esta Navidad, Claro te sorprende con unos premiazos, SIN SORTEOS NI CONCURSOS. Solo arma tu mancha, cumple con las condiciones de la promo y ¡listo! Tienen hasta el 02 de enero de 2019." />
 
     <meta property="fb:app_id" content="127684748131663"/>
-    <meta property="og:image" content="{{env('APP_URL')}}/compartir.png" />
-    <meta property="og:image:secure_url" content="{{env('APP_URL')}}/compartir.png" />
+    <meta property="og:image" content="{{env('APP_URL')}}/compartir.jpg" />
+    <meta property="og:image:secure_url" content="{{env('APP_URL')}}/compartir.jpg" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="400" />
