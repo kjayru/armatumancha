@@ -28,6 +28,7 @@ Route::get('/vercodigo','front\HomeController@vercodigo');
 Route::post('/mostrarcodigo','front\HomeController@mostrarcodigo');
 
 Route::get('/preguntas-frecuentes','front\HomeController@preguntas')->name('home.preguntas');
+Route::get('/tips','front\HomeController@tips')->name('home.tips');
 
 
 /*asincronos*/

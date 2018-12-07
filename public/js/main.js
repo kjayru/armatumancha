@@ -1314,3 +1314,93 @@ function resetFormValidator(formId) {
 }
 
 
+
+//api youtube
+var tag = document.createElement('script');
+tag.src = "//youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('vplayer', {
+
+    height: '360',
+    width: '640',
+    videoId: 'WWCebX9-zh8',
+    origin: 'https://armatumancha.test',
+    playerVars: {
+         'autoplay': 0,'loop': 0,'showinfo':0, 'controls': 0,'modestbranding':0,
+         'playsinline':0,'rel':0,'iv_load_policy': 3
+        },
+  });
+}
+
+
+function onPlayerReady() {
+    player.playVideo();
+  }
+  var done = false;
+
+  function stopVideo() {
+    player.stopVideo();
+  }
+
+  //modal
+ let mod = document.querySelector(".player");
+ if(mod){
+ mod.addEventListener('click',function(e){
+     e.preventDefault();
+     $(".layout_modal").fadeIn(350,'swing',function(){
+         $(".box__inset").fadeIn(350,'swing');
+     });
+     onPlayerReady();
+ });
+}
+
+$(".close").on('click',function(e){
+    e.preventDefault();
+
+    $(".layout_modal").removeClass('active').fadeOut(350,'swing');
+        stopVideo();
+
+});
+
+let facebook = document.querySelector('.btn-facebook');
+
+if(facebook){
+    facebook.addEventListener('click',function(){
+
+        FB.ui({
+            method: 'share_open_graph',
+            action_type: 'og.likes',
+            action_properties: JSON.stringify({
+              object:'http://armatumancha.claro.com.pe',
+            })
+          }, function(response){
+            // Debug response (optional)
+            console.log(response);
+          });
+
+
+    });
+}
+
+//
+
+let copiar = document.querySelector('.btn-copiar');
+
+if(copiar){
+    copiar.addEventListener('click',function(e){
+        e.preventDefault();
+        copyText = document.getElementById('clip');
+        console.log("text "+copyText);
+        copyText.select();
+
+        document.execCommand("copy");
+
+        console.log( copyText.value);
+    });
+}

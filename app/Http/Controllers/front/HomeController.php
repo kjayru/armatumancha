@@ -325,4 +325,9 @@ class HomeController extends Controller
         return view('front.preguntas-frecuentes');
     }
 
+
+    public function tips(){
+        return view('front.tips');
+    }
+
 }
