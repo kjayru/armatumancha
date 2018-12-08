@@ -77,7 +77,8 @@ $(document).ready(function(){
         responsive: [
           {
             breakpoint: 9999,
-            settings: "unslick"
+            settings: "unslick",
+            infinite: false,
           },
 
           {
@@ -99,6 +100,7 @@ $(document).ready(function(){
         dots: true,
         slidesToShow: 4,
         slidesToScroll: 1,
+        infinite: false,
         responsive: [
           {
             breakpoint: 769,
@@ -127,6 +129,7 @@ $(document).ready(function(){
         dots: true,
         slidesToShow: 5,
         slidesToScroll: 1,
+        infinite: false,
         responsive: [
           {
             breakpoint: 769,
