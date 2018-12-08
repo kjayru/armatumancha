@@ -244,7 +244,7 @@ $(document).ready(function(){
         </div>
       </div>`;
 
-      $(".listado").append(pata);
+      $(".mispatas").append(pata);
       $(`#cellpata${c}`).numeric();
 
 
