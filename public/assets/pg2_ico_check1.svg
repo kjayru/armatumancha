@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="FLUJO-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="REGISTRO" transform="translate(-391.000000, -275.000000)">
+            <g id="Group-6" transform="translate(391.000000, 275.000000)">
+                <rect id="Rectangle-15" stroke="#0E8D79" stroke-width="2" fill="#0E8D79" x="1" y="1" width="28" height="28" rx="3"></rect>
+                <path d="M24.3826513,7.63442172 C23.5594606,6.78852609 22.2200456,6.78852609 21.3968548,7.63442172 L12.5139891,16.7621691 L9.60324866,13.7712674 C8.78005792,12.9253718 7.4405838,12.9253718 6.61739306,13.7712674 C5.79420231,14.617163 5.79420231,15.9935819 6.61739306,16.8395991 L11.0210909,21.3646362 C11.4199108,21.7743954 11.9500934,22 12.5139891,22 C13.0778849,22 13.6080675,21.7743346 14.0069465,21.3645755 L24.3826513,10.7026926 C25.2057829,9.85673623 25.2057829,8.48025656 24.3826513,7.63442172" id="Fill-1" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

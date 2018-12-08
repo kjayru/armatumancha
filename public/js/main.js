@@ -155,36 +155,11 @@ $(document).ready(function(){
       });
 
 
-      /*$(".considerations__subtitle a").on('click',function(e){
-          e.preventDefault();
-
-          if( $(this).parent('div').hasClass('active')){
-
-            $(this).parent('div').parent('div').children('.considerations__data')
-            .css({'max-height':3500})
-            .animate({'max-height':0},350,'swing');
-            $(this).parent('div').removeClass("active");
-          }else{
-            $(this).parent('div').addClass("active");
-            $(this).parent('div').parent('div').children('.considerations__data')
-            .css({'max-height':0})
-            .animate({'max-height':3500},350,'swing');
-          }
-
-
-      });*/
-
       var questions = Array.apply(null, document.querySelectorAll('.questions__list ul li h3'));
 
       questions.filter(function (element, index) {
 
-        /*element.firstChild.addEventListener("click", function(event){
-          if (event.stopPropagation) {
-            event.stopPropagation();
-          } else {
-            event.cancelBubble = true;
-          }
-        });*/
+
 
         element.addEventListener("click", function(event){
 
@@ -250,21 +225,21 @@ $(document).ready(function(){
             <dt>
               <input name="alias[]" class="form__text2 aliaspata unique alias${c}"  type="text" maxlength="20" id="alias${c}" placeholder="Alias" />
             </dt>
-            <dd></dd>
+            <dd><span class="form__error" ></span></dd>
           </dl>
           <dl>
             <dt>
 
             <input class="form__text2  cellpata unique cellpata${c}" maxlength="9"  name="telefono[]" type="text" id="cellpata${c}"  placeholder="Teléfono" />
 
-              <dd></dd>
+              <dd><span class="form__error" ></span></dd>
             </dt>
           </dl>
           <dl>
             <dt>
               <input class="form__text2"  name="email[]" type="email"  id="email${c}" placeholder="Email (opcional)" />
             </dt>
-            <dd></dd>
+            <dd><span class="form__error" ></span></dd>
           </dl>
         </div>
       </div>`;
@@ -379,10 +354,15 @@ $.validator.addMethod("alphanumeric", function(value, element) {
 ///validador principal
 
 var validaton =  $("#fr-mancha").validate({
+   /* errorPlacement: function(error, element) {
+        if (element.attr("name") == "beneficio" )
+        error.appendTo('.form__error');
+      },*/
 
     rules: {
         ignore: [],
-        nombres:{
+
+        name:{
             required:true,
             maxlength:15,
             alphanumeric:true
@@ -412,7 +392,7 @@ var validaton =  $("#fr-mancha").validate({
 
     },
     messages: {
-        nombres: {
+        name: {
             required:"Ingresa el nombre de tu mancha",
             maxlength:"Máximo 15 caracteres",
             unique: "Esta valor debe ser unico"
@@ -488,6 +468,9 @@ let campo0,campo1,campo2 ,campo3,campo4,campo5,campo6,campo7,
 campo8,campo9,campo10,campo11,campo12,campo13,campo14,
 campo15,campo16;
 
+$("#fr-mancha input[name='beneficio']:radio").change(function(){
+    $("#fr-mancha input[name='beneficio']:radio").parent().parent().parent().children('dd').children().html('');
+});
     $(document).on('click','.send-mancha',function(e){
         //verifica duplicidad
 
@@ -496,6 +479,7 @@ campo15,campo16;
         $(this).attr('disabled','disabled').html('Validando..');
 
         if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {
+
           $('.content__error').hide();
           campo0 = true;
         }else{
@@ -504,10 +488,9 @@ campo15,campo16;
         }
 
 
-        if($("#autorizar").is(':checked')){
-        }else{
-            $(".lbl-autorizar").html("*Campo obligatorio");
-        }
+        $("#autorizar").change(function(){
+            $(".lbl-autorizar").html("");
+        });
 
 
 
@@ -516,6 +499,12 @@ campo15,campo16;
             $(".lbl-autorizar").html("*Campo obligatorio");
         }
         $(".error2").html("");
+
+
+        if( $("#fr-mancha input[name='beneficio']:radio").is(':checked')) {
+        }else{
+    $("#fr-mancha input[name='beneficio']:radio").parent().parent().parent().children('dd').children().html('Seleccione un benificio');
+        }
 
     if($("#fr-mancha input").hasClass("cellpata2")){
 
@@ -529,6 +518,8 @@ campo15,campo16;
             campo1 = true;
         }
     }
+
+
 
     if($("#fr-mancha input").hasClass("cellpata3")){
        // validaton.element("#cellpata3");
@@ -788,7 +779,7 @@ if($("#fr-mancha").valid()===true){
 
 
         }else{
-
+            $('.send-mancha').attr('disabled',false).html('Registrar');
             return false;
         }
     });

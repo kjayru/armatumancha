@@ -10907,11 +10907,11 @@ html.fp-enabled,
 
           font: normal 400 0.75em "Roboto";
 
-          color: #da272c;
+          color: #ffffff;
 
           cursor: pointer;
 
-          background: url("../assets/pg2_backbutton.svg") no-repeat center center; }
+          background: url("../assets/pg2_backbutton2.svg") no-repeat center center; }
 
           .layout__main .page2__main .section1__header .links a.btnBack span {
 
@@ -11006,6 +11006,25 @@ html.fp-enabled,
           text-align: center;
 
           position: relative; }
+
+        .layout__main .page2__main .section1__header .title h2.t1 {
+
+          font: normal 600 30px "Roboto";
+
+          line-height: 93px;
+
+          color: #000000;}
+
+          @media screen and (max-width: 425px) {
+            .layout__main .page2__main .section1__header .title h2.t1 {
+
+            font: normal 600 24px "Roboto";
+
+            line-height: 110px;
+
+            color: #000000;}
+
+            }
 
           @media screen and (max-width: 425px) {
 
@@ -11525,6 +11544,24 @@ html.fp-enabled,
 
         height: 100%; } }
 
+    .layout__main .page2__main .section2__align2 {
+      background-color: #f8f8f8;
+      padding: 30px 0 0 0;
+      width: 100%; }
+
+
+    @media screen and (max-width: 425px) {
+
+      .layout__main .page2__main .section2__align2 {
+
+      padding: 0px 0 0 0;
+       }
+
+      }
+
+
+
+
     .layout__main .page2__main .section2__align {
 
       width: 720px;
@@ -11541,7 +11578,7 @@ html.fp-enabled,
 
       position: relative;
 
-      padding: 0px 0 70px 0; }
+      padding: 0px 0 40px 0; }
 
       @media screen and (max-width: 425px) {
 
@@ -11555,7 +11592,7 @@ html.fp-enabled,
 
         .layout__main .page2__main .section2__main {
 
-          padding: 45px 30px 50px 30px; } }
+          padding: 0px 30px 50px 30px; } }
 
       @media screen and (min-width: 1025px) and (max-width: 1366px) {
 
@@ -11579,19 +11616,19 @@ html.fp-enabled,
 
         width: 100%;
 
-        padding: 50px 0; }
+        padding: 50px 0 10px; }
 
         @media screen and (max-width: 768px) {
 
           .layout__main .page2__main .section2__main .register .form__row2 {
 
-            display: contents; } }
+            /*display: contents;*/ } }
 
       .layout__main .page2__main .section2__main .register .form__row3 {
 
         width: 100%;
 
-        padding: 30px 0; }
+        padding: 30px 0 0; }
 
         @media screen and (max-width: 768px) {
 
@@ -11637,6 +11674,128 @@ html.fp-enabled,
 
             font-size: 0.875em; } }
 
+      .layout__main .page2__main .section2__main .register .form dl dt .form__radio1{
+        display: table-cell;
+        width: 48%;
+        vertical-align: top;
+        padding-right: 1%;
+      }
+
+      @media screen and (max-width: 425px) {
+        .layout__main .page2__main .section2__main .register .form dl dt .form__radio1{
+          display: table;
+          width: 100%;
+          vertical-align: top;
+          padding-right: 0%;
+          margin-bottom: 4%;
+        }
+      }
+
+
+      .layout__main .page2__main .section2__main .register .form dl dt .form__radio1 input[type=radio]{
+
+          position: absolute;
+
+          visibility: hidden; }
+
+        .layout__main .page2__main .section2__main .register .form dl dt input[type=radio]:checked + label {
+
+          border: 2px solid #0e8d79;
+
+
+          }
+
+
+
+        .layout__main .page2__main .section2__main .register .form dl dt input[type=radio] + label {
+
+          -webkit-transition: 500ms all;
+
+          -o-transition: 500ms all;
+
+          transition: 500ms all;
+
+          vertical-align: top;
+
+          padding: 10px 10px;
+
+          display: table;
+
+          background: transparent;
+
+          -webkit-border-radius: 5px 5px 5px 5px;
+
+          -moz-border-radius: 5px 5px 5px 5px;
+
+          border-radius: 5px 5px 5px 5px;
+
+          height: 85px;
+
+          width: 100%;
+          border: 2px solid #9b9b9b;
+
+
+          }
+
+          .layout__main .page2__main .section2__main .register .form dl dt input[type=radio] + label:before {
+
+
+            display: table-cell;
+            width: 50px;
+            content: '';
+            background: url("../assets/pg2_ico_check2.svg") no-repeat center center;
+            background-size: 50%;
+
+
+          }
+
+          .layout__main .page2__main .section2__main .register .form dl dt input[type=radio]:checked + label:before {
+
+            background: url("../assets/pg2_ico_check1.svg") no-repeat center center;
+            background-size: 50%;
+
+          }
+
+          .layout__main .page2__main .section2__main .register .form dl dt input[type=radio] + label span {
+
+             display: table-cell;
+             font: normal 500 18px/18px "Roboto";
+             color: #000000;
+             vertical-align: middle;
+             text-align: left;
+
+           }
+
+           .layout__main .page2__main .section2__main .register .form dl dt input[type=radio] + label figure {
+             /*width: 105px;*/
+             display: table-cell;
+             vertical-align: middle;
+             padding: 0 10px 0 0px;
+
+           }
+
+           @media screen and (max-width: 425px) {
+
+            .layout__main .page2__main .section2__main .register .form dl dt input[type=radio] + label figure {
+             width: 65px;
+            }
+
+            .layout__main .page2__main .section2__main .register .form dl dt input[type=radio] + label figure img {
+               width: 100%;
+
+             }
+
+             .layout__main .page2__main .section2__main .register .form dl dt input[type=radio] + label span {
+
+              font: normal 500 15px/15px "Roboto";
+             }
+
+
+
+           }
+
+
+
       .layout__main .page2__main .section2__main .register .form__checkbox1 {
 
         display: table;
@@ -11649,7 +11808,7 @@ html.fp-enabled,
 
         .layout__main .page2__main .section2__main .register .form__checkbox1 input[type="checkbox"]:checked + label {
 
-          background-color: #0097ae;
+          /*background-color: #0097ae;*/
 
           color: #ffffff;
 
@@ -11667,7 +11826,8 @@ html.fp-enabled,
 
             content: "\f00c";
 
-            display: inline-block;
+            /*display: inline-block;*/
+            background-color: #2197ae;
 
             margin-right: 0px;
 
@@ -11687,55 +11847,64 @@ html.fp-enabled,
 
             transform: translate(0, 0);
 
-            font-size: 14px;
+            font-size: 16px;
 
             color: #ffffff;
 
             position: relative;
 
-            top: -1px;
+            top: 0px;
 
             left: 0px; }
 
         .layout__main .page2__main .section2__main .register .form__checkbox1 label {
+            width: 40px;
+            display: table-cell;
+           }
 
-          width: 22px;
+          .layout__main .page2__main .section2__main .register .form__checkbox1 label:before {
 
-          height: 22px;
+            width: 22px;
 
-          display: inline-block;
+            height: 22px;
 
-          font: normal 600 0.875em "Roboto";
+            content:'';
 
-          line-height: 22px;
+            display: block;
 
-          text-align: center;
+            font: normal 600 16px "Roboto";
 
-          vertical-align: middle;
+            line-height: 22px;
 
-          color: #000000;
+            text-align: center;
 
-          cursor: pointer;
+            vertical-align: middle;
 
-          border: solid 2px #2197ae;
+            color: #000000;
 
-          -webkit-border-radius: 3px 3px 3px 3px;
+            cursor: pointer;
 
-          -moz-border-radius: 3px 3px 3px 3px;
+            border: solid 2px #2197ae;
 
-          border-radius: 3px 3px 3px 3px;
+            -webkit-border-radius: 3px 3px 3px 3px;
 
-          -webkit-transition: all 0.2s ease 0s;
+            -moz-border-radius: 3px 3px 3px 3px;
 
-          -moz-transition: all 0.2s ease 0s;
+            border-radius: 3px 3px 3px 3px;
 
-          -o-transition: all 0.2s ease 0s;
+            -webkit-transition: all 0.2s ease 0s;
 
-          -ms-transition: all 0.2s ease 0s;
+            -moz-transition: all 0.2s ease 0s;
 
-          transition: all 0.2s ease 0s; }
+            -o-transition: all 0.2s ease 0s;
 
-          .layout__main .page2__main .section2__main .register .form__checkbox1 label:hover {
+            -ms-transition: all 0.2s ease 0s;
+
+            transition: all 0.2s ease 0s;
+
+          }
+
+          .layout__main .page2__main .section2__main .register .form__checkbox1 label:hover::before {
 
             background-color: #e1e4e8;
 
@@ -11753,11 +11922,13 @@ html.fp-enabled,
 
         .layout__main .page2__main .section2__main .register .form__checkbox1 span {
 
-          font: normal 400 1.125em "Roboto";
+          font: normal 400 12px "Roboto";
 
           color: #000000;
 
           vertical-align: middle;
+
+          display: table-cell;
 
           margin-left: 10px; }
 
@@ -11977,23 +12148,32 @@ html.fp-enabled,
 
       .layout__main .page2__main .section2__main .register .form__info {
 
-        text-align: left;
+        text-align: center;
 
-		margin-left: 40px; }
+		margin-left: 0px; }
 
         .layout__main .page2__main .section2__main .register .form__info p {
 
-          font: normal 400 1.125em "Roboto";
+          font: normal 400 14px "Roboto";
 
           color: #000000;
 
-		  margin-left: 11px;}
+		  margin-bottom: 20px;}
+
+      .layout__main .page2__main .section2__main .register .form__info span {
+
+          font: normal 400 12px "Roboto";
+
+          color: #9b9b9b;
+          display: inline-block;
+
+      margin-left: 0px;}
 
           @media screen and (max-width: 425px) {
 
             .layout__main .page2__main .section2__main .register .form__info {
 
-        text-align: left;
+        text-align: center;
 
     margin-left: 0px; }
 
@@ -12003,7 +12183,7 @@ html.fp-enabled,
 
               max-width: 210px;
 
-              margin: 0 auto;
+              margin: 0 auto 10px;
 
 			  }
 
@@ -12014,7 +12194,7 @@ html.fp-enabled,
         border-left: 1px solid #da272c;
         margin: 2px 0 2px 18px;
 
-        padding: 10px 0 0px 51px; }
+        padding: 10px 0 0px 32px; }
 
       .layout__main .page2__main .section2__main .register .form__fieldsNO {
 
@@ -12023,8 +12203,8 @@ html.fp-enabled,
         @media screen and (max-width: 425px) {
 
           .layout__main .page2__main .section2__main .register .form__fields {
-
-            padding: 10px 32px 0px 32px; } }
+            margin: 2px 0 2px 11px;
+            padding: 10px 20px 0px 20px; } }
 
         .layout__main .page2__main .section2__main .register .form__fields.loop dl {
 
@@ -12070,7 +12250,7 @@ html.fp-enabled,
 
           line-height: 55px;
 
-          background-color: #da272c;
+          background-color: #0e8d79;
 
           -webkit-border-radius: 5px 5px 5px 5px;
 
@@ -12184,6 +12364,19 @@ html.fp-enabled,
 
           .layout__main .page2__main .section2__main .register .form dl.type1 {
 
+            width: 100%; } }
+
+      .layout__main .page2__main .section2__main .register .form dl.type3 {
+
+        width: 624px;
+        height: 130px;
+
+        display: block; }
+
+        @media screen and (max-width: 425px) {
+
+          .layout__main .page2__main .section2__main .register .form dl.type3 {
+            height: 210px;
             width: 100%; } }
 
       .layout__main .page2__main .section2__main .register .form dl.type2 {
@@ -17865,4 +18058,7 @@ html.fp-enabled,
       color: #e30613;
 
       opacity: 0.75; }
+
+
+
 /******************************************/

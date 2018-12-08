@@ -25,6 +25,9 @@ p.error {
     max-width: 100% !important;
     display: block;
 }
+.error__line{
+    border: 1px solid red;
+}
 
 #lbl-autoriza {
     display:inline-block !important;
@@ -345,3 +348,5 @@ span.i-borrar {
     margin-top: -25vh;
 
 }
+
+
