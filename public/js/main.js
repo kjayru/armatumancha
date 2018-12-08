@@ -216,7 +216,7 @@ $(document).ready(function(){
 
         if(c<10){
 
-        let pata =  `<div class="form__members">
+        let pata =  `<div class="form__members form__fieldsNO">
         <div class="form__fields ">
           <div class="form__fields--title">
             <h3>Miembro # <span>${c}</span></h3>
