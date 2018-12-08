@@ -10,9 +10,7 @@
     color: #ffffff;
     position: relative;
 }
-.slick-dots{
-    display:none !important;
-}
+
 
 input.form__text2.f1 {
     width: 52px !important;
