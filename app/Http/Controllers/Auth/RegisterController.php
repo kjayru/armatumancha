@@ -104,9 +104,9 @@ class RegisterController extends Controller
         $usuario->status = 2;
         $usuario->role_id = 1;
 
-        $usuario->browser = $agent->browser();
-        $usuario->device = $agent->device();
-        $usuario->platform = $agent->platform();
+        //$usuario->browser = $agent->browser();
+        //$usuario->device = $agent->device();
+        //$usuario->platform = $agent->platform();
 
         $usuario->save();
 
