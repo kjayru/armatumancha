@@ -2,20 +2,18 @@
 @section('content')
 <div class="layout lytpl2" id="app">
 <div class="layout__main">
-        <div class="page4">
-          <div class="page4__main">
+        <div class="page8 pag4">
+          <div class="page8__main page4__main">
             <section class="section1">
               <div class="section1__align">
                 <div class="section1__header">
-                  <div class="links"><a class="btnBack" href="{{ route('home.index')}}"> <span>Volver</span></a></div>
-                  <div class="title">
-                    <h2>Preguntas frecuentes</h2>
-                  </div>
+                    <div class="links"><a class="btnBack" href="{{ route('home.index')}}"> <span>Volver</span></a></div>
                 </div>
                 <div class="section1__main">
-                  <div class="title">
-                    <h2>&nbsp;<br/>&nbsp;</h2>
-                  </div>
+                    <div class="title">
+                        <h2>Preguntas frecuentes</h2>
+                    </div>
+
                 </div>
               </div>
             </section>

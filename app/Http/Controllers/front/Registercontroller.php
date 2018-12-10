@@ -374,7 +374,7 @@ class RegisterController extends Controller
             $invitados = $numusuarios - 1;
 
             if($user_rol==1){
-                return view('front.lista_mancha_sesion',['grupores'=>$grupores,'peticion'=>$existe_peticion,'user'=>$user,'invitados'=>$invitados]);
+                return view('front.lista_mancha_sesion',['grupores'=>$grupores,'peticion'=>$existe_peticion,'user'=>$user,'invitados'=>$invitados,'codigo'=>$request->codigo]);
             }else{
                 return redirect()->route('home.listamancha')->with('alert','No eres lider de equipo');
             }

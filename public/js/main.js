@@ -1254,9 +1254,11 @@ if($("#fr-mancha").valid()===true){
         }
     });
 
-    $(".btn-actualizar").on('click',function(){
-        window.location.reload();
-    });
+   /* $(".btn-actualizar").on('click',function(e){
+        e.preventDefault();
+       $("#recode").submit();
+
+    });*/
 
 
 
@@ -1395,6 +1397,17 @@ if(copiar){
 
         document.execCommand("copy");
 
-        console.log( copyText.value);
+
     });
 }
+
+$(".form__info img").hover(function(){
+    $(this).css('cursor','pointer');
+},
+function(){
+    $(this).css('cursor','default');
+});
+$(".form__info img").click(function(){
+    var stack1 = $("#stack").position().top;
+    $("html, body").animate({ scrollTop: stack1}, 600,"swing");
+});

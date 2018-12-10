@@ -12,6 +12,7 @@
             <div class="section1__align">
               <div class="section1__main">
                 <div class="banner">
+                    <div class="banner__logo"></div>
                   <div class="banner__links">
                     <!--<a href="#" class="l1 player">Ver videotutorial</a>-->
                     <a href="/register" class="l2">Quiero armar mi mancha</a>

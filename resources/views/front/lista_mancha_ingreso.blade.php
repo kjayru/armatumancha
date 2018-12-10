@@ -22,15 +22,15 @@
                  @endif
 
 
-
-
             <div class="page4__main">
+
+
               <section class="section1">
                 <div class="section1__align">
                   <div class="section1__header">
                     <div class="links"></div>
                     <div class="title">
-                      <h2>¡Ya irían obteniendo
+                        <h2>¡Ya irían obteniendo
 
                             {!! $slogan !!}
                         por línea!
@@ -39,11 +39,15 @@
                   </div>
                   <div class="section1__main">
                     <div class="title">
-                      <h2>¡Sigue juntando a más patas para obtener <br/>hasta {{$copy}}</h2>
+                        <h2>¡Sigue juntando a más patas para obtener <br/>hasta {{$copy}}</h2>
+                      <small>*Cantidad de GB referencial, sujeto a que las líneas cumplan las condiciones aplicables al beneficio de Bono de GB  hasta el día 02/01.</small>
                     </div>
                   </div>
                 </div>
               </section>
+
+
+
               <section class="section2">
                 <div class="section2__align">
                   <div class="section2__main">
@@ -80,15 +84,38 @@
                         </table>
                       </div>
                     </div>
+
+                    <div class="content">
+                        <div class="content__info">
+                          <p>Recuerda que el máximo de miembros por mancha es 10</p>
+                        </div>
+                        <div class="content__description">
+                          <h3>Inscripción </h3>
+                          <p class="ico1"><span>¡Buenazo! Ya eres parte de una mancha</span></p>
+                          <p class="ico2"><span>La inscripción de tu pata sigue pendiente. Recuérdale confirmar su inscripción respondiendo el SMS que le llegó, con el código de invitación: Ej. MA 12345</span></p>
+                          <h3>Calificación</h3>
+                          <p class="ico3"><span>¡Lo máximo! Cumpliste con lo necesario para recibir tu premio.</span></p>
+                          <p class="ico1"><span>Uy tu pata está a un paso de recibir su premio. Revisa las condiciones de tu opción elegida y no dejes de ganar.</span></p>
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+              </section>
+
+              <section class="section3">
+                <div class="section3__align">
+                  <div class="section3__main">
+
                     <div class="code">
                       <form class="form" id="fr-code-lider" action="{{ action('front\RegisterController@listamanchasesion') }}" method="POST">
                         @csrf
                         <input type="hidden" name="_method" value="POST">
 
                         <div class="form__row1">
-                          <div class="form__info">
-                            <p>Si eres el líder y quieres actualizar tu mancha,<br/>ingresa tu código.</p>
-                          </div>
+                            <div class="form__info">
+                                <p>Si eres el líder y quieres actualizar tu mancha,<br>ingresa tu código.<img src="assets/pg4_info.svg" alt=""/></p>
+                              </div>
                         </div>
                         <div class="form__row2">
                           <div class="form__fields">
@@ -113,6 +140,20 @@
                   </div>
                 </div>
               </section>
+
+              <section class="section4" id="stack">
+                <div class="section4__align">
+                  <div class="section4__main">
+                    <div class="content">
+                      <div class="content__image"></div>
+                      <div class="content__info">
+                        <h3><span>Uy tu pata está a un paso de recibir su premio. Revisa las condiciones de tu opción elegida y no dejes de ganar.</span></h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
             </div>
           </div>
         </div>
