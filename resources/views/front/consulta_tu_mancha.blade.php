@@ -11,16 +11,20 @@
                 </div>
                  @endif
             <div class="page7__main">
+
+
               <section class="section1">
                 <div class="section1__align">
                   <div class="section1__header">
                     <div class="links"><a class="btnBack" href="{{ route('home.index')}}"> <span>Volver</span></a></div>
                     <div class="title">
-                      <h2>¿Quiénes forman<br/>parte de tu mancha?</h2>
+                    	<h2>Consulta quiénes forman<br>parte de tu mancha</h2>
                     </div>
                   </div>
                 </div>
               </section>
+
+
               <section class="section2">
                 <div class="section2__align">
                   <div class="section2__main">

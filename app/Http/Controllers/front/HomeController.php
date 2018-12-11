@@ -54,12 +54,12 @@ class HomeController extends Controller
 
         //busqueda mancha
 
-        $contar = Group::where('name','like','%'.$imancha.'%')->count();
+        $contar = Group::where('name',$imancha)->count();
 
 
        if($contar>0){
 
-            $grupores = Group::where('name','like','%'.$imancha.'%')->with('users')->first();
+            $grupores = Group::where('name',$imancha)->with('users')->first();
 
            // dd($grupores->users[0]);
             $this->guard()->login($grupores->users[0]);
@@ -69,11 +69,12 @@ class HomeController extends Controller
 
 
        }else{
+
             $numero = '51'.$imancha;
             $contar2 = User::where('numero',$numero)->count();
 
             if($contar2>0){
-                $user = User::where('numero',$numero)->first();
+                $user = User::where('numero',$numero)->with('groups')->first();
 
                 $group_id = $user->groups[0]->id;
 

@@ -17341,9 +17341,9 @@ html.fp-enabled,
 
     position: relative;
 
-    /*background: #cc252d url("../assets/pg7_bg_section1.svg") no-repeat center 30%;*/
+    background: #cc252d url("../assets/pg7_bg_section1.svg") no-repeat center 30%;
 
-    padding: 0 0 30px 0; }
+    padding: 0 0 80px 0; }
 
     .layout__main .page7__main .section1:before {
 
@@ -17359,7 +17359,7 @@ html.fp-enabled,
 
       position: absolute;
 
-      /*background: url("../assets/pg2_bg_section1_1.svg") no-repeat center 110%;*/ }
+      background: url("../assets/pg2_bg_section1_1.svg") no-repeat center 110%; }
 
       @media screen and (max-width: 425px) {
 
@@ -17409,7 +17409,7 @@ html.fp-enabled,
 
       margin: 0 auto;
 
-      padding: 30px 0 0px 0; }
+      padding: 30px 0 70px 0; }
 
       @media screen and (max-width: 425px) {
 
@@ -17439,11 +17439,11 @@ html.fp-enabled,
 
           font: normal 400 0.75em "Roboto";
 
-          color: #ffffff;
+          color: #da272c;
 
           cursor: pointer;
 
-          background: url("../assets/pg2_backbutton2.svg") no-repeat center center; }
+          background: url("../assets/pg2_backbutton.svg") no-repeat center center; }
 
           .layout__main .page7__main .section1__header .links a.btnBack span {
 
@@ -17493,9 +17493,7 @@ html.fp-enabled,
 
         width: 455px;
 
-        /*height: 134px;*/
-
-        height: auto;
+        height: 134px;
 
         margin: 0 auto;
 
@@ -17503,9 +17501,9 @@ html.fp-enabled,
 
         .layout__main .page7__main .section1__header .title:before {
 
-          width: 359px;
+          width: 100%;
 
-          height: 9px;
+          height: 100%;
 
           content: '';
 
@@ -17513,27 +17511,15 @@ html.fp-enabled,
 
           position: absolute;
 
-          bottom: 0px;
-
-          left: 50%;
-
-          margin-left: -180px;
-
-          background: url("../assets/LISTADO MIEMBROS.svg") no-repeat center center;
+          background: url("../assets/pg7_bg_slogan.svg") no-repeat center center;
 
           z-index: 0; }
 
           @media screen and (max-width: 425px) {
-            .layout__main .page7__main .section1__header .title:before {
-              background-size: 70%;
-            }
-          }
-
-          /*@media screen and (max-width: 425px) {
 
             .layout__main .page7__main .section1__header .title:before {
 
-              background-size: contain; } }*/
+              background-size: contain; } }
 
         @media screen and (max-width: 425px) {
 
@@ -17543,15 +17529,15 @@ html.fp-enabled,
 
         .layout__main .page7__main .section1__header .title h2 {
 
-          font: normal 500 32px "Roboto";
+          font: normal 500 1.75em "Roboto";
 
-          color: #000000;
+          color: #da272c;
 
           text-align: center;
 
           position: relative;
 
-          padding: 30px 0 40px 0; }
+          padding: 30px 0 0 0; }
 
           @media screen and (max-width: 425px) {
 
@@ -17871,19 +17857,19 @@ html.fp-enabled,
 
         text-align: center;
 
-        padding: 0px 0 0px 0; }
+        padding: 0px 0 20px 0; }
 
         @media screen and (max-width: 425px) {
 
           .layout__main .page7__main .section2__main .title {
 
-            padding: 0px 0 0px 0; } }
+            padding: 25px 0 0px 0; } }
 
         .layout__main .page7__main .section2__main .title h2 {
 
           font: normal 500 1.5em "Roboto";
 
-          color: #000000; }
+          color: #4a4a4a; }
 
           @media screen and (max-width: 425px) {
 
