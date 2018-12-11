@@ -45,6 +45,7 @@ class Kernel extends ConsoleKernel
              Storage::put('ftp/IN_LIDER.txt', $contents);
 
          })->dailyAt('23:00');
+       // })->everyMinute();
 
          //IN_MIEMBRO
          $schedule->call(function () {

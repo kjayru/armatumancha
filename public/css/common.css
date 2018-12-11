@@ -13138,7 +13138,7 @@ html.fp-enabled,
 
       background: #ffffff;
 
-      padding: 0 0 50px 0; }
+      padding: 0 0 10px 0; }
 
     .layout__main .page4__main .section1:before {
 
@@ -13169,7 +13169,7 @@ html.fp-enabled,
 
       }
 
-      .lytpl2 .layout__main .page4__main .section1:before {
+      /*.lytpl2 .layout__main .page4__main .section1:before {
         width: 359px;
         height: 9px;
         bottom: 10%;
@@ -13182,7 +13182,7 @@ html.fp-enabled,
         .lytpl2 .layout__main .page4__main .section1:before {
           background-size: 70%;
         }
-      }
+      }*/
 
 
 
@@ -18487,7 +18487,7 @@ html.fp-enabled,
 
           padding-left: 40px;
 
-          max-width: 760px;
+          max-width: 800px;
 
           width: 100%;
 
@@ -18495,9 +18495,9 @@ html.fp-enabled,
 
           .layout__main .page8__main .section1__main .content .content__list ul li {
 
-            font: normal 300 1.4em "Roboto";
+            font: normal 300 1.1em "Roboto";
 
-            padding-bottom: 45px;
+            padding-bottom: 25px;
 
             position: relative; }
 
@@ -18516,10 +18516,10 @@ html.fp-enabled,
               top: 0;
               left: 0;
               padding: 15px;
-              margin-top: 2px;
+              margin-top: -4px;
               margin-left: -40px;
               background: url("../assets/pg8_icon-list.svg") no-repeat center center;
-              background-size: contain; 
+              background-size: 60%; 
             }
 
 
