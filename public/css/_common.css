@@ -13138,13 +13138,15 @@ html.fp-enabled,
 
       background: #ffffff;
 
-      padding: 0 0 50px 0; }
+      padding: 0 0 10px 0; }
 
     .layout__main .page4__main .section1:before {
 
       width: 100%;
 
       height: 100%;
+
+      position: absolute;
 
       content: '';
 
@@ -13153,21 +13155,6 @@ html.fp-enabled,
       position: absolute;
 
       /*background: url("../assets/pg2_bg_section1_1.svg") no-repeat center 110%;*/ }
-
-      .lytpl2 .layout__main .page4__main .section1:before {
-        width: 359px;
-        height: 9px;
-        bottom: 10%;
-        left: 50%;
-        margin-left: -180px;
-        background: url("../assets/LISTADO MIEMBROS.svg") no-repeat center 0px; 
-      }
-
-      @media screen and (max-width: 425px) {
-        .lytpl2 .layout__main .page4__main .section1:before {
-          background-size: 70%;
-        }
-      }
 
       .lytpl1 .layout__main .page4__main .section1:before {
 
@@ -13182,7 +13169,20 @@ html.fp-enabled,
 
       }
 
-      
+      /*.lytpl2 .layout__main .page4__main .section1:before {
+        width: 359px;
+        height: 9px;
+        bottom: 10%;
+        left: 50%;
+        margin-left: -180px;
+        background: url("../assets/LISTADO MIEMBROS.svg") no-repeat center 0px; 
+      }
+
+      @media screen and (max-width: 425px) {
+        .lytpl2 .layout__main .page4__main .section1:before {
+          background-size: 70%;
+        }
+      }*/
 
 
 
@@ -13674,7 +13674,7 @@ html.fp-enabled,
       @media screen and (max-width: 425px) {
 
         .layout__main .page4__main .section2__main {
- 
+
           padding: 30px 20px 30px 20px;
 
           height: auto; }
@@ -13693,7 +13693,7 @@ html.fp-enabled,
 
         .layout__main .page4__main .section2__main {
 
-          padding: 15px 40px 50px 40px; } }
+          padding: 45px 40px 50px 40px; } }
 
       .layout__main .page4__main .section2__main .grid {
 
@@ -18408,7 +18408,7 @@ html.fp-enabled,
 
     .layout__main .page8__main .section1__main {
 
-      padding: 30px 0 20px 0;
+      padding: 30px 0 90px 0;
 
       margin: 0 auto; }
 
