@@ -134,7 +134,7 @@ class Kernel extends ConsoleKernel
 
 
             //group
-         $schedule->call(function () {
+        $schedule->call(function () {
 
              $users =  DB::table('groups')->get();
 
@@ -148,9 +148,9 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/groups.txt', $contents);
 
-          })->dailyAt('23:00');
+        })->dailyAt('23:00');
 
-          $schedule->call(function () {
+        $schedule->call(function () {
 
              $users =  DB::table('group_user')->get();
 
@@ -164,11 +164,11 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/group_user.txt', $contents);
 
-          })->dailyAt('23:00');
+        })->dailyAt('23:00');
 
 
           //notification_response
-          $schedule->call(function () {
+        $schedule->call(function () {
 
              $users =  DB::table('notification_response')->get();
 
@@ -182,7 +182,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/notification_response.txt', $contents);
 
-          })->dailyAt('23:00');
+        })->dailyAt('23:00');
 
 
     }

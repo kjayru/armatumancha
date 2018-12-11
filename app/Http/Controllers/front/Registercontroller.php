@@ -338,8 +338,6 @@ class RegisterController extends Controller
         //extraigo de grupo users
         $patas = Group::where('id',$group_id)->with('users')->first();
 
-        //$code = Code::where('code',$request->codigo)
-         //           ->where('status',2)->first();
 
 
         foreach( $patas->users as $pata){
@@ -362,6 +360,8 @@ class RegisterController extends Controller
           }
 
 
+
+
         if($code){
 
 
@@ -371,10 +371,75 @@ class RegisterController extends Controller
 
             $numusuarios = count($grupores->users);
 
+
+            $con=[];
+
+            foreach($grupores->users as $k => $nu){
+                if($nu->status==2){
+                    $con[]=$nu->status;
+                }
+            }
+
+
+            $slogan ='';
+            $numusuarios = intval(count($con));
+
+            if($user->beneficio=="bonos")
+            {
+                $copy = "10 Gb por línea!";
+                if($numusuarios==0){
+                    $slogan = "<span>0 GB</span>";
+                    }
+                if($numusuarios==1){
+                $slogan = "<span>0 GB</span>";
+                }
+                if($numusuarios==2){
+                    $slogan = "<span>2 GB</span>";
+                }
+                if($numusuarios==3){
+                    $slogan = "<span>3 GB</span>";
+                }
+                if($numusuarios==4){
+                    $slogan = "<span>4 GB</span>";
+                }
+                if($numusuarios==5){
+                    $slogan = "<span>5 GB</span>";
+                }
+                if($numusuarios==6){
+                    $slogan = "<span>6 GB</span>";
+                }
+                if($numusuarios==7){
+                    $slogan = "<span>7 GB</span>";
+                }
+                if($numusuarios==8){
+                    $slogan = "<span>8 GB</span>";
+                }
+                if($numusuarios==9){
+                    $slogan = "<span>9 GB</span>";
+                }
+                if($numusuarios==10){
+                    $slogan = "<span>10 GB</span>";
+                }
+            }else{
+                $copy = "3,000 millas LATAM Pass!";
+                if($numusuarios<2){
+                    $slogan = "<span>0 Millas</span>";
+                    }
+                if($numusuarios>2 && $numusuarios<4){
+                    $slogan = "<span>1,000 Millas</span>";
+                }
+                if($numusuarios>4 &&$numusuarios<7){
+                    $slogan = "<span>2,000 Millas</span>";
+                }
+                if($numusuarios>7 &&$numusuarios<10){
+                    $slogan = "<span>3,000 Millas</span>";
+                }
+            }
+
             $invitados = $numusuarios - 1;
 
             if($user_rol==1){
-                return view('front.lista_mancha_sesion',['grupores'=>$grupores,'peticion'=>$existe_peticion,'user'=>$user,'invitados'=>$invitados,'codigo'=>$request->codigo]);
+                return view('front.lista_mancha_sesion',['grupores'=>$grupores,'peticion'=>$existe_peticion,'user'=>$user,'invitados'=>$invitados,'codigo'=>$request->codigo,'slogan'=>$slogan,"copy"=>$copy]);
             }else{
                 return redirect()->route('home.listamancha')->with('alert','No eres lider de equipo');
             }

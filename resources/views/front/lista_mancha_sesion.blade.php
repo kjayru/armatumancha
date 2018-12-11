@@ -10,7 +10,7 @@
     }
 
   </style>
-<div class="layout lytpl1" id="app">
+<div class="layout lytpl2" id="app">
         <div class="layout__main">
           <div class="page4">
                 <div class="page4__main">
@@ -20,12 +20,27 @@
                 </div>
             @endif
 
-
+            <section class="section1">
+                <div class="section1__align">
+                  <div class="section1__header">
+                    <div class="links"></div>
+                    <div class="title">
+                      <h2>¡Están cerca de obtener  {!! $slogan !!} por línea!* </h2>
+                    </div>
+                  </div>
+                  <div class="section1__main">
+                    <div class="title">
+                        <h2>¡Sigue juntando a más patas para obtener <br/>hasta {{$copy}}</h2>
+                      <small>*Cantidad de GB referencial, sujeto a que las líneas cumplan las condiciones aplicables al beneficio de Bono de GB  hasta el día 02/01.</small>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
               <section class="section2">
                 <div class="section2__align">
                   <div class="section2__main">
-                    <div class="title" style="margin-top:100px;">
+                    <div class="title">
                             <h2>{{ strtoupper($grupores->name)}}</h2>
                     </div>
                     <div class="grid">

@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" type="text/css" href="/css/common.css?v={{ uniqid() }}">
     <link rel="stylesheet" type="text/css" href="/css/main.css?v={{ uniqid() }}">
-    <link rel="stylesheet" type="text/css" href="/css/style.css?v={{ uniqid() }}">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41368265-10"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
