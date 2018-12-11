@@ -143,11 +143,11 @@ class HomeController extends Controller
 
         //IdLinea|idMancha|NroLinea|Beneficio
 
-        $contents = "1|2|".Hash::make('943432321')."|GIGAS\r\n";
-        $contents.= "6|3|".Hash::make('943435433')."|MILLAS\r\n";
-        $contents.= "5|4|".Hash::make('943436544')."|MILLAS\r\n";
-        $contents.= "4|5|".Hash::make('943437654')."|GIGAS\r\n";
-        $contents.= "3|6|".Hash::make('943437665')."|GIGAS\r\n";
+        $contents = "1|2|".User::encrypt_decrypt('encrypt','51943432321')."|GIGAS\r\n";
+        $contents.= "6|3|".User::encrypt_decrypt('encrypt','51943435433')."|MILLAS\r\n";
+        $contents.= "5|4|".User::encrypt_decrypt('encrypt','51943436544')."|MILLAS\r\n";
+        $contents.= "4|5|".User::encrypt_decrypt('encrypt','51943437654')."|GIGAS\r\n";
+        $contents.= "3|6|".User::encrypt_decrypt('encrypt','51943437665')."|GIGAS\r\n";
 
 
 

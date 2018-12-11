@@ -353,14 +353,9 @@ class RegisterController extends Controller
 
                     $code = true;
                 }
-
-
             }
 
           }
-
-
-
 
         if($code){
 

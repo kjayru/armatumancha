@@ -2,8 +2,8 @@
 @section('content')
 <div class="layout lytpl2" id="app">
 <div class="layout__main">
-        <div class="page8 pag4">
-          <div class="page8__main page4__main">
+        <div class="page8 ">
+          <div class="page8__main ">
             <section class="section1">
               <div class="section1__align">
                 <div class="section1__header">
@@ -20,9 +20,7 @@
             <section class="questions">
               <div class="questions__align">
                 <div class="questions__content">
-                  <!--<div class="questions__title">
-                    <h2>Preguntas frecuentes</h2>
-                  </div>-->
+
                   <div class="questions__list">
                     <ul>
                       <li>
