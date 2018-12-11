@@ -323,7 +323,7 @@ class RegisterController extends Controller
         //verifico mi grupo
         $user = User::where('id',Auth::id())->first();
 
-
+        $beneficio = $user->beneficio;
 
         $peticion = Petition::where('owner_user_id',Auth::id())->where('status',1)->count();
 
@@ -384,7 +384,7 @@ class RegisterController extends Controller
             $slogan ='';
             $numusuarios = intval(count($con));
 
-            if($user->beneficio=="bonos")
+            if( $beneficio =="bonos")
             {
                 $copy = "10 Gb por línea!";
                 if($numusuarios==0){
