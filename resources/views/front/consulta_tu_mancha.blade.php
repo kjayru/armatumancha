@@ -18,7 +18,7 @@
                   <div class="section1__header">
                     <div class="links"><a class="btnBack" href="{{ route('home.index')}}"> <span>Volver</span></a></div>
                     <div class="title">
-                    	<h2>Consulta quiénes forman<br>parte de tu mancha</h2>
+                    	<h2>Consulta quiénes forman <br> parte de tu mancha</h2>
                     </div>
                   </div>
                 </div>
