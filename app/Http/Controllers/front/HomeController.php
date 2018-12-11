@@ -91,7 +91,7 @@ class HomeController extends Controller
 
     public function test1(){
 
-
+/*
             $users = User::where('id','<',944)->get();
 
             foreach($users as $user){
@@ -103,15 +103,15 @@ class HomeController extends Controller
                 User::where('id',$user->id)->update(['created_at'=>$data1,'updated_at'=>$data2]);
             };
 
-            dd("actualizacion realizada");
+            dd("actualizacion realizada");*/
 
            // $codes = Code::where('user_id','<>','NULL')->get();
             //SELECT * FROM codes group by code having count(*) >= 2
 
-          /*  $codes = DB::table('codes')
+          /* $codes = DB::table('codes')
                     ->groupBy('code')
                     ->havingRaw('count(*) >= ?',[2])
-                    ->get();*/
+                    ->get();
 
                    // $codes = DB::select(DB::raw("SELECT * FROM codes group by code having count(*) >= 2"));
 

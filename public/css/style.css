@@ -414,10 +414,10 @@
 						filter: saturate(0.6); }
 
   .page8 .section1:before {
-                            width: 359px;
-                            height: 9px;
-                            bottom: 10%;
-                            left: 50%;
-                            margin-left: -180px;
-                            background: none !important;
-                        }
+        width: 359px;
+        height: 9px;
+        bottom: 10%;
+        left: 50%;
+        margin-left: -180px;
+        background: none !important;
+ }
