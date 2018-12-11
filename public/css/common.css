@@ -13154,7 +13154,7 @@ html.fp-enabled,
 
       position: absolute;
 
-      background: url("../assets/pg2_bg_section1_1.svg") no-repeat center 110%; }
+      /*background: url("../assets/pg2_bg_section1_1.svg") no-repeat center 110%;*/ }
 
       .lytpl1 .layout__main .page4__main .section1:before {
 
