@@ -367,8 +367,8 @@ span.i-borrar {
         right: 0;
     }
 }
-@media screen and(min-width:768){
-    .lytpl2 .layout__main .page4__main .section2__main .grid__info table td.checkbox {
+@media screen and(min-width:768px){
+    .lytpl2  .grid__info table td.checkbox {
         display: block !important;
     }
 }
