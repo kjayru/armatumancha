@@ -347,7 +347,7 @@ span.i-borrar {
     margin-top: -25vh;
  }
 
- @media screen and (max-width: 769px) {
+ @media screen and (max-width: 767px) {
     #vplayer {
         width: 100%;
         height: 50vh;
@@ -365,5 +365,10 @@ span.i-borrar {
         text-indent: -9999px;
         top: -45px;
         right: 0;
+    }
+}
+@media screen and(min-width:768){
+    .lytpl2 .layout__main .page4__main .section2__main .grid__info table td.checkbox {
+        display: block !important;
     }
 }
