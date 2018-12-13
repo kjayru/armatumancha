@@ -368,6 +368,10 @@ span.i-borrar {
     }
 }
 @media (min-width:768px){
+    .lytpl2 .layout__main .page4__main .section2__main .grid__info table th.checkbox {
+
+        display: block !important;
+    }
     .lytpl2 .layout__main .page4__main .section2__main .grid__info table td.checkbox {
 
         display: block !important;
