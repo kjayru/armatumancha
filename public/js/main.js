@@ -1328,7 +1328,7 @@ function onYouTubeIframeAPIReady() {
     videoId: 'byeYkMAqNBs',
 
     playerVars: {
-         'autoplay': 0,'loop': 0,'rel':0,'showinfo':0, 'controls': 1,'modestbranding':0,playlist: 'byeYkMAqNBs'
+         'autoplay': 0,'loop': 0,'rel':0,'showinfo':0, 'controls': 0,'modestbranding':0,playlist: 'byeYkMAqNBs'
         },
     events: {
 
