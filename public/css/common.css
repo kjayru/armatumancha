@@ -16785,7 +16785,7 @@ html.fp-enabled,
 
     position: relative;
 
-    background: url("../assets/pg5_bg_section1.svg") no-repeat center 20%;
+    /*background: url("../assets/pg5_bg_section1.svg") no-repeat center 20%;*/
 
     padding: 0 0 0 0; }
 
@@ -17259,7 +17259,7 @@ html.fp-enabled,
 
             color: #ffffff;
 
-            text-align: center;
+            /*text-align: center;*/
 
             display: table;
 
@@ -17291,7 +17291,9 @@ html.fp-enabled,
 
             border: none;
 
-            margin-left: 20px; }
+            margin: 0 auto;
+
+            /*margin-left: 20px;*/ }
 
             @media screen and (max-width: 425px) {
 

@@ -33,7 +33,7 @@ p.error {
 }
 
 button#regresar-dashboard {
-    display: inline;
+    /*display: inline;*/
 }
 .layout__main .page6__main .section1__main .code .form dl dd {
     display: table-cell;
@@ -117,13 +117,13 @@ span.i-borrar {
       width: 800px;
       margin: 0 auto;
       padding: 0px 0 0px 0; }
-      @media screen and (max-width: 480px) {
+      @media screen and (max-width: 769px) {
         .layout__main .page8__main .questions__align {
           width: 100%;
           padding: 0; } }
-      @media screen and (min-width: 481px) and (max-width: 1366px) {
+      /*@media screen and (min-width: 481px) and (max-width: 1366px) {
         .layout__main .page8__main .questions__align {
-          width: 99%; } }
+          width: 99%; } }*/
     .layout__main .page8__main .questions__content {
       padding: 0px 0 70px 0;
       position: relative;
