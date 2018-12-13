@@ -767,8 +767,8 @@ if($("#fr-mancha").valid()===true){
                 return false;
             }
             if(ilider == "1"){
-                alert("Este numero de lider esta registrado en otro grupo.");
-
+                alert("Este numero esta registrado en otro grupo.");
+                $('.send-mancha').attr('disabled',false).html('Registrar');
                 return false;
 
             }else{

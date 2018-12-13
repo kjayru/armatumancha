@@ -143,12 +143,9 @@ class HomeController extends Controller
 
         //IdLinea|idMancha|NroLinea|Beneficio
 
-        $contents = "1|2|".User::encrypt_decrypt('encrypt','51943432321')."|GIGAS\r\n";
-        $contents.= "6|3|".User::encrypt_decrypt('encrypt','51943435433')."|MILLAS\r\n";
-        $contents.= "5|4|".User::encrypt_decrypt('encrypt','51943436544')."|MILLAS\r\n";
-        $contents.= "4|5|".User::encrypt_decrypt('encrypt','51943437654')."|GIGAS\r\n";
-        $contents.= "3|6|".User::encrypt_decrypt('encrypt','51943437665')."|GIGAS\r\n";
-
+        $contents = "1|2|".User::encrypt_decrypt('encrypt','986863157')."|GIGAS\r\n";
+        $contents.= "6|3|".User::encrypt_decrypt('encrypt','986863158')."|MILLAS\r\n";
+        $contents.= "5|4|".User::encrypt_decrypt('encrypt','986863159')."|MILLAS\r\n";
 
 
 
@@ -286,7 +283,7 @@ class HomeController extends Controller
         if($user>0){
              //verificar lider
 
-             $usertipo = User::where('numero',$numero)->where('status',2)->first();
+             $usertipo = User::where('numero',$numero)->first();
 
              if($usertipo->role_id == 1){
                  $mensaje = "El número que ingresaste es lider de un equipo";

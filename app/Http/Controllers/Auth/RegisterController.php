@@ -73,14 +73,17 @@ class RegisterController extends Controller
        $request->validate([
             'name' => 'required|unique:groups|string|max:21',
             'lidername' => 'required|string|max:16',
-            'lidercel' => 'required|numeric',
-            'beneficio' => 'required|string|max:90'
+            'lidercel' => 'required|unique:users,numero|numeric',
+            'beneficio' => 'required|string|max:90',
+            "telefono.*"  => "required|unique:users,numero|numeric",
+
 
         ], [
             'name.required' => 'Ingrese el nombre de la mancha',
             'lidername.required' => 'Ingrese un alias',
             'lidercel.required' => 'Ingrese su número',
-            'beneficio.required' => 'Seleccione su beneficio'
+            'beneficio.required' => 'Seleccione su beneficio',
+            'telefono.required' => 'El número de celular ya esta participando'
         ]);
 
 
@@ -218,7 +221,7 @@ class RegisterController extends Controller
 
             'nombres' => ['required','unique:groups','max:20'],
             'alias' => ['required','max:15'],
-            'numero' => ['required','numeric','max:9'],
+            'numero' => ['required','unique:users','numeric','max:9'],
             'email' => ['required','email','max:90'],
             'beneficio' => ['required','max:90']
         ]);
