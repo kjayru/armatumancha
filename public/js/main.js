@@ -1326,14 +1326,23 @@ function onYouTubeIframeAPIReady() {
     height: '360',
     width: '640',
     videoId: 'byeYkMAqNBs',
-    origin: 'https://armatumancha.test',
+
     playerVars: {
-         'autoplay': 0,'loop': 0,'showinfo':0, 'controls': 0,'modestbranding':0,
-         'playsinline':0,'rel':0,'iv_load_policy': 3
+         'autoplay': 0,'loop': 0,'rel':0,'showinfo':0, 'controls': 1,'modestbranding':0,playlist: 'byeYkMAqNBs'
         },
+    events: {
+
+         'onStateChange': onPlayerStateChange
+        }
   });
 }
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
 
+              player.stopVideo();
+    }
+
+  }
 
 function onPlayerReady() {
     player.playVideo();
