@@ -935,6 +935,17 @@ if($("#fr-mancha").valid()===true){
 
                 });
     });
+
+    $(".btn-delete-no").on('click',function(e){
+        e.preventDefault();
+
+        $(".box__inset").fadeOut(350,'swing',function(){
+            $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
+                $(".page1").fadeOut(350);
+                $(".page2").fadeOut(350);
+            });
+        });
+    });
     $(".page1__close").on('click',function(e){
         e.preventDefault();
         $(".box__inset").fadeOut(350,'swing',function(){
