@@ -140,13 +140,22 @@ class HomeController extends Controller
 
     public function flatfile(){
 
-
+        error_reporting(0);
         //IdLinea|idMancha|NroLinea|Beneficio
 
         $contents = "1|2|".User::encrypt_decrypt('encrypt','986863157')."|GIGAS\r\n";
-        $contents.= "6|3|".User::encrypt_decrypt('encrypt','986863158')."|MILLAS\r\n";
-        $contents.= "5|4|".User::encrypt_decrypt('encrypt','986863159')."|MILLAS\r\n";
+        $contents.= "2|3|".User::encrypt_decrypt('encrypt','986863158')."|MILLAS\r\n";
+        $contents.= "3|4|".User::encrypt_decrypt('encrypt','986863159')."|MILLAS\r\n";
+        $contents.= "4|2|".User::encrypt_decrypt('encrypt','986863110')."|GIGAS\r\n";
+        $contents.= "5|3|".User::encrypt_decrypt('encrypt','986863111')."|MILLAS\r\n";
+        $contents.= "6|4|".User::encrypt_decrypt('encrypt','986863112')."|MILLAS\r\n";
 
+
+       /* echo "1|1|5ec8249d1c61f94e6e547fb58c0399b5|GIGAS<br>
+        2|2|9fa1073afb5995eea38bf921c5e964fd|GIGAS<br>
+        3|3|b74eada747403fc2e93c6f38024c6654|GIGAS<br>";*/
+
+       // dd($contents);
 
 
         Storage::put('ftp/flatfile.txt', $contents);

@@ -160,12 +160,25 @@ class RegisterController extends Controller
 
         $nivel = User::where('id',$id)->where('status',2)->count();
 
-        if($nivel>0){
+        $user = User::where('id',$id)->with('groups')->first();
 
-            return response()->json(['rpta'=>'error']);
+        $group_id = $user->groups[0]->id;
+
+        $contarParticipante = GroupUser::where('group_id',$group_id)->count();
+
+
+        if($contarParticipante>2){
+
+            if($nivel>0){
+
+                return response()->json(['rpta'=>'error','mensaje'=>'no puedes eliminar este participante']);
+            }else{
+                User::where('id',$id)->delete();
+                return response()->json(['rpta'=>'ok','mensaje'=>'participante eliminado']);
+            }
         }else{
-            User::where('id',$id)->delete();
-            return response()->json(['rpta'=>'ok']);
+            return response()->json(['rpta'=>'error','mensaje'=>'No puedes eliminar mas participantes']);
+
         }
 
     }

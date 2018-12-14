@@ -924,10 +924,11 @@ if($("#fr-mancha").valid()===true){
                     data:dataform,
                     success:function(response){
                         if(response.rpta=='ok'){
-                            window.location.reload();
+                           // window.location.reload();
+                           $(".btn-actualizar").trigger('click');
                         }else{
 
-                            $(".mod-delete p").html("No es posible eliminar a un participante confirmado");
+                            $(".mod-delete p").html(response.mensaje);
                             return false;
                         }
                     }

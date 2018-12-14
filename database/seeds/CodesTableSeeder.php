@@ -17,22 +17,22 @@ class CodesTableSeeder extends Seeder
                     switch (strlen($val)) {
                         case 1:
 
-                            $gencode = "MN 00000".$val;
+                            $gencode = "MA 00000".$val;
                         break;
                         case 2:
-                            $gencode = "MN 0000".$val;
+                            $gencode = "MA 0000".$val;
                         break;
                         case 3:
-                            $gencode = "MN 000".$val;
+                            $gencode = "MA 000".$val;
                         break;
                         case 4:
-                            $gencode = "MN 00".$val;
+                            $gencode = "MA 00".$val;
                         break;
                         case 5:
-                            $gencode = "MN 0".$val;
+                            $gencode = "MA 0".$val;
                         break;
                         default;
-                        $gencode = "MN ".$val;
+                        $gencode = "MA ".$val;
                         break;
                     }
 

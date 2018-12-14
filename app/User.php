@@ -121,23 +121,27 @@ class User extends Authenticatable
         */
     }
 
-//env('APP_HASH')
+
      public static function encrypt_decrypt($action, $string) {
         $output = false;
-        $encrypt_method = "MCRYPT_RIJNDAEL_128";
+        $encrypt_method = "AES-128-ECB";
         $secret_key = '25D97D571C85FFBABB8FBA83E462EE2B';
-        $secret_iv = '62B22654DCE5DAD139AFA8ACE84ECFFF';
+       // $secret_iv = '62B22654DCE5DAD139AFA8ACE84ECFFF';
         // hash
         $key = $secret_key;
 
 
         //$iv = substr($secret_iv, 0, 16);
         if ( $action == 'encrypt' ) {
-            $output = openssl_encrypt($string, $encrypt_method, $key, 0);
-            $output = base64_encode($output);
+            $outpu = openssl_encrypt($string, $encrypt_method, $key, 0);
+
+            $output = $outpu;
+
         } else if( $action == 'decrypt' ) {
-            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0);
+            $output = openssl_decrypt($string, $encrypt_method, $key, 0);
         }
         return $output;
     }
+
+
 }
