@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\DB;
 
+use Rap2hpoutre\FastExcel\FastExcel;
+
 use App\Code;
 use App\User;
 use App\Group;
@@ -142,14 +144,14 @@ class HomeController extends Controller
 
         error_reporting(0);
         //IdLinea|idMancha|NroLinea|Beneficio
-
+/*
         $contents = "1|2|".User::encrypt_decrypt('encrypt','986863157')."|GIGAS\r\n";
         $contents.= "2|3|".User::encrypt_decrypt('encrypt','986863158')."|MILLAS\r\n";
         $contents.= "3|4|".User::encrypt_decrypt('encrypt','986863159')."|MILLAS\r\n";
         $contents.= "4|2|".User::encrypt_decrypt('encrypt','986863110')."|GIGAS\r\n";
         $contents.= "5|3|".User::encrypt_decrypt('encrypt','986863111')."|MILLAS\r\n";
         $contents.= "6|4|".User::encrypt_decrypt('encrypt','986863112')."|MILLAS\r\n";
-
+*/
 
        /* echo "1|1|5ec8249d1c61f94e6e547fb58c0399b5|GIGAS<br>
         2|2|9fa1073afb5995eea38bf921c5e964fd|GIGAS<br>
@@ -158,7 +160,24 @@ class HomeController extends Controller
        // dd($contents);
 
 
-        Storage::put('ftp/flatfile.txt', $contents);
+
+       $users =  DB::table('users')->get();
+
+
+      /* $contents='';
+         foreach($users as $k=> $user){
+
+             $contents .= $user->mancha."|".$user->linea."|".$user->alias."|".$user->email."|".$user->aceptacion."|".$user->fecha_aceptacion."|".$user->calificacion."|".$user->fecha_registro_mancha."|".$user->fecha_registro_linea."|".$user->beneficio."|".$user->flag_lider."\r\n";
+
+         }*/
+
+
+
+        $fila =  (new FastExcel($users))->export("usuarios_".DATE_FORMAT(now(),'d-m-Y').".xlsx");
+
+         //Storage::put();
+
+       // Storage::put('ftp/flatfile.txt', $contents);
         //Storage::append('flatfile.txt', $contents);
     }
 
