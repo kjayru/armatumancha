@@ -584,8 +584,6 @@ class RegisterController extends Controller
             }
         }
 
-
-
         if(count($filtro)>0){
              //verificar lider
               $mensaje = "este alias esta registrado en tu mancha";

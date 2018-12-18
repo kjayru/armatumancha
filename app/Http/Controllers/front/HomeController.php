@@ -91,179 +91,8 @@ class HomeController extends Controller
 }
 
 
-    public function test1(){
 
-/*
-            $users = User::where('id','<',944)->get();
-
-            foreach($users as $user){
-
-                $data1 = User::updateHora($user->created_at);
-                $data2 = User::updateHora($user->updated_at);
-
-                echo $data1."<br>";
-                User::where('id',$user->id)->update(['created_at'=>$data1,'updated_at'=>$data2]);
-            };
-
-            dd("actualizacion realizada");*/
-
-           // $codes = Code::where('user_id','<>','NULL')->get();
-            //SELECT * FROM codes group by code having count(*) >= 2
-
-          /* $codes = DB::table('codes')
-                    ->groupBy('code')
-                    ->havingRaw('count(*) >= ?',[2])
-                    ->get();
-
-                   // $codes = DB::select(DB::raw("SELECT * FROM codes group by code having count(*) >= 2"));
-
-           //        $codes = Duplicated::all();
-
-           // dd($codes);
-
-/*
-            foreach($codes as $c){
-                 $duplica = Code::where('code',$c->code)->count();
-                 if($duplica>0){
-                    $dato =  Code::where('code',$c->code)->first();
-                     if($c->id != $dato->id){
-                        $cadena= $c->id." ".$c->code." = ".$dato->id." ".$dato->code;
-                        echo $cadena;
-                        Code::where('id',$dato->id)->delete();
-                        // dd("duplicado eliminado");
-                     }
-                 }
-            }
-            dd("Proceso terminado");*/
-    }
-
-
-
-
-    public function flatfile(){
-
-        error_reporting(0);
-        //IdLinea|idMancha|NroLinea|Beneficio
-/*
-        $contents = "1|2|".User::encrypt_decrypt('encrypt','986863157')."|GIGAS\r\n";
-        $contents.= "2|3|".User::encrypt_decrypt('encrypt','986863158')."|MILLAS\r\n";
-        $contents.= "3|4|".User::encrypt_decrypt('encrypt','986863159')."|MILLAS\r\n";
-        $contents.= "4|2|".User::encrypt_decrypt('encrypt','986863110')."|GIGAS\r\n";
-        $contents.= "5|3|".User::encrypt_decrypt('encrypt','986863111')."|MILLAS\r\n";
-        $contents.= "6|4|".User::encrypt_decrypt('encrypt','986863112')."|MILLAS\r\n";
-*/
-
-       /* echo "1|1|5ec8249d1c61f94e6e547fb58c0399b5|GIGAS<br>
-        2|2|9fa1073afb5995eea38bf921c5e964fd|GIGAS<br>
-        3|3|b74eada747403fc2e93c6f38024c6654|GIGAS<br>";*/
-
-       // dd($contents);
-
-
-
-       $users =  DB::table('users')->get();
-
-
-      /* $contents='';
-         foreach($users as $k=> $user){
-
-             $contents .= $user->mancha."|".$user->linea."|".$user->alias."|".$user->email."|".$user->aceptacion."|".$user->fecha_aceptacion."|".$user->calificacion."|".$user->fecha_registro_mancha."|".$user->fecha_registro_linea."|".$user->beneficio."|".$user->flag_lider."\r\n";
-
-         }*/
-
-
-
-        $fila =  (new FastExcel($users))->export("usuarios_".DATE_FORMAT(now(),'d-m-Y').".xlsx");
-
-         //Storage::put();
-
-       // Storage::put('ftp/flatfile.txt', $contents);
-        //Storage::append('flatfile.txt', $contents);
-    }
-
-    public function vercodigo(){
-       // return view('test.vercodigo');
-    }
-
-    public function mostrarcodigo(Request $request){
-       /* $celular = '51'.$request->codigo;
-
-        $user = User::where('numero',$celular)->first();
-        $contar = User::where('numero',$celular)->count();
-        if($contar>0){
-            $codigo = Code::where('user_id',$user->id)->get();
-
-         foreach($codigo as $cod){
-            echo "codigo =".$cod->code." estado:".$cod->status;
-         }
-        }else{
-
-            dd('El número no tiene código asignado');
-        }*/
-
-    }
-
-    public function validarpatasms(){
-       // return view('test.ingresarsmscode');
-    }
-
-    public function aceptarlider(){
-        //return view('test.aceptarlider');
-    }
-
-
-    public function validarasignacion(Request $request){
-        //leer flat para ejecucion
-     /*   $conteo = Code::where('code',$request->code)->count();
-
-        if($conteo>0){
-            $code = Code::where('code',$request->code)->first();
-
-            $peticion = Petition::where('code_id',$code->id)
-                            ->where('status',1)->first();
-
-            //ejecuta asignacion de lider a pata
-            User::where('id',$peticion->owner_user_id)->update(['role_id'=>2]);
-
-            //ejecuta asignacion de pata a lider
-            User::where('id',$peticion->sucessor_user_id)->update(['role_id'=>1]);
-
-
-             Code::where('user_id',$request->owner_user_id)->update(['status'=>3]);
-            //
-            //nuevo codigo lider
-            $numcode = Code::whereNull('user_id')->first();
-
-           Code::where('id',$numcode->id)->update(['user_id'=>$peticion->owner_user_id,'status'=>2]);
-
-
-
-            Code::where('user_id',$peticion->sucessor_user_id)->update(['status'=>3]);
-
-
-            $numcode2 = Code::whereNull('user_id')->first();
-
-            Code::where('id',$numcode2->id)
-                ->update(['user_id'=>$peticion->sucessor_user_id,'status'=>2]);
-
-             Petition::where('code_id',$code->id)->update(['status'=>2]);
-             dd("asignación ejecutada..");
-
-             //Enviar notificacion
-            $notification = array(
-                'notification' => 'cambio-lider',
-                'users' => array($request->sucesor_user_id)
-            );
-            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                    ->withData(['data'=>$notification])
-                    ->post();
-        }else{
-            dd("En numero ingresado no tiene asignación.");
-        }*/
-    }
-
-
-    public function logout(Request $request)
+public function logout(Request $request)
     {
         $this->guard()->logout();
 
@@ -272,39 +101,11 @@ class HomeController extends Controller
         return $this->loggedOut($request) ?: redirect('/');
     }
 
-    protected function loggedOut(Request $request)
-    {
 
-    }
 
-    public function aceptoParticipacion(Request $request){
-
-      /*  $conteo = Code::where('code',$request->code)->count();
-
-        if($conteo>0){
-            $code = Code::where('code',$request->code)->first();
-
-            User::where('id',$code->user_id)->update(['status'=>2]);
-            Code::where('code',$request->code)->update(['status'=>2]);
-
-            //Enviar notificacion
-            $notification = array(
-                'notification' => 'cambio-lider',
-                'users' => array($code->user_id)
-            );
-            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                    ->withData(['data'=>$notification])
-                    ->post();
-
-            dd("Tu pata fue validado");
-        }else{
-            dd("El código no es válido");
-        }
-        return view('test.test');*/
-    }
 
     //validar cel-lider
-    public function comprobarCel(Request $request){
+ public function comprobarCel(Request $request){
         $numero = '51'.$request->numero;
         $user = User::where('numero',$numero)->count();
 
@@ -357,5 +158,139 @@ class HomeController extends Controller
     }
 
 
+
+
+
+
+    public function flatfile(){
+
+    //IdLinea|idMancha|NroLinea|Beneficio
+        /*
+            $contents = "1|2|".User::encrypt_decrypt('encrypt','986863157')."|GIGAS\r\n";
+            $contents.= "2|3|".User::encrypt_decrypt('encrypt','986863158')."|MILLAS\r\n";
+            $contents.= "3|4|".User::encrypt_decrypt('encrypt','986863159')."|MILLAS\r\n";
+            $contents.= "4|2|".User::encrypt_decrypt('encrypt','986863110')."|GIGAS\r\n";
+            $contents.= "5|3|".User::encrypt_decrypt('encrypt','986863111')."|MILLAS\r\n";
+            $contents.= "6|4|".User::encrypt_decrypt('encrypt','986863112')."|MILLAS\r\n";
+        */
+       /*
+    echo "1|1|5ec8249d1c61f94e6e547fb58c0399b5|GIGAS<br>
+         2|2|9fa1073afb5995eea38bf921c5e964fd|GIGAS<br>
+         3|3|b74eada747403fc2e93c6f38024c6654|GIGAS<br>";
+        */
+       // dd($contents);
+
+       error_reporting(0);
+
+       // Storage::put('ftp/flatfile.txt', $contents);
+        /*
+        $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
+
+        $datos = explode("\n",$myfile);
+        $array[] = null;
+        foreach($datos as $key => $d){
+            $row = explode('|',$d);
+            array_push($array,$row);
+        }
+
+
+
+        foreach($array as $key => $col){
+            if($key>1){
+           // echo $col[0]." - ".$col[1]." - ".$col[2]."<br>";
+                if($col[2]==1){
+                    $califica = 2;
+                }else{
+                    $califica = 3;
+                }
+               User::where('id',$col[0])->update(['califica'=>$califica]);
+            }
+        }
+
+
+        $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
+
+        $datos2 = explode("\n",$myfile2);
+        $array2[] = null;
+        foreach($datos2 as  $d2){
+            $row2 = explode('|',$d2);
+            array_push($array2,$row2);
+        }
+
+
+
+        foreach($array2 as $key => $col2){
+            if($key>1){
+            //echo $col2[0]." - ".$col2[1]." - ".$col2[2]."<br>";
+                if($col2[2]==1){
+                    $califica = 2;
+                }else{
+                    $califica = 3;
+                }
+               User::where('id',$col2[0])->update(['califica'=>$califica]);
+            }
+        }
+        */
+
+
+        $users = DB::select( DB::raw("update users set
+        califica = 2
+        where id in (
+        select u.id from (
+        select cast(e.idlinea as UNSIGNED) as id from evaluated e,users u,group_user gu
+        where cast(e.idlinea as UNSIGNED) = u.id and cast(e.idmancha as UNSIGNED) = gu.group_id and u.id = gu.user_id
+        and u.califica = 1 and u.`status` = 2 and u.role_id = 2 and e.califica = 1
+        and u.id not in (select nm.user_id from notification_massive nm)
+        order by e.fechacalifica,u.numero) as u)"));
+
+        print_r($user);
+        return response()->json(["proceso completo"]);
+    }
+
+    public function reporteExcel(){
+        return view('exten.reporte');
+    }
+
+    public function reporteExcelGen(Request $request){
+
+        if($request->key==='C4f3r3dtr3s'){
+
+
+       $users = DB::select( DB::raw("select 'mancha','linea','alias','email','aceptacion','fecha_aceptacion','calificacion','tipocalificacion','fechacalificacion','fecha_registro_mancha','fecha_registro_linea','beneficio','flag_lider'
+        union all
+        select
+        distinct t3.name mancha,
+        t1.numero linea,
+        t1.alias,
+        if(t1.email IS NULL ,' ',t1.email ) email,
+        (case when t1.status = 1 then 'No' when t1.status = 2 then 'Si' end) aceptacion,
+        (case when t1.role_id = 1 then
+        if((select t4.id from notification_response t4 where t1.numero = t4.user_number and t4.id_users = t1.id) IS NULL, t1.created_at , (select t4.created_at from notification_response t4 where t1.numero = t4.user_number and t4.id_users = t1.id))
+        when t1.role_id = 2 then
+        if((select t5.owner_user_id from petitions t5 where t5.owner_user_id = t1.id) IS NOT NULL , t1.created_at, (select t4.created_at from notification_response t4 where t1.numero = t4.user_number and t4.id_users = t1.id))
+        end) fecha_aceptacion,
+        (case when t6.califica = 1 then '2' when t6.califica = 0 then '3' when t6.califica IS NULL then '1' end) calificacion,
+        t6.tipocalifica tipocalificacion,
+        t6.fechacalifica fechacalificacion,
+        t3.created_at fecha_registro_mancha,
+        t1.created_at fecha_registro_linea,
+        t1.beneficio,
+        (case when t1.role_id = 1 then 'Si' when t1.role_id = 2 then 'No' end) flag_lider
+        from users t1
+        inner join group_user t2 on t2.user_id = t1.id
+        inner join groups t3 on  t2.group_id = t3.id
+        left join evaluated t6 on t1.id = t6.idlinea and t3.id = t6.idmancha
+        where t1.beneficio <> ''
+        and t1.numero not in('51000000010','51910467651','51967441839','51987414785','51949406090','51993144900','51992910007',
+        '51993144900','51000000222','51000000110','51000299990','51999292992','51912345668','51912345678','51999999991','51933361369',
+        '51999999992','51997563311','51923152691','51932797055','51935835601','51916428732','51999999998','51999912312','51960932565','51992910007','51961730610')"));
+
+
+
+        return (new FastExcel($users))->download("usuarios_".DATE_FORMAT(now(),'d-m-Y').".xlsx");
+        }else{
+         return response()->json(['rpta'=>'El key ingresado no es el correcto']);
+        }
+    }
 
 }

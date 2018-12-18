@@ -91,7 +91,7 @@ class Kernel extends ConsoleKernel
 
 
           //reportemancha
-         $schedule->call(function () {
+         /*$schedule->call(function () {
 
             $users = DB::select( DB::raw("select 'mancha','linea','alias','email','aceptacion','fecha_aceptacion','calificacion','tipocalificacion','fechacalificacion','fecha_registro_mancha','fecha_registro_linea','beneficio','flag_lider'
             union all
@@ -124,7 +124,7 @@ class Kernel extends ConsoleKernel
 
               $fila =  (new FastExcel($users))->export("reporte_general_".DATE_FORMAT(now(),'d-m-Y').".xlsx");
 
-          })->dailyAt('09:30');
+          })->dailyAt('09:30');*/
 
 
            //Users
@@ -155,12 +155,10 @@ class Kernel extends ConsoleKernel
 
                   $contents .= $user->name."|".$user->created_at."|".$user->updated_at."\r\n";
 
-              }
-
-
-              Storage::put('ftp/groups.txt', $contents);
-
+            }
+        Storage::put('ftp/groups.txt', $contents);
         })->dailyAt('09:30');
+
 
         $schedule->call(function () {
 
@@ -197,7 +195,104 @@ class Kernel extends ConsoleKernel
         })->dailyAt('09:30');
 
 
+         //ejecucion 3:30
+         //read file OUT_LIDER.txt insert table evaluated, truncate table before
+        $schedule->call(function(){
+
+            $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
+
+            $datos = explode("\n",$myfile);
+            $array[] = null;
+            foreach($datos as $key => $d){
+                $row = explode('|',$d);
+                array_push($array,$row);
+            }
+
+
+
+            foreach($array as $key => $col){
+                if($key>1){
+
+                    if($col[2]==1){
+                        $califica = 2;
+                    }else{
+                        $califica = 3;
+                    }
+                User::where('id',$col[0])->update(['califica'=>$califica]);
+                }
+            }
+        })->dailyAt('15:30');
+
+
+         //ejecucion 3:30
+         //read file OUT_MIEMBRO.txt insert table evaluated
+         $schedule->call(function(){
+            $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
+
+            $datos2 = explode("\n",$myfile2);
+            $array2[] = null;
+            foreach($datos2 as  $d2){
+                $row2 = explode('|',$d2);
+                array_push($array2,$row2);
+            }
+
+
+
+            foreach($array2 as $key => $col2){
+                if($key>1){
+                //echo $col2[0]." - ".$col2[1]." - ".$col2[2]."<br>";
+                    if($col2[2]==1){
+                        $califica = 2;
+                    }else{
+                        $califica = 3;
+                    }
+                   User::where('id',$col2[0])->update(['califica'=>$califica]);
+                }
+            }
+
+        })->dailyAt('15:33');
+
+         //ejecucion 3:30
+         //actualizar usuarios calificados
+
+        $schedule->call(function(){
+
+            $users = DB::select( DB::raw("update users set
+            califica = 2
+            where id in (
+            select u.id from (
+            select cast(e.idlinea as UNSIGNED) as id from evaluated e,users u,group_user gu
+            where cast(e.idlinea as UNSIGNED) = u.id and cast(e.idmancha as UNSIGNED) = gu.group_id and u.id = gu.user_id
+            and u.califica = 1 and u.`status` = 2 and u.role_id = 2 and e.califica = 1
+            and u.id not in (select nm.user_id from notification_massive nm)
+            order by e.fechacalifica,u.numero) as u)"));
+
+        })->dailyAt('15:36');
+
+
+        //ejecucion 3:30
+         //actualizar usuarios rechazados
+
+         $schedule->call(function(){
+
+            $users = DB::select( DB::raw("update users set
+            califica = 3
+            where id in (
+            select u.id from (
+            select cast(e.idlinea as UNSIGNED) as id from evaluated e,users u,group_user gu
+            where cast(e.idlinea as UNSIGNED) = u.id and cast(e.idmancha as UNSIGNED) = gu.group_id and u.id = gu.user_id
+            and u.califica = 2 and u.`status` = 2 and u.role_id = 2 and e.califica = 0
+            and u.id in (select nm.user_id from notification_massive nm)
+            and u.id not in (select nme.user_id from notification_massive_error nme)
+            order by e.fechacalifica,u.numero) as u)"));
+
+        })->dailyAt('15:40');
+
+
     }
+
+
+
 
     /**
      * Register the commands for the application.
