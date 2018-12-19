@@ -62,41 +62,51 @@ class RegisterController extends Controller
 
         $user = User::where('id',Auth::id())->first();
 
-        $beneficio = $user->beneficio;
 
-        $numcode = Code::whereNull('user_id')->first();
-        $code_asig = $numcode->id;
+        $group_id = $user->groups[0]->id;
 
-        $user = new User();
-        $user->alias = $request->alias;
-        $user->numero = "51".$request->telefono;
-        $user->email = $request->email;
-        $user->beneficio = $beneficio;
-        $user->role_id = 2;
-        $user->save();
+        $numgroup = GroupUser::where('group_id',$group_id)->count();
 
-        $codigo = Code::where('id',$code_asig)->first();
-        $codigo->user_id = $user->id;
-        $codigo->save();
+       if($numgroup<11){
 
-        //distribucion
-        $usergroup = new GroupUser();
-        $usergroup->user_id =  $user->id;
-        $usergroup->group_id = $request->group_id;
-        $usergroup->save();
+            $beneficio = $user->beneficio;
+
+            $numcode = Code::whereNull('user_id')->first();
+            $code_asig = $numcode->id;
+
+            $user = new User();
+            $user->alias = $request->alias;
+            $user->numero = "51".$request->telefono;
+            $user->email = $request->email;
+            $user->beneficio = $beneficio;
+            $user->role_id = 2;
+            $user->save();
+
+            $codigo = Code::where('id',$code_asig)->first();
+            $codigo->user_id = $user->id;
+            $codigo->save();
+
+            //distribucion
+            $usergroup = new GroupUser();
+            $usergroup->user_id =  $user->id;
+            $usergroup->group_id = $request->group_id;
+            $usergroup->save();
 
 
 
-        $notification = array(
-            'notification' => 'invitacion',
-            'users' => array($user->id)
-        );
+            $notification = array(
+                'notification' => 'invitacion',
+                'users' => array($user->id)
+            );
 
-        $noti = json_encode(['data'=>$notification]);
-        $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
-                    ->withData($noti)
-                    ->post();
-        return response()->json(['rpta'=>'ok']);
+            $noti = json_encode(['data'=>$notification]);
+            $response = Curl::to('http://api-armatumancha.claro.com.pe/set-sms/run')
+                        ->withData($noti)
+                        ->post();
+            return response()->json(['rpta'=>'ok']);
+        }else{
+            return response()->json(['rpta'=>'error']);
+        }
     }
 
 /**Asignar lider */
