@@ -67,7 +67,7 @@ class RegisterController extends Controller
 
         $numgroup = GroupUser::where('group_id',$group_id)->count();
 
-       if($numgroup<11){
+       if($numgroup<10){
 
             $beneficio = $user->beneficio;
 
