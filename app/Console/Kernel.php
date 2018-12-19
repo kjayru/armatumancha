@@ -227,7 +227,7 @@ class Kernel extends ConsoleKernel
                 }
             }
 
-        })->dailyAt('15:32');
+        })->dailyAt('17:05');
 
 
          //ejecucion 3:30
@@ -254,13 +254,13 @@ class Kernel extends ConsoleKernel
                     }
                 }
             }
-        })->dailyAt('15:33');
+        })->dailyAt('17:06');
 
          //ejecucion 3:30
          //actualizar usuarios calificados
 
       $schedule->call(function(){
-
+        /*
             $users = DB::select( DB::raw("update users set
             califica = 2
             where id in (
@@ -270,7 +270,7 @@ class Kernel extends ConsoleKernel
             and u.califica = 1 and u.`status` = 2 and u.role_id = 2 and e.califica = 1
             and u.id not in (select nm.user_id from notification_massive nm)
             order by e.fechacalifica,u.numero) as u)"));
-
+                */
         })->dailyAt('15:34');
 
 
@@ -279,7 +279,7 @@ class Kernel extends ConsoleKernel
 
          $schedule->call(function(){
 
-            $users = DB::select( DB::raw("update users set
+          /*  $users = DB::select( DB::raw("update users set
             califica = 3
             where id in (
             select u.id from (
@@ -289,7 +289,7 @@ class Kernel extends ConsoleKernel
             and u.id in (select nm.user_id from notification_massive nm)
             and u.id not in (select nme.user_id from notification_massive_error nme)
             order by e.fechacalifica,u.numero) as u)"));
-
+*/
         })->dailyAt('15:35');
 
 
