@@ -1242,10 +1242,14 @@ if($("#fr-mancha").valid()===true){
                                             $(".box__inset").fadeOut(350,'swing',function(){
                                                 $(".layout__modal").delay(350).fadeOut(350,'swing',function(){
 
-                                                    window.location.reload();
+                                                        window.location.reload();
+
+
                                                 });
                                             });
 
+                                        }else{
+                                            $(".pataerror").html("No puede registrar mas patas");
                                         }
                                     }
 
