@@ -200,15 +200,13 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
 
             $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
-
+          if($myfile){
             $datos = explode("\n",$myfile);
             $array[] = null;
             foreach($datos as $key => $d){
                 $row = explode('|',$d);
                 array_push($array,$row);
             }
-
-
 
             foreach($array as $key => $col){
                 if($key>1){
@@ -221,6 +219,8 @@ class Kernel extends ConsoleKernel
                 User::where('id',$col[0])->update(['califica'=>$califica]);
                 }
             }
+         }
+
         })->dailyAt('15:30');
 
 
@@ -228,34 +228,32 @@ class Kernel extends ConsoleKernel
          //read file OUT_MIEMBRO.txt insert table evaluated
          $schedule->call(function(){
             $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
+            if($myfile2){
+                $datos2 = explode("\n",$myfile2);
+                $array2[] = null;
+                foreach($datos2 as  $d2){
+                    $row2 = explode('|',$d2);
+                    array_push($array2,$row2);
+                }
 
-            $datos2 = explode("\n",$myfile2);
-            $array2[] = null;
-            foreach($datos2 as  $d2){
-                $row2 = explode('|',$d2);
-                array_push($array2,$row2);
-            }
-
-
-
-            foreach($array2 as $key => $col2){
-                if($key>1){
-                //echo $col2[0]." - ".$col2[1]." - ".$col2[2]."<br>";
-                    if($col2[2]==1){
-                        $califica = 2;
-                    }else{
-                        $califica = 3;
+                foreach($array2 as $key => $col2){
+                    if($key>1){
+                    //echo $col2[0]." - ".$col2[1]." - ".$col2[2]."<br>";
+                        if($col2[2]==1){
+                            $califica = 2;
+                        }else{
+                            $califica = 3;
+                        }
+                    User::where('id',$col2[0])->update(['califica'=>$califica]);
                     }
-                   User::where('id',$col2[0])->update(['califica'=>$califica]);
                 }
             }
-
         })->dailyAt('15:33');
 
          //ejecucion 3:30
          //actualizar usuarios calificados
 
-        $schedule->call(function(){
+     /*   $schedule->call(function(){
 
             $users = DB::select( DB::raw("update users set
             califica = 2
@@ -267,13 +265,13 @@ class Kernel extends ConsoleKernel
             and u.id not in (select nm.user_id from notification_massive nm)
             order by e.fechacalifica,u.numero) as u)"));
 
-        })->dailyAt('15:36');
+        })->dailyAt('15:36');*/
 
 
         //ejecucion 3:30
          //actualizar usuarios rechazados
 
-         $schedule->call(function(){
+        /* $schedule->call(function(){
 
             $users = DB::select( DB::raw("update users set
             califica = 3
@@ -286,7 +284,7 @@ class Kernel extends ConsoleKernel
             and u.id not in (select nme.user_id from notification_massive_error nme)
             order by e.fechacalifica,u.numero) as u)"));
 
-        })->dailyAt('15:40');
+        })->dailyAt('15:40');*/
 
 
     }

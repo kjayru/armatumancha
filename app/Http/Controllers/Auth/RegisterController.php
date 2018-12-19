@@ -61,7 +61,7 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        $agent = new Agent();
+        //$agent = new Agent();
 
         // $this->validator($request->all())->validate();
 
