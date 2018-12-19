@@ -22,6 +22,8 @@ use App\Group;
 use App\GroupUser;
 use App\Petition;
 use App\Duplicated;
+use App\Evaluated;
+
 class HomeController extends Controller
 {
     use AuthenticatesUsers;
@@ -232,7 +234,7 @@ public function logout(Request $request)
         }
         */
 
-
+/*
         $users = DB::select( DB::raw("update users set
         califica = 2
         where id in (
@@ -243,8 +245,33 @@ public function logout(Request $request)
         and u.id not in (select nm.user_id from notification_massive nm)
         order by e.fechacalifica,u.numero) as u)"));
 
-        print_r($user);
-        return response()->json(["proceso completo"]);
+        return response()->json(["proceso completo"]);*/
+
+        Evaluated::query()->truncate();
+
+          $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
+          if($myfile){
+            $datos = explode("\n",$myfile);
+            $array[] = null;
+            foreach($datos as $key => $d){
+                $row = explode('|',$d);
+                array_push($array,$row);
+            }
+
+            foreach($array as $key => $col){
+                if($key>1){
+
+
+                    $evaluar = new Evaluated;
+                    $evaluar->idlinea = $col[0];
+                    $evaluar->idmancha = $col[1];
+                    $evaluar->califica = $col[2];
+                    $evaluar->tipocalifica = $col[3];
+                    $evaluar->fechacalifica = $col[4];
+                    $evaluar->save();
+                }
+            }
+        }
     }
 
     public function reporteExcel(){

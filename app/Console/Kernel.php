@@ -7,6 +7,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Rap2hpoutre\FastExcel\FastExcel;
+use App\Evaluated;
 
 class Kernel extends ConsoleKernel
 {
@@ -46,7 +47,7 @@ class Kernel extends ConsoleKernel
             '51935835601','51916428732','51999999998','51999912312','51960932565','51992910007','51961730610')"));
              $contents='';
              foreach($users as $k=> $user){
-                 if($k>0){
+                 if($k>1){
                  $contents .= $user->idlinea."|".$user->idMancha."|".$user->linea."|".$user->beneficio."\r\n";
                  }
              }
@@ -77,7 +78,7 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-                  if($k>0){
+                  if($k>1){
                   $contents .= $user->idlinea."|".$user->idMancha."|".$user->linea."|".$user->beneficio."\r\n";
                   }
               }
@@ -134,9 +135,9 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-
-                  $contents .= $user->id."|".$user->alias."|".$user->email."|".$user->beneficio."|".$user->status."|".$user->califica."|".$user->role_id."|".$user->created_at."|".$user->updated_at."\r\n";
-
+                    if($k>1){
+                     $contents .= $user->id."|".$user->alias."|".$user->email."|".$user->beneficio."|".$user->status."|".$user->califica."|".$user->role_id."|".$user->created_at."|".$user->updated_at."\r\n";
+                    }
               }
 
 
@@ -152,8 +153,9 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-
+                if($k>1){
                   $contents .= $user->name."|".$user->created_at."|".$user->updated_at."\r\n";
+                }
 
             }
         Storage::put('ftp/groups.txt', $contents);
@@ -166,9 +168,9 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-
+                if($k>1){
                   $contents .= $user->group_id."|".$user->user_id."\r\n";
-
+                }
               }
 
 
@@ -184,9 +186,9 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-
+                if($k>1){
                   $contents .= $user->id."|".$user->supplier_code."|".$user->subaccount_name."|".$user->campaign_alias."|".$user->carrier_id."|".$user->carrier_name."|".$user->user_number."|".$user->shortcode."|".$user->content."|".$user->received_at."|".$user->received_date."|".$user->supplier_origin_code."|".$user->notification_origin_id."|".$user->sender_name."|".$user->sender_email."|".$user->created_at."|".$user->updated_at."|".$user->status."|".$user->id_users."\r\n";
-
+                }
               }
 
 
@@ -197,31 +199,35 @@ class Kernel extends ConsoleKernel
 
          //ejecucion 3:30
          //read file OUT_LIDER.txt insert table evaluated, truncate table before
-        $schedule->call(function(){
+            $schedule->call(function(){
 
-            $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
-          if($myfile){
-            $datos = explode("\n",$myfile);
-            $array[] = null;
-            foreach($datos as $key => $d){
-                $row = explode('|',$d);
-                array_push($array,$row);
-            }
+                Evaluated::query()->truncate();
 
-            foreach($array as $key => $col){
-                if($key>1){
+                $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
+                if($myfile){
+                $datos = explode("\n",$myfile);
+                $array[] = null;
+                foreach($datos as $key => $d){
+                    $row = explode('|',$d);
+                    array_push($array,$row);
+                }
 
-                    if($col[2]==1){
-                        $califica = 2;
-                    }else{
-                        $califica = 3;
+                foreach($array as $key => $col){
+                    if($key>1){
+
+
+                        $evaluar = new Evaluated;
+                        $evaluar->idlinea = $col[0];
+                        $evaluar->idmancha = $col[1];
+                        $evaluar->califica = $col[2];
+                        $evaluar->tipocalifica = $col[3];
+                        $evaluar->fechacalifica = $col[4];
+                        $evaluar->save();
                     }
-                User::where('id',$col[0])->update(['califica'=>$califica]);
                 }
             }
-         }
 
-        })->dailyAt('15:30');
+        })->dailyAt('15:32');
 
 
          //ejecucion 3:30
@@ -238,13 +244,13 @@ class Kernel extends ConsoleKernel
 
                 foreach($array2 as $key => $col2){
                     if($key>1){
-                    //echo $col2[0]." - ".$col2[1]." - ".$col2[2]."<br>";
-                        if($col2[2]==1){
-                            $califica = 2;
-                        }else{
-                            $califica = 3;
-                        }
-                    User::where('id',$col2[0])->update(['califica'=>$califica]);
+                        $evaluar = new Evaluated;
+                        $evaluar->idlinea = $col2[0];
+                        $evaluar->idmancha = $col2[1];
+                        $evaluar->califica = $col2[2];
+                        $evaluar->tipocalifica = $col2[3];
+                        $evaluar->fechacalifica = $col2[4];
+                        $evaluar->save();
                     }
                 }
             }
@@ -253,7 +259,7 @@ class Kernel extends ConsoleKernel
          //ejecucion 3:30
          //actualizar usuarios calificados
 
-     /*   $schedule->call(function(){
+      $schedule->call(function(){
 
             $users = DB::select( DB::raw("update users set
             califica = 2
@@ -265,13 +271,13 @@ class Kernel extends ConsoleKernel
             and u.id not in (select nm.user_id from notification_massive nm)
             order by e.fechacalifica,u.numero) as u)"));
 
-        })->dailyAt('15:36');*/
+        })->dailyAt('15:34');
 
 
         //ejecucion 3:30
          //actualizar usuarios rechazados
 
-        /* $schedule->call(function(){
+         $schedule->call(function(){
 
             $users = DB::select( DB::raw("update users set
             califica = 3
@@ -284,7 +290,7 @@ class Kernel extends ConsoleKernel
             and u.id not in (select nme.user_id from notification_massive_error nme)
             order by e.fechacalifica,u.numero) as u)"));
 
-        })->dailyAt('15:40');*/
+        })->dailyAt('15:35');
 
 
     }
