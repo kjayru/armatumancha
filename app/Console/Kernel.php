@@ -203,6 +203,8 @@ class Kernel extends ConsoleKernel
 
                 Evaluated::query()->truncate();
 
+                DB::select( DB::raw("TRUNCATE TABLE evaluated"));
+
                 $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
                 if($myfile){
                 $datos = explode("\n",$myfile);
@@ -227,7 +229,7 @@ class Kernel extends ConsoleKernel
                 }
             }
 
-        })->dailyAt('17:05');
+        })->dailyAt('17:21');
 
 
          //ejecucion 3:30
@@ -254,7 +256,7 @@ class Kernel extends ConsoleKernel
                     }
                 }
             }
-        })->dailyAt('17:06');
+        })->dailyAt('17:22');
 
          //ejecucion 3:30
          //actualizar usuarios calificados

@@ -246,10 +246,11 @@ public function logout(Request $request)
         order by e.fechacalifica,u.numero) as u)"));
 
         return response()->json(["proceso completo"]);*/
-
+        DB::select( DB::raw("TRUNCATE TABLE evaluated"));
+        /*
         Evaluated::query()->truncate();
 
-          $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
+          $myfile = Storage::get("OUTREAD/OUT_MEMBRO.txt");
           if($myfile){
             $datos = explode("\n",$myfile);
             $array[] = null;
@@ -271,7 +272,7 @@ public function logout(Request $request)
                     $evaluar->save();
                 }
             }
-        }
+        }*/
     }
 
     public function reporteExcel(){
