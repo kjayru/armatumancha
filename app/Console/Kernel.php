@@ -201,7 +201,7 @@ class Kernel extends ConsoleKernel
          //read file OUT_LIDER.txt insert table evaluated, truncate table before
             $schedule->call(function(){
 
-                Evaluated::query()->truncate();
+
 
                 DB::select( DB::raw("TRUNCATE TABLE evaluated"));
 
@@ -229,7 +229,7 @@ class Kernel extends ConsoleKernel
                 }
             }
 
-        })->dailyAt('17:21');
+        })->dailyAt('17:25');
 
 
          //ejecucion 3:30
@@ -256,7 +256,7 @@ class Kernel extends ConsoleKernel
                     }
                 }
             }
-        })->dailyAt('17:22');
+        })->dailyAt('17:26');
 
          //ejecucion 3:30
          //actualizar usuarios calificados
