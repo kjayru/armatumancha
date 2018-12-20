@@ -55,7 +55,7 @@ class Kernel extends ConsoleKernel
 
              Storage::put('ftp/IN_LIDER.txt', $contents);
 
-         })->dailyAt('09:30');
+         })->dailyAt('10:00');
        // })->everyMinute();
 
          //IN_MIEMBRO
@@ -86,7 +86,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/IN_MIEMBRO.txt', $contents);
 
-          })->dailyAt('09:30');
+          })->dailyAt('10:00');
 
 
 
@@ -135,15 +135,15 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-                    if($k>1){
+
                      $contents .= $user->id."|".$user->alias."|".$user->email."|".$user->beneficio."|".$user->status."|".$user->califica."|".$user->role_id."|".$user->created_at."|".$user->updated_at."\r\n";
-                    }
+
               }
 
 
               Storage::put('ftp/users.txt', $contents);
 
-          })->dailyAt('09:30');
+          })->dailyAt('10:00');
 
 
             //group
@@ -153,13 +153,13 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-                if($k>1){
+
                   $contents .= $user->name."|".$user->created_at."|".$user->updated_at."\r\n";
-                }
+
 
             }
         Storage::put('ftp/groups.txt', $contents);
-        })->dailyAt('09:30');
+        })->dailyAt('10:00');
 
 
         $schedule->call(function () {
@@ -168,15 +168,15 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-                if($k>1){
+
                   $contents .= $user->group_id."|".$user->user_id."\r\n";
-                }
+
               }
 
 
               Storage::put('ftp/group_user.txt', $contents);
 
-        })->dailyAt('09:30');
+        })->dailyAt('10:00');
 
 
           //notification_response
@@ -186,23 +186,20 @@ class Kernel extends ConsoleKernel
 
               $contents='';
               foreach($users as $k=> $user){
-                if($k>1){
+
                   $contents .= $user->id."|".$user->supplier_code."|".$user->subaccount_name."|".$user->campaign_alias."|".$user->carrier_id."|".$user->carrier_name."|".$user->user_number."|".$user->shortcode."|".$user->content."|".$user->received_at."|".$user->received_date."|".$user->supplier_origin_code."|".$user->notification_origin_id."|".$user->sender_name."|".$user->sender_email."|".$user->created_at."|".$user->updated_at."|".$user->status."|".$user->id_users."\r\n";
-                }
+
               }
 
 
               Storage::put('ftp/notification_response.txt', $contents);
 
-        })->dailyAt('09:30');
+        })->dailyAt('10:00');
 
 
          //ejecucion 3:30
          //read file OUT_LIDER.txt insert table evaluated, truncate table before
-            $schedule->call(function(){
-
-
-
+        $schedule->call(function(){
                 DB::select( DB::raw("TRUNCATE TABLE evaluated"));
 
                 $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
@@ -228,7 +225,6 @@ class Kernel extends ConsoleKernel
                     }
                 }
             }
-
         })->dailyAt('17:25');
 
 
@@ -254,6 +250,7 @@ class Kernel extends ConsoleKernel
                         $evaluar->fechacalifica = $col2[4];
                         $evaluar->save();
                     }
+
                 }
             }
         })->dailyAt('17:26');
