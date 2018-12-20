@@ -124,15 +124,15 @@ class Kernel extends ConsoleKernel
             '51999999992','51997563311','51923152691','51932797055','51935835601','51916428732','51999999998','51999912312','51960932565','51992910007','51961730610')"));
 
 
-
-              $contents="mancha|linea|alias|email|aceptacion|fecha_aceptacion|calificacion|tipocalificacion|fechacalificacion|fecha_registro_mancha|fecha_registro_linea|beneficio|flag_lider\r\n";
+            $contents='';
+              //$contents="mancha|linea|alias|email|aceptacion|fecha_aceptacion|calificacion|tipocalificacion|fechacalificacion|fecha_registro_mancha|fecha_registro_linea|beneficio|flag_lider\r\n";
               foreach($users as $k=> $user){
                    $contents .= $user->mancha."|".$user->linea."|".$user->alias."|".$user->email."|".$user->aceptacion."|".$user->fecha_aceptacion."|".$user->calificacion."|".$user->tipocalificacion."|".$user->fechacalificacion."|".$user->fecha_registro_mancha."|".$user->fecha_registro_linea."|".$user->beneficio."|".$user->flag_lider."\r\n";
               }
 
         Storage::put('ftp/reportemancha.txt', $contents);
 
-          })->dailyAt('11:19');
+          })->dailyAt('11:21');
 
 
            //Users
