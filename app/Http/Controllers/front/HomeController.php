@@ -252,8 +252,7 @@ public function logout(Request $request)
                 }
 
             foreach($array as $key => $col){
-                if($key>1){
-                    if($key<$total){
+
                     $evaluar = new Evaluated;
                     $evaluar->idlinea = $col[0];
                     $evaluar->idmancha = $col[1];
@@ -261,8 +260,8 @@ public function logout(Request $request)
                     $evaluar->tipocalifica = $col[3];
                     $evaluar->fechacalifica = $col[4];
                     $evaluar->save();
-                    }
-                }
+
+
             }
         }
 
@@ -281,8 +280,7 @@ public function logout(Request $request)
 
             foreach($array2 as $key2 => $col2){
 
-                if($key2>1){
-                    if($key2<$total2){
+
                     $evaluar = new Evaluated;
                     $evaluar->idlinea = $col2[0];
                     $evaluar->idmancha = $col2[1];
@@ -290,8 +288,8 @@ public function logout(Request $request)
                     $evaluar->tipocalifica = $col2[3];
                     $evaluar->fechacalifica = $col2[4];
                     $evaluar->save();
-                    }
-                }
+
+
 
             }
 
