@@ -143,7 +143,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/users.txt', $contents);
 
-          })->dailyAt('10:21');
+          })->dailyAt('10:23');
 
 
             //group
@@ -159,7 +159,7 @@ class Kernel extends ConsoleKernel
 
             }
         Storage::put('ftp/groups.txt', $contents);
-        })->dailyAt('10:21');
+        })->dailyAt('10:23');
 
         //group_use
         $schedule->call(function () {
@@ -176,7 +176,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/group_user.txt', $contents);
 
-        })->dailyAt('10:21');
+        })->dailyAt('10:23');
 
 
           //notification_response
@@ -194,7 +194,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/notification_response.txt', $contents);
 
-        })->dailyAt('10:21');
+        })->dailyAt('10:23');
 
 
          //ejecucion 3:30
