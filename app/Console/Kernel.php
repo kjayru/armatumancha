@@ -204,7 +204,7 @@ class Kernel extends ConsoleKernel
          //ejecucion 3:30
          //read file OUT_LIDER.txt insert table evaluated, truncate table before
         $schedule->call('App\Http\Controllers\front\HomeController@jobEvaluated')
-        ->dailyAt('15:29');
+        ->dailyAt('15:34');
 
 
 
