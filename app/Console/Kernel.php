@@ -133,7 +133,7 @@ class Kernel extends ConsoleKernel
 
              $users =  DB::table('users')->get();
 
-              $contents='id|alias|email|beneficio|status|califica|role_id|created_at|updated_at\r\n';
+              $contents='id|alias|email|beneficio|status|califica|role_id|created_at|updated_at'."\r\n";;
               foreach($users as $k=> $user){
 
                      $contents .= $user->id."|".$user->alias."|".$user->email."|".$user->beneficio."|".$user->status."|".$user->califica."|".$user->role_id."|".$user->created_at."|".$user->updated_at."\r\n";
@@ -143,7 +143,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/users.txt', $contents);
 
-          })->dailyAt('10:15');
+          })->dailyAt('10:21');
 
 
             //group
@@ -151,7 +151,7 @@ class Kernel extends ConsoleKernel
 
              $users =  DB::table('groups')->get();
 
-              $contents='id|name|created_at|updated_at\r\n';
+              $contents='id|name|created_at|updated_at'."\r\n";
               foreach($users as $k=> $user){
 
                   $contents .= $user->id."|".$user->name."|".$user->created_at."|".$user->updated_at."\r\n";
@@ -159,14 +159,14 @@ class Kernel extends ConsoleKernel
 
             }
         Storage::put('ftp/groups.txt', $contents);
-        })->dailyAt('10:15');
+        })->dailyAt('10:21');
 
-
+        //group_use
         $schedule->call(function () {
 
              $users =  DB::table('group_user')->get();
 
-              $contents='group_id|user_id\r\n';
+              $contents='group_id|user_id'."\r\n";
               foreach($users as $k=> $user){
 
                   $contents .= $user->group_id."|".$user->user_id."\r\n";
@@ -176,7 +176,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/group_user.txt', $contents);
 
-        })->dailyAt('10:15');
+        })->dailyAt('10:21');
 
 
           //notification_response
@@ -184,7 +184,7 @@ class Kernel extends ConsoleKernel
 
              $users =  DB::table('notification_response')->get();
 
-              $contents='supplier_code|subaccount_name|campaign_alias|carrier_id|carrier_name|user_number|shortcode|content|received_at|received_date|supplier_origin_code|notification_origin_id|sender_name|sender_email|created_at|updated_at|status|id_users\r\n';
+              $contents='supplier_code|subaccount_name|campaign_alias|carrier_id|carrier_name|user_number|shortcode|content|received_at|received_date|supplier_origin_code|notification_origin_id|sender_name|sender_email|created_at|updated_at|status|id_users'."\r\n";
               foreach($users as $k=> $user){
 
                   $contents .= $user->id."|".$user->supplier_code."|".$user->subaccount_name."|".$user->campaign_alias."|".$user->carrier_id."|".$user->carrier_name."|".$user->user_number."|".$user->shortcode."|".$user->content."|".$user->received_at."|".$user->received_date."|".$user->supplier_origin_code."|".$user->notification_origin_id."|".$user->sender_name."|".$user->sender_email."|".$user->created_at."|".$user->updated_at."|".$user->status."|".$user->id_users."\r\n";
@@ -194,7 +194,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/notification_response.txt', $contents);
 
-        })->dailyAt('10:15');
+        })->dailyAt('10:21');
 
 
          //ejecucion 3:30
