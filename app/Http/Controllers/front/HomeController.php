@@ -253,6 +253,8 @@ public function logout(Request $request)
 
             foreach($array as $key => $col){
 
+                $exist = Evaluated::where('idlinea',$col[0])->count();
+                if($exist==0){
                     $evaluar = new Evaluated;
                     $evaluar->idlinea = $col[0];
                     $evaluar->idmancha = $col[1];
@@ -260,7 +262,7 @@ public function logout(Request $request)
                     $evaluar->tipocalifica = $col[3];
                     $evaluar->fechacalifica = $col[4];
                     $evaluar->save();
-
+                }
 
             }
         }
@@ -280,16 +282,17 @@ public function logout(Request $request)
 
             foreach($array2 as $key2 => $col2){
 
+                $exist = Evaluated::where('idlinea',$col2[0])->count();
+                if($exist==0){
+                    $evaluar2 = new Evaluated;
+                    $evaluar2->idlinea = $col2[0];
+                    $evaluar2->idmancha = $col2[1];
+                    $evaluar2->califica = $col2[2];
+                    $evaluar2->tipocalifica = $col2[3];
+                    $evaluar2->fechacalifica = $col2[4];
+                    $evaluar2->save();
 
-                    $evaluar = new Evaluated;
-                    $evaluar->idlinea = $col2[0];
-                    $evaluar->idmancha = $col2[1];
-                    $evaluar->califica = $col2[2];
-                    $evaluar->tipocalifica = $col2[3];
-                    $evaluar->fechacalifica = $col2[4];
-                    $evaluar->save();
-
-
+                }
 
             }
 
