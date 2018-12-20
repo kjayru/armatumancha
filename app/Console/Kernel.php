@@ -204,6 +204,8 @@ class Kernel extends ConsoleKernel
          //ejecucion 3:30
          //read file OUT_LIDER.txt insert table evaluated, truncate table before
         $schedule->call(function(){
+
+            error_reporting(0);
                 DB::select( DB::raw("TRUNCATE TABLE evaluated"));
 
                 $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
@@ -228,12 +230,7 @@ class Kernel extends ConsoleKernel
                     }
                 }
             }
-        })->dailyAt('17:25');
-
-
-         //ejecucion 3:30
-         //read file OUT_MIEMBRO.txt insert table evaluated
-         $schedule->call(function(){
+            //2do batch
             $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
             if($myfile2){
                 $datos2 = explode("\n",$myfile2);
@@ -244,7 +241,7 @@ class Kernel extends ConsoleKernel
                 }
 
                 foreach($array2 as $key => $col2){
-                    if($key>1){
+                    if($key>2){
                         $evaluar = new Evaluated;
                         $evaluar->idlinea = $col2[0];
                         $evaluar->idmancha = $col2[1];
@@ -256,7 +253,8 @@ class Kernel extends ConsoleKernel
 
                 }
             }
-        })->dailyAt('17:26');
+
+        })->dailyAt('14:30');
 
          //ejecucion 3:30
          //actualizar usuarios calificados
