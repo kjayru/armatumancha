@@ -182,7 +182,71 @@ public function logout(Request $request)
         */
        // dd($contents);
 
+       error_reporting(0);
 
+       DB::select( DB::raw("TRUNCATE TABLE evaluated"));
+
+       $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
+
+
+       if($myfile){
+           $datos = explode("\n",$myfile);
+
+           $total = count($datos);
+
+           $array[] = null;
+
+               foreach($datos as $d){
+               $row = explode('|',$d);
+               array_push($array,$row);
+               }
+
+           foreach($array as $key => $col){
+
+               $exist = Evaluated::where('idlinea',$col[0])->count();
+               if($exist==0){
+                   $evaluar = new Evaluated;
+                   $evaluar->idlinea = $col[0];
+                   $evaluar->idmancha = $col[1];
+                   $evaluar->califica = $col[2];
+                   $evaluar->tipocalifica = $col[3];
+                   $evaluar->fechacalifica = $col[4];
+                   $evaluar->save();
+               }
+
+           }
+       }
+
+       //2do
+       $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
+       if($myfile2){
+           $datos2 = explode("\n",$myfile2);
+
+           $total2 = count($datos2);
+
+           $array2[] = null;
+           foreach($datos2 as  $d2){
+               $row2 = explode('|',$d2);
+               array_push($array2,$row2);
+           }
+
+           foreach($array2 as $key2 => $col2){
+
+               $exist = Evaluated::where('idlinea',$col2[0])->count();
+               if($exist==0){
+                   $evaluar2 = new Evaluated;
+                   $evaluar2->idlinea = $col2[0];
+                   $evaluar2->idmancha = $col2[1];
+                   $evaluar2->califica = $col2[2];
+                   $evaluar2->tipocalifica = $col2[3];
+                   $evaluar2->fechacalifica = $col2[4];
+                   $evaluar2->save();
+
+               }
+
+           }
+
+       }
     }
 
     public function reporteExcel(){
@@ -254,7 +318,7 @@ public function logout(Request $request)
             foreach($array as $key => $col){
 
                 $exist = Evaluated::where('idlinea',$col[0])->count();
-                if($exist==0){
+                if($exist===0){
                     $evaluar = new Evaluated;
                     $evaluar->idlinea = $col[0];
                     $evaluar->idmancha = $col[1];
@@ -267,6 +331,11 @@ public function logout(Request $request)
             }
         }
 
+
+    }
+
+    public function jobEvaluated2(){
+        error_reporting(0);
         //2do
         $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
         if($myfile2){
@@ -283,7 +352,7 @@ public function logout(Request $request)
             foreach($array2 as $key2 => $col2){
 
                 $exist = Evaluated::where('idlinea',$col2[0])->count();
-                if($exist==0){
+                if($exist===0){
                     $evaluar2 = new Evaluated;
                     $evaluar2->idlinea = $col2[0];
                     $evaluar2->idmancha = $col2[1];
