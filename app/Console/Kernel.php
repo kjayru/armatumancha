@@ -92,7 +92,7 @@ class Kernel extends ConsoleKernel
 
 
           //reportemancha
-         /*$schedule->call(function () {
+         $schedule->call(function () {
 
             $users = DB::select( DB::raw("select 'mancha','linea','alias','email','aceptacion','fecha_aceptacion','calificacion','tipocalificacion','fechacalificacion','fecha_registro_mancha','fecha_registro_linea','beneficio','flag_lider'
             union all
@@ -123,9 +123,16 @@ class Kernel extends ConsoleKernel
             '51993144900','51000000222','51000000110','51000299990','51999292992','51912345668','51912345678','51999999991','51933361369',
             '51999999992','51997563311','51923152691','51932797055','51935835601','51916428732','51999999998','51999912312','51960932565','51992910007','51961730610')"));
 
-              $fila =  (new FastExcel($users))->export("reporte_general_".DATE_FORMAT(now(),'d-m-Y').".xlsx");
 
-          })->dailyAt('09:30');*/
+
+              $contents="mancha|linea|alias|email|aceptacion|fecha_aceptacion|calificacion|tipocalificacion|fechacalificacion|fecha_registro_mancha|fecha_registro_linea|beneficio|flag_lider\r\n";
+              foreach($users as $k=> $user){
+                   $contents .= $user->mancha."|".$user->linea."|".$user->alias."|".$user->email."|".$user->aceptacion."|".$user->fecha_aceptacion."|".$user->calificacion."|".$user->tipocalificacion."|".$user->fechacalificacion."|".$user->fecha_registro_mancha."|".$user->fecha_registro_linea."|".$user->beneficio."|".$user->flag_lider."\r\n";
+              }
+
+        Storage::put('ftp/reportemancha.txt', $contents);
+
+          })->dailyAt('11:07');
 
 
            //Users
@@ -153,11 +160,8 @@ class Kernel extends ConsoleKernel
 
               $contents="id|name|created_at|updated_at\r\n";
               foreach($users as $k=> $user){
-
-                  $contents .= $user->id."|".$user->name."|".$user->created_at."|".$user->updated_at."\r\n";
-
-
-            }
+                   $contents .= $user->id."|".$user->name."|".$user->created_at."|".$user->updated_at."\r\n";
+              }
         Storage::put('ftp/groups.txt', $contents);
         })->dailyAt('9:30');
 
@@ -214,8 +218,6 @@ class Kernel extends ConsoleKernel
 
                 foreach($array as $key => $col){
                     if($key>1){
-
-
                         $evaluar = new Evaluated;
                         $evaluar->idlinea = $col[0];
                         $evaluar->idmancha = $col[1];
@@ -259,8 +261,8 @@ class Kernel extends ConsoleKernel
          //ejecucion 3:30
          //actualizar usuarios calificados
 
-      $schedule->call(function(){
-        /*
+       /* $schedule->call(function(){
+
             $users = DB::select( DB::raw("update users set
             califica = 2
             where id in (
@@ -270,16 +272,16 @@ class Kernel extends ConsoleKernel
             and u.califica = 1 and u.`status` = 2 and u.role_id = 2 and e.califica = 1
             and u.id not in (select nm.user_id from notification_massive nm)
             order by e.fechacalifica,u.numero) as u)"));
-                */
-        })->dailyAt('15:34');
+
+        })->dailyAt('15:34');*/
 
 
         //ejecucion 3:30
          //actualizar usuarios rechazados
 
-         $schedule->call(function(){
+        /*  $schedule->call(function(){
 
-          /*  $users = DB::select( DB::raw("update users set
+           $users = DB::select( DB::raw("update users set
             califica = 3
             where id in (
             select u.id from (
@@ -289,8 +291,8 @@ class Kernel extends ConsoleKernel
             and u.id in (select nm.user_id from notification_massive nm)
             and u.id not in (select nme.user_id from notification_massive_error nme)
             order by e.fechacalifica,u.numero) as u)"));
-*/
-        })->dailyAt('15:35');
+
+        })->dailyAt('15:35');*/
 
 
     }
