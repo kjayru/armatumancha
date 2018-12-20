@@ -132,7 +132,7 @@ class Kernel extends ConsoleKernel
 
         Storage::put('ftp/reportemancha.txt', $contents);
 
-          })->dailyAt('11:21');
+          })->dailyAt('9:30');
 
 
            //Users
