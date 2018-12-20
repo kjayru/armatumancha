@@ -668,8 +668,9 @@ $("#fr-mancha input[name='beneficio']:radio").change(function(){
     }
 
     if($("#fr-mancha input").hasClass("alias9")){
-       // validaton.element("#alias9");
-        if(!validaton.check('#alias9')===false){
+
+
+        if(validaton.check('#alias9')===false){
           $("#alias9").addClass("activado").after('<label class="error2">Completar Alias</label>');
             campo16 = false;
         }else{

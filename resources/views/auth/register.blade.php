@@ -36,6 +36,11 @@
                 </ul>
             </div>
         @endif
+        @if (session('alert'))
+            <div class="alert alert-success">
+                {{ session('alert') }}
+            </div>
+         @endif
             <section class="section2" id="formu_register">
               <div class="section2__align">
                 <div class="section2__main">
