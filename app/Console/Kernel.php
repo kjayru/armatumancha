@@ -55,7 +55,7 @@ class Kernel extends ConsoleKernel
 
              Storage::put('ftp/IN_LIDER.txt', $contents);
 
-         })->dailyAt('10:15');
+         })->dailyAt('9:30');
        // })->everyMinute();
 
          //IN_MIEMBRO
@@ -86,7 +86,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/IN_MIEMBRO.txt', $contents);
 
-          })->dailyAt('10:15');
+          })->dailyAt('9:30');
 
 
 
@@ -143,7 +143,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/users.txt', $contents);
 
-          })->dailyAt('10:27');
+          })->dailyAt('9:30');
 
 
             //group
@@ -159,7 +159,7 @@ class Kernel extends ConsoleKernel
 
             }
         Storage::put('ftp/groups.txt', $contents);
-        })->dailyAt('10:27');
+        })->dailyAt('9:30');
 
         //group_use
         $schedule->call(function () {
@@ -176,7 +176,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/group_user.txt', $contents);
 
-        })->dailyAt('10:27');
+        })->dailyAt('9:30');
 
 
           //notification_response
@@ -194,7 +194,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/notification_response.txt', $contents);
 
-        })->dailyAt('10:27');
+        })->dailyAt('9:30');
 
 
          //ejecucion 3:30
@@ -206,10 +206,11 @@ class Kernel extends ConsoleKernel
                 if($myfile){
                 $datos = explode("\n",$myfile);
                 $array[] = null;
-                foreach($datos as $key => $d){
+
+                  foreach($datos as $key => $d){
                     $row = explode('|',$d);
                     array_push($array,$row);
-                }
+                  }
 
                 foreach($array as $key => $col){
                     if($key>1){
