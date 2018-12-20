@@ -55,7 +55,7 @@ class Kernel extends ConsoleKernel
 
              Storage::put('ftp/IN_LIDER.txt', $contents);
 
-         })->dailyAt('10:00');
+         })->dailyAt('10:15');
        // })->everyMinute();
 
          //IN_MIEMBRO
@@ -86,7 +86,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/IN_MIEMBRO.txt', $contents);
 
-          })->dailyAt('10:00');
+          })->dailyAt('10:15');
 
 
 
@@ -143,7 +143,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/users.txt', $contents);
 
-          })->dailyAt('10:00');
+          })->dailyAt('10:15');
 
 
             //group
@@ -159,7 +159,7 @@ class Kernel extends ConsoleKernel
 
             }
         Storage::put('ftp/groups.txt', $contents);
-        })->dailyAt('10:00');
+        })->dailyAt('10:15');
 
 
         $schedule->call(function () {
@@ -176,7 +176,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/group_user.txt', $contents);
 
-        })->dailyAt('10:00');
+        })->dailyAt('10:15');
 
 
           //notification_response
@@ -194,7 +194,7 @@ class Kernel extends ConsoleKernel
 
               Storage::put('ftp/notification_response.txt', $contents);
 
-        })->dailyAt('10:00');
+        })->dailyAt('10:15');
 
 
          //ejecucion 3:30
