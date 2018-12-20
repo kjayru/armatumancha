@@ -182,98 +182,6 @@ public function logout(Request $request)
         */
        // dd($contents);
 
-       error_reporting(0);
-
-       // Storage::put('ftp/flatfile.txt', $contents);
-        /*
-        $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
-
-        $datos = explode("\n",$myfile);
-        $array[] = null;
-        foreach($datos as $key => $d){
-            $row = explode('|',$d);
-            array_push($array,$row);
-        }
-
-
-
-        foreach($array as $key => $col){
-            if($key>1){
-           // echo $col[0]." - ".$col[1]." - ".$col[2]."<br>";
-                if($col[2]==1){
-                    $califica = 2;
-                }else{
-                    $califica = 3;
-                }
-               User::where('id',$col[0])->update(['califica'=>$califica]);
-            }
-        }
-
-
-        $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
-
-        $datos2 = explode("\n",$myfile2);
-        $array2[] = null;
-        foreach($datos2 as  $d2){
-            $row2 = explode('|',$d2);
-            array_push($array2,$row2);
-        }
-
-
-
-        foreach($array2 as $key => $col2){
-            if($key>1){
-            //echo $col2[0]." - ".$col2[1]." - ".$col2[2]."<br>";
-                if($col2[2]==1){
-                    $califica = 2;
-                }else{
-                    $califica = 3;
-                }
-               User::where('id',$col2[0])->update(['califica'=>$califica]);
-            }
-        }
-        */
-
-/*
-        $users = DB::select( DB::raw("update users set
-        califica = 2
-        where id in (
-        select u.id from (
-        select cast(e.idlinea as UNSIGNED) as id from evaluated e,users u,group_user gu
-        where cast(e.idlinea as UNSIGNED) = u.id and cast(e.idmancha as UNSIGNED) = gu.group_id and u.id = gu.user_id
-        and u.califica = 1 and u.`status` = 2 and u.role_id = 2 and e.califica = 1
-        and u.id not in (select nm.user_id from notification_massive nm)
-        order by e.fechacalifica,u.numero) as u)"));
-
-        return response()->json(["proceso completo"]);*/
-       // DB::select( DB::raw("TRUNCATE TABLE evaluated"));
-        /*
-        Evaluated::query()->truncate();
-
-          $myfile = Storage::get("OUTREAD/OUT_MEMBRO.txt");
-          if($myfile){
-            $datos = explode("\n",$myfile);
-            $array[] = null;
-            foreach($datos as $key => $d){
-                $row = explode('|',$d);
-                array_push($array,$row);
-            }
-
-            foreach($array as $key => $col){
-                if($key>1){
-
-
-                    $evaluar = new Evaluated;
-                    $evaluar->idlinea = $col[0];
-                    $evaluar->idmancha = $col[1];
-                    $evaluar->califica = $col[2];
-                    $evaluar->tipocalifica = $col[3];
-                    $evaluar->fechacalifica = $col[4];
-                    $evaluar->save();
-                }
-            }
-        }*/
-
 
     }
 
@@ -323,4 +231,70 @@ public function logout(Request $request)
         }
     }
 
+    public function jobEvaluated(){
+        error_reporting(0);
+
+        DB::select( DB::raw("TRUNCATE TABLE evaluated2"));
+
+        $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
+
+
+        if($myfile){
+            $datos = explode("\n",$myfile);
+
+            $total = count($datos);
+
+            $array[] = null;
+
+                foreach($datos as $d){
+                $row = explode('|',$d);
+                array_push($array,$row);
+                }
+
+            foreach($array as $key => $col){
+                if($key>1){
+                    if($key<$total){
+                    $evaluar = new Evaluated;
+                    $evaluar->idlinea = $col[0];
+                    $evaluar->idmancha = $col[1];
+                    $evaluar->califica = $col[2];
+                    $evaluar->tipocalifica = $col[3];
+                    $evaluar->fechacalifica = $col[4];
+                    $evaluar->save();
+                    }
+                }
+            }
+        }
+
+        //2do
+        $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
+        if($myfile2){
+            $datos2 = explode("\n",$myfile2);
+
+            $total2 = count($datos2);
+
+            $array2[] = null;
+            foreach($datos2 as  $d2){
+                $row2 = explode('|',$d2);
+                array_push($array2,$row2);
+            }
+
+            foreach($array2 as $key2 => $col2){
+
+                if($key2>1){
+                    if($key2<$total2){
+                    $evaluar = new Evaluated;
+                    $evaluar->idlinea = $col2[0];
+                    $evaluar->idmancha = $col2[1];
+                    $evaluar->califica = $col2[2];
+                    $evaluar->tipocalifica = $col2[3];
+                    $evaluar->fechacalifica = $col2[4];
+                    $evaluar->save();
+                    }
+                }
+
+            }
+
+        }
+    }
 }

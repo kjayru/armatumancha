@@ -203,59 +203,12 @@ class Kernel extends ConsoleKernel
 
          //ejecucion 3:30
          //read file OUT_LIDER.txt insert table evaluated, truncate table before
-        $schedule->call(function(){
+        $schedule->call('App\Http\Controllers\front\HomeController@jobEvaluated')
+        ->dailyAt('15:29');
 
-            error_reporting(0);
-                DB::select( DB::raw("TRUNCATE TABLE evaluated"));
 
-                $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
-                if($myfile){
-                $datos = explode("\n",$myfile);
-                $array[] = null;
 
-                  foreach($datos as $key => $d){
-                    $row = explode('|',$d);
-                    array_push($array,$row);
-                  }
 
-                foreach($array as $key => $col){
-                    if($key>1){
-                        $evaluar = new Evaluated;
-                        $evaluar->idlinea = $col[0];
-                        $evaluar->idmancha = $col[1];
-                        $evaluar->califica = $col[2];
-                        $evaluar->tipocalifica = $col[3];
-                        $evaluar->fechacalifica = $col[4];
-                        $evaluar->save();
-                    }
-                }
-            }
-            //2do batch
-            $myfile2 = Storage::get("OUTREAD/OUT_MEMBRO.txt");
-            if($myfile2){
-                $datos2 = explode("\n",$myfile2);
-                $array2[] = null;
-                foreach($datos2 as  $d2){
-                    $row2 = explode('|',$d2);
-                    array_push($array2,$row2);
-                }
-
-                foreach($array2 as $key => $col2){
-                    if($key>2){
-                        $evaluar = new Evaluated;
-                        $evaluar->idlinea = $col2[0];
-                        $evaluar->idmancha = $col2[1];
-                        $evaluar->califica = $col2[2];
-                        $evaluar->tipocalifica = $col2[3];
-                        $evaluar->fechacalifica = $col2[4];
-                        $evaluar->save();
-                    }
-
-                }
-            }
-           return false;
-
-        })->dailyAt('14:38');
 
          //ejecucion 3:30
          //actualizar usuarios calificados
