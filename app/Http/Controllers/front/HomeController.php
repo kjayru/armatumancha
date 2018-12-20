@@ -246,7 +246,7 @@ public function logout(Request $request)
         order by e.fechacalifica,u.numero) as u)"));
 
         return response()->json(["proceso completo"]);*/
-        DB::select( DB::raw("TRUNCATE TABLE evaluated"));
+       // DB::select( DB::raw("TRUNCATE TABLE evaluated"));
         /*
         Evaluated::query()->truncate();
 
@@ -273,6 +273,8 @@ public function logout(Request $request)
                 }
             }
         }*/
+
+
     }
 
     public function reporteExcel(){

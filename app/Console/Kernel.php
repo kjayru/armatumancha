@@ -105,7 +105,7 @@ class Kernel extends ConsoleKernel
             (case when t1.role_id = 1 then
             if((select t4.id from notification_response t4 where t1.numero = t4.user_number and t4.id_users = t1.id) IS NULL, t1.created_at , (select t4.created_at from notification_response t4 where t1.numero = t4.user_number and t4.id_users = t1.id))
             when t1.role_id = 2 then
-            if((select t5.owner_user_id from petitions t5 where t5.owner_user_id = t1.id limit=1)  IS NOT NULL , t1.created_at, (select t4.created_at from notification_response t4 where t1.numero = t4.user_number and t4.id_users = t1.id))
+            if((select t5.owner_user_id from petitions t5 where t5.owner_user_id = t1.id limit 1)  IS NOT NULL , t1.created_at, (select t4.created_at from notification_response t4 where t1.numero = t4.user_number and t4.id_users = t1.id))
             end) fecha_aceptacion,
             (case when t6.califica = 1 then '2' when t6.califica = 0 then '3' when t6.califica IS NULL then '1' end) calificacion,
             t6.tipocalifica tipocalificacion,
@@ -132,7 +132,7 @@ class Kernel extends ConsoleKernel
 
         Storage::put('ftp/reportemancha.txt', $contents);
 
-          })->dailyAt('11:10');
+          })->dailyAt('11:19');
 
 
            //Users
