@@ -253,8 +253,9 @@ class Kernel extends ConsoleKernel
 
                 }
             }
+           return false;
 
-        })->dailyAt('14:30');
+        })->dailyAt('14:38');
 
          //ejecucion 3:30
          //actualizar usuarios calificados
