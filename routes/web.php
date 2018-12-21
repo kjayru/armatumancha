@@ -44,7 +44,8 @@ Route::post('/comprobar-alias','front\RegisterController@comprobarAlias');
 Route::post('/disponibilidad-mancha','front\HomeController@disponibilidadmancha')->name('register.disponibilidadmancha');
 //sesionado
 
-
+Route::get('jobEvaluated','front\HomeController@jobEvaluated');
+Route::get('jobEvaluated2','front\HomeController@jobEvaluated2');
 
 Auth::routes();
 

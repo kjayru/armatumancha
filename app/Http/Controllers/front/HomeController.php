@@ -298,7 +298,7 @@ public function logout(Request $request)
     public function jobEvaluated(){
         error_reporting(0);
 
-        DB::select( DB::raw("TRUNCATE TABLE evaluated2"));
+        DB::select( DB::raw("TRUNCATE TABLE evaluated"));
 
         $myfile = Storage::get("OUTREAD/OUT_LIDER.txt");
 
@@ -316,17 +316,19 @@ public function logout(Request $request)
                 }
 
             foreach($array as $key => $col){
+                if($key > 1){
+                    $exist = Evaluated::where('idlinea',$col[0])->count();
+                        if($exist===0){
 
-                $exist = Evaluated::where('idlinea',$col[0])->count();
-                if($exist===0){
-                    $evaluar = new Evaluated;
-                    $evaluar->idlinea = $col[0];
-                    $evaluar->idmancha = $col[1];
-                    $evaluar->califica = $col[2];
-                    $evaluar->tipocalifica = $col[3];
-                    $evaluar->fechacalifica = $col[4];
-                    $evaluar->save();
-                }
+                            $evaluar = new Evaluated;
+                            $evaluar->idlinea = $col[0];
+                            $evaluar->idmancha = $col[1];
+                            $evaluar->califica = $col[2];
+                            $evaluar->tipocalifica = $col[3];
+                            $evaluar->fechacalifica = $col[4];
+                            $evaluar->save();
+                        }
+               }
 
             }
         }
@@ -350,17 +352,18 @@ public function logout(Request $request)
             }
 
             foreach($array2 as $key2 => $col2){
+                if($key2>1){
+                    $exist = Evaluated::where('idlinea',$col2[0])->count();
+                    if($exist===0){
+                        $evaluar2 = new Evaluated;
+                        $evaluar2->idlinea = $col2[0];
+                        $evaluar2->idmancha = $col2[1];
+                        $evaluar2->califica = $col2[2];
+                        $evaluar2->tipocalifica = $col2[3];
+                        $evaluar2->fechacalifica = $col2[4];
+                        $evaluar2->save();
 
-                $exist = Evaluated::where('idlinea',$col2[0])->count();
-                if($exist===0){
-                    $evaluar2 = new Evaluated;
-                    $evaluar2->idlinea = $col2[0];
-                    $evaluar2->idmancha = $col2[1];
-                    $evaluar2->califica = $col2[2];
-                    $evaluar2->tipocalifica = $col2[3];
-                    $evaluar2->fechacalifica = $col2[4];
-                    $evaluar2->save();
-
+                    }
                 }
 
             }
