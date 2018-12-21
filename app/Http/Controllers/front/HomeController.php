@@ -320,13 +320,19 @@ public function logout(Request $request)
                     $exist = Evaluated::where('idlinea',$col[0])->count();
                         if($exist===0){
 
-                            $evaluar = new Evaluated;
+                           /* $evaluar = new Evaluated;
                             $evaluar->idlinea = $col[0];
                             $evaluar->idmancha = $col[1];
                             $evaluar->califica = $col[2];
                             $evaluar->tipocalifica = $col[3];
                             $evaluar->fechacalifica = $col[4];
-                            $evaluar->save();
+                            $evaluar->save();*/
+                            Evaluated::create([$evaluar->idlinea => $col[0],
+                                                $evaluar->idmancha => $col[1],
+                                                $evaluar->califica => $col[2],
+                                                $evaluar->tipocalifica => $col[3],
+                                                $evaluar->fechacalifica => $col[4]
+                                                ]);
                         }
                }
 
