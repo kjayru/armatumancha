@@ -18,7 +18,8 @@
                   <div class="section1__header">
                     <div class="links"><a class="btnBack" href="{{ route('home.index')}}"> <span>Volver</span></a></div>
                     <div class="title">
-                    	<h2>Consulta quiénes forman <br> parte de tu mancha</h2>
+                      <h2>¡Gracias a todos por participar!</h2>
+                      <p>Revisa qué miembros de tu mancha cumplieron con las condiciones para recibir el beneficio de Gigas o Millas.</p>
                     </div>
                   </div>
                 </div>
@@ -48,6 +49,9 @@
                           </div>
                         </div>
                       </form>
+                    </div>
+                    <div class="content">
+                      <p>Si tienes alguna duda, por favor comunícate con nuestro <br><a href="javascript:void(0);" onclick="window.open('https://claroperu.s1gateway.com/webchat/chat_embed.php?cpgid=10000&nw=1','terms','height=560,width=400,top=0,left=0,status=no,addressbar=yes,menubar=no,scrollbars=yes')">chat</a> de Lunes a Domingo de 9:00 AM a 10:00 PM</p>
                     </div>
                   </div>
                 </div>

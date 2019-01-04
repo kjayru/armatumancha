@@ -17555,23 +17555,7 @@ html.fp-enabled,
 
           padding: 30px 0 40px 0; }
 
-        .layout__main .page7__main .section1__header .title p {
-
-          font: normal 300 18px "Roboto";
-
-          color: #000000;
-
-          text-align: center;
-
-          position: relative;
-
-          padding: 0px 0 40px 0; }
-
           @media screen and (max-width: 425px) {
-
-            .layout__main .page7__main .section1__header .title p {
-              font-size: .95em;
-            }
 
             .layout__main .page7__main .section1__header .title h2 {
 
@@ -17608,38 +17592,6 @@ html.fp-enabled,
       padding: 15px 0 50px 0;
 
       margin: 0 auto; }
-
-      .layout__main .page7__main .section2__main .content {
-        display: table;
-        margin: 0 auto;
-      }
-
-      @media screen and (max-width: 425px) {
-        .layout__main .page7__main .section2__main .content {
-          display: table;
-          margin: 50px auto 0;
-          width: 260px;
-        }
-      }
-
-        .layout__main .page7__main .section2__main .content:before {
-          content: '';
-          width: 59px;
-          height: 40px;
-          background: url("../assets/pg7_ico_chat.svg") no-repeat left top;
-          display: table-cell; 
-        }
-
-        .layout__main .page7__main .section2__main .content p{
-          font: normal 400 16px "Roboto";
-          color: #000000;
-          display: table-cell; 
-        }
-
-          .layout__main .page7__main .section2__main .content a{
-            color: #0297ae;
-            font-weight: 500;
-          }
 
       .layout__main .page7__main .section1__main .title {
 

@@ -10,18 +10,18 @@
 
             @guest
 
-                <li class="normal">
+                <!--<li class="normal">
                     <a  href="{{ route('register') }}" {{{ (Request::is('register') ? 'class=active' : '') }}} onclick="gtag('event', 'Cambio de Tab', {  'event_category' : 'Navegacion',  'event_label' : 'Arma tu mancha'});"> <img src="assets/menu_ico_star.svg" alt="">Arma tu mancha  </a>
-                </li>
+                </li>-->
                 <li class="normal">
                     <a href="{{ route('home.mirastatus') }}" {{{ (Request::is('mira-el-status-de-tu-mancha') ? 'class=active' : '') }}} onclick="gtag('event', 'Cambio de Tab', {  'event_category' : 'Navegacion',  'event_label' : 'Consulta tu mancha'});"> <img src="assets/menu_ico_consultar.svg" alt="">Consulta tu mancha  </a>
                 </li>
                 <li class="normal">
                     <a  href="{{ route('home.preguntas') }}" {{{ (Request::is('preguntas-frecuentes') ? 'class=active' : '') }}} onclick="gtag('event', 'Cambio de Tab', {  'event_category' : 'Navegacion',  'event_label' : 'Preguntas Frecuentes'});"> <img src="assets/menu_ico_star.svg" alt="">Preguntas frecuentes </a>
                 </li>
-                <li class="normal">
+                 <!--<li class="normal">
                     <a  href="{{ route('home.tips') }}" {{{ (Request::is('tips') ? 'class=active' : '') }}} onclick="gtag('event', 'Cambio de Tab', {  'event_category' : 'Navegacion',  'event_label' : 'Tips'});"> <img src="assets/menu_ico_star.svg" alt="">Tips</a>
-                </li>
+                </li>-->
 
             @else
                 <li class="nav-item dropdown">

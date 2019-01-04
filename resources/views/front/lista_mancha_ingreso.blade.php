@@ -71,7 +71,7 @@
                             @foreach($grupores->users as $group)
                             <tr>
                               <td class="checkbox">
-                                <input type="checkbox" class="estado-client" data-id="{{ $group->id}}" name="group_mancha"/>
+                                <!--<input type="checkbox" class="estado-client" data-id="{{ $group->id}}" name="group_mancha"/>-->
                               </td>
                               <td @if($group->role->id==1) class="star" @endif><strong>{{ $group->alias }}</strong></td>
                               <td><span>{{ \App\User::numeroslice($group->numero) }}</span></td>
@@ -103,7 +103,7 @@
                 </div>
               </section>
 
-              <section class="section3">
+              <!--<section class="section3">
                 <div class="section3__align">
                   <div class="section3__main">
 
@@ -130,11 +130,7 @@
                             </dl>
                           </div>
                         </div>
-                        <!--.form__row3
-                        .form__buttons
-                            button.button2(type='submit') Registrar
-
-                        -->
+                        
                       </form>
                     </div>
                   </div>
@@ -152,7 +148,7 @@
                     </div>
                   </div>
                 </div>
-              </section>
+              </section>-->
 
             </div>
           </div>

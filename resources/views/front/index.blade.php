@@ -14,8 +14,8 @@
                 <div class="banner">
                     <div class="banner__logo"></div>
                   <div class="banner__links">
-                    <a href="#" class="l1 player">Ver videotutorial</a>
-                    <a href="/register" class="l2">Quiero armar mi mancha</a>
+                    <!--<a href="#" class="l1 player">Ver videotutorial</a>-->
+                    <a href="/mira-el-status-de-tu-mancha" class="l2">Consulta tu mancha</a>
                   </div>
                   <div class="banner__video">
                     <video autoplay="autoplay" muted="muted" id="video" loop>
@@ -44,9 +44,9 @@
                     <span>Cumple con las condiciones de la promoción y recibe tu premio </span>
                   </div>
                 </div>
-                <div class="links">
+                <!--<div class="links">
                   <a href="/tips">Tips para armar tu mancha</a>
-                </div>
+                </div>-->
               </div>
               <div class="section5__main">
                 <div class="image"><img src="assets/pg1_img13.svg" alt=""/></div>
@@ -132,7 +132,7 @@
                   </div>
                 </div>
                 <div class="links">
-                  <a href="/register">Quiero armar mi mancha</a>
+                  <a href="/mira-el-status-de-tu-mancha">Consulta tu mancha</a>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@
                   </ul>
                 </div>
                 <div class="links">
-                  <a href="/register">Quiero armar mi mancha</a>
+                  <a href="/mira-el-status-de-tu-mancha">Consulta tu mancha</a>
                 </div>
               </div>
             </div>
@@ -355,7 +355,7 @@
                 <div class="content">
                   <h4>Compártelo con tus amigos</h4><span>
                       <input type="hidden" name="clip" id="clip" value="http://armatumancha.claro.com.pe/">
-                    <a href="" class="btn-facebook"><img src="assets/pg1_ico_facebook.svg" alt=""/></a>
+                    <!--<a href="" class="btn-facebook"><img src="assets/pg1_ico_facebook.svg" alt=""/></a>-->
                     <a href="#" class="btn-copiar" data-url="http://armatumancha.claro.com.pe/"><img src="assets/pg1_ico_whatsapp.svg" alt=""/></a></span>
                 </div>
               </div>

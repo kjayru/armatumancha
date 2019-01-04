@@ -17,7 +17,7 @@
                                         <div class="content__list">
                                             <ul>
                                                 <li>Identifica a amigos o familiares que estén por cambiarse a Claro. </li>
-                                                <li>¿Escuchaste de a alguien que necesita más megas? <br> ¡Él o ella es perfecto para tu mancha!</li>
+                                                <li>¿Escuchaste de alguien que necesita más megas? <br> ¡Él o ella es perfecto para tu mancha!</li>
                                                 <li>¿Conoces de alguien que quiera irse de vacaciones? Invítalo a ser parte de tu mancha y reciban millas Latam PASS para viajar.</li>
                                                 <li>Busca a esos patas que estén a punto de renovar su equipo. </li>
                                                 <li>¿Alguno de tus contactos quiere migrar de Prepago a Postpago? <br> ¡Dale, agrégalo a tu mancha!</li>
@@ -25,7 +25,7 @@
                                         </div>
                                     </div>
                                     <div class="links">
-                                        <a href="/register" class="btn">Armar tu mancha ahora &#62; </a>
+                                        <a href="/mira-el-status-de-tu-mancha" class="btn">Consulta tu mancha &#62; </a>
 
                                     </div>
                                 </div>

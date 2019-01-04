@@ -31,10 +31,11 @@ class Kernel extends ConsoleKernel
           //IN_LIDER
           $schedule->call(function () {
 
-            $users = DB::select( DB::raw("select 'idlinea','idMancha','linea','beneficio'
+            $users = DB::select( DB::raw("select 'idlinea','idMancha','Mancha','linea','beneficio'
             union all
             select t1.id idlinea,
                    t3.id idMancha,
+				   t3.name Mancha,
                    t1.numero linea,
                    (case when t1.beneficio = 'bonos' then 'GIGAS' when t1.beneficio = 'latam' then 'MILLAS' end) as beneficio
             from users t1
@@ -61,10 +62,11 @@ class Kernel extends ConsoleKernel
          //IN_MIEMBRO
          $schedule->call(function () {
 
-            $users = DB::select( DB::raw("select 'idlinea','idMancha','linea','beneficio'
+            $users = DB::select( DB::raw("select 'idlinea','idMancha','Mancha','linea','beneficio'
             union all
             select t1.id idlinea,
                    t3.id idMancha,
+				   t3.name Mancha,
                    t1.numero linea,
                    (case when t1.beneficio = 'bonos' then 'GIGAS' when t1.beneficio = 'latam' then 'MILLAS' end) as beneficio
             from users t1
@@ -200,14 +202,14 @@ class Kernel extends ConsoleKernel
 
         })->dailyAt('9:30');
 
-
+		//9:30
          //ejecucion 3:30
          //read file OUT_LIDER.txt insert table evaluated, truncate table before
-        $schedule->call('App\Http\Controllers\front\HomeController@jobEvaluated')
-        ->dailyAt('17:13');
+        //$schedule->call('App\Http\Controllers\front\HomeController@jobEvaluated')
+        //->dailyAt('17:13');
 
-        $schedule->call('App\Http\Controllers\front\HomeController@jobEvaluated2')
-        ->dailyAt('17:14');
+        //$schedule->call('App\Http\Controllers\front\HomeController@jobEvaluated2')
+        //->dailyAt('17:14');
 
 
 
